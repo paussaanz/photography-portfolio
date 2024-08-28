@@ -1,8 +1,12 @@
-.navbar {
-  .navbar-brand {
-    img {
-      height: 20px;
-      width:  auto;
-    }
-  }
+.navbar-container {
+  position: relative;
+  text-transform: uppercase;
+  font-family: 'gunterz';
+}
+
+.navbar-brand-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

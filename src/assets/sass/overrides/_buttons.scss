@@ -34,10 +34,10 @@
     }
   }
   &.btn-primary {
-    @include button-variant($cor-primary, $cor-primary, $cor-white, $cor-light-red, $cor-dark, $cor-dark);
+    @include button-variant($cor-primary, $cor-primary, $cor-white, $cor-primary, $cor-dark, $cor-dark);
   }
   &.btn-secondary {
-    @include button-variant($cor-secondary, $cor-secondary, $cor-dark, $cor-light-yellow, $cor-dark, $cor-black);
+    @include button-variant($cor-secondary, $cor-secondary, $cor-dark, $cor-primary, $cor-dark, $cor-black);
   }
 
   &.button-configurador {
