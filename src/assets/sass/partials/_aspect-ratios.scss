@@ -1,0 +1,124 @@
+.aspect-box {
+  aspect-ratio: 1/1;
+  object-fit:   cover;
+}
+
+.aspect-16-9 {
+  aspect-ratio: 16/9;
+  object-fit:   cover;
+}
+
+.aspect-servicios {
+  aspect-ratio: 312/434;
+  object-fit:   cover;
+  @include media-breakpoint-down(md) {
+    aspect-ratio: 303/330;
+  }
+}
+.aspect-contacto {
+  aspect-ratio: 400/236;
+  object-fit: cover;
+}
+
+
+/** OLDIES */
+
+.aspect-galeria,
+.aspect-proyectos-relacionados {
+  aspect-ratio: 18/8;
+  object-fit:   cover;
+  @include media-breakpoint-down(md) {
+    aspect-ratio: 302/400;
+  }
+}
+
+.aspect-productos-swiper {
+  aspect-ratio: 200/240;
+  object-fit:   cover;
+  @include media-breakpoint-down(md) {
+    aspect-ratio: 302/400;
+  }
+}
+
+.aspect-caracteristicas {
+  aspect-ratio: 597/453;
+  object-fit:   cover;
+}
+
+
+.aspect-configurador {
+  aspect-ratio: 564/650;
+  object-fit:   cover;
+  @include media-breakpoint-down(md) {
+    aspect-ratio: 1/1;
+  }
+}
+
+.aspect-proyectos-swiper {
+  aspect-ratio: 1440/771;
+  object-fit:   cover;
+
+}
+
+.aspect-profesionales {
+  aspect-ratio: 312/451;
+  object-fit:   cover;
+}
+
+.aspect-ventajas {
+  aspect-ratio: 312/213;
+  object-fit:   cover;
+}
+
+.aspect-clientes {
+  aspect-ratio: 114/86;
+  object-fit:   cover;
+}
+
+.aspect-productos {
+  aspect-ratio: 508/600;
+  object-fit:   cover;
+  @include media-breakpoint-down(md) {
+    aspect-ratio: 1/1;
+  }
+}
+
+.aspect-especificaciones {
+  aspect-ratio: 597/330;
+  object-fit:   cover;
+}
+
+.aspect-proyectos {
+  aspect-ratio: 508/393;
+  object-fit:   cover;
+}
+
+.aspect-otros-proyectos {
+  aspect-ratio: 331/168;
+  object-fit:   cover;
+}
+
+.aspect-otros-articulos {
+  aspect-ratio: 330/128;
+  object-fit:   cover;
+}
+
+.aspect-articulos-destacados {
+  aspect-ratio: 420/318;
+  object-fit:   cover;
+}
+
+.aspect-articulo {
+  aspect-ratio: 1038/617;
+  object-fit:   cover;
+}
+
+.aspect-articulo-doble {
+  aspect-ratio: 508/415;
+  object-fit:   cover;
+}
+
+.aspect-card-documentacion {
+  aspect-ratio: 180/148;
+  object-fit:   cover;
+}

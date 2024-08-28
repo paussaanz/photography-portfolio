@@ -1,0 +1,75 @@
+body {
+
+  // El footer siempre pegado abajo
+  display:    flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // FIN El footer siempre pegado abajo
+
+  @include media-breakpoint-up(md) {
+  }
+  // Para eliminar del front el mensaje de que estamos en un sitio de desarrollo generado por WPML
+  .otgs-development-site-front-end {
+    display: none;
+  }
+}
+
+main {
+  overflow: clip; // funciona como un hidden pero puedes añadir sticky en los hijos
+}
+
+
+body {
+
+}
+
+footer {
+  // El footer siempre pegado abajo
+  margin-top: auto;
+  // FIN El footer siempre pegado abajo
+}
+
+.gm-style-iw-d {
+  overflow: unset !important;
+
+  div:first-child {
+    margin-top: -50px !important;
+  }
+}
+
+/**Para evitar que iphone interprete numeros como telefono*/
+.section-caracteristicas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/**
+Cookiebot
+ */
+#CybotCookiebotDialogHeader {
+  padding: 1em !important;
+
+  #CybotCookiebotDialogPoweredbyCybot {
+    display: none !important;
+  }
+
+  #CybotCookiebotDialogPoweredbyLink {
+    width:       100% !important;
+    align-items: center !important;
+    justify-content: center;
+
+    #CybotCookiebotDialogPoweredbyImage {
+      max-height: 60px;
+    }
+  }
+}
+
+.CookiebotWidget-main-logo {
+  display: none !important;
+}
+

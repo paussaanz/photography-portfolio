@@ -1,0 +1,15 @@
+
+footer {
+  .enlace-footer {
+    color:           $cor-black;
+    text-decoration: none;
+
+    &:focus,
+    &:active,
+    &:hover {
+      color:                 $cor-black;
+      text-decoration:       underline;
+      text-decoration-color: $cor-primary;
+    }
+  }
+}

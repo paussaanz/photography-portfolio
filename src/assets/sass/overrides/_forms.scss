@@ -1,0 +1,48 @@
+
+.form {
+  label {
+    color: $cor-form-check-label-color !important;
+  }
+}
+
+.doc-type-filter {
+
+}
+
+.listadoPasos {
+  .paso {
+    opacity:    0.3;
+    transition: all 0.3s ease-in-out;
+
+    .pasoTitulo {
+      @extend %icon-flex;
+      position: relative;
+
+      &:before {
+        @include icon-style();
+        height:               1.5rem;
+        width:                1.5rem;
+        position:             absolute;
+        left:                 -2rem;
+        $cor-color-icons-svg: $cor-color-icons-svg-black;
+        background-image:     url('data:image/svg+xml;utf8,<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="8" r="7.5" fill="#{$cor-color-icons-svg}"/></svg>');
+      }
+    }
+
+    &.pasoFinalizado {
+      color:   $cor-primary;
+      opacity: 1;
+
+      .pasoTitulo {
+        &:before {
+          $cor-color-icons-svg: $cor-color-icons-svg;
+          background-image:     url('data:image/svg+xml;utf8,<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="8" r="7.5" fill="#{$cor-color-icons-svg}"/></svg>');
+        }
+      }
+    }
+
+    &.pasoActivo {
+      opacity: 1;
+    }
+  }
+}

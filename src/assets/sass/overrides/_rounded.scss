@@ -1,0 +1,19 @@
+.rounded {
+  @include media-breakpoint-up(md) {
+    border-radius: $cor-border-radius-md !important;
+  }
+}
+
+.rounded-top {
+  @include media-breakpoint-up(md) {
+    border-top-left-radius: $cor-border-radius-md !important;
+    border-top-right-radius: $cor-border-radius-md !important;
+  }
+}
+
+.rounded-bottom {
+  @include media-breakpoint-up(md) {
+    border-bottom-left-radius: $cor-border-radius-md !important;
+    border-bottom-right-radius: $cor-border-radius-md !important;
+  }
+}

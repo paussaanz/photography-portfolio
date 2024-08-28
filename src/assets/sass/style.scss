@@ -1,0 +1,54 @@
+// FONTS
+
+// Se deben sustituir los  ";" en las urls por "%3b"  para que al minificar no de problema
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800;900&display=swap');
+@import "fonts";
+// @import "node_modules/font-awesome/css/font-awesome.min.css";
+
+// Funciones para SASS
+@import "functions";
+// Variables generales y overrides de las de bootstrap
+@import "bootstrap-variables";
+@import "mixins";
+
+// Para especificar las clases de Bootstrap que queremos cargar
+@import "bootstrap-loads";
+
+// Utilidades extra estilo bootstrap
+@import 'utils';
+
+// Plugins
+//@import "node_modules/bootstrap-select/sass/bootstrap-select";
+
+// Utilidades y estilos generales
+@import "general";
+
+// Sobreescritos de bootstrap
+@import "overrides/buttons";
+@import "overrides/forms";
+@import "overrides/cards";
+@import "overrides/rounded";
+@import "overrides/tables";
+@import "overrides/dropdown";
+@import "overrides/links";
+@import "overrides/breadcrumb";
+@import "overrides/navs";
+@import "overrides/accordion";
+@import "overrides/alerts";
+
+// Elementos nuevos reutilizables
+@import "partials/header";
+@import "partials/icons";
+@import "partials/social";
+@import "partials/footer";
+@import "partials/swiper";
+@import "partials/aspect-ratios";
+@import "partials/grid-layout";
+@import "partials/images";
+
+// blocks
+//@import "blocks/news";
+
+// Animaciones
+@import "animations/calculator";
+

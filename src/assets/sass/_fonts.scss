@@ -1,0 +1,11 @@
+/*
+font-family: 'berlinsans', sans-serif;
+ */
+
+@font-face {
+  font-family: 'Berlin Sans';
+  src: url('../fonts/berlin-sans-fb.woff2') format('woff2'),
+       url('../fonts/berlin-sans-fb.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
