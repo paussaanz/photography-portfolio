@@ -1,7 +1,7 @@
 .navbar-container {
   position: relative;
   text-transform: uppercase;
-  font-family: 'gunterz';
+  font-family: 'gunterz', sans-serif; // Asegúrate de que el nombre de la fuente esté correctamente especificado
 }
 
 .navbar-brand-centered {
@@ -9,4 +9,24 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.navbar {
+  transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out; 
+  transform: translateY(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none; 
+}
+
+
+
+.header-hide{
+  transition: z-index 0s linear 1.5s; // Retrasa el cambio de z-index hasta después de la transición
+  z-index: -100; // Este z-index solo se aplica cuando el navbar se oculta
 }

@@ -8,27 +8,44 @@ import EditorialsPage from "./pages/EditorialsPage"
 import HomePage from "./pages/HomePage"
 import PortfolioDetailPage from "./pages/PortfolioDetailPage"
 import PortfolioPage from "./pages/PortfolioPage"
+import { useEffect, useState } from "react"
 
 function App() {
+  const [navVisible, setNavVisible] = useState(true);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
-      <header className="fixed-top">
-        <Navbar/>
+      <header className={`fixed-top ${navVisible ? '' : 'header-hide'}`}>
+        <Navbar visible={navVisible} />
       </header>
       <main>
-      <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/" element={<PortfolioPage />} />
-          <Route path="/" element={<EditorialsPage />} />
-          <Route path="/" element={<PortfolioDetailPage />} />
-          <Route path="/" element={<EditorialsDetailPage />} />
-          <Route path="/" element={<AboutPage />} />
-          <Route path="/" element={<ContactPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/editorials" element={<EditorialsPage />} />
+          <Route path="/portfolio/project" element={<PortfolioDetailPage />} />
+          <Route path="/editorials/projects" element={<EditorialsDetailPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </>
   )

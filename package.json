@@ -15,7 +15,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-select": "^1.13.18",
-    "gulp": "^5.0.0",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-if": "^3.0.0",
@@ -30,7 +30,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
-    "sass": "^1.70.0"
+    "sass": "^1.70.0",
+    "swiper": "^11.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

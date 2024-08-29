@@ -28,13 +28,9 @@
 @import "overrides/forms";
 @import "overrides/cards";
 @import "overrides/rounded";
-@import "overrides/tables";
 @import "overrides/dropdown";
 @import "overrides/links";
-@import "overrides/breadcrumb";
 @import "overrides/navs";
-@import "overrides/accordion";
-@import "overrides/alerts";
 
 // Elementos nuevos reutilizables
 @import "partials/header";
@@ -50,5 +46,5 @@
 //@import "blocks/news";
 
 // Animaciones
-@import "animations/calculator";
+@import "animations/cursor";
 

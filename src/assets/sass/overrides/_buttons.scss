@@ -66,4 +66,17 @@
       transform: none !important;
     }
   }
+
+  &.btn-home-page{
+    @include button-variant($cor-transparent, $cor-transparent, $cor-light, $cor-transparent, $cor-transparent, $cor-black);
+   
+  }
+}
+
+.centered-button {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
