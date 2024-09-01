@@ -16,6 +16,7 @@
   transform: translateY(0%);
   opacity: 1;
   pointer-events: all;
+  z-index: -1;
 }
 
 .hide {
@@ -23,7 +24,6 @@
   opacity: 0;
   pointer-events: none; 
 }
-
 
 
 .header-hide{

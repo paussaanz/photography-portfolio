@@ -33,18 +33,15 @@
 @import "overrides/navs";
 
 // Elementos nuevos reutilizables
-@import "partials/header";
 @import "partials/icons";
 @import "partials/social";
-@import "partials/footer";
 @import "partials/swiper";
 @import "partials/aspect-ratios";
-@import "partials/grid-layout";
-@import "partials/images";
 
 // blocks
 //@import "blocks/news";
 
 // Animaciones
 @import "animations/cursor";
+@import "animations/text";
 

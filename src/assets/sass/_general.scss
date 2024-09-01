@@ -1,5 +1,6 @@
 body {
 
+  cursor:none !important;
   // El footer siempre pegado abajo
   display:    flex;
   flex-direction: column;
@@ -18,6 +19,9 @@ main {
   overflow: clip; // funciona como un hidden pero puedes añadir sticky en los hijos
 }
 
+a{
+  cursor: none !important;
+}
 footer {
   // El footer siempre pegado abajo
   margin-top: auto;

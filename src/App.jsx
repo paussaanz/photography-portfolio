@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage"
 import PortfolioDetailPage from "./pages/PortfolioDetailPage"
 import PortfolioPage from "./pages/PortfolioPage"
 import { useEffect, useState } from "react"
+import Cursor from "./components/Cursor/Cursor"
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
@@ -30,7 +31,7 @@ function App() {
   }, []);
   return (
     <>
-      <header className={`fixed-top ${navVisible ? '' : 'header-hide'}`}>
+      <header className={`fixed-top ${navVisible ? 'animated' : 'header-hide'}`}>
         <Navbar visible={navVisible} />
       </header>
       <main>

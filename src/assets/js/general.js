@@ -2,44 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // Iniciamos las funciones
     initGeneral();
 });
-let swiperProductos;
 
 function initGeneral() {
     console.log("Pepenunez Loaded")
-    // menuNavBar()
-    imagenClickable()
-    filterDocuments();
-    loadMoreDocuments();
-    filterBlog();
-    swipers()
-    loadMoreBlog();
-    imagenConfigurador();
-    forms();
-    filterSwiperAscensores();
-    setupHeaderHover();
-    initMap();
-    initForms();
-    initJqueryValidations();
-    imagenClickableInspiracion();
-    alturaFormularioPresupuesto();
-    closeModal()
 }
 
 
 
-// function menuNavBar() {
-//     $(document).ready(function () {
-//         let $menu = $('#menu-nav-bar');
-//         let $items = $menu.find('li');
-//         let $lastItem = $items.last();
 
-//         $items.slice(0, 3).wrapAll('<div class="menu-left"></div>');
-//         $lastItem.wrap('<div class="menu-right"></div>');
 
-//         $('.menu-left').insertBefore('.navbar-brand');
-//         $('.menu-right').insertAfter('.navbar-brand');
-//     });
-// }
+
+
+
+
+
+
+
 function swipers() {
 
     const swiperSlider = new Swiper(".swiper-flota", {
