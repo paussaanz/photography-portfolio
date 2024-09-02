@@ -35,12 +35,12 @@ const HomePage = () => {
                     <Button href="/portfolio" text="See my work" className="text-light" />
                 </TextOverlay>
             </section>
-            <motion.div style={{scale, rotate}} className="bg-light position-sticky top-0 py-5 vh-100 align-content-center" scrollYProgress={scrollYProgress}>
+            <motion.div style={{scale, rotate}} className="bg-light position-sticky top-0 py-5 vh-100 align-content-center" scrollyprogress={scrollYProgress}>
                 <TextAnimationContainer  text=" Photography is the art of capturing fleeting moments, turning the transient into something eternal.
                     Through the lens, everyday scenes transform into extraordinary glimpses of life.
                     It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
             </motion.div>
-            <motion.div style={{scale: inverseScale,rotate: inverseRotate}} scrollYProgress={scrollYProgress} className="position-relative text-center" >
+            <motion.div style={{scale: inverseScale,rotate: inverseRotate}} scrollyprogress={scrollYProgress} className="position-relative text-center" >
                 <div className="position-absolute z-3 text-light text-center centered-button">
                     <Button className="text-light" text="Portfolio" /> | <Button className="text-light" text="Editorials" />
                 </div>
