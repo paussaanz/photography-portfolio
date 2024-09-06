@@ -17,7 +17,6 @@
     "bootstrap-select": "^1.13.18",
     "framer-motion": "^11.3.31",
     "gsap": "^3.12.5",
-    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-if": "^3.0.0",
@@ -46,6 +45,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "gulp": "^4.0.2",
     "vite": "^5.4.1"
   }
 }
