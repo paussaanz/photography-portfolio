@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='vh-100 bg-primary'>
             
         </div>
     );
