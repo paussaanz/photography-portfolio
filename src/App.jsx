@@ -31,6 +31,8 @@ function App() {
   }, []);
   return (
     <>
+      <Cursor /> {/* cursor animation motion graph */}
+      
       <header className={`fixed-top ${navVisible ? 'animated' : 'header-hide'}`}>
         <Navbar visible={navVisible} />
       </header>

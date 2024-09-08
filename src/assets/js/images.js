@@ -22,3 +22,16 @@ export const homeSwiperImages = [
     }
 ];
 
+
+export const portfolioParallaxHero = [
+    {   src : NatureHome,
+        y : "sm"
+    }
+    ,
+    {   src : PhotoshootsHome,
+        y: "md",
+    },
+    {   src : SportsHome,
+        y: "lg"
+    },
+];
