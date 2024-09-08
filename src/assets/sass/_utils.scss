@@ -179,7 +179,7 @@ $font-sizes-md: (
 
 .vh-300 {
   height: 300vh;
-  overflow:clip;
+
 }
 
 .overflow-clip {
@@ -251,14 +251,13 @@ $font-sizes-md: (
 }
 
 .blur {
-
-  filter: blur(4px); 
+  filter: blur(4px);
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 101%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: -1; 
+  z-index: -1;
 }

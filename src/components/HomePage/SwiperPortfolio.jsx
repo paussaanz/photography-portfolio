@@ -1,73 +1,54 @@
-// import React, { useRef, useState } from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import ImageBanner from "./ImageBanner";
-// import "swiper/css";
-// import { homeSwiperImages } from '../../assets/js/images';
-
-
-// export default function App() {
-//     return (
-//         <>
-
-//             <Swiper 
-//              loop={true}
-//              className="mySwiper">
-//                 {homeSwiperImages.map((image, index) => (
-//                     <SwiperSlide key={index}>
-//                         <ImageBanner src={image.src} name={image.name} date={image.date} description={image.description} />
-//                     </SwiperSlide>
-//                 ))}
-
-//             </Swiper>
-//         </>
-//     );
-// }
-
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ImageBanner from "./ImageBanner";
 import { homeSwiperImages } from '../../assets/js/images';
+import Button from "../General/Buttons/Button";
 
-const SwiperPortfolio = ({ inverseScale }) => {
-    const ref = useRef(null);
-    const [canScroll, setCanScroll] = useState(false);
+const SwiperPortfolio = () => {
+    const sectionRef = useRef(null); // Referencia al contenedor de la sección
 
-    const { scrollYProgress } = useScroll({ target: ref });
+    // Capturamos el progreso del scroll vertical usando useScroll
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"]
+    });
 
-    // Definimos useTransform sin condicionales
-    const x = useTransform(scrollYProgress, [0, 1], ['0%', '-60%']);
+    const rotate = useTransform(scrollYProgress, [0, 0.05], [5, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.025], [0.8, 1]);
 
-    useEffect(() => {
-        console.log("CURRENT", inverseScale);
-        // Comprobamos el valor de inverseScale.current en lugar de inverseScale
-        if (inverseScale === 1) {
-            setCanScroll(true);
-        } else {
-            // setCanScroll(false);
-        }
-    }, [inverseScale]);
+    const totalImages = homeSwiperImages.length;
+    const finalPosition = `-${(totalImages - 1) * 100}vw`; // Ajustamos a -100vw por cada imagen
+
+    // Movimiento de las imágenes en base al scroll del swiper
+    const xTransform = useTransform(scrollYProgress, [0.025, 1], ['5vw', finalPosition]);
 
     return (
-        <section ref={ref} className="relative vh-300 bg-transparent">
-            <div className="position-sticky top-0 d-flex vh-100 align-items-center justify-content-start overflow-hidden">
-                
-                <motion.div 
-                    className="swiper-images" 
-                    // Si canScroll es false, x es '0%'
-                    style={{ x: canScroll ? x : '0%' }}  
+        <motion.div
+            ref={sectionRef}
+            className="position-sticky vh-300 bg-transparent"
+            style={{ height: '300vh', rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
+        >
+            <div className="position-sticky top-0 d-flex vh-100 align-items-center justify-content-start">
+                <div className="position-absolute z-3 text-light text-center centered-button">
+                    <Button className="text-light" text="Portfolio" /> | <Button className="text-light" text="Editorials" />
+                </div>
+                <motion.div
+                    className="swiper-images d-flex"
+                    style={{ x: xTransform }} // Aplicamos el desplazamiento horizontal sincronizado
                 >
+
                     {homeSwiperImages.map((image, index) => (
-                        <ImageBanner 
-                            key={index} 
-                            src={image.src} 
-                            name={image.name} 
-                            date={image.date} 
-                            description={image.description} 
+                        <ImageBanner
+                            key={index}
+                            src={image.src}
+                            name={image.name}
+                            date={image.date}
+                            description={image.description}
                         />
                     ))}
                 </motion.div>
             </div>
-        </section>
+        </motion.div >
     );
 };
 

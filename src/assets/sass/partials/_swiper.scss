@@ -1,5 +1,8 @@
 .swiper-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;  /* Cambia a flexbox */
+  width: 100vw;   /* Asegúrate de que el ancho de cada imagen sea el 100% del viewport */
+}
+
+.swiper-images > * {
+  flex: 0 0 100vw; /* Cada imagen ocupa el 100% del ancho del viewport */
 }
