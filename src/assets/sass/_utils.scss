@@ -177,9 +177,19 @@ $font-sizes-md: (
   overflow: clip
 }
 
+.vh-175 {
+  height: 175vh;
+  overflow: clip
+}
+
+.vh-200 {
+  height: 200vh;
+  overflow: clip
+}
+
 .vh-300 {
   height: 300vh;
-
+  overflow: clip
 }
 
 .overflow-clip {
