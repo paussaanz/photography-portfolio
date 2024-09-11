@@ -13,6 +13,7 @@
     "prod": "cross-env NODE_ENV=prod gulp"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "bootstrap": "^5.3.3",
     "bootstrap-select": "^1.13.18",
     "framer-motion": "^11.3.31",
@@ -28,6 +29,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.7.1",
+    "lenis": "^1.1.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",

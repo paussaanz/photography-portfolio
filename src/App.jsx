@@ -10,9 +10,26 @@ import PortfolioDetailPage from "./pages/PortfolioDetailPage"
 import PortfolioPage from "./pages/PortfolioPage"
 import { useEffect, useState } from "react"
 import Cursor from "./components/Cursor/Cursor"
+import Lenis from "lenis"
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
+  
+  const lenis = new Lenis({
+    smoothWheel: true,
+    duration: 1.2,
+  })
+
+  lenis.on('scroll', (e) => {
+    console.log(e)
+  })
+  
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  
+  requestAnimationFrame(raf)
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -29,6 +46,7 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
   return (
     <>
       <Cursor /> {/* cursor animation motion graph */}
