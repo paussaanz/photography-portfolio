@@ -1,0 +1,82 @@
+
+.container-card-animation {
+
+    background-color: var(--bs-primary); /* Asumiendo que --bs-primary es tu color de fondo inicial */
+    transition: background-color 0.5s ease;
+
+    .active-slide {
+        opacity: 1.5;
+        transition: opacity ease-in-out 0.5s;
+
+        &.no-blur {
+            opacity: 0;
+            //z-index: -1;
+        }
+    }
+
+    .active-slide img {
+        filter: blur(50px);
+        background-size: cover;
+        transform: scale(1.125);
+        opacity: 0;
+    }
+
+
+    .slider {
+        transform-style: preserve-3d;
+        perspective: 750px;
+    }
+
+    .slide {
+        width: 40vh;
+    }
+}
+
+
+#slide-1 {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-18200px);
+    opacity: 0;
+}
+
+#slide-2 {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-14700px);
+    opacity: 0;
+}
+
+#slide-3 {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-11200px);
+    opacity: 0;
+}
+
+#slide-4 {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-7700px);
+    opacity: 0;
+}
+
+#slide-5 {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-4200px);
+    opacity: 0.5;
+}
+
+#slide-6 {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translateX(-50%) translateY(-50%) translateZ(-700px);
+    opacity: 1;
+}
