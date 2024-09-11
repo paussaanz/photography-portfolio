@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextAnimationContainer = ({ text, className = '' }) => {
+const TextAnimationContainer = ({ text, className = '', textColor, maskColor='bg-light'}) => {
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const TextAnimationContainer = ({ text, className = '' }) => {
 
     typeSplit.words.forEach((word) => {
       const mask = document.createElement('div');
-      mask.className = 'line-mask';
+      mask.className = `line-mask ${maskColor}`; // Aquí agregas una clase basada en textColor
       word.appendChild(mask);
     });
 
@@ -33,7 +33,7 @@ const TextAnimationContainer = ({ text, className = '' }) => {
 
     const allMasks = gsap.utils.toArray('.line-mask');
     tl.to(allMasks, {
-      width: '0%',
+      height: '0%',
       duration: 1,
       stagger: 0.5,
     });
@@ -47,7 +47,7 @@ const TextAnimationContainer = ({ text, className = '' }) => {
   return (
     <div className="container">
       <div className="row">
-        <TextAnimation ref={textRef} className={className}>
+        <TextAnimation ref={textRef} className={className} textColor={textColor}>
           {text}
         </TextAnimation>
       </div>
