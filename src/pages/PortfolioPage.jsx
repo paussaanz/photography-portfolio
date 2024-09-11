@@ -1,29 +1,49 @@
 import React, { useRef } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
-import { useScroll, motion } from 'framer-motion';
+import { useScroll } from 'framer-motion';
+import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
+import { homeSwiperImages } from './../assets/js/images';
 
 const PortfolioPage = () => {
-    const portfolioPage = useRef();
+    const portfolioPage = useRef();  // Referencia de la página principal
+    const projectsRef = useRef();    // Referencia de la sección "projects-animation"
+
+    // Scroll de la página completa (puede ser utilizado si tienes otras animaciones en el futuro)
     const { scrollYProgress } = useScroll({
         target: portfolioPage,
-        offset: ["start start", "center center"]
+        offset: ["start start", "end end"]
     });
 
-    return (
-        <div >
-            <section className="hero-portfolio vh-100 overflow-hidden">
-            <div className="bg-light vh-100 d-flex">
+    // Scroll de la sección de proyectos específica
+    const { scrollYProgress: scrollYProgressProjects } = useScroll({
+        target: projectsRef,
+        offset: ["start start", "end end"]  // Ajusta el rango según cómo quieres controlar el scroll en la sección de proyectos
+    });
 
+
+    return (
+        <div ref={portfolioPage}>
+            <section className="hero-portfolio vh-175">
+                <div className="vh-175 d-flex">
                     <HeroPortfolio />
                 </div>
             </section>
 
             <section className="text-animation">
-                <div className="bg-light py-5 vh-100 align-content-center" scrollyprogress={scrollYProgress}>
-                    <TextAnimationContainer text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes." />
+                <div className="py-5 vh-100 align-content-center">
+                    <TextAnimationContainer
+                        text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
+                        textColor='text-light'
+                        maskColor="bg-primary"
+                    />
                 </div>
+            </section>
 
+            <section>
+                <div className="bg-light">
+                    <ProjectCardAnimationGSAP homeSwiperImages={homeSwiperImages} />
+                </div>
             </section>
         </div>
     );
