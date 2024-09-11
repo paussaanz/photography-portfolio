@@ -4,7 +4,7 @@ const Navbar = ({visible}) => {
 
   const location = useLocation();
 
-  const isPrimaryPage = location.pathname === '/portfolio' || location.pathname === '/editorials';
+  const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials';
 
 
   return (
