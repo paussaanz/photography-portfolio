@@ -1,7 +1,6 @@
 
 .container-card-animation {
 
-    background-color: var(--bs-primary); /* Asumiendo que --bs-primary es tu color de fondo inicial */
     transition: background-color 0.5s ease;
 
     .active-slide {

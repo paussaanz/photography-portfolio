@@ -15,92 +15,87 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
     const activeSlideImages = gsap.utils.toArray('.active-slide img');
 
     function getInitialTranslateZ(slide) {
-        const style = window.getComputedStyle(slide);
-        const matrix = style.transform.match(/matrix3d\((.+)\)/);
-        if (matrix) {
-            const values = matrix[1].split(", ");
-            return parseFloat(values[14] || 0);
-        }
-        return 0;
+      const style = window.getComputedStyle(slide);
+      const matrix = style.transform.match(/matrix3d\((.+)\)/);
+      if (matrix) {
+        const values = matrix[1].split(", ");
+        return parseFloat(values[14] || 0);
+      }
+      return 0;
     }
 
     function mapRange(value, inMin, inMax, outMin, outMax) {
-        return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+      return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
     }
 
-     // Animation timeline for background and slide images
-     const tl = gsap.timeline({
+    // Animation timeline for background and slide images
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".container-card-animation",
-        start: "top top",
+        start: "bottom top",
         end: "bottom top",
         scrub: true,
-        toggleActions: 'restart none none reset'
-
+        toggleActions: 'none none'
       }
     });
+
     // Start with a solid background color
-    gsap.set(".container-card-animation", { backgroundColor: 'var(--bs-primary)' });
-
-    // Animate background to transparent and active slides to visible
-    tl.to(".container-card-animation", { backgroundColor: 'transparent', duration: 1 })
-      .to(".active-slide img", { opacity: 1, duration: 1 }, 0); // Animates opacity of images to 1
-
-    //       ScrollTrigger.create({
-    //   trigger: ".container-card-animation",
-    //   start: "top top",
-    //   end: "bottom top",
-    //   scrub: true,
-    //   onLeaveBack: () => {
-    //     gsap.to(".container-card-animation", { backgroundColor: 'var(--bs-primary)', duration: 1 });
-    //     gsap.to(".active-slide img", { opacity: 0, duration: 1 });
-    //   }
-    // });
+    gsap.set(".container-card-animation", {
+      backgroundImage: 'linear-gradient(to top, var(--bs-primary) 50%, transparent 100%)'
+    });
+    
+    tl.to(".container-card-animation", {
+      backgroundImage: 'linear-gradient(to top, transparent 0%, transparent 100%)',
+      ease: "none"
+    });
 
     slides.forEach((slide, i) => {
-        const initialZ = getInitialTranslateZ(slide);
-        
-        ScrollTrigger.create({
-            trigger: ".container-card-animation",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 5,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const zIncrement = progress * 18200;
-                const currentZ = initialZ + zIncrement;
+      const initialZ = getInitialTranslateZ(slide);
 
-                let opacity;
-                if (currentZ > -2500) {
-                    opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
-                } else {
-                    opacity = mapRange(currentZ, -5000, -2500, 0.2, 0.5);
-                }
+      ScrollTrigger.create({
+        trigger: ".container-card-animation",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 5,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const zIncrement = progress * 18200;
+          const currentZ = initialZ + zIncrement;
+          let opacity;
+          if (currentZ > -2500) {
 
-                slide.style.opacity = opacity;
-                slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
+            opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
+          } else {
+            opacity = mapRange(currentZ, -5000, -2500, 0.2, 0.5);
+          }
 
-                if (currentZ < 640) {
-                    gsap.to(activeSlideImages[i], 1.5, {
-                        opacity: 1,
-                        ease: "power3.out"
-                    });
-                } else {
-                    gsap.to(activeSlideImages[i], 1.5, {
-                        opacity: 0,
-                        ease: "power3.out"
-                    });
-                }
-            }
-        });
+          slide.style.opacity = opacity;
+          slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
+
+
+          if (currentZ < 640) {
+            gsap.to(activeSlideImages[i], 1.5, {
+              opacity: progress ? 1 : 0,
+              ease: "power3.out"
+            });
+          } else {
+
+            gsap.to(activeSlideImages[i], 1.5, {
+              opacity: 0,
+              ease: "power3.out"
+            });
+          }
+
+
+        }
+      });
     });
 
     return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-}, []); // Empty dependency array ensures this runs only once after the component mounts.
+  }, []); // Empty dependency array ensures this runs only once after the component mounts.
 
-console.log(homeSwiperImages);
 
 
   return (
@@ -126,7 +121,7 @@ console.log(homeSwiperImages);
           </div>
         </div>
 
-       
+
         <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-2">
           <div className={`slide-img `}>
             <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
@@ -181,7 +176,7 @@ console.log(homeSwiperImages);
             <p className="m-0">pruebaa</p>
           </div>
         </div>
-        
+
       </div>
 
 

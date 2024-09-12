@@ -11,46 +11,46 @@ import PortfolioPage from "./pages/PortfolioPage"
 import { useEffect, useState } from "react"
 import Cursor from "./components/Cursor/Cursor"
 import Lenis from "lenis"
+import useScrollToTop from "./hooks/ScrollTopTop"
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
-  
+useScrollToTop();
+
   const lenis = new Lenis({
     smoothWheel: true,
     duration: 1.2,
   })
 
-  lenis.on('scroll', (e) => {
-    console.log(e)
-  })
-  
+
   function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
   }
-  
+
   requestAnimationFrame(raf)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    let lastScrollY = 0;
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    const handleScroll = ( { scroll }) => {
+      const currentScrollY = scroll;
+
       setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
       lastScrollY = currentScrollY;
+      
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    lenis.on('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      lenis.off('scroll', handleScroll);
     };
   }, []);
-  
+
   return (
     <>
       <Cursor /> {/* cursor animation motion graph */}
-      
+
       <header className={`fixed-top ${navVisible ? 'animated' : 'header-hide'}`}>
         <Navbar visible={navVisible} />
       </header>

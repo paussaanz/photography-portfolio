@@ -41,7 +41,7 @@ const PortfolioPage = () => {
             </section>
 
             <section>
-                <div className="bg-light">
+                <div className="">
                     <ProjectCardAnimationGSAP homeSwiperImages={homeSwiperImages} />
                 </div>
             </section>
