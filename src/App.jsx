@@ -11,6 +11,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import { useEffect, useState, useRef } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
+import { throttle } from "lodash";
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
@@ -22,7 +23,8 @@ function App() {
     const lenis = new Lenis({
       smoothWheel: true,
       duration: 1.2,
-    });  
+    });
+
     lenisRef.current = lenis;
 
     // Función para manejar la animación del scroll
@@ -39,18 +41,47 @@ function App() {
     };
   }, []);
 
+
+  // useEffect(() => {
+  //   const lenis = lenisRef.current;
+  //   if (!lenis) return;
+
+  //   let lastScrollY = 0;
+
+  //   // Usa throttle para reducir la frecuencia de ejecución de handleScroll
+  //   const handleScroll = throttle(({ scroll }) => {
+  //     const currentScrollY = scroll;
+
+  //     // Actualiza navVisible solo si cambia la condición
+  //     if (
+  //       (lastScrollY > currentScrollY || currentScrollY < 30) !== navVisible
+  //     ) {
+  //       setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
+  //     }
+  //     lastScrollY = currentScrollY;
+  //   }, 100); // Ajusta el tiempo en milisegundos para controlar la frecuencia
+
+  //   lenis.on("scroll", handleScroll);
+
+  //   return () => {
+  //     lenis.off("scroll", handleScroll);
+  //   };
+  // }, [navVisible]);
+
   // Efecto para manejar el comportamiento del scroll y la visibilidad del navbar
   useEffect(() => {
+
     const lenis = lenisRef.current;
     if (!lenis) return;
 
     let lastScrollY = 0;
 
-    const handleScroll = ({ scroll }) => {
+    const handleScroll = throttle(({ scroll }) => {
+      console.log('entro')
       const currentScrollY = scroll;
       setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
       lastScrollY = currentScrollY;
-    };
+    }, 200);
 
     lenis.on("scroll", handleScroll);
 
@@ -71,7 +102,7 @@ function App() {
     <>
       <Cursor /> {/* cursor animation motion graph */}
 
-      <header className={`sticky-top ${navVisible ? "animated" : "header-hide"}`}>
+      <header className={`fixed-top ${navVisible ? "animated" : "header-hide"}`}>
         <Navbar visible={navVisible} />
       </header>
       <main>
