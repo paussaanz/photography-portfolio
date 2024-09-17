@@ -1,17 +1,18 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navigation/Navbar";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import EditorialsDetailPage from "./pages/EditorialsDetailPage";
-import EditorialsPage from "./pages/EditorialsPage";
-import HomePage from "./pages/HomePage";
-import PortfolioDetailPage from "./pages/PortfolioDetailPage";
-import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense, lazy } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import { throttle } from "lodash";
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const EditorialsDetailPage = lazy(() => import('./pages/EditorialsDetailPage'));
+const EditorialsPage = lazy(() => import('./pages/EditorialsPage'));
+const PortfolioDetailPage = lazy(() => import('./pages/PortfolioDetailPage'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
@@ -106,15 +107,17 @@ function App() {
         <Navbar visible={navVisible} />
       </header>
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/editorials" element={<EditorialsPage />} />
-          <Route path="/portfolio/project" element={<PortfolioDetailPage />} />
-          <Route path="/editorials/projects" element={<EditorialsDetailPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/editorials" element={<EditorialsPage />} />
+            <Route path="/portfolio/project" element={<PortfolioDetailPage />} />
+            <Route path="/editorials/projects" element={<EditorialsDetailPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
       </main>
       <footer>
         <Footer />

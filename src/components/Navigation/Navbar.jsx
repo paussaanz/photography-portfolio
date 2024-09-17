@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
+import PreloadLink from './PreLoadLink';
 
-const Navbar = ({visible}) => {
+const Navbar = ({ visible }) => {
 
   const location = useLocation();
 
@@ -13,25 +14,32 @@ const Navbar = ({visible}) => {
         <div className="d-flex flex-grow-1">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`} to="/portfolio">Portfolio</Link>
+              <PreloadLink to="/portfolio" component={() => import('../../pages/PortfolioPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+                Portfolio
+              </PreloadLink>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`} to="/editorials">Editorials</Link>
+              <PreloadLink to="/editorials" component={() => import('../../pages/EditorialsPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+                Editorials
+              </PreloadLink>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`} to="/about">About me</Link>
+              <PreloadLink to="/about" component={() => import('../../pages/AboutPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+                About me
+              </PreloadLink>
+
             </li>
           </ul>
         </div>
-
-        <Link className="navbar-brand-centered" to="/">
+        <PreloadLink to="/" component={() => import('../../pages/HomePage')} className={`navbar-brand-centered`}>
           <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" />
-        </Link>
-
+        </PreloadLink>
         <div className="d-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`} to="/contact">Contact</Link>
+              <PreloadLink to="/contact" component={() => import('../../pages/ContactPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+                Contact
+              </PreloadLink>
             </li>
           </ul>
         </div>
