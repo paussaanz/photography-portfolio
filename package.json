@@ -12,6 +12,7 @@
     "prod": "cross-env NODE_ENV=prod gulp"
   },
   "dependencies": {
+    "@barba/core": "^2.10.3",
     "@studio-freight/lenis": "^1.0.42",
     "bootstrap": "^5.3.3",
     "bootstrap-select": "^1.13.18",

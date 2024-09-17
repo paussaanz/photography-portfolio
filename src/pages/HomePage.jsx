@@ -18,7 +18,7 @@ const HomePage = () => {
     const rotate = useTransform(scrollYProgress, [0.5, 1], [0, -5]);
 
     return (
-        <div className="homepage position-relative" >
+        <div data-barba="container" className="homepage position-relative barba-container" >
             <section className="hero-homepage position-relative">
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="vh-100" />
                 <TextOverlay textColor="text-light" textPosition="text-center" className="text-animated">
@@ -30,15 +30,15 @@ const HomePage = () => {
                 </TextOverlay>
             </section>
 
-            
-                <motion.div
-                    style={{ scale, rotate }}
-                    className="bg-light position-sticky top-0 py-5 vh-100 align-content-center">
-                    <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
-                </motion.div>
 
-                <SwiperPortfolio /> 
-                
+            <motion.div
+                style={{ scale, rotate }}
+                className="bg-light position-sticky top-0 py-5 vh-100 align-content-center">
+                <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
+            </motion.div>
+
+            <SwiperPortfolio />
+
         </div>
     );
 };
