@@ -3,7 +3,7 @@ import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
 import { useScroll } from 'framer-motion';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
-import { homeSwiperImages } from './../assets/js/images';
+import { portfolioCardAnimation } from './../assets/js/images';
 
 const PortfolioPage = () => {
     const portfolioPage = useRef();  // Referencia de la página principal
@@ -41,8 +41,10 @@ const PortfolioPage = () => {
             </section>
 
             <section>
-                <div className="">
-                    <ProjectCardAnimationGSAP homeSwiperImages={homeSwiperImages} />
+                <div className="projects-animation">
+                    <div className="container-card-animation-wrapper">
+                        <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} />
+                    </div>
                 </div>
             </section>
         </div>

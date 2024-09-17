@@ -4,7 +4,7 @@
     transition: background-color 0.5s ease;
 
     .active-slide {
-        opacity: 1.5;
+        opacity: 1;
         transition: opacity ease-in-out 0.5s;
 
         &.no-blur {
@@ -14,10 +14,12 @@
     }
 
     .active-slide img {
-        filter: blur(50px);
+        filter: blur(100px);
         background-size: cover;
         transform: scale(1.125);
         opacity: 0;
+        height:100%;
+        object-fit: cover;
     }
 
 
@@ -32,15 +34,15 @@
 }
 
 
-#slide-1 {
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translateX(-50%) translateY(-50%) translateZ(-18200px);
-    opacity: 0;
-}
+// #slide-6 {
+//     position: absolute;
+//     top: 50%;
+//     left: 65%;
+//     transform: translateX(-50%) translateY(-50%) translateZ(-18200px);
+//     opacity: 0;
+// }
 
-#slide-2 {
+#slide-5 {
     position: absolute;
     top: 50%;
     left: 35%;
@@ -48,7 +50,7 @@
     opacity: 0;
 }
 
-#slide-3 {
+#slide-4 {
     position: absolute;
     top: 50%;
     left: 65%;
@@ -56,7 +58,7 @@
     opacity: 0;
 }
 
-#slide-4 {
+#slide-3 {
     position: absolute;
     top: 50%;
     left: 35%;
@@ -64,15 +66,15 @@
     opacity: 0;
 }
 
-#slide-5 {
+#slide-2 {
     position: absolute;
     top: 50%;
     left: 65%;
     transform: translateX(-50%) translateY(-50%) translateZ(-4200px);
-    opacity: 0.5;
+    opacity: 0;
 }
 
-#slide-6 {
+#slide-1 {
     position: absolute;
     top: 50%;
     left: 35%;

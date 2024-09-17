@@ -2,6 +2,7 @@ import ProjectCard from '../General/ProjectCard';
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { portfolioCardAnimation } from '../../assets/js/images';
 
 const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
@@ -13,7 +14,11 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
     gsap.registerPlugin(ScrollTrigger);
     const slides = gsap.utils.toArray('.slide');
     const activeSlideImages = gsap.utils.toArray('.active-slide img');
+    const containerActiveSlide = gsap.utils.toArray('.active-slide');
+    const containerSlides = gsap.utils.toArray('.slider');
 
+    console.log(slides)
+    console.log(containerActiveSlide)
     function getInitialTranslateZ(slide) {
       const style = window.getComputedStyle(slide);
       const matrix = style.transform.match(/matrix3d\((.+)\)/);
@@ -28,26 +33,16 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
     }
 
-    // Animation timeline for background and slide images
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".container-card-animation",
-        start: "bottom top",
-        end: "bottom top",
-        scrub: true,
-        toggleActions: 'none none'
-      }
-    });
-
-    // Start with a solid background color
-    gsap.set(".container-card-animation", {
-      backgroundImage: 'linear-gradient(to top, var(--bs-primary) 50%, transparent 100%)'
-    });
-    
-    tl.to(".container-card-animation", {
-      backgroundImage: 'linear-gradient(to top, transparent 0%, transparent 100%)',
-      ease: "none"
-    });
+    // // Animation timeline for background and slide images
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".container-card-animation",
+    //     start: "bottom top",
+    //     end: "bottom top",
+    //     scrub: true,
+    //     toggleActions: 'none none'
+    //   }
+    // });
 
     slides.forEach((slide, i) => {
       const initialZ = getInitialTranslateZ(slide);
@@ -59,9 +54,11 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
         scrub: 5,
         onUpdate: (self) => {
           const progress = self.progress;
-          const zIncrement = progress * 18200;
+          const zIncrement = progress * 14700;
           const currentZ = initialZ + zIncrement;
           let opacity;
+
+          //OPACIDAD DE LAS SLIDES
           if (currentZ > -2500) {
 
             opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
@@ -72,21 +69,27 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
           slide.style.opacity = opacity;
           slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
 
-
+          //OPACIDAD DE LOS FONDOS
           if (currentZ < 640) {
-            gsap.to(activeSlideImages[i], 1.5, {
-              opacity: progress ? 1 : 0,
+            let minZ = -3000;     // Valor mínimo donde opacidad es 0
+            let maxZ = 700;   // Valor máximo donde opacidad es 1
+            let progress = gsap.utils.clamp(0, 1, (currentZ - minZ) / (maxZ - minZ));
+            // Si currentZ es menor a 640, animar opacidad al valor calculado de progress
+            gsap.to(activeSlideImages[i], {
+              opacity: progress,
+              duration: 1.5,
               ease: "power3.out"
             });
           } else {
-
-            gsap.to(activeSlideImages[i], 1.5, {
-              opacity: 0,
+            // Si currentZ es mayor o igual a 640, reducir opacidad a 0 con animación suave
+            gsap.to(activeSlideImages[i], {
+              opacity: 0,  // Asegurar que opacidad es 1
+              duration: 1.5,
               ease: "power3.out"
             });
           }
 
-
+          //OPACIDAD CONTENEDOR
         }
       });
     });
@@ -99,83 +102,29 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
 
   return (
-    <div className="w-100 vh-300 container-card-animation position-relative">
+    <div className="container-card-animation w-100 vh-300 position-relative">
       <div className="active-slide position-absolute top-0 left-0 w-100 h-100 overflow-hidden">
-        <img className="position-absolute" src="../../../CR1.jpg" />
-        <img className="position-absolute" src="../../../Diphda1.jpg" />
-        <img className="position-absolute" src="../../../Diphda1.jpg" />
-        <img className="position-absolute" src="../../../CR1.jpg" />
-        <img className="position-absolute" src="../../../Diphda1.jpg" />
-        <img className="position-absolute" src="../../../CR1.jpg" />
+        {portfolioCardAnimation.map((image, index) => (
+          <div className="bg-images">
+            <img className="position-absolute" src={image.src} alt="" />
+          </div>
+        ))}
       </div>
       <div className="slider position-sticky top-0 vw-100 vh-100">
 
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-1">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
-          </div>
+        {portfolioCardAnimation.map((image, index) => (
 
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
+          <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
+            <div className={`slide-img `}>
+              <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
+            </div>
 
-
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-2">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
+            <div className='slide-copy text-uppercase text-center text-white'>
+              <p className="m-0">{image.name} - {image.date}</p>
+              <p className="m-0">{image.description}</p>
+            </div>
           </div>
-
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
-
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-3">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
-          </div>
-
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
-
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-4">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
-          </div>
-
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
-
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-5">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
-          </div>
-
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
-
-        <div className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id="slide-6">
-          <div className={`slide-img `}>
-            <img className="vh-50 w-100 object-fit-cover slide-img" src="../../../CR1.jpg" alt="" />
-          </div>
-
-          <div className='slide-copy text-uppercase text-center text-white'>
-            <p className="m-0">NATURE - 2025</p>
-            <p className="m-0">pruebaa</p>
-          </div>
-        </div>
+        ))}
 
       </div>
 
