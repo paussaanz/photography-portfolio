@@ -3,7 +3,7 @@ import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
 import { useScroll } from 'framer-motion';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
-import { portfolioCardAnimation } from './../assets/js/images';
+import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/images';
 
 const PortfolioPage = () => {
     const portfolioPage = useRef();  // Referencia de la página principal
@@ -23,10 +23,10 @@ const PortfolioPage = () => {
 
 
     return (
-        <div ref={portfolioPage}>
+        <div ref={portfolioPage} className="portfolio-page">
             <section className="hero-portfolio vh-175">
                 <div className="vh-175 d-flex">
-                    <HeroPortfolio />
+                    <HeroPortfolio images={portfolioParallaxHero} word="MY PORTFOLIO" />
                 </div>
             </section>
 

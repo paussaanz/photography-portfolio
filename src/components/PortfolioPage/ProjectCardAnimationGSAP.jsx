@@ -113,9 +113,10 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       <div className="slider position-sticky top-0 vw-100 vh-100">
 
         {portfolioCardAnimation.map((image, index) => (
-
+          
           <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
-            <div className={`slide-img `}>
+            <a href={image.url} className="text-decoration-none">
+              <div className={`slide-img `}>
               <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
             </div>
 
@@ -123,14 +124,16 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
               <p className="m-0">{image.name} - {image.date}</p>
               <p className="m-0">{image.description}</p>
             </div>
-          </div>
+          </a>
+            </div>
+          
         ))}
 
-      </div>
-
-
-
     </div>
+
+
+
+    </div >
   );
 
 };
