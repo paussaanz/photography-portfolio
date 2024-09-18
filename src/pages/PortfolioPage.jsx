@@ -26,7 +26,7 @@ const PortfolioPage = () => {
         <div ref={portfolioPage} className="portfolio-page">
             <section className="hero-portfolio vh-175">
                 <div className="vh-175 d-flex">
-                    <HeroPortfolio images={portfolioParallaxHero} word="MY PORTFOLIO" />
+                    <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
                 </div>
             </section>
 

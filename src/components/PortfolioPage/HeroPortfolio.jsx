@@ -30,11 +30,9 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
 
     return (
         <div ref={container} className="container hero-cabecera">
-            {/* Sección de las imágenes con efecto parallax */}
             <div className="images-1 position-relative d-flex w-100 justify-content-center">
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={1}/>
             </div>
-            {/* Texto del portfolio */}
             <div className="body text-primary text-center d-flex justify-content-center align-items-end vh-100">
                 <motion.h1 style={{ y: xsm }} className="m-0 text-uppercase text-light">
                     {word}
