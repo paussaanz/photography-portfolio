@@ -9,9 +9,9 @@
         }
     }
 
-    .images {
+    .images-1 {
 
-        .image-container {
+        .image-container-1 {
             &:nth-of-type(1) {
                 top: 25vh;
                 height: 60vh;
@@ -41,7 +41,7 @@
 
         .image-container-2 {
             &:nth-of-type(1) {
-                top: 25vh;
+                top: 14vh;
                 height: 60vh;
                 width: 50vh;
                 z-index: 1;
@@ -49,7 +49,7 @@
 
             &:nth-of-type(2) {
                 left: 80vw;
-                top: 55vh;
+                top: 36vh;
                 height: 35vh;
                 width: 30vh;
                 z-index: 2;
@@ -57,12 +57,60 @@
 
             &:nth-of-type(3) {
                 left: 5vw;
-                top: 48vh;
+                top: 30vh;
                 height: 35vh;
                 width: 30vh;
                 z-index: 3;
             }
         }
     }
+
+    .images-3 {
+
+        .image-container-3 {
+            &:nth-of-type(1) {
+                top: 32vh;
+                left: 25vw;
+                height: 38vh;
+                width: 27vh;
+                z-index: 1;
+            }
+
+            &:nth-of-type(2) {
+                right: -5vw;
+                top: 49vh;
+                height: 28vh;
+                width: 18vh;
+                z-index: 2;
+            }
+
+            &:nth-of-type(3) {
+                right: 13vw;
+                top: 23vh;
+                height: 30vh;
+                width: 22vh;
+                z-index: 3;
+            }
+
+            &:nth-of-type(4) {
+                left: 50vw;
+                top: 52vh;
+                height: 22vh;
+                width: 15vh;
+                z-index: 3;
+
+            }
+
+            &:nth-of-type(5) {
+                left: 3vw;
+                top: 40vh;
+                height: 28vh;
+                width: 20vh;
+                z-index: 3;
+
+            }
+        }
+    }
+
 
 }
