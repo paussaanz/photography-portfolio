@@ -19,7 +19,7 @@ const EditorialsPage = () => {
     };
 
     return (
-        <div className="editorials-page">
+        <div data-barba="container" className="editorials-page">
             <section className="editorials-hero bg-light vh-100">
                 <div className="vh-100 d-flex">
                     <HeroEditorials images={editorialsParallaxHero} />
@@ -35,8 +35,6 @@ const EditorialsPage = () => {
                     />
                 </div>
             </section>
-
-
         </div>
     );
 };
