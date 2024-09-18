@@ -41,8 +41,6 @@ function App() {
       lenis.destroy();
     };
   }, []);
-
-
   // useEffect(() => {
   //   const lenis = lenisRef.current;
   //   if (!lenis) return;
@@ -68,7 +66,6 @@ function App() {
   //     lenis.off("scroll", handleScroll);
   //   };
   // }, [navVisible]);
-
   // Efecto para manejar el comportamiento del scroll y la visibilidad del navbar
   useEffect(() => {
 
@@ -112,7 +109,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/editorials" element={<EditorialsPage />} />
-            <Route path="/portfolio/project" element={<PortfolioDetailPage />} />
+            <Route path="/portfolio/photoshoots" element={<PortfolioDetailPage />} />
             <Route path="/editorials/projects" element={<EditorialsDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
