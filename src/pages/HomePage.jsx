@@ -21,7 +21,7 @@ const HomePage = () => {
         <div data-barba="container" className="homepage position-relative barba-container" >
             <section className="hero-homepage position-relative">
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="vh-100" />
-                <TextOverlay textColor="text-light" textPosition="text-center" className="text-animated">
+                <TextOverlay textColor="text-light" textPosition="center" className="text-animated text-center">
                     <h1>
                         <span className='d-block'>Capture</span>
                         <span className="h2 d-block">Brilliance</span>
