@@ -23,7 +23,7 @@ const PortfolioPage = () => {
 
 
     return (
-        <div data-barba="container" className='barba-container portfolio-page' ref={portfolioPage}>
+        <div data-barba="container" className='barba-container portfolio-page bg-primary' ref={portfolioPage}>
             <section className="hero-portfolio vh-175">
                 <div className="vh-175 d-flex">
                     <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
