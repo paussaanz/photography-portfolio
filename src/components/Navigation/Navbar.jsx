@@ -5,7 +5,7 @@ const Navbar = ({ visible }) => {
 
   const location = useLocation();
 
-  const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials';
+  const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials'|| location.pathname === '/portfolio';
 
 
   return (
@@ -14,17 +14,17 @@ const Navbar = ({ visible }) => {
         <div className="d-flex flex-grow-1">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <PreloadLink to="/portfolio" component={() => import('../../pages/PortfolioPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+              <PreloadLink to="/portfolio" component={() => import('../../pages/PortfolioPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Portfolio
               </PreloadLink>
             </li>
             <li className="nav-item">
-              <PreloadLink to="/editorials" component={() => import('../../pages/EditorialsPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+              <PreloadLink to="/editorials" component={() => import('../../pages/EditorialsPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Editorials
               </PreloadLink>
             </li>
             <li className="nav-item">
-              <PreloadLink to="/about" component={() => import('../../pages/AboutPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+              <PreloadLink to="/about" component={() => import('../../pages/AboutPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 About me
               </PreloadLink>
 
@@ -37,7 +37,7 @@ const Navbar = ({ visible }) => {
         <div className="d-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <PreloadLink to="/contact" component={() => import('../../pages/ContactPage')} className={`nav-link ${isPrimaryPage ? 'text-primary' : 'text-light'}`}>
+              <PreloadLink to="/contact" component={() => import('../../pages/ContactPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Contact
               </PreloadLink>
             </li>
