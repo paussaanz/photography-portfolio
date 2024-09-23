@@ -38,8 +38,8 @@
 @import "partials/swiper";
 @import "partials/aspect-ratios";
 
-// blocks
-//@import "blocks/news";
+// Pages
+@import "portfolio-details-page/images";
 
 // Animaciones
 @import "animations/cursor";
@@ -47,4 +47,5 @@
 @import "animations/scroll";
 @import "animations/3d-animation";
 @import "animations/parallax";
+@import "animations/carousel";
 
