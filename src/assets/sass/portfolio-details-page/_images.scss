@@ -1,0 +1,12 @@
+.project-details {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 100px; // Fija la altura de cada fila a 200px
+  padding-top: 80px;
+}
+
+.project-details img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
