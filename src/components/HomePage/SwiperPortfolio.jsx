@@ -44,6 +44,7 @@ const SwiperPortfolio = () => {
                             name={image.name}
                             date={image.date}
                             description={image.description}
+                            url={image.url}
                         />
                     ))}
                 </motion.div>
