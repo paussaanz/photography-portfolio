@@ -4,9 +4,9 @@ const ParallaxImages = ({ images = [], getYTransform, containerNumber}) => {
     return (
         <>
             {
-                images.map(({ src, size }, i) => (
+                images.map(({ src, y }, i) => (
                     <motion.div 
-                        style={{ y: getYTransform(size) }} 
+                        style={{ y: getYTransform(y) }} 
                         key={`i_${i}`} 
                         className={`position-absolute image-container-${containerNumber}`}
                     >
