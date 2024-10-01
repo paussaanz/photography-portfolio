@@ -1,21 +1,22 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navigation/Navbar";
-import { useEffect, useState, useRef, Suspense, lazy } from "react";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import EditorialsDetailPage from "./pages/EditorialsDetailPage";
+import EditorialsPage from "./pages/EditorialsPage";
+import HomePage from "./pages/HomePage";
+import PortfolioDetailPage from "./pages/PortfolioDetailPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import { useEffect, useState, useRef } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import { throttle } from "lodash";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
+import { portfolioDetails } from "./assets/js/images";
+import TextAnimation from "./components/General/TextAnimation";
 
-
-const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const EditorialsDetailPage = lazy(() => import('./pages/EditorialsDetailPage'));
-const EditorialsPage = lazy(() => import('./pages/EditorialsPage'));
-const PortfolioDetailPage = lazy(() => import('./pages/PortfolioDetailPage'));
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 
 function App() {
   const [navVisible, setNavVisible] = useState(true);
@@ -26,6 +27,7 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis({
       smoothWheel: true,
+      lerp:0.1,
       duration: 1.2,
     });
 
@@ -44,32 +46,6 @@ function App() {
       lenis.destroy();
     };
   }, []);
-  
-  // useEffect(() => {
-  //   const lenis = lenisRef.current;
-  //   if (!lenis) return;
-
-  //   let lastScrollY = 0;
-
-  //   // Usa throttle para reducir la frecuencia de ejecución de handleScroll
-  //   const handleScroll = throttle(({ scroll }) => {
-  //     const currentScrollY = scroll;
-
-  //     // Actualiza navVisible solo si cambia la condición
-  //     if (
-  //       (lastScrollY > currentScrollY || currentScrollY < 30) !== navVisible
-  //     ) {
-  //       setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
-  //     }
-  //     lastScrollY = currentScrollY;
-  //   }, 100); // Ajusta el tiempo en milisegundos para controlar la frecuencia
-
-  //   lenis.on("scroll", handleScroll);
-
-  //   return () => {
-  //     lenis.off("scroll", handleScroll);
-  //   };
-  // }, [navVisible]);
 
 
 
@@ -142,10 +118,14 @@ function App() {
           <main>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
+              <Route path="/portfolio/photoshoots" element={<PortfolioDetailPage title="photo    shoots" images={portfolioDetails.photoshoots} textAnimation={"A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."}/>} />
+              <Route path="/portfolio/music" element={<PortfolioDetailPage title="music" images={portfolioDetails.music} textAnimation={"The essence of sound is distilled into visual form through music photography, where captured moments vibrate with rhythm and emotion. Each image pulsates with the energy of live performances, intertwining the intimate connection between artist and audience. These photographs reveal the electric atmosphere of concerts, celebrating the power of music to unite and inspire."}/>} />
+              <Route path="/portfolio/nature" element={<PortfolioDetailPage title="nature" images={portfolioDetails.nature} textAnimation={"The intricate dance of light and shadow comes alive in nature photography, where landscapes breathe life into stillness. Each frame becomes a portal to the sublime, showcasing the beauty of flora and fauna often overlooked. These images invite contemplation and appreciation for the delicate balance of ecosystems, reminding us of our connection to the natural world."}/>} />
+              <Route path="/portfolio/lifestyle" element={<PortfolioDetailPage title="lifestyle" images={portfolioDetails.lifestyle} textAnimation={"Photography serves as a visual language, communicating emotions and hidden truths in every scene. My collection reflects everyday moments transformed into art, showcasing the beauty often overlooked. Each image stands as a testament to the connection between the photographer and their environment, inviting viewers to see the world through my eyes."}/>} />
+              <Route path="/portfolio/sports" element={<PortfolioDetailPage title="sports" images={portfolioDetails.sports} textAnimation={"In sports photography, dynamic energy transcends the frame, transforming fleeting moments of intensity into echoes of triumph and struggle. Each image resonates with the pulse of competition, capturing not just the action but the spirit that ignites the heart of the game. The lens reveals the determination and passion that drive athletes, inviting viewers to feel the thrill of victory and the weight of defeat."}/>} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/editorials" element={<EditorialsPage />} />
-              <Route path="/portfolio/project" element={<PortfolioDetailPage />} />
-              <Route path="/editorials/projects" element={<EditorialsDetailPage />} />
+              <Route path="/editorials" element={<EditorialsDetailPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
