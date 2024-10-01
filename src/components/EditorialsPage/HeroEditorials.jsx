@@ -10,7 +10,7 @@ const HeroEditorials = ({images = []}) => {
     });
 
     const xsm = useTransform(scrollYProgress, [0, 1], [0, 180]);
-    const sm = useTransform(scrollYProgress, [0, 1], [0, 820]);
+    const sm = useTransform(scrollYProgress, [0, 1], [0, -200]);
     const md = useTransform(scrollYProgress, [0, 1], [0, -450]);
     const lg = useTransform(scrollYProgress, [0, 1], [0, -600]);
 
