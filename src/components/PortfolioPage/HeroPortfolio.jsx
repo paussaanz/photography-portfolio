@@ -11,9 +11,12 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     });
 
     const xsm = useTransform(scrollYProgress, [0, 1], [0, 250]);
-    const sm = useTransform(scrollYProgress, [0, 1], [0, -220]);
-    const md = useTransform(scrollYProgress, [0, 1], [0, -250]);
+    const sm = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const md = useTransform(scrollYProgress, [0, 1], [0, -300]);
     const lg = useTransform(scrollYProgress, [0, 1], [0, -400]);
+
+    //Aumentar tamaño de letra
+    const scale = useTransform(scrollYProgress, [0, 0.025], [0.8, 1]);
 
     const getYTransform = (size) => {
         switch (size) {
@@ -39,9 +42,9 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
                 </motion.h1>
             </div>
 
-            <div className="images-2 position-relative d-flex w-100 justify-content-center">
+            {/* <div className="images-2 position-relative d-flex w-100 justify-content-center">
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={2}/>
-            </div>
+            </div> */}
         </div>
     );
 };
