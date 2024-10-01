@@ -2,6 +2,7 @@ import { useState } from "react";
 import { editorialsCovers, editorialsParallaxHero } from "../assets/js/images";
 import EditorialCard from "../components/EditorialsPage/EditorialCard";
 import HeroEditorials from "../components/EditorialsPage/HeroEditorials";
+import SwiperEditorialCard from "../components/EditorialsPage/SwiperEditorialCard";
 
 
 const EditorialsPage = () => {
@@ -19,20 +20,15 @@ const EditorialsPage = () => {
     };
 
     return (
-        <div data-barba="container" className="editorials-page">
-            <section className="editorials-hero bg-light vh-100">
+        <div data-barba="container" className="editorials-page bg-primary">
+            <section className="editorials-hero vh-100">
                 <div className="vh-100 d-flex">
                     <HeroEditorials images={editorialsParallaxHero} />
                 </div>
             </section>
-            <section className="editorial-cards bg-light vh-100">
-                <div className="py-5 vh-100 align-content-center">
-                    <EditorialCard
-                        images={editorialsCovers}
-                        currentIndex={currentIndex}
-                        onNext={nextImage}
-                        onPrev={prevImage}
-                    />
+            <section className="editorial-cards">
+                <div className="py-5">
+                    <SwiperEditorialCard images={editorialsCovers}/>
                 </div>
             </section>
         </div>
