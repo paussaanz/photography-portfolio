@@ -1,23 +1,43 @@
-import { editorialsParallaxHero } from "../assets/js/images";
-import HeroDetails from "../components/EditorialsDetailsPage/HeroDetails";
+import React from "react";
+import AnimatedImage from "../components/PortfolioDetailsPage/AnimatedImage";
+import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 
-const PortfolioDetailPage = () => {
+
+const PortfolioDetailPage = ({ images, title, textAnimation }) => {
+    const { heroImage, projectImages } = images
+
     return (
-        <>
+        <div data-barba="container" className="barba-container">
             <section className="hero-details position-relative">
-                <HeroDetails src="/images/photoshoots-4.jpg" />
+                <HeroDetails slug={title} src={heroImage.src} />
             </section>
             <section className="text-animation">
                 <div className="py-5 vh-100 align-content-center">
                     <TextAnimationContainer
-                        text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
-                        textColor='text-light'
-                        maskColor="bg-primary"
+                        text={textAnimation}
+                        textColor="text-primary"
+                        maskColor="bg-light"
                     />
                 </div>
             </section>
-        </>
+            <section className="position-relative">
+                <div className="project-details d-grid justify-content-center align-items-center">
+                    {images && projectImages.map((img, index) => (
+                        <AnimatedImage
+                            key={index}
+                            src={img.src}
+                            colStart={img.colStart}  
+                            colSpan={img.colSpan}      
+                            rowStart={img.rowStart} 
+                            rowSpan={img.rowSpan}
+                            width={img.width}
+                            height={img.height}
+                        />
+                    ))}
+                </div>
+            </section>
+        </div>
     );
 };
 
