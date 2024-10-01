@@ -13,14 +13,14 @@
 
         .image-container-1 {
             &:nth-of-type(1) {
-                top: 25vh;
+                top: 31vh;
                 height: 60vh;
                 width: 50vh;
                 z-index: 1;
             }
 
             &:nth-of-type(2) {
-                left: 80vw;
+                left: 72vw;
                 top: 55vh;
                 height: 35vh;
                 width: 30vh;
@@ -34,42 +34,40 @@
                 width: 30vh;
                 z-index: 3;
             }
-        }
-    }
 
-    .images-2 {
-
-        .image-container-2 {
-            &:nth-of-type(1) {
-                top: 14vh;
-                height: 60vh;
-                width: 50vh;
+            &:nth-of-type(4) {
+                top: 115vh;
+                left: 45vh;
+                height: 55vh;
+                width: 40vh;
                 z-index: 1;
             }
 
-            &:nth-of-type(2) {
-                left: 80vw;
-                top: 36vh;
-                height: 35vh;
-                width: 30vh;
+            &:nth-of-type(5) {
+                left: 64vw;
+                top: 120vh;
+                height: 85vh;
+                width: 60vh;
                 z-index: 2;
             }
 
-            &:nth-of-type(3) {
-                left: 5vw;
-                top: 30vh;
-                height: 35vh;
-                width: 30vh;
+            &:nth-of-type(6) {
+                left: 6vw;
+                top: 174vh;
+                height: 48vh;
+                width: 35vh;
                 z-index: 3;
             }
         }
     }
 
+
+
     .images-3 {
 
         .image-container-3 {
             &:nth-of-type(1) {
-                top: 32vh;
+                top: 44vh;
                 left: 25vw;
                 height: 38vh;
                 width: 27vh;
@@ -78,7 +76,7 @@
 
             &:nth-of-type(2) {
                 right: -5vw;
-                top: 49vh;
+                top: 61vh;
                 height: 28vh;
                 width: 18vh;
                 z-index: 2;
@@ -86,15 +84,15 @@
 
             &:nth-of-type(3) {
                 right: 13vw;
-                top: 23vh;
+                top: 60vh;
                 height: 30vh;
                 width: 22vh;
                 z-index: 3;
             }
 
             &:nth-of-type(4) {
-                left: 50vw;
-                top: 52vh;
+                left: 56vw;
+                top: 60vh;
                 height: 22vh;
                 width: 15vh;
                 z-index: 3;
@@ -103,7 +101,7 @@
 
             &:nth-of-type(5) {
                 left: 3vw;
-                top: 40vh;
+                top: 46vh;
                 height: 28vh;
                 width: 20vh;
                 z-index: 3;
