@@ -1,9 +1,21 @@
 import React from 'react';
 
-const Button = ({href, text, className }) => {
+const Button = ({ href, text, className, onClick }) => {
     return (
         <>
-            <a href={`${href}`} className={`text-uppercase text-decoration-none ${className}`}>{text}</a>
+            {href ? (
+                <a href={href} className={`text-uppercase text-decoration-none ${className}`}>
+                    {text}
+                </a>
+            ) : (
+                <button
+                    className={`text-uppercase text-decoration-none ${className}`}
+                    onClick={onClick}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer' }} 
+                >
+                    {text}
+                </button>
+            )}
         </>
     );
 };
