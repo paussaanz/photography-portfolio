@@ -20,8 +20,6 @@ import PortfolioParallax4 from '/images/lifestyle-16.jpg';
 import PortfolioParallax5 from '/images/lifestyle-8.jpg';
 import PortfolioParallax6 from '/images/photoshoots-28.jpg';
 
-
-
 //EDITORIALS
 import EditorialCover1 from '/images/editorial-cover-1.png';
 import EditorialCover2 from '/images/editorial-cover-2.png';
@@ -176,7 +174,43 @@ export const homeSwiperImages = [
         url: "/portfolio/lifestyle"
     }
 ];
-
+ export const editorialSwiperImages = [
+    {
+        src: EditorialCover1,
+        name: "Greece",
+        date: "2023",
+        description: "Description Greece",
+        url: "/editorials"
+    },
+    {
+        src: EditorialCover2,
+        name: "Tanzania",
+        date: "2022",
+        description: "Description Greece",
+        url: "/editorials"
+    },
+    {
+        src: EditorialCover1,
+        name: "Tanzania",
+        date: "2022",
+        description: "Description Greece",
+        url: "/editorials"
+    },
+    {
+        src: EditorialCover2,
+        name: "Tanzania",
+        date: "2022",
+        description: "Description Greece",
+        url: "/editorials"
+    },
+    {
+        src: EditorialCover1,
+        name: "Tanzania",
+        date: "2022",
+        description: "Description Greece",
+        url: "/editorials"
+    }
+ ]
 
 export const portfolioParallaxHero = [
     {
