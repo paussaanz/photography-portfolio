@@ -20,21 +20,13 @@
 // Plugins
 //@import "node_modules/bootstrap-select/sass/bootstrap-select";
 
-// Utilidades y estilos generales
-@import "general";
-
 // Sobreescritos de bootstrap
 @import "overrides/buttons";
-@import "overrides/forms";
 @import "overrides/cards";
-@import "overrides/rounded";
 @import "overrides/dropdown";
-@import "overrides/links";
 @import "overrides/navs";
 
 // Elementos nuevos reutilizables
-@import "partials/icons";
-@import "partials/social";
 @import "partials/swiper";
 @import "partials/aspect-ratios";
 
