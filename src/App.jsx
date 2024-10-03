@@ -112,7 +112,7 @@ function App() {
         <div data-barba-namespace="home">
           <Cursor />
 
-          <header className={`fixed-top ${navVisible ? "animated" : "header-hide"}`}>
+          <header id="header" className={`fixed-top ${navVisible ? "animated" : "header-hide"}`}>
             <Navbar visible={navVisible} />
           </header>
           <main>
