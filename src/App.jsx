@@ -85,7 +85,6 @@ function App() {
     let lastScrollY = 0;
 
     const handleScroll = throttle(({ scroll }) => {
-      console.log('entro')
       const currentScrollY = scroll;
       setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
       lastScrollY = currentScrollY;
