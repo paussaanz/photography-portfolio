@@ -2,20 +2,20 @@
 
 // Se deben sustituir los  ";" en las urls por "%3b"  para que al minificar no de problema
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800;900&display=swap');
-@import "fonts";
+@import "base/fonts";
 // @import "node_modules/font-awesome/css/font-awesome.min.css";
 
 // Funciones para SASS
-@import "functions";
+@import "abstracts/functions";
 // Variables generales y overrides de las de bootstrap
 @import "bootstrap-variables";
-@import "mixins";
+@import "abstracts/mixins";
 
 // Para especificar las clases de Bootstrap que queremos cargar
 @import "bootstrap-loads";
 
 // Utilidades extra estilo bootstrap
-@import 'utils';
+@import 'base/general';
 
 // Plugins
 //@import "node_modules/bootstrap-select/sass/bootstrap-select";
@@ -31,7 +31,7 @@
 @import "partials/aspect-ratios";
 
 // Pages
-@import "portfolio-details-page/images";
+@import "pages/portfolio-details-page/images";
 
 // Animaciones
 @import "animations/cursor";
