@@ -347,7 +347,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 1,
                 rowSpan: 6,
-                size: "100%"
+                size: "100%",
+                id: "1-0"
             },
             {
                 src: Photoshoots2,
@@ -356,7 +357,8 @@ export const portfolioDetails = {
                 rowStart: 1,
                 rowSpan: 6,
                 height: "70%",
-                width: "85%"
+                width: "85%",
+                id: "1-1"
             },
             {
                 src: Photoshoots3,
@@ -365,7 +367,8 @@ export const portfolioDetails = {
                 rowStart: 7,
                 rowSpan: 7,
                 height: "85%", 
-                width: "100%"
+                width: "100%",
+                id: "1-2"
             },
             {
                 src: Photoshoots4,
@@ -373,6 +376,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 7,
                 rowSpan: 6,
+                id: "1-3"
             },
             {
                 src: Photoshoots5,
@@ -380,6 +384,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 14,
                 rowSpan: 5,
+                id: "1-4"
             },
             {
                 src: Photoshoots6,
@@ -387,6 +392,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 15,
                 rowSpan: 7,
+                id: "1-5"
             },
             {
                 src: Photoshoots7,
@@ -394,6 +400,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 20,
                 rowSpan: 6,
+                id: "2-0"
             },
             {
                 src: Photoshoots8,
@@ -401,6 +408,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 23,
                 rowSpan: 4,
+                id: "2-1"
             },
             {
                 src: Photoshoots9,
@@ -408,6 +416,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 28,
                 rowSpan: 6,
+                id: "2-2"
             },
             {
                 src: Photoshoots10,
@@ -415,6 +424,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 29,
                 rowSpan: 3,
+                id: "2-3"
             },
             {
                 src: Photoshoots11,
@@ -422,6 +432,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 34,
                 rowSpan: 6,
+                id: "2-4"
             },
             {
                 src: Photoshoots12,
@@ -429,6 +440,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 35,
                 rowSpan: 5,
+                id: "2-5"
             },
             {
                 src: Photoshoots13,
@@ -436,6 +448,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 41,
                 rowSpan: 9,
+                id: "3-0"
             },
             {
                 src: Photoshoots14,
@@ -443,6 +456,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 41,
                 rowSpan: 4,
+                id: "3-1"
             },
             {
                 src: Photoshoots15,
@@ -450,6 +464,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 47,
                 rowSpan: 10,
+                id: "3-2"
             },
             {
                 src: Photoshoots16,
@@ -457,6 +472,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 51,
                 rowSpan: 5,
+                id: "3-3"
             },
             {
                 src: Photoshoots17,
@@ -464,6 +480,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 58,
                 rowSpan: 5,
+                id: "3-4"
             },
             {
                 src: Photoshoots18,
@@ -471,6 +488,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 57,
                 rowSpan: 5,
+                id: "3-5"
             },
             {
                 src: Photoshoots19,
@@ -478,6 +496,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 63,
                 rowSpan: 5,
+                id: "4-0"
             },
             {
                 src: Photoshoots20,
@@ -485,6 +504,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 64,
                 rowSpan: 6,
+                id: "4-1"
             },
             {
                 src: Photoshoots21,
@@ -492,6 +512,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 69,
                 rowSpan: 5,
+                id: "4-2"
             },
             {
                 src: Photoshoots22,
@@ -499,6 +520,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 71,
                 rowSpan: 6,
+                id: "4-3"
             },
             {
                 src: Photoshoots23,
@@ -506,6 +528,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 75,
                 rowSpan: 3,
+                id: "4-4"
             },
             {
                 src: Photoshoots24,
@@ -513,6 +536,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 78,
                 rowSpan: 5,
+                id: "4-5"
             },
             {
                 src: Photoshoots25,
@@ -520,6 +544,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 79,
                 rowSpan: 4,
+                id: "5-0"
             },
             {
                 src: Photoshoots26,
@@ -527,6 +552,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 82,
                 rowSpan: 4,
+                id: "5-1"
             },
             {
                 src: Photoshoots27,
@@ -534,6 +560,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 87,
                 rowSpan: 3,
+                id: "5-2"
             },
             {
                 src: Photoshoots28,
@@ -541,6 +568,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 84,
                 rowSpan: 5,
+                id: "5-3"
             },
             {
                 src: Photoshoots29,
@@ -548,6 +576,7 @@ export const portfolioDetails = {
                 colSpan: 10,
                 rowStart: 91,
                 rowSpan: 5,
+                id: "5-4"
             },
             {
                 src: Photoshoots30,
@@ -555,6 +584,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 97,
                 rowSpan: 4,
+                id: "5-5"
             },
             {
                 src: Photoshoots31,
@@ -562,6 +592,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 97,
                 rowSpan: 8,
+                id: "6-0"
             },
             {
                 src: Photoshoots32,
@@ -569,6 +600,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 102,
                 rowSpan: 3,
+                id: "6-1"
             },
             {
                 src: Photoshoots33,
@@ -576,6 +608,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 106,
                 rowSpan: 7,
+                id: "6-2"
             },
         ]
 },
@@ -1093,3 +1126,143 @@ export const portfolioDetails = {
         ]
     },
 };
+
+export const portfolioDetailsGallery = [
+    {
+        src: Photoshoots1,
+        id: "1-0"
+    }
+    ,
+    {
+        src: Photoshoots2,
+        id: "1-1"
+    },
+    {
+        src: Photoshoots3,
+        id: "1-2"
+    },
+    {
+        src: Photoshoots4,
+        id: "1-3"
+    },
+    {
+        src: Photoshoots5,
+        id: "1-4"
+    },
+    {
+        src: Photoshoots6,
+        id: "1-5"
+    },
+    {
+        src: Photoshoots7,
+        id: "2-0"
+    }, 
+    {
+        src: Photoshoots8,
+        id: "2-1"
+    }, 
+    {
+        src: Photoshoots9,
+        id: "2-2"
+    }, 
+    {
+        src: Photoshoots10,
+        id: "2-3"
+    }
+    ,
+    {
+        src: Photoshoots11,
+        id: "2-4"
+    },
+    {
+        src: Photoshoots12,
+        id: "2-5"
+    },
+    {
+        src: Photoshoots13,
+        id: "3-0"
+    },
+    {
+        src: Photoshoots14,
+        id: "3-1"
+    }
+    ,
+    {
+        src: Photoshoots15,
+        id: "3-2"
+    },
+    {
+        src: Photoshoots16,
+        id: "3-3"
+    },
+    {
+        src: Photoshoots17,
+        id: "3-4"
+    },
+    {
+        src: Photoshoots18,
+        id: "3-5"
+    }
+    ,
+    {
+        src: Photoshoots19,
+        id: "4-0"
+    },
+    {
+        src: Photoshoots20,
+        id: "4-1"
+    },
+    {
+        src: Photoshoots21,
+        id: "4-2"
+    },
+    {
+        src: Photoshoots22,
+        id: "4-3"
+    }
+    ,
+    {
+        src: Photoshoots23,
+        id: "4-4"
+    },
+    {
+        src: Photoshoots24,
+        id: "4-5"
+    },
+    {
+        src: Photoshoots25,
+        id: "5-0"
+    },
+    {
+        src: Photoshoots26,
+        id: "5-1"
+    },
+    {
+        src: Photoshoots27,
+        id: "5-2"
+    },
+    {
+        src: Photoshoots28,
+        id: "5-3"
+    },
+    {
+        src: Photoshoots29,
+        id: "5-4"
+    },
+    {
+        src: Photoshoots30,
+        id: "5-5"
+    },
+    {
+        src: Photoshoots31,
+        id: "6-0"
+    },
+    {
+        src: Photoshoots32,
+        id: "6-1"
+    },
+    {
+        src: Photoshoots33,
+        id: "6-2"
+    },
+];
