@@ -124,13 +124,11 @@ const SwiperEditorialCard = ({ images }) => {
                 style={{ x: xTransform }} // Apply the xTransform for horizontal scrolling
             >
                 {images.map((image, i) => {
-                   // Calculate the center of the current image relative to the total scrollable width
-                   const imageCenter = (i + 0.5) * (imageStartWidth + gap); // Center of the image in the scrollable area
                   
-                   const startThreshold = ((imageCenter - viewportCenter - gap) / totalScrollableWidth); 
+                   const startThreshold = 0.25 * i; 
                    const endThreshold = startThreshold + 0.2; // Adjust this value for when scaling should stop
 
-                   const scaleTransform = useTransform(scrollYProgress, [0, endThreshold], [1, 0.6]);
+                   const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
 
                    return (
                         <motion.div
