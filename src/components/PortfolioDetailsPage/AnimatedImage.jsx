@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { cssNumber } from "jquery";
 
 const AnimatedImage = ({
   src,
@@ -19,29 +18,21 @@ const AnimatedImage = ({
   });
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [transitionTime, setTransitionTime] = useState('0.5')
 
-
-  // Define una sola transformación para el paralaje
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
-  const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]); // Escalado de 1 a 1.2
+  const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
+  
   const handleMouseMove = (e) => {
-
     const rect = container.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     setMousePosition({ x, y });
-  setTimeout(() => {
-    setTransitionTime('none')
-  }, 1000 )
-
   };
 
   const handleMouseLeave = () => {
-    setMousePosition({ x: 0, y: 0 })
-  }
-
+    setMousePosition({ x: 0, y: 0 });
+  };
 
   return (
     <div
@@ -61,15 +52,20 @@ const AnimatedImage = ({
         src={src}
         alt="Project Image"
         initial={{ scale: 1 }}
+        animate={{
+          marginTop: `-${mousePosition.y * 0.04}px`,
+          marginLeft: `-${mousePosition.x * 0.04}px`,
+        }}
+        transition={{
+          type: "tween",
+          stiffness: 30,
+        }}
         style={{
-          translateY: yTransform,
-          marginTop: `-${mousePosition.y * 0.05}px`, // Aplicar el efecto de paralaje
-          marginLeft: `-${mousePosition.x *  0.05}px`, 
-          transition: transitionTime + 's',
-          scale: scaleTransform, // Aplicar el escalado
           objectFit: "cover",
           width: "100%",
           height: "100%",
+          scale: scaleTransform, 
+          translateY: yTransform
         }}
       />
     </div>
@@ -77,3 +73,4 @@ const AnimatedImage = ({
 };
 
 export default AnimatedImage;
+
