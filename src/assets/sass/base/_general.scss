@@ -285,3 +285,19 @@
     // filter: invert(1);
     mix-blend-mode: difference;
   }
+
+  .overflow-x-hidden{
+    overflow-x: hidden !important;
+  }
+
+  .overflow-y-hidden{
+    overflow-y: hidden !important;
+  }
+
+  .overflow-x-clip{
+    overflow-x: clip !important;
+  }
+
+  .overflow-y-clip{
+    overflow-y: clip !important;
+  }
