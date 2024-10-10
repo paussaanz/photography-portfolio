@@ -1,95 +1,3 @@
-// import React, { useEffect, useRef, useState } from "react";
-// import gsap from "gsap";
-
-// const SwiperEditorialCard = ({ images }) => {
-//     const sliderRef = useRef(null);
-//     const sliderWrapperRef = useRef(null);
-//     const [target, setTarget] = useState(0);
-//     const [current, setCurrent] = useState(0);
-//     const ease = 0.1; // Tasa de suavizado más baja para un movimiento más fluido
-//     const [maxScroll, setMaxScroll] = useState(0);
-
-//     const lerp = (start, end, factor) => start + (end - start) * factor;
-
-//     const updateScaleAndPosition = () => {
-//         const slides = sliderWrapperRef.current?.querySelectorAll('.slide'); // Usar el encadenamiento opcional
-//         if (!slides) return; // Salir si no hay slides
-
-//         const windowWidth = window.innerWidth;
-
-//         slides.forEach((slide) => {
-//             const rect = slide.getBoundingClientRect();
-//             const centerPosition = (rect.left + rect.right) / 2;
-//             const distanceFromCenter = centerPosition - windowWidth / 2;
-//             let scale, offsetX;
-
-//             // Escalar y ajustar el desplazamiento basado en la distancia desde el centro
-//             if (distanceFromCenter > 0) {
-//                 scale = Math.min(1.75, 1 + distanceFromCenter / windowWidth);
-//                 offsetX = (scale - 1) * 300; // Desplazamiento a la derecha
-//             } else {
-//                 scale = Math.max(0.5, 1 - Math.abs(distanceFromCenter) / windowWidth);
-//                 offsetX = 0; // Sin desplazamiento
-//             }
-
-//             gsap.set(slide, { scale: scale, x: offsetX });
-//         });
-//     };
-
-//     const update = () => {
-//         setCurrent((prevCurrent) => {
-//             const newCurrent = lerp(prevCurrent, target, ease);
-//             if (sliderWrapperRef.current) {
-//                 gsap.set(sliderWrapperRef.current, { x: -newCurrent }); // Aplicar desplazamiento negativo
-//             }
-//             updateScaleAndPosition();
-//             return newCurrent;
-//         });
-
-//         requestAnimationFrame(update); // Llama a la función de actualización en el siguiente frame
-//     };
-
-//     useEffect(() => {
-//         const resizeHandler = () => {
-//             if (sliderWrapperRef.current) {
-//                 setMaxScroll(sliderWrapperRef.current.scrollWidth - window.innerWidth);
-//             }
-//         };
-
-//         window.addEventListener('resize', resizeHandler);
-//         resizeHandler(); // Inicializa maxScroll en el montaje
-
-//         const wheelHandler = (e) => {
-//             setTarget((prevTarget) => {
-//                 let newTarget = prevTarget + e.deltaY; // Aumentar el objetivo basado en el desplazamiento
-//                 newTarget = Math.max(0, Math.min(newTarget, maxScroll)); // Limitar el desplazamiento dentro del rango
-//                 return newTarget;
-//             });
-//         };
-
-//         window.addEventListener('wheel', wheelHandler);
-//         update(); // Inicia la animación
-
-//         return () => {
-//             window.removeEventListener('resize', resizeHandler);
-//             window.removeEventListener('wheel', wheelHandler);
-//         };
-//     }, [maxScroll]); // Actualiza el efecto cuando cambia maxScroll
-
-//     return (
-//         <div ref={sliderRef} className="vh-300 position-sticky">
-//             <div className="position-sticky top-0 d-flex vh-100 align-items-center justify-content-start gap-5" ref={sliderWrapperRef}>
-//                 {images.map(({ src }, i) => (
-//                     <div key={i} className="slide d-flex">
-//                         <img src={src} alt={`Slide ${i}`} />
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default SwiperEditorialCard;
 
 
 import React, { useRef } from "react";
@@ -106,9 +14,7 @@ const SwiperEditorialCard = ({ images }) => {
     const imageEndWidth = 940; // Image width in pixels
     const gap = 3 * 16; // 3rem in pixels (1rem = 16px)
     const viewportWidth = window.innerWidth; // Viewport width
-    const viewportCenter = viewportWidth / 2; // Center of the viewport
     const totalImages = images.length;
-    const totalScrollableWidth = (imageStartWidth + gap) * totalImages;
 
     // Calculate the final and initial positions for xTransform
     const finalPosition = `-${((totalImages - 1) * (imageEndWidth + gap)) - (viewportWidth / 2 - imageEndWidth / 2)}px`;
@@ -124,13 +30,13 @@ const SwiperEditorialCard = ({ images }) => {
                 style={{ x: xTransform }} // Apply the xTransform for horizontal scrolling
             >
                 {images.map((image, i) => {
-                  
-                   const startThreshold = 0.25 * i; 
-                   const endThreshold = startThreshold + 0.2; // Adjust this value for when scaling should stop
 
-                   const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
+                    const startThreshold = 0.25 * i;
+                    const endThreshold = startThreshold + 0.2; // Adjust this value for when scaling should stop
 
-                   return (
+                    const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
+
+                    return (
                         <motion.div
                             key={i}
                             className="slide d-flex"
@@ -154,5 +60,3 @@ const SwiperEditorialCard = ({ images }) => {
 };
 
 export default SwiperEditorialCard;
-
-

@@ -1,0 +1,38 @@
+.animated-image-card {
+  transition: all 0.5s ease; /* Aplicamos transición a todas las propiedades que cambien */
+}
+
+.gallery-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-details {
+  padding-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Puedes usar center o space-between también */
+  gap: 40px; /* Espacio entre imágenes */
+  padding: 10px;
+  max-width: 869px;
+}
+
+.animated-image-card {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+#change-btn {
+  position: fixed;
+  bottom: 30px;
+}
+
+#refdiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
