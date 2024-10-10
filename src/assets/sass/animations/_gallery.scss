@@ -6,8 +6,8 @@
 }
 
 .gallery{
-    width: 200vw;
-    height: 400vh;
+    width: 180vw;
+    height: 380vh;
     position: absolute;
     top: 50%;
     left:50%;
@@ -19,10 +19,11 @@
     padding: 10rem;
 }
 
-.row{
+.gallery-row{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    height: 300px;
 }
 
 .item {
