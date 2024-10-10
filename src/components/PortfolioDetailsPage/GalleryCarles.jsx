@@ -19,7 +19,7 @@ const GalleryCarles = ({ images }) => {
   return (
     <div data-barba="container">
       <div className={`gallery-grid ${ordered ? 'ordered' : 'unordered'}`}>
-        {images.slice(0, 3).map((img, index) => (
+        {images.slice(0, 8).map((img, index) => (
           <motion.div
             key={index}
             className="gallery-item"
@@ -27,6 +27,10 @@ const GalleryCarles = ({ images }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
+            style={{
+              gridColumn: !ordered && `${img.colStart} / span ${img.colSpan}`,
+              gridRow: !ordered && `${img.rowStart} / span ${img.rowSpan}`,
+            }}
           >
             <img src={img.src} alt={`img-${index}`} style={{ width: '100%' }} />
           </motion.div>

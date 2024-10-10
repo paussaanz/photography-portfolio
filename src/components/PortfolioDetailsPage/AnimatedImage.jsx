@@ -3,8 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const AnimatedImage = ({
   src,
-  translateX,
-  translateY,
   colStart,
   colSpan,
   rowSpan,
@@ -44,11 +42,12 @@ const AnimatedImage = ({
       ref={container}
       style={{
         transition: "all 2s ease",
+        gridColumn: `${colStart} / span ${colSpan}`,
+        gridRow: `${rowStart} / span ${rowSpan}`,
         overflow: "hidden",
         position: "relative",
         width: `${width}`,
         height: `${height}`,
-        transform: `translate(${translateX}px, ${translateY}px)`,
       }}
     >
       <motion.img
