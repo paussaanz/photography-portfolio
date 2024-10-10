@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { portfolioDetailsGallery } from "../../assets/js/images";
-import { motion, useTransform } from "framer-motion";
+import { useState } from "react";
 import GalleryItem from "./GalleryItem";
 
 const ImageGallery = ({images}) => {
@@ -17,7 +15,7 @@ const ImageGallery = ({images}) => {
       }
       
 
-    const [items, setItems] = useState(groupImages(images, 6));
+    const [items, setItems] = useState(groupImages(images, 5));
     const [mousePositions, setMousePositions] = useState({});
 
 
@@ -48,7 +46,7 @@ const ImageGallery = ({images}) => {
     return (
         <>
                     {items.map((row, rowIndex) => (
-                        <div className="row" key={`row-${rowIndex}`}>
+                        <div className="gallery-row" key={`row-${rowIndex}`}>
                             {row.map((item) => (
                                 <GalleryItem item={item} mousePositions={mousePositions} handleMouseLeaveImg={handleMouseLeaveImg} handleMouseMoveImg={handleMouseMoveImg}/>
                             ))}
