@@ -39,8 +39,7 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 80px;
 }
 
 .gallery-grid.ordered {

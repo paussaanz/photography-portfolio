@@ -35,7 +35,7 @@ const AnimatedImage = ({
   };
 
   return (
-    <div
+    <motion.div
       className="animated-image-card"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -47,7 +47,6 @@ const AnimatedImage = ({
         overflow: "hidden",
         position: "relative",
         width: `${width}`,
-        height: `${height}`,
       }}
     >
       <motion.img
@@ -66,7 +65,7 @@ const AnimatedImage = ({
           objectFit: "cover",
         }}
       />
-    </div>
+    </motion.div>
   );
 };
 
