@@ -36,3 +36,20 @@
   top: 0;
   left: 0;
 }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gallery-grid.ordered {
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* Cambia el layout cuando se activa el estado "ordered" */
+}
+
+.gallery-item {
+  background-color: #f0f0f0;
+}

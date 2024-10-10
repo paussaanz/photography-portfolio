@@ -1,49 +1,41 @@
-import React from 'react';
-import { Link as ScrollLink } from 'react-scroll';
-import AnimatedImage from './AnimatedImage';
-import './gallery.scss';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import './gallery.scss'; // CSS para el diseño
+
+const getRandomPosition = () => {
+  const x = Math.random() * 100; // 0 a 100%
+  const y = Math.random() * 100; // 0 a 100%
+  return { x, y };
+};
+
 
 const GalleryCarles = ({ images }) => {
-  const [orderedImages, setOrderedImages] = React.useState(false);
+  const [ordered, setOrdered] = useState(false); // Estado para cambiar el layout
 
-  const handleChange = () => {
-    setTimeout(() => {
-      setOrderedImages(prev => !prev);
-    }, 500);
+  const handleChangeOrder = () => {
+    setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
   };
 
   return (
-    <>
-      {/* Este es el contenedor al que haremos scroll */}
-      <div id="refdiv" style={{ minHeight: '10px', minWidth: '20px' }}></div>
-
-      <div data-barba="container" className="gallery-container">
-
-        <div className={`project-details d-flex justify-content-center align-items-center`}>
-          {images && images.slice(0, 7).map((img, index) => (
-            <AnimatedImage
-              key={index}
-              src={img.src}
-              width={!orderedImages ? img.width : '200px'}
-              translateX={!orderedImages ? img.translateX : '0'}
-              translateY={!orderedImages ? img.translateY : '0'}
-            />
-          ))}
-        </div>
-
-        {/* Botón que activa el cambio de estado */}
-        <ScrollLink to="refdiv" smooth={true} duration={500}>
-          <button id="change-btn" onClick={handleChange}>
-
-            <button id="scroll-btn">Scroll to Top</button>
-
-          </button>
-        </ScrollLink>
-
-        {/* Botón para realizar scroll suave */}
-
+    <div data-barba="container">
+      <div className={`gallery-grid ${ordered ? 'ordered' : 'unordered'}`}>
+        {images.slice(0, 3).map((img, index) => (
+          <motion.div
+            key={index}
+            className="gallery-item"
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img src={img.src} alt={`img-${index}`} style={{ width: '100%' }} />
+          </motion.div>
+        ))}
       </div>
-    </>
+      <button id="change-btn" onClick={handleChangeOrder}>
+        {ordered ? 'Desordenar' : 'Ordenar'}
+      </button>
+    </div>
   );
 };
 
