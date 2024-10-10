@@ -392,7 +392,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 15,
                 rowSpan: 7,
-                id: "1-5"
+                id: "2-0"
             },
             {
                 src: Photoshoots7,
@@ -400,7 +400,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 20,
                 rowSpan: 6,
-                id: "2-0"
+                id: "2-1"
             },
             {
                 src: Photoshoots8,
@@ -408,7 +408,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 23,
                 rowSpan: 4,
-                id: "2-1"
+                id: "2-2"
             },
             {
                 src: Photoshoots9,
@@ -416,7 +416,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 28,
                 rowSpan: 6,
-                id: "2-2"
+                id: "2-3"
             },
             {
                 src: Photoshoots10,
@@ -424,7 +424,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 29,
                 rowSpan: 3,
-                id: "2-3"
+                id: "2-4"
             },
             {
                 src: Photoshoots11,
@@ -432,7 +432,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 34,
                 rowSpan: 6,
-                id: "2-4"
+                id: "3-0"
             },
             {
                 src: Photoshoots12,
@@ -440,7 +440,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 35,
                 rowSpan: 5,
-                id: "2-5"
+                id: "3-1"
             },
             {
                 src: Photoshoots13,
@@ -448,7 +448,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 41,
                 rowSpan: 9,
-                id: "3-0"
+                id: "3-2"
             },
             {
                 src: Photoshoots14,
@@ -456,7 +456,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 41,
                 rowSpan: 4,
-                id: "3-1"
+                id: "3-3"
             },
             {
                 src: Photoshoots15,
@@ -464,7 +464,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 47,
                 rowSpan: 10,
-                id: "3-2"
+                id: "3-4"
             },
             {
                 src: Photoshoots16,
@@ -472,7 +472,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 51,
                 rowSpan: 5,
-                id: "3-3"
+                id: "4-0"
             },
             {
                 src: Photoshoots17,
@@ -480,7 +480,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 58,
                 rowSpan: 5,
-                id: "3-4"
+                id: "4-1"
             },
             {
                 src: Photoshoots18,
@@ -488,7 +488,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 57,
                 rowSpan: 5,
-                id: "3-5"
+                id: "4-2"
             },
             {
                 src: Photoshoots19,
@@ -496,7 +496,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 63,
                 rowSpan: 5,
-                id: "4-0"
+                id: "4-3"
             },
             {
                 src: Photoshoots20,
@@ -504,7 +504,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 64,
                 rowSpan: 6,
-                id: "4-1"
+                id: "4-4"
             },
             {
                 src: Photoshoots21,
@@ -512,7 +512,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 69,
                 rowSpan: 5,
-                id: "4-2"
+                id: "5-0"
             },
             {
                 src: Photoshoots22,
@@ -520,7 +520,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 71,
                 rowSpan: 6,
-                id: "4-3"
+                id: "5-1"
             },
             {
                 src: Photoshoots23,
@@ -528,7 +528,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 75,
                 rowSpan: 3,
-                id: "4-4"
+                id: "5-2"
             },
             {
                 src: Photoshoots24,
@@ -536,7 +536,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 78,
                 rowSpan: 5,
-                id: "4-5"
+                id: "5-3"
             },
             {
                 src: Photoshoots25,
@@ -544,7 +544,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 79,
                 rowSpan: 4,
-                id: "5-0"
+                id: "5-4"
             },
             {
                 src: Photoshoots26,
@@ -552,7 +552,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 82,
                 rowSpan: 4,
-                id: "5-1"
+                id: "6-0"
             },
             {
                 src: Photoshoots27,
@@ -560,7 +560,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 87,
                 rowSpan: 3,
-                id: "5-2"
+                id: "6-1"
             },
             {
                 src: Photoshoots28,
@@ -568,7 +568,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 84,
                 rowSpan: 5,
-                id: "5-3"
+                id: "6-2"
             },
             {
                 src: Photoshoots29,
@@ -576,7 +576,7 @@ export const portfolioDetails = {
                 colSpan: 10,
                 rowStart: 91,
                 rowSpan: 5,
-                id: "5-4"
+                id: "6-3"
             },
             {
                 src: Photoshoots30,
@@ -584,7 +584,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 97,
                 rowSpan: 4,
-                id: "5-5"
+                id: "6-4"
             },
             {
                 src: Photoshoots31,
@@ -592,7 +592,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 97,
                 rowSpan: 8,
-                id: "6-0"
+                id: "7-0"
             },
             {
                 src: Photoshoots32,
@@ -600,7 +600,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 102,
                 rowSpan: 3,
-                id: "6-1"
+                id: "7-1"
             },
             {
                 src: Photoshoots33,
@@ -608,7 +608,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 106,
                 rowSpan: 7,
-                id: "6-2"
+                id: "7-2"
             },
         ]
 },
@@ -621,6 +621,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 1,
                 rowSpan: 8,
+                id: "1-0"
             },
             {
                 src: Music2,
@@ -628,6 +629,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 2,
                 rowSpan: 6,
+                id: "1-1"
             },
             {
                 src: Music3,
@@ -635,6 +637,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 9,
                 rowSpan: 4,
+                id: "1-2"
             },
             {
                 src: Music4,
@@ -642,7 +645,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 12,
                 rowSpan: 6,
-                width: "90%"
+                width: "90%",
+                id: "1-3"
             },
             {
                 src: Music5,
@@ -650,6 +654,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 14,
                 rowSpan: 4,
+                id: "1-4"
             },
             {
                 src: Music6,
@@ -657,7 +662,8 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 19,
                 rowSpan: 7,
-                width: "90%"
+                width: "90%",
+                id: "2-0"
             },
             {
                 src: Music7,
@@ -665,7 +671,8 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 25,
                 rowSpan: 5,
-                width: "95%"
+                width: "95%",
+                id: "2-1"
             },
             {
                 src: Music8,
@@ -674,6 +681,7 @@ export const portfolioDetails = {
                 rowStart: 19,
                 rowSpan: 5,
                 width: "90%",
+                id: "2-2"
             },
             {
                 src: Music9,
@@ -682,7 +690,8 @@ export const portfolioDetails = {
                 rowStart: 27,
                 rowSpan: 3,
                 width: "93%",
-                height: "93%"
+                height: "93%",
+                id: "2-3"
             },
             {
                 src: Music11,
@@ -690,6 +699,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 31,
                 rowSpan: 7,
+                id: "2-4"
             },
             {
                 src: Music12,
@@ -697,6 +707,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 33,
                 rowSpan: 4,
+                id: "3-0"
             },
             {
                 src: Music13,
@@ -704,6 +715,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 39,
                 rowSpan: 4,
+                id: "3-1"
             },
             {
                 src: Music14,
@@ -711,6 +723,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 41,
                 rowSpan: 3,
+                id: "3-2"
             },
             {
                 src: Music15,
@@ -718,6 +731,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 42,
                 rowSpan: 6,
+                id: "3-3"
             },
         ]
     },
@@ -730,6 +744,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 1,
                 rowSpan: 8,
+                id: "1-0"
             },
             {
                 src: Nature2,
@@ -737,6 +752,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 2,
                 rowSpan: 6,
+                id: "1-1"
             },
             {
                 src: Nature3,
@@ -744,6 +760,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 9,
                 rowSpan: 4,
+                id: "1-2"
             },
             {
                 src: Nature4,
@@ -751,7 +768,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 11,
                 rowSpan: 5,
-                width: "90%"
+                width: "90%",
+                id: "1-3"
             },
             {
                 src: Nature5,
@@ -759,7 +777,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 14,
                 rowSpan: 4,
-                width: "95%"
+                width: "95%",
+                id: "1-4"
             },
             {
                 src: Nature6,
@@ -767,7 +786,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 18,
                 rowSpan: 5,
-                width: "90%"
+                width: "90%",
+                id: "2-0"
             },
             {
                 src: Nature7,
@@ -775,7 +795,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 21,
                 rowSpan: 5,
-                width: "90%"
+                width: "90%",
+                id: "2-1"
             },
             {
                 src: Nature8,
@@ -783,6 +804,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 22,
                 rowSpan: 9,
+                id: "2-2"
             },
             {
                 src: Nature9,
@@ -790,6 +812,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 27,
                 rowSpan: 8,
+                id: "2-3"
             },
             {
                 src: Nature10,
@@ -797,6 +820,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 32,
                 rowSpan: 4,
+                id: "2-4"
             },
             {
                 src: Nature11,
@@ -804,6 +828,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 37,
                 rowSpan: 6,
+                id: "3-0"
             },
             {
                 src: Nature12,
@@ -812,7 +837,8 @@ export const portfolioDetails = {
                 rowStart: 38,
                 rowSpan: 4,
                 width: "90%",
-                height: "120%"
+                height: "120%",
+                id: "3-1"
             },
             {
                 src: Nature13,
@@ -820,6 +846,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 40,
                 rowSpan: 5,
+                id: "3-2"
             },
             {
                 src: Nature14,
@@ -827,6 +854,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 44,
                 rowSpan: 10,
+                id: "3-3"
             },
             {
                 src: Nature15,
@@ -834,6 +862,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 53,
                 rowSpan: 5,
+                id: "3-4"
             },
             {
                 src: Nature16,
@@ -841,6 +870,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 58,
                 rowSpan: 8,
+                id: "4-0"
             },
             {
                 src: Nature17,
@@ -848,7 +878,8 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 59,
                 rowSpan: 6,
-                height: "120%"
+                height: "120%",
+                id: "4-1"
             },
             {
                 src: Nature18,
@@ -856,6 +887,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 67,
                 rowSpan: 6,
+                id: "4-2"
             },
             {
                 src: Nature19,
@@ -863,7 +895,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 68,
                 rowSpan: 4,
-                height: "115%"
+                height: "115%",
+                id: "4-3"
             },
             {
                 src: Nature20,
@@ -871,6 +904,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 74,
                 rowSpan: 5,
+                id: "4-4"
             },
             {
                 src: Nature21,
@@ -878,7 +912,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 75,
                 rowSpan: 6,
-                width: "90%"
+                width: "90%",
+                id: "5-0"
             },
             {
                 src: Nature22,
@@ -886,7 +921,8 @@ export const portfolioDetails = {
                 colSpan: 2,
                 rowStart: 74,
                 rowSpan: 5,
-                width: "130%"
+                width: "130%",
+                id: "5-1"
             },
             {
                 src: Nature23,
@@ -894,7 +930,8 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 82,
                 rowSpan: 4,
-                width: "90%"
+                width: "90%",
+                id: "5-2"
             },
             {
                 src: Nature24,
@@ -902,6 +939,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 83,
                 rowSpan: 5,
+                id: "5-3"
             },
             {
                 src: Nature25,
@@ -909,7 +947,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 82,
                 rowSpan: 6,
-                height:"110%"
+                height:"110%",
+                id: "5-4"
             },
             {
                 src: Nature26,
@@ -917,6 +956,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 89,
                 rowSpan: 7,
+                id: "6-0"
             },
             {
                 src: Nature27,
@@ -924,6 +964,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 91,
                 rowSpan: 8,
+                id: "6-1"
             },
             {
                 src: Nature28,
@@ -931,6 +972,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 97,
                 rowSpan: 5,
+                id: "6-2"
             },
             {
                 src: Nature29,
@@ -938,6 +980,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 98,
                 rowSpan: 7,
+                id: "6-3"
             },
         ]
     },
@@ -950,6 +993,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 1,
                 rowSpan: 8,
+                id: "1-0"
             },
             {
                 src: Lifestyle2,
@@ -957,6 +1001,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 2,
                 rowSpan: 6,
+                id: "1-1"
             },
             {
                 src: Lifestyle3,
@@ -964,7 +1009,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 11,
                 rowSpan: 6,
-                width: "90%"
+                width: "90%",
+                id: "1-2"
             },
             {
                 src: Lifestyle4,
@@ -972,6 +1018,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 9,
                 rowSpan: 4,
+                id: "1-3"
             },
             {
                 src: Lifestyle5,
@@ -979,7 +1026,8 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 14,
                 rowSpan: 4,
-                width: "95%"
+                width: "95%",
+                id: "1-4"
             },
             {
                 src: Lifestyle6,
@@ -987,7 +1035,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 18,
                 rowSpan: 5,
-                width: "90%"
+                width: "90%",
+                id: "2-0"
             },
             {
                 src: Lifestyle7,
@@ -995,6 +1044,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 19,
                 rowSpan: 8,
+                id: "2-1"
             },
             {
                 src: Lifestyle8,
@@ -1002,6 +1052,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 24,
                 rowSpan: 9,
+                id: "2-2"
             },
             {
                 src: Lifestyle9,
@@ -1009,6 +1060,7 @@ export const portfolioDetails = {
                 colSpan: 2,
                 rowStart: 28,
                 rowSpan: 4,
+                id: "2-3"
             },
             {
                 src: Lifestyle10,
@@ -1016,6 +1068,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 30,
                 rowSpan: 4,
+                id: "2-4"
             },
             {
                 src: Lifestyle11,
@@ -1023,6 +1076,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 35,
                 rowSpan: 6,
+                id: "3-0"
             },
             {
                 src: Lifestyle12,
@@ -1030,6 +1084,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 38,
                 rowSpan: 7,
+                id: "3-1"
             },
             {
                 src: Lifestyle13,
@@ -1037,6 +1092,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 39,
                 rowSpan: 5,
+                id: "3-2"
             },
             {
                 src: Lifestyle14,
@@ -1044,6 +1100,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 49,
                 rowSpan: 10,
+                id: "3-3"
             },
             {
                 src: Lifestyle15,
@@ -1051,6 +1108,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 46,
                 rowSpan: 6,
+                id: "3-4"
             },
             {
                 src: Lifestyle16,
@@ -1058,6 +1116,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 53,
                 rowSpan: 7,
+                id: "4-0"
             },
         ]
     },
@@ -1070,6 +1129,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 1,
                 rowSpan: 8,
+                id: "1-0"
             },
             {
                 src: Sports2,
@@ -1077,6 +1137,7 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 2,
                 rowSpan: 6,
+                id: "1-1"
             },
             {
                 src: Sports3,
@@ -1084,7 +1145,8 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 11,
                 rowSpan: 6,
-                width: "90%"
+                width: "90%",
+                id: "1-2"
             },
             {
                 src: Sports4,
@@ -1092,6 +1154,7 @@ export const portfolioDetails = {
                 colSpan: 6,
                 rowStart: 9,
                 rowSpan: 4,
+                id: "1-3"
             },
             {
                 src: Sports5,
@@ -1099,7 +1162,8 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 14,
                 rowSpan: 4,
-                width: "95%"
+                width: "95%",
+                id: "1-4"
             },
             {
                 src: Sports6,
@@ -1107,7 +1171,8 @@ export const portfolioDetails = {
                 colSpan: 3,
                 rowStart: 18,
                 rowSpan: 5,
-                width: "90%"
+                width: "90%",
+                id: "2-0"
             },
             {
                 src: Sports7,
@@ -1115,6 +1180,7 @@ export const portfolioDetails = {
                 colSpan: 5,
                 rowStart: 19,
                 rowSpan: 8,
+                id: "2-1"
             },
             {
                 src: Sports8,
@@ -1122,6 +1188,7 @@ export const portfolioDetails = {
                 colSpan: 4,
                 rowStart: 24,
                 rowSpan: 9,
+                id: "2-2"
             },
         ]
     },
