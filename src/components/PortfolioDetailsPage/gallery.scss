@@ -40,6 +40,8 @@
 .gallery-grid {
   display: grid;
   gap: 80px;
+  justify-content: center;
+  align-items: center;
 }
 
 .gallery-grid.ordered {
@@ -47,6 +49,11 @@
     5,
     1fr
   ); /* Cambia el layout cuando se activa el estado "ordered" */
+}
+
+.gallery-grid.ordered .gallery-item{
+  height:200px !important;
+  width: 200px !important;
 }
 
 .gallery-item {

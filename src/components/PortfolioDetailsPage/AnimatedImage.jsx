@@ -47,6 +47,7 @@ const AnimatedImage = ({
         overflow: "hidden",
         position: "relative",
         width: `${width}`,
+        height: `${height}`,
       }}
     >
       <motion.img
@@ -63,6 +64,10 @@ const AnimatedImage = ({
         }}
         style={{
           objectFit: "cover",
+          width: "100%",
+          height: "100%",
+          scale: scaleTransform, 
+          translateY: yTransform
         }}
       />
     </motion.div>
@@ -70,3 +75,4 @@ const AnimatedImage = ({
 };
 
 export default AnimatedImage;
+
