@@ -1,26 +1,27 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GalleryItem from "./GalleryItem";
+import { use } from "framer-motion/client";
 
-const ImageGallery = ({images}) => {
+const ImageGallery = ({ images }) => {
+    const galleryRef = useRef(null);
 
     function groupImages(images, groupSize) {
         const groupedImages = [];
-      
+
         for (let i = 0; i < images.length; i += groupSize) {
-          const group = images.slice(i, i + groupSize);
-          groupedImages.push(group);
+            const group = images.slice(i, i + groupSize);
+            groupedImages.push(group);
         }
-      
+
         return groupedImages;
-      }
-      
+    }
+
 
     const [items, setItems] = useState(groupImages(images, 5));
     const [mousePositions, setMousePositions] = useState({});
 
 
-    
-    
+    // create the logic to scroll to the gallery section when component is mounted
 
     const handleMouseMoveImg = (e, itemId) => {
         const { clientX, clientY, currentTarget } = e;
@@ -38,22 +39,20 @@ const ImageGallery = ({images}) => {
         setMousePositions((prevPositions) => ({
             ...prevPositions,
             [itemId]: null, // Reset the mouse position on leave
-
         }));
     };
 
-   
-    return (
-        <>
-                    {items.map((row, rowIndex) => (
-                        <div className="gallery-row" key={`row-${rowIndex}`}>
-                            {row.map((item) => (
-                                <GalleryItem item={item} mousePositions={mousePositions} handleMouseLeaveImg={handleMouseLeaveImg} handleMouseMoveImg={handleMouseMoveImg}/>
-                            ))}
-                        </div>
-                    ))}
 
-        </>
+    return (
+        <div id="gallery-container" ref={galleryRef}>
+            {items.map((row, rowIndex) => (
+                <div className="gallery-row" key={`row-${rowIndex}`}>
+                    {row.map((item) => (
+                        <GalleryItem item={item} key={item.src} mousePositions={mousePositions} handleMouseLeaveImg={handleMouseLeaveImg} handleMouseMoveImg={handleMouseMoveImg} />
+                    ))}
+                </div>
+            ))}
+        </div>
     );
 };
 

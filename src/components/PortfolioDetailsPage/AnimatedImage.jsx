@@ -9,7 +9,9 @@ const AnimatedImage = ({
   rowStart,
   width = "100%",
   height = "100%",
-  parallaxSpeed = -40, // Velocidad del efecto de paralaje
+  ordered,
+  parallaxSpeed = -40,
+  index
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -22,7 +24,7 @@ const AnimatedImage = ({
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
   const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
-  
+
   const handleMouseMove = (e) => {
     const rect = container.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -35,42 +37,45 @@ const AnimatedImage = ({
   };
 
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+
+
+    <motion.div
+      className="gallery-item overflow-hidden"
       ref={container}
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, stiffness: 100, }}
       style={{
-        gridColumn: `${colStart} / span ${colSpan}`,
-        gridRow: `${rowStart} / span ${rowSpan}`,
-        overflow: "hidden",
-        position: "relative",
+        gridColumn: !ordered && `${colStart} / span ${colSpan}`,
+        gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
         width: `${width}`,
         height: `${height}`,
       }}
     >
       <motion.img
         src={src}
-        alt="Project Image"
+        alt={`img-${index}`}
         initial={{ scale: 1 }}
         animate={{
           marginTop: `-${mousePosition.y * 0.04}px`,
           marginLeft: `-${mousePosition.x * 0.04}px`,
         }}
         transition={{
-          type: "tween",
+          type: "spring",
           stiffness: 30,
         }}
         style={{
           objectFit: "cover",
           width: "100%",
           height: "100%",
-          scale: scaleTransform, 
-          translateY: yTransform
+          scale: !ordered && scaleTransform,
+          translateY: !ordered && yTransform
         }}
       />
-    </div>
+    </motion.div>
+
   );
 };
 
 export default AnimatedImage;
-

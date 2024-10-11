@@ -13,15 +13,23 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
     const handleShowGrid = () => {
         setActiveContent('Grid');
+
+        console.log(imagesSectionRef.current)
+
     };
 
     const handleShowGallery = () => {
         setActiveContent('Gallery');
+
+        console.log(imagesSectionRef.current)
+
     };
 
     useLayoutEffect(() => {
         if (imagesSectionRef.current) {
-            imagesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            requestAnimationFrame(() => {
+                imagesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            });
         }
     }, [activeContent]);
 
@@ -45,6 +53,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             <section className="hero-details position-relative">
                 <HeroDetails slug={title} src={heroImage.src} />
             </section>
+
             <section className="text-animation">
                 <div className="py-5 vh-100 align-content-center">
                     <TextAnimationContainer
@@ -55,7 +64,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 </div>
             </section>
 
-            <section className="images-gallery" ref={imagesSectionRef}>
+            <div ></div>
+            <section ref={imagesSectionRef} className="images-gallery">
                 <div className="text-dark text-center bottom-fixed-button">
                     <Button className="text-dark" text="Grid" onClick={handleShowGrid} />
                     |
@@ -87,8 +97,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                         </div>
                     )
                 }
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 

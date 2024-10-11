@@ -17,8 +17,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
     const containerActiveSlide = gsap.utils.toArray('.active-slide');
     const containerSlides = gsap.utils.toArray('.slider');
 
-    console.log(slides)
-    console.log(containerActiveSlide)
     function getInitialTranslateZ(slide) {
       const style = window.getComputedStyle(slide);
       const matrix = style.transform.match(/matrix3d\((.+)\)/);
@@ -113,23 +111,23 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       <div className="slider position-sticky top-0 vw-100 vh-100">
 
         {portfolioCardAnimation.map((image, index) => (
-          
+
           <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
             <a href={image.url} className="text-decoration-none">
               <div className={`slide-img `}>
-              <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
-            </div>
+                <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
+              </div>
 
-            <div className='slide-copy text-uppercase text-center text-white'>
-              <p className="m-0">{image.name} - {image.date}</p>
-              <p className="m-0">{image.description}</p>
-            </div>
-          </a>
-            </div>
-          
+              <div className='slide-copy text-uppercase text-center text-white'>
+                <p className="m-0">{image.name} - {image.date}</p>
+                <p className="m-0">{image.description}</p>
+              </div>
+            </a>
+          </div>
+
         ))}
 
-    </div>
+      </div>
 
 
 
