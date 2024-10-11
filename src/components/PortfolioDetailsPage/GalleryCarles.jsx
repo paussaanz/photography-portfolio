@@ -11,8 +11,7 @@ const getRandomPosition = () => {
 };
 
 
-const GalleryCarles = ({ images }) => {
-  const [ordered, setOrdered] = useState(false); // Estado para cambiar el layout
+const GalleryCarles = ({ images, ordered }) => {
 
 
   const container = useRef(null);
@@ -38,9 +37,7 @@ const GalleryCarles = ({ images }) => {
     setMousePosition({ x: 0, y: 0 });
   };
 
-  const handleChangeOrder = () => {
-    setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
-  };
+
 
   return (
     <div data-barba="container">
@@ -61,9 +58,9 @@ const GalleryCarles = ({ images }) => {
           />
         ))}
       </div>
-      <button id="change-btn" onClick={handleChangeOrder}>
+      {/* <button id="change-btn" onClick={handleChangeOrder}>
         {ordered ? 'Desordenar' : 'Ordenar'}
-      </button>
+      </button> */}
     </div>
   );
 };

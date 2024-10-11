@@ -56,6 +56,11 @@
   width: 200px !important;
 }
 
+.gallery-grid.ordered .gallery-item img{
+  transform: translateY(0) !important;
+  scale: 1 !important;
+}
+
 .gallery-item {
   background-color: #f0f0f0;
 }

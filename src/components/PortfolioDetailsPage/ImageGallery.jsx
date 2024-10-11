@@ -3,7 +3,6 @@ import GalleryItem from "./GalleryItem";
 import { use } from "framer-motion/client";
 
 const ImageGallery = ({ images }) => {
-    const galleryRef = useRef(null);
 
     function groupImages(images, groupSize) {
         const groupedImages = [];
@@ -44,7 +43,7 @@ const ImageGallery = ({ images }) => {
 
 
     return (
-        <div id="gallery-container" ref={galleryRef}>
+        <div id="gallery-container">
             {items.map((row, rowIndex) => (
                 <div className="gallery-row" key={`row-${rowIndex}`}>
                     {row.map((item) => (

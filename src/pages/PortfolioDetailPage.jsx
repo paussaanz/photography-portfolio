@@ -3,35 +3,30 @@ import AnimatedImage from "../components/PortfolioDetailsPage/AnimatedImage";
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 import Button from "../components/General/Buttons/Button";
-import ImageGallery from "../components/PortfolioDetailsPage/ImageGallery";
+import GalleryCarles from "../components/PortfolioDetailsPage/GalleryCarles";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
-    const [activeContent, setActiveContent] = useState('Grid');
+    const [ordered, setOrdered] = useState(false);
+    const [disabledButtons, setDisabledButtons] = useState(false);
     const imagesSectionRef = useRef(null);
     const galleryRef = useRef(null);
 
-    const handleShowGrid = () => {
-        setActiveContent('Grid');
-
-        console.log(imagesSectionRef.current)
-
+    const handleChangeOrder = () => {
+        setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
+        setDisabledButtons(true)
+        setTimeout(() => {
+            setDisabledButtons(false)
+        }, [100])
     };
 
-    const handleShowGallery = () => {
-        setActiveContent('Gallery');
-
-        console.log(imagesSectionRef.current)
-
-    };
-
-    useLayoutEffect(() => {
-        if (imagesSectionRef.current) {
-            requestAnimationFrame(() => {
-                imagesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-            });
-        }
-    }, [activeContent]);
+    // useLayoutEffect(() => {
+    //     if (imagesSectionRef.current) {
+    //         requestAnimationFrame(() => {
+    //             imagesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    //         });
+    //     }
+    // }, []);
 
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
@@ -44,9 +39,12 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         const sensitivityY = 0.25;
         const deltaX = (centerX - clientX) / sensitivityX;
         const deltaY = (centerY - clientY) / sensitivityY;
+        const translateOnOrder = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`
+        const translateOnUnordered = `translate(0, 0)`
 
-        galleryRef.current.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`;
+        galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
+
 
     return (
         <div data-barba="container" className="barba-container">
@@ -66,37 +64,19 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
             <div ></div>
             <section ref={imagesSectionRef} className="images-gallery">
-                <div className="text-dark text-center bottom-fixed-button">
-                    <Button className="text-dark" text="Grid" onClick={handleShowGrid} />
+                <div className={`text-dark text-center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                    <Button className="text-dark" text="Grid" onClick={handleChangeOrder} />
                     |
-                    <Button className="text-dark" text="Gallery" onClick={handleShowGallery} />
+                    <Button className="text-dark" text="Gallery" onClick={handleChangeOrder} />
                 </div>
-                {
-                    activeContent === 'Grid' ? (
-                        <div className="project-details d-grid justify-content-center align-items-center">
-                            {images && projectImages.map((img, index) => (
-                                <AnimatedImage
-                                    key={index}
-                                    src={img.src}
-                                    colStart={img.colStart}
-                                    colSpan={img.colSpan}
-                                    rowStart={img.rowStart}
-                                    rowSpan={img.rowSpan}
-                                    width={img.width}
-                                    height={img.height}
-                                />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="container-gallery" onMouseMove={handleMouseMove}>
-                            <div className="gallery" ref={galleryRef}>
-                                <ImageGallery
-                                    images={projectImages}
-                                />
-                            </div>
-                        </div>
-                    )
-                }
+                <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove}>
+                    <div className={ordered ? 'gallery' : ''} ref={galleryRef }>
+                        <GalleryCarles
+                            ordered={ordered}
+                            images={projectImages}
+                        />
+                    </div>
+                </div>
             </section >
         </div >
     );
