@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './gallery.scss'; // CSS para el diseño
+import AnimatedImage from './AnimatedImage';
+
 
 const getRandomPosition = () => {
   const x = Math.random() * 100; // 0 a 100%
@@ -44,41 +46,19 @@ const GalleryCarles = ({ images }) => {
     <div data-barba="container">
       <div className={`gallery-grid ${ordered ? 'ordered' : 'unordered'} `}>
         {images.map((img, index) => (
-          <motion.div
+          <AnimatedImage
             key={index}
-            className="gallery-item overflow-hidden"
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              gridColumn: !ordered && `${img.colStart} / span ${img.colSpan}`,
-              gridRow: !ordered && `${img.rowStart} / span ${img.rowSpan}`,
-              width: `${img.width}`,
-              height: `${img.height}`,
-            }}
-          >
-            <motion.img
-              src={img.src}
-              alt={`img-${index}`}
-              initial={{ scale: 1 }}
-              animate={{
-                marginTop: `-${mousePosition.y * 0.04}px`,
-                marginLeft: `-${mousePosition.x * 0.04}px`,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 30,
-              }}
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                height: "100%",
-                scale: scaleTransform, 
-                translateY: yTransform
-              }}
-            />
-          </motion.div>
+            src={img.src}
+            colStart={img.colStart}
+            colSpan={img.colSpan}
+            rowSpan={img.rowSpan}
+            rowStart={img.rowStart}
+            width={img.width}
+            height={img.height}
+            parallaxSpeed={-40}
+            ordered={ordered}
+            index={index}
+          />
         ))}
       </div>
       <button id="change-btn" onClick={handleChangeOrder}>

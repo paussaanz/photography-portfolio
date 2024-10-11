@@ -9,7 +9,9 @@ const AnimatedImage = ({
   rowStart,
   width = "100%",
   height = "100%",
-  parallaxSpeed = -40, // Velocidad del efecto de paralaje
+  ordered,
+  parallaxSpeed = -40,
+  index
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -35,24 +37,25 @@ const AnimatedImage = ({
   };
 
   return (
+
+
     <motion.div
-      className="animated-image-card"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      className="gallery-item overflow-hidden"
       ref={container}
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, stiffness: 100, }}
       style={{
-        transition: "all 2s ease",
-        gridColumn: `${colStart} / span ${colSpan}`,
-        gridRow: `${rowStart} / span ${rowSpan}`,
-        overflow: "hidden",
-        position: "relative",
+        gridColumn: !ordered && `${colStart} / span ${colSpan}`,
+        gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
         width: `${width}`,
         height: `${height}`,
       }}
     >
       <motion.img
         src={src}
-        alt="Project Image"
+        alt={`img-${index}`}
         initial={{ scale: 1 }}
         animate={{
           marginTop: `-${mousePosition.y * 0.04}px`,
@@ -66,13 +69,13 @@ const AnimatedImage = ({
           objectFit: "cover",
           width: "100%",
           height: "100%",
-          scale: scaleTransform, 
-          translateY: yTransform
+          scale: !ordered && scaleTransform,
+          translateY: !ordered && yTransform
         }}
       />
     </motion.div>
+
   );
 };
 
 export default AnimatedImage;
-
