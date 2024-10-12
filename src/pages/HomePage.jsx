@@ -33,7 +33,7 @@ const HomePage = () => {
             <section className="text-animation-homepage swiper-portfolio-homepage">
                 <motion.div
                     style={{ scale, rotate }}
-                    className="bg-light position-sticky top-0 py-5 vh-100 align-content-center">
+                    className="position-sticky top-0 py-5 vh-100 align-content-center">
                     <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
                 </motion.div>
 

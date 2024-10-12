@@ -37,7 +37,7 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={1}/>
             </div>
             <div className="body text-primary text-center d-flex justify-content-center align-items-end vh-100">
-                <motion.h1 style={{ y: xsm }} className="m-0 text-uppercase text-light">
+                <motion.h1 style={{ y: xsm }} className="m-0 text-uppercase text-primary">
                     {word}
                 </motion.h1>
             </div>
