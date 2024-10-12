@@ -41,11 +41,20 @@ const AnimatedImage = ({
 
     <motion.div
       className="gallery-item overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       ref={container}
       layout
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.75, stiffness: 100, }}
+      animate={{ 
+        opacity: 1, 
+        marginTop: !ordered ? '0' : `-${mousePosition.y * 0.3}px`,
+        marginLeft: !ordered ? '0' : `-${mousePosition.x * 0.3}px`,
+      }}
+      transition={{ 
+        duration: 0.75, 
+        type: "tween",
+        stiffness: 100, }}
       style={{
         gridColumn: !ordered && `${colStart} / span ${colSpan}`,
         gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
@@ -58,11 +67,11 @@ const AnimatedImage = ({
         alt={`img-${index}`}
         initial={{ scale: 1 }}
         animate={{
-          marginTop: `-${mousePosition.y * 0.04}px`,
-          marginLeft: `-${mousePosition.x * 0.04}px`,
+          marginTop: ordered ? '0' : `-${mousePosition.y * 0.04}px`,
+          marginLeft: ordered ? '0' : `-${mousePosition.x * 0.04}px`,
         }}
         transition={{
-          type: "spring",
+          type: "tween",
           stiffness: 30,
         }}
         style={{
