@@ -16,7 +16,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "bootstrap": "^5.3.3",
     "bootstrap-select": "^1.13.18",
-    "framer-motion": "^11.3.31",
+    "framer-motion": "^11.11.8",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lenis": "^1.1.13",
