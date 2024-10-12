@@ -14,4 +14,7 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    include: ['react-scroll'],  // Incluimos react-scroll para que Vite lo optimice
+  },
 });
