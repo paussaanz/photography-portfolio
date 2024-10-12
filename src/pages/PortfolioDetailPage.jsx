@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import AnimatedImage from "../components/PortfolioDetailsPage/AnimatedImage";
+import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
+// import AnimatedImage from "../components/PortfolioDetailsPage/AnimatedImage";
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 import Button from "../components/General/Buttons/Button";
@@ -18,16 +19,23 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         setTimeout(() => {
             setDisabledButtons(false)
         }, [100])
+        
+        scroller.scrollTo('images-gallery', {
+            duration: 800,
+            delay: 0,
+            smooth: 'linear'
+        });
     };
 
-    // useLayoutEffect(() => {
-    //     if (imagesSectionRef.current) {
-    //         requestAnimationFrame(() => {
-    //             imagesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    //         });
-    //     }
-    // }, []);
-
+    useEffect(() => {
+        scroller.scrollTo('images-gallery', {
+            duration: 1000,
+            delay: 0,
+            smooth: 'linear'
+        });
+    }, [ordered]); // Asegúrate de que scroll solo ocurra cuando 'ordered' cambia
+    
+    
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
         const { clientX, clientY, currentTarget } = e;
@@ -35,8 +43,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         const centerX = width / 2;
         const centerY = height / 2;
 
-        const sensitivityX = 0.9;
-        const sensitivityY = 0.25;
+        const sensitivityX = 2;
+        const sensitivityY = 0.55;
         const deltaX = (centerX - clientX) / sensitivityX;
         const deltaY = (centerY - clientY) / sensitivityY;
         const translateOnOrder = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`
@@ -45,6 +53,13 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
 
+    const handleMouseLeave = () => {
+        const translateOnOrder = 'translate(-50%, -50%)'
+        const translateOnUnordered = `translate(0, 0)`
+
+        galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
+    };
+    
 
     return (
         <div data-barba="container" className="barba-container">
@@ -69,8 +84,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                     |
                     <Button className="text-dark" text="Gallery" onClick={handleChangeOrder} />
                 </div>
-                <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove}>
-                    <div className={ordered ? 'gallery' : ''} ref={galleryRef }>
+                <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+                    <div className={ordered ? 'gallery' : ''} ref={galleryRef}>
                         <GalleryCarles
                             ordered={ordered}
                             images={projectImages}
