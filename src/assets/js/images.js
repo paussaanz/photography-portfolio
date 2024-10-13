@@ -1,16 +1,16 @@
 //HOMEPAGE SWIPER
 import LifestyleHome from "/images/lifestyle-13.jpg";
-import MusicHome from "/images/music-1.jpg";
+import MusicHome from "/images/music.jpg";
 import NatureHome from "/images/nature-10.jpg";
 import PhotoshootsHome from "/images/photoshoots-8.jpg";
 import SportsHome from "/images/sports-5.jpg";
 
 //PORTFOLIO PAGE SWIPER
-import LifestylePortfolio from "/images/lifestyle-1.jpg";
-import MusicPortfolio from "/images/music-1.jpg";
-import NaturePortfolio from "/images/nature-2.jpg";
-import PhotoshootsPortfolio from "/images/photoshoots-2.jpg";
-import SportsPortfolio from "/images/sports-2.jpg";
+import LifestylePortfolio from "/images/lifestyle.jpg";
+import MusicPortfolio from "/images/music.jpg";
+import NaturePortfolio from "/images/nature.jpg";
+import PhotoshootsPortfolio from "/images/photoshoots.jpg";
+import SportsPortfolio from "/images/sports.jpg";
 
 //PORTFOLIO PAGE PARALLAX
 import PortfolioParallax4 from "/images/lifestyle-16.jpg";
@@ -36,7 +36,6 @@ import Photoshoots16 from "/images/photoshoots-16.jpg";
 import Photoshoots17 from "/images/photoshoots-17.jpg";
 import Photoshoots18 from "/images/photoshoots-18.jpg";
 import Photoshoots19 from "/images/photoshoots-19.jpg";
-import Photoshoots2 from "/images/photoshoots-2.jpg";
 import Photoshoots20 from "/images/photoshoots-20.jpg";
 import Photoshoots21 from "/images/photoshoots-21.jpg";
 import Photoshoots22 from "/images/photoshoots-22.jpg";
@@ -58,9 +57,9 @@ import Photoshoots6 from "/images/photoshoots-6.jpg";
 import Photoshoots7 from "/images/photoshoots-7.jpg";
 import Photoshoots8 from "/images/photoshoots-8.jpg";
 import Photoshoots9 from "/images/photoshoots-9.jpg";
+import Photoshoots2 from "/images/photoshoots.jpg";
 
 //MUSIC
-import Music1 from "/images/music-1.jpg";
 import Music2 from "/images/music-2.jpg";
 import Music3 from "/images/music-3.jpg";
 import Music4 from "/images/music-4.jpg";
@@ -69,6 +68,7 @@ import Music6 from "/images/music-6.jpg";
 import Music7 from "/images/music-7.jpg";
 import Music8 from "/images/music-8.jpg";
 import Music9 from "/images/music-9.jpg";
+import Music1 from "/images/music.jpg";
 // import Music10 from '/images/music-10.jpg';
 import Music11 from "/images/music-11.jpg";
 import Music12 from "/images/music-12.jpg";
@@ -88,7 +88,6 @@ import Nature16 from "/images/nature-16.jpg";
 import Nature17 from "/images/nature-17.jpg";
 import Nature18 from "/images/nature-18.jpg";
 import Nature19 from "/images/nature-19.jpg";
-import Nature2 from "/images/nature-2.jpg";
 import Nature20 from "/images/nature-20.jpg";
 import Nature21 from "/images/nature-21.jpg";
 import Nature22 from "/images/nature-22.jpg";
@@ -106,9 +105,9 @@ import Nature6 from "/images/nature-6.jpg";
 import Nature7 from "/images/nature-7.jpg";
 import Nature8 from "/images/nature-8.jpg";
 import Nature9 from "/images/nature-9.jpg";
+import Nature2 from "/images/nature.jpg";
 
 //LIFESTYLE
-import Lifestyle1 from "/images/lifestyle-1.jpg";
 import Lifestyle10 from "/images/lifestyle-10.jpg";
 import Lifestyle11 from "/images/lifestyle-11.jpg";
 import Lifestyle12 from "/images/lifestyle-12.jpg";
@@ -124,16 +123,17 @@ import Lifestyle6 from "/images/lifestyle-6.jpg";
 import Lifestyle7 from "/images/lifestyle-7.jpg";
 import Lifestyle8 from "/images/lifestyle-8.jpg";
 import Lifestyle9 from "/images/lifestyle-9.jpg";
+import Lifestyle1 from "/images/lifestyle.jpg";
 
 //SPORTS
 import Sports1 from "/images/sports-1.jpg";
-import Sports2 from "/images/sports-2.jpg";
 import Sports3 from "/images/sports-3.jpg";
 import Sports4 from "/images/sports-4.jpg";
 import Sports5 from "/images/sports-5.jpg";
 import Sports6 from "/images/sports-6.jpg";
 import Sports7 from "/images/sports-7.jpg";
 import Sports8 from "/images/sports-8.jpg";
+import Sports2 from "/images/sports.jpg";
 
 export const homeSwiperImages = [
   {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
@@ -6,8 +6,12 @@ import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/im
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
+
 const PortfolioPage = () => {
     const sectionRef = useRef(null);
+    const [currentSectionIndex, setCurrentSectionIndex] = useState(null);
+
+    const newImageRef = useRef();
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -19,23 +23,20 @@ const PortfolioPage = () => {
             end: "bottom bottom", // Termina en la parte inferior
             scrub: 15, // Suaviza el efecto
             onUpdate: (self) => {
-                const progress = self.progress;
+                console.log(currentSectionIndex)
 
-                const newColor = `rgba(0, 0, 0, ${progress})`;
+                const newImage = `url(${portfolioCardAnimation[currentSectionIndex === null ? 0 : currentSectionIndex].src.toString()}) no-repeat center center / cover`
                 gsap.to(sectionRef.current, {
-                    backgroundColor: newColor,
-                    duration: 0.5,
-                    ease: "power3.out"
+                    background: newImage,
                 });
 
-              
-            }
+            },
         });
 
         return () => {
             scrollTriggerInstance.kill();
         };
-    }, []);
+    }, [currentSectionIndex]);
 
 
     return (
@@ -46,7 +47,7 @@ const PortfolioPage = () => {
                 </div>
             </section>
 
-            <section className="text-animation" ref={sectionRef}>
+            <section className="text-animation" ref={sectionRef} >
                 <div className="py-5 vh-100 align-content-center">
                     <TextAnimationContainer
                         text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
@@ -57,7 +58,7 @@ const PortfolioPage = () => {
 
                 <div className="projects-animation">
                     <div className="container-card-animation-wrapper">
-                        <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} />
+                        <ProjectCardAnimationGSAP setCurrentSectionIndex={setCurrentSectionIndex} />
                     </div>
                 </div>
             </section>

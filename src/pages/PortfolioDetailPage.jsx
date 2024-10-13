@@ -8,6 +8,7 @@ import GalleryCarles from "../components/PortfolioDetailsPage/GalleryCarles";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
+    const [currentImageBg, setCurrentImageBg] = useState(null);
     const [ordered, setOrdered] = useState(false);
     const [disabledButtons, setDisabledButtons] = useState(false);
     const imagesSectionRef = useRef(null);
@@ -19,7 +20,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         setTimeout(() => {
             setDisabledButtons(false)
         }, [100])
-        
+
         scroller.scrollTo('images-gallery', {
             duration: 20,
             delay: 0,
@@ -34,8 +35,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             smooth: 'linear'
         });
     }, [ordered]); // Asegúrate de que scroll solo ocurra cuando 'ordered' cambia
-    
-    
+
+
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
         const { clientX, clientY, currentTarget } = e;
@@ -59,7 +60,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
-    
+
 
     return (
         <div data-barba="container" className="barba-container">

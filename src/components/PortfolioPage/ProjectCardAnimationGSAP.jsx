@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { portfolioCardAnimation } from '../../assets/js/images';
 
-const ProjectCardAnimation = ({ homeSwiperImages }) => {
+const ProjectCardAnimation = ({ setCurrentSectionIndex }) => {
 
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
           let opacity;
 
           //OPACIDAD DE LAS SLIDES
-          if (currentZ > -2500) {
-
+          if (currentZ > -2500 && currentZ < 640) {
+            setCurrentSectionIndex(i)
             opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
           } else {
             opacity = mapRange(currentZ, -5000, -2500, 0.2, 0.5);
@@ -62,7 +62,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
               duration: 1.5,
               ease: "power3.out"
             });
-            console.log(activeSlideImages[i])
           } else {
             // Si currentZ es mayor o igual a 640, reducir opacidad a 0 con animación suave
             gsap.to(activeSlideImages[i], {
@@ -85,15 +84,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
   return (
     <div className="container-card-animation w-100 vh-300 position-relative">
-      
-      <div className="active-slide position-absolute top-0 left-0 w-100 h-100 overflow-hidden">
-        {portfolioCardAnimation.map((image, index) => (
-          <div className="bg-images">
-            <img className="position-absolute" src={image.src} alt="" />
-          </div>
-        ))}
-      </div>
-
       <div className="slider position-sticky top-0 vw-100 vh-100">
         {portfolioCardAnimation.map((image, index) => (
           <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
