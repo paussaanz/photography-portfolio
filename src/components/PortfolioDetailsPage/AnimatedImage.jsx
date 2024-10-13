@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const AnimatedImage = ({
   src,
@@ -23,7 +24,7 @@ const AnimatedImage = ({
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
   const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     const rect = container.current.getBoundingClientRect();
@@ -40,21 +41,23 @@ const AnimatedImage = ({
 
 
     <motion.div
+      onClick={() => navigate('/detail')}
       className="gallery-item overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={container}
       layout
       initial={{ opacity: 0 }}
-      animate={{ 
-        opacity: 1, 
+      animate={{
+        opacity: 1,
         marginTop: !ordered ? '0' : `-${mousePosition.y * 0.3}px`,
         marginLeft: !ordered ? '0' : `-${mousePosition.x * 0.3}px`,
       }}
-      transition={{ 
-        duration: 0.75, 
+      transition={{
+        duration: 0.75,
         type: "tween",
-        stiffness: 100, }}
+        stiffness: 100,
+      }}
       style={{
         gridColumn: !ordered && `${colStart} / span ${colSpan}`,
         gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
