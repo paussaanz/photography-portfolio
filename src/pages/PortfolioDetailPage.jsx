@@ -16,11 +16,11 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
     const handleImageClick = (img) => {
-      setSelectedImage(img); // Set the selected image to show in the overlay
+        setSelectedImage(img); // Set the selected image to show in the overlay
 
-      console.log(selectedImage)
+        console.log(selectedImage)
     };
-  
+
     // const closeOverlay = () => {
     //   setSelectedImage(null); // Close overlay when clicked outside or on a close button
     // };
@@ -71,7 +71,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
-
 
     return (
         <div data-barba="container" className="barba-container">
