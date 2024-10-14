@@ -33,7 +33,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         }, [100])
 
         scroller.scrollTo('images-gallery', {
-            duration: 800,
+            duration: 20,
             delay: 0,
             smooth: 'linear'
         });

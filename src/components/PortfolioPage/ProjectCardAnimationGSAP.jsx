@@ -6,16 +6,11 @@ import { portfolioCardAnimation } from '../../assets/js/images';
 
 const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
-  // const lerp = (start, end, alpha) => {
-  //   return start * (1 - alpha) + end * alpha;
-  // };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const slides = gsap.utils.toArray('.slide');
     const activeSlideImages = gsap.utils.toArray('.active-slide img');
-    const containerActiveSlide = gsap.utils.toArray('.active-slide');
-    const containerSlides = gsap.utils.toArray('.slider');
 
     function getInitialTranslateZ(slide) {
       const style = window.getComputedStyle(slide);
@@ -30,17 +25,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
     function mapRange(value, inMin, inMax, outMin, outMax) {
       return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
     }
-
-    // // Animation timeline for background and slide images
-    // const tl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".container-card-animation",
-    //     start: "bottom top",
-    //     end: "bottom top",
-    //     scrub: true,
-    //     toggleActions: 'none none'
-    //   }
-    // });
 
     slides.forEach((slide, i) => {
       const initialZ = getInitialTranslateZ(slide);
@@ -78,6 +62,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
               duration: 1.5,
               ease: "power3.out"
             });
+            console.log(activeSlideImages[i])
           } else {
             // Si currentZ es mayor o igual a 640, reducir opacidad a 0 con animación suave
             gsap.to(activeSlideImages[i], {
@@ -87,7 +72,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
             });
           }
 
-          //OPACIDAD CONTENEDOR
         }
       });
     });
@@ -101,6 +85,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
   return (
     <div className="container-card-animation w-100 vh-300 position-relative">
+      
       <div className="active-slide position-absolute top-0 left-0 w-100 h-100 overflow-hidden">
         {portfolioCardAnimation.map((image, index) => (
           <div className="bg-images">
@@ -108,16 +93,14 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
           </div>
         ))}
       </div>
+
       <div className="slider position-sticky top-0 vw-100 vh-100">
-
         {portfolioCardAnimation.map((image, index) => (
-
           <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
             <a href={image.url} className="text-decoration-none">
               <div className={`slide-img `}>
                 <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
               </div>
-
               <div className='slide-copy text-uppercase text-center text-white'>
                 <p className="m-0">{image.name} - {image.date}</p>
                 <p className="m-0">{image.description}</p>

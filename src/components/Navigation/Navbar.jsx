@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PreloadLink from './PreLoadLink';
 
-const Navbar = ({ visible }) => {
+const Navbar = () => {
 
   const location = useLocation();
 
@@ -9,7 +9,7 @@ const Navbar = ({ visible }) => {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light bg-transparent ${visible ? '' : 'hide'}`}>
+    <nav className={`navbar navbar-expand-lg navbar-light bg-transparent`}>
       <div className="container-fluid navbar-container py-4">
         <div className="d-flex flex-grow-1">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
