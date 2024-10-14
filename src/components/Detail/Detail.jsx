@@ -4,8 +4,12 @@ import { motion } from 'framer-motion';
 import './Detail.scss';
 
 const Detail = ({ images }) => {
+
+  
+
   const [selectedImage, setSelectedImage] = useState(images[0].src);
 
+  
   return (
     <div data-barba="container" className="gallery-container">
       <motion.div

@@ -1,17 +1,8 @@
-import { useState } from 'react';
 import AnimatedImage from './AnimatedImage';
-import Detail from '../Detail/Detail';
 
-const GalleryCarles = ({ images, ordered }) => {
-  const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
-  const handleImageClick = (img) => {
-    setSelectedImage(img); // Set the selected image to show in the overlay
-  };
+const GalleryCarles = ({ images, ordered, handleImageClick }) => {
 
-  const closeOverlay = () => {
-    setSelectedImage(null); // Close overlay when clicked outside or on a close button
-  };
   return (
     <>
       <div data-barba="container">
@@ -35,11 +26,6 @@ const GalleryCarles = ({ images, ordered }) => {
           ))}
         </div>
       </div>
-      {selectedImage && images && (
-        
-            <Detail images={images} />
-          
-      )}
     </>
   );
 };
