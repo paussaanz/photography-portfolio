@@ -81,3 +81,22 @@
     transform: translateX(-50%) translateY(-50%) translateZ(-700px);
     opacity: 1;
 }
+
+.text-animation-section{
+    position: relative;
+    transition: opacity ease-in-out 0.5s;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:0; /* Ensure it stays behind the content */
+    background-size: cover;
+    background-position: center;
+    filter: blur(100px); /* Initially blurred */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+}

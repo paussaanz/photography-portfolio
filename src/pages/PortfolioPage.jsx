@@ -9,9 +9,9 @@ import { ScrollTrigger } from 'gsap/all';
 
 const PortfolioPage = () => {
     const sectionRef = useRef(null);
+    const backgroundRef = useRef(null);
     const [currentSectionIndex, setCurrentSectionIndex] = useState(null);
 
-    const newImageRef = useRef();
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -22,12 +22,18 @@ const PortfolioPage = () => {
             start: "top top", // Inicia en la parte superior
             end: "bottom bottom", // Termina en la parte inferior
             scrub: 15, // Suaviza el efecto
+            opacity: 0,
             onUpdate: (self) => {
                 console.log(currentSectionIndex)
+                const progress = self.progress;
 
                 const newImage = `url(${portfolioCardAnimation[currentSectionIndex === null ? 0 : currentSectionIndex].src.toString()}) no-repeat center center / cover`
-                gsap.to(sectionRef.current, {
+                gsap.to(backgroundRef.current, {
+                    opacity: 1,
+                    duration: 0, 
                     background: newImage,
+                    ease: "power2.inOut",
+
                 });
 
             },
@@ -47,7 +53,8 @@ const PortfolioPage = () => {
                 </div>
             </section>
 
-            <section className="text-animation" ref={sectionRef} >
+            <section className="text-animation-section" ref={sectionRef} >
+                <div className="background-overlay" ref={backgroundRef}></div>
                 <div className="py-5 vh-100 align-content-center">
                     <TextAnimationContainer
                         text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
