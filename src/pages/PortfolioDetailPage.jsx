@@ -75,7 +75,10 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     return (
         <div data-barba="container" className="barba-container">
             {selectedImage && (
-                <Detail images={projectImages} />
+                <div style={{ color: "white", backgroundColor: 'black', width: '100vw', height: '100vh', position: 'fixed', zIndex: '1000' }}>
+                    centradito
+                </div>
+                // <Detail images={projectImages} />
             )}
 
             <section className="hero-details position-relative">
