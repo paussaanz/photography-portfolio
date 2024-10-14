@@ -19,6 +19,7 @@ const HomePage = () => {
 
     return (
         <div data-barba="container" className="homepage position-relative barba-container" >
+             
             <section className="hero-homepage position-relative">
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="vh-100" />
                 <TextOverlay textColor="text-light" textPosition="center" className="text-animated text-center">

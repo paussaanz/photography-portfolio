@@ -5,6 +5,7 @@ import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 import Button from "../components/General/Buttons/Button";
 import GalleryCarles from "../components/PortfolioDetailsPage/GalleryCarles";
+import Detail from "../components/Detail/Detail";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
@@ -12,6 +13,17 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const [disabledButtons, setDisabledButtons] = useState(false);
     const imagesSectionRef = useRef(null);
     const galleryRef = useRef(null);
+    const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
+
+    const handleImageClick = (img) => {
+      setSelectedImage(img); // Set the selected image to show in the overlay
+
+      console.log(selectedImage)
+    };
+  
+    // const closeOverlay = () => {
+    //   setSelectedImage(null); // Close overlay when clicked outside or on a close button
+    // };
 
     const handleChangeOrder = () => {
         setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
@@ -19,7 +31,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         setTimeout(() => {
             setDisabledButtons(false)
         }, [100])
-        
+
         scroller.scrollTo('images-gallery', {
             duration: 20,
             delay: 0,
@@ -34,8 +46,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             smooth: 'linear'
         });
     }, [ordered]); // Asegúrate de que scroll solo ocurra cuando 'ordered' cambia
-    
-    
+
+
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
         const { clientX, clientY, currentTarget } = e;
@@ -59,10 +71,11 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
-    
+
 
     return (
-        <div data-barba="container" className="barba-container">
+        <div data-barba="container" className={`${selectedImage ? 'detail-mode' : ''} `}>
+
             <section className="hero-details position-relative">
                 <HeroDetails slug={title} src={heroImage.src} />
             </section>
@@ -89,10 +102,14 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                         <GalleryCarles
                             ordered={ordered}
                             images={projectImages}
+                            handleImageClick={handleImageClick}
                         />
                     </div>
                 </div>
             </section >
+            {selectedImage && (
+                <Detail images={projectImages} />
+            )}
         </div >
     );
 };
