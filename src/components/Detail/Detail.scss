@@ -74,7 +74,7 @@
 }
 
 .gallery-container {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   right: 0;
   height: 100vh;
@@ -93,3 +93,7 @@
   // z-index: 10000;
 }
 
+.detail-mode{
+overflow: hidden;
+max-height: 100vh;
+}

@@ -121,19 +121,19 @@ function App() {
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <div data-barba-namespace="home">
           <Cursor />
-
           <header id="header" className={`fixed-top inverted ${navVisible ? "animated" : "header-hide"}`}>
-            <Navbar visible={navVisible} />
+            {/* <Navbar visible={navVisible} /> */}
           </header>
           <main>
             <AnimatePresence mode="wait">
-              <motion.div
+              {/* <motion.div
                 key={location.pathname}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
-              >
+              > */}
+                          
                 <Routes location={location}>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/portfolio/photoshoots" element={<PortfolioDetailPage title="photo    shoots" images={portfolioDetails.photoshoots} textAnimation={"A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."} />} />
@@ -149,7 +149,7 @@ function App() {
                   <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
                   {/* <Route path="/detail" element={<Detail images={portfolioDetails.photoshoots.projectImages} />} /> */}
                 </Routes>
-              </motion.div>
+              {/* </motion.div> */}
             </AnimatePresence>
           </main>
           {/* <footer>
