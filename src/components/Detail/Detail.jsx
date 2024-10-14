@@ -9,36 +9,33 @@ const Detail = ({ images }) => {
   return (
     <div data-barba="container" className="gallery-container">
       <motion.div
-        className="background-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.9 }}
-        transition={{ duration: 0.5 }}
-      />
-
-      <motion.div
-        className="main-image-container"
-        key={selectedImage}
+        className="background-overlay bg-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-      >
-        <motion.img
-          src={selectedImage}
-          alt="Selected"
-          className="main-image"
-        />
-      </motion.div>
+      />
 
-      <motion.div className="scroll-container" >
-        <motion.div className="thumbnails-container" animate="visible" >
+        <motion.div
+          className="main-image-container"
+          key={selectedImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.img
+            src={selectedImage}
+            alt="Selected"
+            className="main-image"
+          />
+        </motion.div>
 
-          {images.map((img, index) => {
-            return (
+        <motion.div className="scroll-container">
+          <motion.div className="thumbnails-container" animate="visible">
+            {images.map((img, index) => (
               <motion.div
                 key={index}
                 className={`thumbnail-card ${selectedImage === img.src ? 'selected' : ''}`}
-                onClick={() => { setSelectedImage(img.src) }}
-                whileHover={{ scale: 1.1 }}
+                onHoverStart={() => setSelectedImage(img.src)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: selectedImage === img.src ? 1 : 0.3, scale: 1 }}
                 transition={{
@@ -52,11 +49,10 @@ const Detail = ({ images }) => {
                   backgroundRepeat: 'no-repeat'
                 }}
               />
-            )
-          })}
+            ))}
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
   );
 };
 

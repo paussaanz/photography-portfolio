@@ -147,7 +147,7 @@ function App() {
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
-                  <Route path="/detail" element={<Detail images={portfolioDetails.photoshoots.projectImages} />} />
+                  {/* <Route path="/detail" element={<Detail images={portfolioDetails.photoshoots.projectImages} />} /> */}
                 </Routes>
               </motion.div>
             </AnimatePresence>

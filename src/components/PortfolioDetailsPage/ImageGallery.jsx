@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import GalleryItem from "./GalleryItem";
-import { use } from "framer-motion/client";
 
 const ImageGallery = ({ images }) => {
 

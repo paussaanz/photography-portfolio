@@ -12,7 +12,8 @@ const AnimatedImage = ({
   height = "100%",
   ordered,
   parallaxSpeed = -40,
-  index
+  index,
+  onImageClick
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -41,7 +42,7 @@ const AnimatedImage = ({
 
 
     <motion.div
-      onClick={() => navigate('/detail')}
+      onClick={onImageClick}
       className="gallery-item overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
