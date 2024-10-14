@@ -20,7 +20,6 @@ import GalleryCarles from "./components/PortfolioDetailsPage/GalleryCarles";
 
 
 function App() {
-  const [navVisible, setNavVisible] = useState(true);
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
   const lenisRef = useRef(null); // Utiliza un ref para manejar la instancia de Lenis
 
@@ -81,28 +80,6 @@ function App() {
   }, []);
 
 
-  // Efecto para manejar el comportamiento del scroll y la visibilidad del navbar
-  useEffect(() => {
-
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-
-    let lastScrollY = 0;
-
-    const handleScroll = throttle(({ scroll }) => {
-      const currentScrollY = scroll;
-      setNavVisible(lastScrollY > currentScrollY || currentScrollY < 30);
-      lastScrollY = currentScrollY;
-    }, 200);
-
-    lenis.on("scroll", handleScroll);
-
-    // Limpia el evento de scroll cuando se desmonta el componente
-    return () => {
-      lenis.off("scroll", handleScroll);
-    };
-  }, []);
-
   // Efecto para restablecer el scroll al cambiar de ruta
   useLayoutEffect(() => {
     const lenis = lenisRef.current;
@@ -120,8 +97,8 @@ function App() {
         <div data-barba-namespace="home">
           <Cursor />
 
-          <header id="header" className={`fixed-top inverted ${navVisible ? "animated" : "header-hide"}`}>
-            <Navbar visible={navVisible} />
+          <header id="header" className={`fixed-top inverted`}>
+            <Navbar  />
           </header>
           <main>
             <Routes location={location}>
