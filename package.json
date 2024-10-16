@@ -13,10 +13,13 @@
   },
   "dependencies": {
     "@barba/core": "^2.10.3",
+    "@react-three/drei": "^9.114.4",
+    "@react-three/fiber": "^8.17.10",
     "@studio-freight/lenis": "^1.0.42",
     "bootstrap": "^5.3.3",
     "bootstrap-select": "^1.13.18",
     "framer-motion": "^11.11.8",
+    "gltf-pipeline": "^4.1.0",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lenis": "^1.1.13",
@@ -29,6 +32,7 @@
     "react-scroll": "^1.9.0",
     "split-type": "^0.3.4",
     "swiper": "^11.1.11",
+    "three": "^0.169.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
