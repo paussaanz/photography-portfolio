@@ -129,9 +129,9 @@ function App() {
               {/* </motion.div> */}
             </AnimatePresence>
           </main>
-          {/* <footer>
+          <footer>
             <Footer />
-          </footer> */}
+          </footer>
         </div>
       </div >
     </>
