@@ -6,18 +6,27 @@ const Cursor = () => {
     useEffect(() => {
         function cursor() {
             const circles = Array.from(circleContainerRef.current.querySelectorAll(".circle"));
-            const coords = {x: 0, y: 0};
-            let lastPositions = circles.map(() => ({ x: 0 , y: 0}));
+            const coords = { x: 0, y: 0 };
+            let lastPositions = circles.map(() => ({ x: 0, y: 0 }));
 
             const colors = [
-                "#4C7760", "#53796A", "#5A7C74", "#61807E", "#688388", "#6F8692", "#768A9C", "#7D8EA6", "#8491B0",
-                "#8B95BA", "#9299C4", "#999DCE", "#A0A1D8", "#A7A5E2", "#AEAAEC", "#B5AEF6", "#BCB3FF", "#C3B7FF",
-                "#A1C3AE"
-              ]
-              ;
+                "#4C4C4C", // Gris oscuro
+                "#5C5C5C", // Un poco más claro
+                "#6C6C6C", // Gris
+                "#7C7C7C", // Gris medio
+                "#8C8C8C", // Gris medio claro
+                "#9C9C9C", // Claro
+                "#ACACAC", // Más claro
+                "#BCBCBC", // Muy claro
+                "#CCCCCC", // Gris suave
+                "#DCDCDC", // Gris casi blanco
+                "#EDEDED"  // Gris muy claro
+            ]
 
-            
-              circles.forEach((circle, index) => {
+                ;
+
+
+            circles.forEach((circle, index) => {
                 circle.style.backgroundColor = colors[index % colors.length];
                 circle.style.zIndex = circles.length - index; // Set z-index based on size initially
             });
@@ -26,13 +35,13 @@ const Cursor = () => {
                 coords.x = e.clientX;
                 coords.y = e.clientY;
             });
-           
+
             function animatedCircles() {
-               
+
 
                 circles.forEach((circle, index) => {
                     const followSpeed = 0.4;
-                    
+
                     if (index === 0) {
                         lastPositions[index].x += (coords.x - lastPositions[index].x) * followSpeed;
                         lastPositions[index].y += (coords.y - lastPositions[index].y) * followSpeed;
@@ -61,7 +70,7 @@ const Cursor = () => {
             window.removeEventListener("mousemove", cursor);
         };
     }, [])
-    
+
     return (
         <div ref={circleContainerRef} className="custom-cursor-container">
             {new Array(20).fill().map((_, index) => (
