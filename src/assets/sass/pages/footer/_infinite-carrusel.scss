@@ -1,0 +1,58 @@
+.text-banner-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 120px;
+    color: $cor-secondary;
+
+    &:hover .text-banner-item {
+        animation-play-state: paused;
+        color: $cor-light;
+    }
+}
+
+.text-banner-item {
+    display: flex; /* Flexbox to align content (text or logo) */
+    align-items: center; /* Vertically center the text/logo */
+    justify-content: center;
+    white-space: nowrap;
+    animation: move-rtl 6000ms linear infinite;
+    animation-play-state: running;
+    transition: color 0.3s ease;
+}
+
+
+.text-banner-item  div {
+    display: flex; /* Flexbox to align content (text or logo) */
+    align-items: center; /* Vertically center the text/logo */
+    justify-content: center;
+    height: auto;
+    margin: 0 auto;
+    margin: 0;     /* Elimina márgenes extra */
+     padding: 0; 
+     display: block;
+     box-sizing: border-box;
+     overflow: visible; 
+     line-height: 0.9;
+}
+
+
+.text-banner-item  p {
+ 
+}
+
+/* Style for SVG logo */
+.text-banner-item img {
+    width: 75px;  /* Set logo size */
+    height: 75px;
+    margin: 0 2rem;
+}
+
+@keyframes move-rtl {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
