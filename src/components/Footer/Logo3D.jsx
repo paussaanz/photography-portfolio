@@ -17,6 +17,7 @@ const Logo3D = () => {
         transmission: { value: 1, min: 0, max: 1, step: 0.1 },
         ior: { value: 1.5, min: 0, max: 3, step: 0.1 },
         chromaticAberration: { value: 1, min: 0, max: 1 },
+        backside: {value: true}
     });
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const Logo3D = () => {
 
         //Escalar el objeto 3D
         const size = box.getSize(new THREE.Vector3()).length(); // Get the size of the bounding box
-        const scaleFactor = 20 / size; // Adjust this factor to set the desired size
+        const scaleFactor = 12 / size; // Adjust this factor to set the desired size
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor); // Apply uniform scaling
 
 
