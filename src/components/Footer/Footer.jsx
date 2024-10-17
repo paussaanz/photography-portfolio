@@ -1,5 +1,6 @@
 import React from 'react';
 import InfiniteCarrusel from './InfiniteCarrusel';
+import Scene3D from './Scene3D';
 
 const Footer = () => {
     return (
@@ -7,10 +8,8 @@ const Footer = () => {
             <section className='infinite-carrusel'>
                 <InfiniteCarrusel />
             </section>
-            <section className='3d-logo'>
-            <h1>SECCION 3D</h1>
-            <h1>SECCION 3D</h1>
-            <h1>SECCION 3D</h1>
+            <section className='3d-logo flex-grow-1'>
+            <Scene3D/>
             </section>
             <section className='bottom-links mt-auto'>
                 <div className="d-flex justify-content-between p-4 text-secondary text-uppercase">
