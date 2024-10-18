@@ -21,10 +21,12 @@ const Scene3D = () => {
     >
       <directionalLight intensity={100} position={[1, 2, 1]} color={color} />
       <ambientLight intensity={10000} />
+
       <pointLight position={[0, 0, 30]} intensity={50000} color={color} />
       <pointLight position={[0, 20, 30]} intensity={50000} color={color} />
       <pointLight position={[0, -20, 30]} intensity={50000} color={color} />
       <pointLight position={[-40, 10, 30]} intensity={50000} color={color} />
+      <pointLight position={[40, 10, 30]} intensity={50000} color={color} />
       <pointLight position={[40, 10, 30]} intensity={50000} color={color} />
 
       <Text
@@ -40,6 +42,7 @@ const Scene3D = () => {
         textAlign='center'
         material-toneMapped={false}
       >
+
         {lines.map((line, index) => (
           <Text
             key={index}
