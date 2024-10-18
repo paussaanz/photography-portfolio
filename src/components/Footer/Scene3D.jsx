@@ -1,51 +1,63 @@
 import { Canvas } from '@react-three/fiber';
-import { Plane, Text } from '@react-three/drei';
+import { Text } from '@react-three/drei';
 import Logo3D from './Logo3D';
-import * as THREE from 'three'; // Ensure THREE is imported
+import * as THREE from 'three';
 
 const Scene3D = () => {
-  // Use sRGB color and convert to linear space
-  const color = new THREE.Color('#DA6A2D').convertSRGBToLinear();
-  const logoBackgroundColor = new THREE.Color('#FFFFFF').convertSRGBToLinear();
+  const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
+  const backgroundColor = new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear();
+  const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
+  const lines = text.split('\n'); // Divide el texto en líneas
 
-  console.log(color)
   return (
-    <Canvas 
-      style={{ background: '#transparent' }} // Set a contrasting background
-      gl={{ alpha: true }} 
+    <Canvas
+      style={{ background: 'transparent' }}
+      gl={{ alpha: true }}
       onCreated={({ gl }) => {
-        gl.outputEncoding = THREE.sRGBEncoding; // Ensure proper color management
+        gl.outputEncoding = THREE.sRGBEncoding;
+        gl.physicallyCorrectLights = true;
+        gl.setClearColor(backgroundColor, 1);
       }}
     >
-      {/* Reduced light intensities */}
-      <directionalLight intensity={1008} position={[1, 2, 1]} />
-      <ambientLight intensity={345987345987239870} />
-      <pointLight position={[0, 0, 5]} intensity={621} color={"#ff0000"} />
+      <directionalLight intensity={100} position={[1, 2, 1]} color={color} />
+      <ambientLight intensity={10000} />
+      <pointLight position={[0, 0, 30]} intensity={50000} color={color} />
+      <pointLight position={[0, 20, 30]} intensity={50000} color={color} />
+      <pointLight position={[0, -20, 30]} intensity={50000} color={color} />
+      <pointLight position={[-40, 10, 30]} intensity={50000} color={color} />
+      <pointLight position={[40, 10, 30]} intensity={50000} color={color} />
 
-      {/* <Plane args={[10, 10]} position={[0, 0, -5]} rotation={[-Math.PI / 2, 20, 20]}>
-        <meshBasicMaterial color={logoBackgroundColor} />
-      </Plane> */}
-
-      {/* Text behind the logo */}
       <Text
-        fontSize={2.5}
-        maxWidth={30}
+        characters='Hello, World!'
+        fontSize={4.5}
+        maxWidth={40}
         lineHeight={1.2}
-        position={[0, -1, -10]}
-        color={color}  // Set the text color to #DA6A2D
+        position={[0, 5, -10]}
+        color={color}
         anchorX="center"
         anchorY="middle"
-        font="../src/assets/fonts/Gunterz-Bold.ttf" // Make sure this path is correct
+        font="../src/assets/fonts/Gamilia-Regular.ttf"
         textAlign='center'
+        material-toneMapped={false}
       >
-        LIFE IS TOO
-        SHORT FOR
-        BORING WEBSITES
+        {lines.map((line, index) => (
+          <Text
+            key={index}
+            position={[0, index * -5, 0]} // Ajusta la posición en Y para cada línea
+            fontSize={4.5}
+            color={color}
+            anchorX="center"
+            anchorY="middle"
+            font="../src/assets/fonts/Gamilia-Regular.ttf"
+            material-toneMapped={false}
+          >
+            {line}
+          </Text>
+        ))}
       </Text>
 
-      {/* Render the 3D logo */}
       <Logo3D />
-    </Canvas>
+    </Canvas >
   );
 };
 
