@@ -1,4 +1,4 @@
-import { useGLTF, Text, MeshTransmissionMaterial } from "@react-three/drei";
+import { useGLTF, Text, MeshTransmissionMaterial, Plane } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { useEffect, useRef } from "react";
@@ -12,12 +12,13 @@ const Logo3D = () => {
     const camera = new THREE.OrthographicCamera(-10 * aspect, 10 * aspect, 10, -10, 0.1, 1000);
 
     const materialProps = useControls({
-        thickness: { value: 0.2, min: 0, max: 3, step: 0.05 },
-        roughness: { value: 0, min: 0, max: 1, step: 0.1 },
+        thickness: { value: 0.1, min: 0, max: 3, step: 0.05 },
+        roughness: { value: 0.2, min: 0, max: 1, step: 0.1 },
         transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-        ior: { value: 1.5, min: 0, max: 3, step: 0.1 },
-        chromaticAberration: { value: 1, min: 0, max: 1 },
-        backside: {value: true}
+        ior: { value: 0.8, min: 0, max: 3, step: 0.1 },
+        chromaticAberration: { value: 0.3, min: 0, max: 1 },
+        transparent: true, // Ensure transparency is enabled
+
     });
 
     useEffect(() => {
@@ -39,36 +40,39 @@ const Logo3D = () => {
 
 
         // Configurar la cámara ortográfica para vista isométrica
-        camera.position.set(20, 20, 20); // Posición de la cámara
+        camera.position.set(10, 10, 10); // Posición de la cámara
         camera.lookAt(0, 0, 0); // Mirar hacia el centro de la escena
 
-        const onMouseMove = (event) => {
-            // Calcular la posición normalizada del ratón (-1 a 1)
-            const mouseX = (event.clientX / window.innerWidth) * 2 - 1; // Normalizado a [-1, 1]
+        // const onMouseMove = (event) => {
+        //     // Calcular la posición normalizada del ratón (-1 a 1)
+        //     const mouseX = (event.clientX / window.innerWidth) * 2 - 1; // Normalizado a [-1, 1]
 
-            // Controlar la rotación del modelo (solo en el eje Y)
-            if (groupRef.current) {
-                groupRef.current.rotation.y = mouseX * Math.PI; // Gira 180 grados basado en la posición del ratón
-            }
-        };
+        //     // Controlar la rotación del modelo (solo en el eje Y)
+        //     if (groupRef.current) {
+        //         groupRef.current.rotation.y = mouseX * Math.PI; // Gira 180 grados basado en la posición del ratón
+        //     }
+        // };
 
-        // Añadir el evento de movimiento del ratón
-        window.addEventListener("mousemove", onMouseMove);
+        // // Añadir el evento de movimiento del ratón
+        // window.addEventListener("mousemove", onMouseMove);
 
-        // Limpiar el evento cuando se desmonta el componente
-        return () => {
-            window.removeEventListener("mousemove", onMouseMove);
-        };
+        // // Limpiar el evento cuando se desmonta el componente
+        // return () => {
+        //     window.removeEventListener("mousemove", onMouseMove);
+        // };
     }, [camera, nodes]); // Asegúrate de incluir nodes como dependencia
 
     return (
         <group ref={groupRef} scale={viewport.width / 3.5}>
-            {/* <Text fontSize={68} position={[0, 0, -35]}>
-                .SYP
-            </Text> */}
+           
+
             <mesh {...nodes.Curve001}>
                 <MeshTransmissionMaterial {...materialProps} />
             </mesh>
+
+            <Plane args={[10, 10]} position={[0, 0, -2]} rotation={[-Math.PI / 2, 0, 0]}>
+                <meshBasicMaterial color={"#DA6A2D"} />
+            </Plane>
         </group>
     );
 };
