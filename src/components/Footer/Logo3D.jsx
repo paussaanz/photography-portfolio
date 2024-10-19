@@ -1,13 +1,13 @@
-import { useGLTF, Text, MeshTransmissionMaterial, Plane } from "@react-three/drei";
+import { useGLTF, MeshTransmissionMaterial, Plane } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { useEffect, useRef } from "react";
-import * as THREE from 'three'; // Asegúrate de importar THREE
+import * as THREE from 'three';
 
 const Logo3D = () => {
     const { nodes } = useGLTF("/3D/logo-web-3d-face-compression.gltf");
     const { viewport } = useThree();
-    const groupRef = useRef(null); // Ref para el grupo de la escena
+    const groupRef = useRef(null);
     const aspect = window.innerWidth / window.innerHeight;
     const camera = new THREE.OrthographicCamera(-10 * aspect, 10 * aspect, 10, -10, 0.1, 1000);
 
@@ -17,62 +17,46 @@ const Logo3D = () => {
         transmission: { value: 1, min: 0, max: 1, step: 0.1 },
         ior: { value: 0.8, min: 0, max: 3, step: 0.1 },
         chromaticAberration: { value: 0.3, min: 0, max: 1 },
-        transparent: true, // Ensure transparency is enabled
-
+        transparent: true,
     });
 
     useEffect(() => {
-        // Calcular la caja delimitadora del modelo para centrarlo
-        const model = nodes.Curve001; // Asegúrate de que este sea el modelo correcto
+        const model = nodes.Curve001;
         const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3()); // Obtener el centro de la caja delimitadora
-        model.position.sub(center); // Ajustar la posición del modelo para centrarlo
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
 
-        // Establecer la posición del grupo para que esté centrado
         if (groupRef.current) {
-            groupRef.current.position.set(0, 0, 0); // Asegúrate de que el grupo esté en el origen
+            groupRef.current.position.set(0, 0, 0);
         }
 
-        //Escalar el objeto 3D
-        const size = box.getSize(new THREE.Vector3()).length(); // Get the size of the bounding box
-        const scaleFactor = 12 / size; // Adjust this factor to set the desired size
-        groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor); // Apply uniform scaling
+        const size = box.getSize(new THREE.Vector3()).length();
+        const scaleFactor = 12 / size;
+        groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
+        camera.position.set(10, 10, 10);
+        camera.lookAt(0, 0, 0);
 
-        // Configurar la cámara ortográfica para vista isométrica
-        camera.position.set(10, 10, 10); // Posición de la cámara
-        camera.lookAt(0, 0, 0); // Mirar hacia el centro de la escena
+        const onMouseMove = (event) => {
+            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto
+            if (groupRef.current) {
+                groupRef.current.rotation.y = mouseX * Math.PI / 50; // Rotación en Y
+                groupRef.current.rotation.x = mouseY * Math.PI / 50; // Opcional: Rotación en X
+            }
+        };
 
-        // const onMouseMove = (event) => {
-        //     // Calcular la posición normalizada del ratón (-1 a 1)
-        //     const mouseX = (event.clientX / window.innerWidth) * 2 - 1; // Normalizado a [-1, 1]
-
-        //     // Controlar la rotación del modelo (solo en el eje Y)
-        //     if (groupRef.current) {
-        //         groupRef.current.rotation.y = mouseX * Math.PI; // Gira 180 grados basado en la posición del ratón
-        //     }
-        // };
-
-        // // Añadir el evento de movimiento del ratón
-        // window.addEventListener("mousemove", onMouseMove);
-
-        // // Limpiar el evento cuando se desmonta el componente
-        // return () => {
-        //     window.removeEventListener("mousemove", onMouseMove);
-        // };
-    }, [camera, nodes]); // Asegúrate de incluir nodes como dependencia
+        window.addEventListener("mousemove", onMouseMove);
+        return () => {
+            window.removeEventListener("mousemove", onMouseMove);
+        };
+    }, [camera, nodes]);
 
     return (
         <group ref={groupRef} scale={viewport.width / 3.5}>
-           
-
             <mesh {...nodes.Curve001}>
                 <MeshTransmissionMaterial {...materialProps} />
             </mesh>
-
-            <Plane args={[10, 10]} position={[0, 0, -2]} rotation={[-Math.PI / 2, 0, 0]}>
-                <meshBasicMaterial color={"#DA6A2D"} />
-            </Plane>
         </group>
     );
 };
