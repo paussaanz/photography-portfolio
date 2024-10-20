@@ -11,15 +11,6 @@ const Logo3D = () => {
     const aspect = window.innerWidth / window.innerHeight;
     const camera = new THREE.OrthographicCamera(-10 * aspect, 10 * aspect, 10, -10, 0.1, 1000);
 
-    const materialProps = useControls({
-        thickness: { value: 0.1, min: 0, max: 3, step: 0.05 },
-        roughness: { value: 0.2, min: 0, max: 1, step: 0.1 },
-        transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-        ior: { value: 0.8, min: 0, max: 3, step: 0.1 },
-        chromaticAberration: { value: 0.3, min: 0, max: 1 },
-        transparent: true,
-    });
-
     useEffect(() => {
         const model = nodes.Curve001;
         const box = new THREE.Box3().setFromObject(model);
@@ -41,8 +32,8 @@ const Logo3D = () => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
             const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto
             if (groupRef.current) {
-                groupRef.current.rotation.y = mouseX * Math.PI / 50; // Rotación en Y
-                groupRef.current.rotation.x = mouseY * Math.PI / 50; // Opcional: Rotación en X
+                groupRef.current.rotation.y = mouseX * Math.PI / 70; // Rotación en Y
+                groupRef.current.rotation.x = mouseY * Math.PI / 70; // Opcional: Rotación en X
             }
         };
 
@@ -55,7 +46,7 @@ const Logo3D = () => {
     return (
         <group ref={groupRef} scale={viewport.width / 3.5}>
             <mesh {...nodes.Curve001}>
-                <MeshTransmissionMaterial {...materialProps} />
+                <MeshTransmissionMaterial thickness={0.1} roughness={0.3} transmission={1} ior={0.8} chromaticAberration={0.09} transparent/>
             </mesh>
         </group>
     );
