@@ -1,15 +1,10 @@
-import { useGLTF, MeshTransmissionMaterial, Plane } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
-import { useControls } from "leva";
+import { useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import * as THREE from 'three';
 
 const Logo3D = () => {
     const { nodes } = useGLTF("/3D/logo-web-3d-face-compression.gltf");
-    const { viewport } = useThree();
     const groupRef = useRef(null);
-    const aspect = window.innerWidth / window.innerHeight;
-    const camera = new THREE.OrthographicCamera(-10 * aspect, 10 * aspect, 10, -10, 0.1, 1000);
 
     useEffect(() => {
         const model = nodes.Curve001;
@@ -25,9 +20,9 @@ const Logo3D = () => {
         const scaleFactor = 12 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
-        camera.position.set(10, 10, 10);
-        camera.lookAt(0, 0, 0);
+        console.log(scaleFactor, "SCALE")
 
+        console.log(size, "SIZE")
         const onMouseMove = (event) => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
             const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto
@@ -40,13 +35,23 @@ const Logo3D = () => {
         window.addEventListener("mousemove", onMouseMove);
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
+            if (groupRef.current) {
+                groupRef.current.scale.set(1, 1, 1); // Reset scale on unmount
+            }
         };
-    }, [camera, nodes]);
+    }, [nodes]);
 
     return (
-        <group ref={groupRef} scale={viewport.width / 3.5}>
+        <group ref={groupRef}>
             <mesh {...nodes.Curve001}>
-                <MeshTransmissionMaterial thickness={0.1} roughness={0.3} transmission={1} ior={0.8} chromaticAberration={0.09} transparent/>
+                <MeshTransmissionMaterial
+                    thickness={0.1}
+                    roughness={0.3}
+                    transmission={1}
+                    ior={0.8}
+                    chromaticAberration={0.09}
+                    transparent
+                />
             </mesh>
         </group>
     );
