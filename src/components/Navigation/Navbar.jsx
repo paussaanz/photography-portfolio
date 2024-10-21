@@ -5,7 +5,7 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials'|| location.pathname === '/portfolio';
+  const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials' || location.pathname === '/portfolio';
 
 
   return (
@@ -14,32 +14,32 @@ const Navbar = () => {
         <div className="d-flex flex-grow-1">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <PreloadLink to="/portfolio" component={() => import('../../pages/PortfolioPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/portfolio" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Portfolio
-              </PreloadLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <PreloadLink to="/editorials" component={() => import('../../pages/EditorialsPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/editorials" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Editorials
-              </PreloadLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <PreloadLink to="/about" component={() => import('../../pages/AboutPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/about" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 About me
-              </PreloadLink>
+              </Link>
 
             </li>
           </ul>
         </div>
-        <PreloadLink to="/" component={() => import('../../pages/HomePage')} className={`navbar-brand-centered`}>
+        <Link reloadDocument to="/" className={`navbar-brand-centered`}>
           <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" />
-        </PreloadLink>
+        </Link>
         <div className="d-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <PreloadLink to="/contact" component={() => import('../../pages/ContactPage')} className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/contact" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
                 Contact
-              </PreloadLink>
+              </Link>
             </li>
           </ul>
         </div>

@@ -15,15 +15,15 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
     const handleImageClick = (img) => {
-      setSelectedImage(img); // Set the selected image to show in the overlay
+        setSelectedImage(img); // Set the selected image to show in the overlay
 
-      console.log(selectedImage)
+        console.log(selectedImage)
     };
-  
+
     const closeOverlay = () => {
         setSelectedImage(null); // Close overlay when clicked outside or on a close button
     };
-    
+
     const handleChangeOrder = () => {
         setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
         setDisabledButtons(true)
@@ -37,16 +37,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             smooth: 'linear'
         });
     };
-
-    useEffect(() => {
-        scroller.scrollTo('images-gallery', {
-            duration: 1000,
-            delay: 0,
-            smooth: 'linear'
-        });
-    }, [ordered]); // Asegúrate de que scroll solo ocurra cuando 'ordered' cambia
-
-
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
         const { clientX, clientY, currentTarget } = e;
@@ -107,7 +97,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 </div>
             </section >
             {selectedImage && (
-                <Detail images={projectImages} closeOverlay={closeOverlay}/>
+                <Detail images={projectImages} closeOverlay={closeOverlay} />
             )}
         </div >
     );
