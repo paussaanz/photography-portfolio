@@ -11,16 +11,12 @@ import PortfolioPage from "./pages/PortfolioPage";
 import { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
-import { throttle } from "lodash";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
-import TextAnimation from "./components/General/TextAnimation";
 import GalleryCarles from "./components/PortfolioDetailsPage/GalleryCarles";
-import Detail from "./components/Detail/Detail";
 import { AnimatePresence } from "framer-motion";
 
-import { motion } from 'framer-motion';
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -38,6 +34,7 @@ function App() {
 
     // Función para manejar la animación del scroll
     function raf(time) {
+      const lenis = lenisRef.current;
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
@@ -53,7 +50,6 @@ function App() {
 
 
   useEffect(() => {
-    // Initialize Barba.js for handling transitions
     barba.init({
       transitions: [
         {
@@ -71,9 +67,9 @@ function App() {
             });
           },
           afterEnter() {
-            // Ensure scroll reset after transition is done
             const lenis = lenisRef.current;
             if (lenis) {
+              // Asegurarse de que el scroll va al tope de inmediato al entrar en una nueva página
               lenis.scrollTo(0, { immediate: true });
             }
           },
@@ -81,16 +77,16 @@ function App() {
       ],
     });
   }, []);
+  
 
 
   // Efecto para restablecer el scroll al cambiar de ruta
   useLayoutEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
-
-    requestAnimationFrame(() => {
-      lenis.scrollTo(0, { immediate: true });
-    });
+  
+    // Saltar al tope de la página inmediatamente
+    lenis.scrollTo(0, { immediate: true });
   }, [location.pathname]);
 
   return (
@@ -101,16 +97,7 @@ function App() {
           <header id="header" className={`fixed-top inverted`}>
             <Navbar  />
           </header>
-          <main>
-            <AnimatePresence mode="wait">
-              {/* <motion.div
-                key={location.pathname}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-              > */}
-                          
+          <main>   
                 <Routes location={location}>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/portfolio/photoshoots" element={<PortfolioDetailPage title="photo    shoots" images={portfolioDetails.photoshoots} textAnimation={"A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."} />} />
@@ -124,10 +111,7 @@ function App() {
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
-                  {/* <Route path="/detail" element={<Detail images={portfolioDetails.photoshoots.projectImages} />} /> */}
                 </Routes>
-              {/* </motion.div> */}
-            </AnimatePresence>
           </main>
           <footer>
             <Footer />
