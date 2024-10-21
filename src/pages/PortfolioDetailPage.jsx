@@ -1,6 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
-// import AnimatedImage from "../components/PortfolioDetailsPage/AnimatedImage";
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 import Button from "../components/General/Buttons/Button";
@@ -21,10 +20,10 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
       console.log(selectedImage)
     };
   
-    // const closeOverlay = () => {
-    //   setSelectedImage(null); // Close overlay when clicked outside or on a close button
-    // };
-
+    const closeOverlay = () => {
+        setSelectedImage(null); // Close overlay when clicked outside or on a close button
+    };
+    
     const handleChangeOrder = () => {
         setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
         setDisabledButtons(true)
@@ -108,7 +107,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 </div>
             </section >
             {selectedImage && (
-                <Detail images={projectImages} />
+                <Detail images={projectImages} closeOverlay={closeOverlay}/>
             )}
         </div >
     );
