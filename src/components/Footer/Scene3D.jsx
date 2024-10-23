@@ -23,8 +23,8 @@ const Scene3D = () => {
 
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
-        event.preventDefault(); // Prevent default behavior
-        console.warn('WebGL context lost!'); // Handle accordingly
+      event.preventDefault(); // Prevent default behavior
+      console.warn('WebGL context lost!'); // Handle accordingly
     };
 
     const canvas = document.querySelector('canvas'); // Ensure you are targeting the right canvas
@@ -41,7 +41,6 @@ const Scene3D = () => {
       gl={{ alpha: true, antialias: true }} // Enable antialiasing
       camera={cameraRef.current} // Use the camera
       onCreated={({ gl }) => {
-        gl.outputEncoding = THREE.sRGBEncoding;
         gl.physicallyCorrectLights = true;
         gl.setClearColor(backgroundColor, 1);
       }}

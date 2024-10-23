@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { editorialsCovers, editorialsParallaxHero } from "../assets/js/images";
-import EditorialCard from "../components/EditorialsPage/EditorialCard";
 import HeroEditorials from "../components/EditorialsPage/HeroEditorials";
 import SwiperEditorialCard from "../components/EditorialsPage/SwiperEditorialCard";
+import EditorialsPageSeo from "./SEO/EditorialsPageSeo";
 
 
 const EditorialsPage = () => {
@@ -21,6 +21,7 @@ const EditorialsPage = () => {
 
     return (
         <div data-barba="container" className="editorials-page bg-light">
+            <EditorialsPageSeo editorialsParallaxHero={editorialsParallaxHero} />
             <section className="editorials-hero vh-100 overflow-x-clip">
                 <div className="vh-100 d-flex">
                     <HeroEditorials images={editorialsParallaxHero} />
@@ -28,7 +29,7 @@ const EditorialsPage = () => {
             </section>
             <section className="editorial-cards">
                 <div className="py-5">
-                    <SwiperEditorialCard images={editorialsCovers}/>
+                    <SwiperEditorialCard images={editorialsCovers} />
                 </div>
             </section>
         </div>

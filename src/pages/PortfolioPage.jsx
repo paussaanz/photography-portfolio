@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
 import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/images';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 
 const PortfolioPage = () => {
     const sectionRef = useRef(null);
@@ -20,15 +21,12 @@ const PortfolioPage = () => {
             scrub: 15, // Suaviza el efecto
             onUpdate: (self) => {
                 const progress = self.progress;
-
                 const newColor = `rgba(0, 0, 0, ${progress})`;
                 gsap.to(sectionRef.current, {
                     backgroundColor: newColor,
                     duration: 0.5,
                     ease: "power3.out"
                 });
-
-              
             }
         });
 
@@ -37,9 +35,10 @@ const PortfolioPage = () => {
         };
     }, []);
 
-
     return (
-        <div data-barba="container" className='barba-container portfolio-page' >
+        <div data-barba="container" className='barba-container portfolio-page'>
+            <PortfolioPageSeo portfolioParallaxHero={portfolioParallaxHero} />
+
             <section className="hero-portfolio vh-175 overflow-x-clip">
                 <div className="vh-175 d-flex">
                     <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
