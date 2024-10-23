@@ -25,7 +25,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link reloadDocument to="/about" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
-                About me
+                About SYP!
               </Link>
 
             </li>
