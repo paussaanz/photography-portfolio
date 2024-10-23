@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1031; /* so that it stays on top of all other elements */
+  z-index: 1000000; /* so that it stays on top of all other elements */
 
   &:hover {
     .circle {
@@ -19,5 +19,5 @@
 
 .custom-cursor-container {
   cursor: none;
-  z-index: 10302;
+  z-index: 10000000;
 }
