@@ -29,7 +29,7 @@ const HeroEditorials = ({images = []}) => {
 
     return (
         <>
-            <div ref={container} className="container hero-cabecera-editorials">
+            <div ref={container} className="container hero-editorials">
             <div className="images-3 position-relative d-flex w-100 justify-content-center">
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={3}/>
             </div>
