@@ -73,7 +73,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 <div className="py-5 vh-100 align-content-center">
                     <TextAnimationContainer
                         text={textAnimation}
-                        textColor="text-primary"
+                        textColor="text-color--primary"
                         maskColor="bg-light"
                     />
                 </div>
@@ -81,10 +81,10 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
             <div ></div>
             <section ref={imagesSectionRef} className="images-gallery">
-                <div className={`text-dark text-center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
-                    <Button className="text-dark" text="Grid" onClick={handleChangeOrder} />
+                <div className={`text-color--dark text-center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                    <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
                     |
-                    <Button className="text-dark" text="Gallery" onClick={handleChangeOrder} />
+                    <Button className="text-color--dark" text="Gallery" onClick={handleChangeOrder} />
                 </div>
                 <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                     <div className={ordered ? 'gallery' : ''} ref={galleryRef}>

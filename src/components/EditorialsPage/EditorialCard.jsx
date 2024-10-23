@@ -1,7 +1,7 @@
 const EditorialCard = ({ src, name, year, scale, opacity }) => {
   return (
     <div
-      className="d-flex align-items-center justify-content-center flex-column"
+      className="flex--display flex--align-center flex--justify-center flex--column"
       style={{
         transform: `scale(${scale})`,
         opacity: opacity,
@@ -9,13 +9,13 @@ const EditorialCard = ({ src, name, year, scale, opacity }) => {
       }}
     >
       <div
-        className="d-flex flex-column justify-content-center align-items-center"
+        className="flex--display flex--column flex--justify-center flex--align-center"
         style={{ height: '50vh', width: '50vw' }}
       >
-        <img className="h-100 w-100 object-fit-cover" src={src} alt={name} />
+        <img className="dimension--h-100 dimension--w-100 object-fit-cover" src={src} alt={name} />
       </div>
       <div
-        className="d-flex justify-content-between text-uppercase text-primary h5"
+        className="flex--display flex--justify-between text-transform--uppercase text-color--primary h5"
         style={{ marginTop: '10px', width: '50vw' }}
       >
         <p className="m-0" style={{ textAlign: 'left' }}>

@@ -1,0 +1,41 @@
+.text-color {
+  &--primary {
+    color: $cor-primary;
+  }
+
+  &--secondary {
+    color: $cor-secondary;
+  }
+
+  &--light {
+    color: $cor-light;
+  }
+
+  &--dark {
+    color: $cor-dark;
+  }
+}
+
+.text-align {
+  &--center {
+    text-align: center;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--justify {
+    text-align: justify;
+  }
+}
+
+.text-transform {
+  &--uppercase {
+    text-transform: uppercase; // Equivalente a "text-uppercase" en Bootstrap
+  }
+}

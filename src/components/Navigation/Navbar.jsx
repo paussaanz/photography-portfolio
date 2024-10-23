@@ -14,17 +14,17 @@ const Navbar = () => {
         <div className="d-flex flex-grow-1">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link reloadDocument to="/portfolio" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/portfolio" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Portfolio
               </Link>
             </li>
             <li className="nav-item">
-              <Link reloadDocument to="/editorials" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/editorials" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Editorials
               </Link>
             </li>
             <li className="nav-item">
-              <Link reloadDocument to="/about" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/about" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 About SYP!
               </Link>
 
@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="d-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link reloadDocument to="/contact" className={`nav-link ${isPrimaryPage ? 'text-light' : 'text-light'}`}>
+              <Link reloadDocument to="/contact" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Contact
               </Link>
             </li>

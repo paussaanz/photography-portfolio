@@ -2,8 +2,8 @@ const HeroAbout = () => {
     return (
         <div className="container hero-about">
 
-            <div className="body text-primary text-center d-flex justify-content-center align-items-end vh-100">
-                <h1 className="mb-5 text-uppercase text-primary">
+            <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-end dimension--vh-100">
+                <h1 className="mb-5 text-transform--uppercase text-color--primary">
                     ABOUT SYP!
                 </h1>
             </div>
