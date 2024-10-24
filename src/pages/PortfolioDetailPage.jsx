@@ -81,7 +81,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
             <div ></div>
             <section ref={imagesSectionRef} className="images-gallery">
-                <div className={`text-color--dark text-align--center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                <div className={`text-color--dark text-align--center button--fixed-bottom ${disabledButtons ? 'pointer-events-none' : ''}`}>
                     <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
                     |
                     <Button className="text-color--dark" text="Gallery" onClick={handleChangeOrder} />

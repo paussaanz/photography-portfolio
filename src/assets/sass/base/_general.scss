@@ -415,3 +415,17 @@ $font-sizes-md: (
     pointer-events: auto; // Para restablecer el comportamiento de los eventos
   }
 }
+
+.translate {
+  &--middle {
+    transform: translate(-50%, -50%) !important;
+  }
+
+  &--middle-x {
+    transform: translateX(-50%) !important; 
+  }
+
+  &--middle-y {
+    transform: translateY(-50%) !important;
+  }
+}
