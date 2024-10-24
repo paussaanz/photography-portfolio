@@ -54,7 +54,7 @@ const HomePage = () => {
                 <motion.div
                     key={location.pathname}
                     style={{ scale, rotate }}
-                    className="position--sticky top-0 py-5 dimension--vh-100 align-content--center">
+                    className="position--sticky position--top-0 padding--y-5 dimension--vh-100 align-content--center">
                     <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
                 </motion.div>
 

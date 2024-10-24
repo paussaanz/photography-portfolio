@@ -40,18 +40,18 @@ const PortfolioPage = () => {
 
     return (
         <div data-barba="container" className='barba-container portfolio-page' >
-            <section className="hero-portfolio dimansion--vh-175 overflow-x-clip">
+            <section className="hero-portfolio dimension--vh-175 overflow--x-clip">
                 <div className="dimension--vh-175 flex--display">
                     <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
                 </div>
             </section>
 
             <section className="text-animation" ref={sectionRef}>
-                <div className="py-5 vh-100 align-content-center">
+                <div className="padding--y-5 dimension--vh-100 align-content--center">
                     <TextAnimationContainer
                         text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
                         textColor='text-color--primary'
-                        maskColor="bg-light"
+                        maskColor="background--light"
                     />
                 </div>
 

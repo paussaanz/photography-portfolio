@@ -56,7 +56,7 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
 
     return (
         <div ref={container} className="container hero-cabecera">
-            <div className="images-1 position--relative d-flex dimension--w-100 justify-content--center">
+            <div className="images-1 position--relative flex--display dimension--w-100 flex--justify-center">
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={1} />
             </div>
             <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100"> {/* Alineación centrada */}

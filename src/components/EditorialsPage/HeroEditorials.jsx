@@ -30,11 +30,11 @@ const HeroEditorials = ({images = []}) => {
     return (
         <>
             <div ref={container} className="container hero-editorials">
-            <div className="images-3 position-relative d-flex w-100 justify-content-center">
+            <div className="images-3 position--relative flex--display dimension--w-100 flex--justify-center">
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={3}/>
             </div>
-            <div className="body text-color--primary text-center d-flex justify-content-center align-items-end vh-100">
-                <motion.h1 style={{ y: xsm }} className="mb-5 text-uppercase text-color--primary">
+            <div className="body text-color--primary text-aling--center flex--display justify-content-center flex--align-end dimension--vh-100">
+                <motion.h1 style={{ y: xsm }} className="margin--bottom-5 text-transform--uppercase text-color--primary">
                     EDITORIALS
                 </motion.h1>
             </div>

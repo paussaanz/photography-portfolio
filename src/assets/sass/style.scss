@@ -31,6 +31,10 @@
 @import "partials/swiper";
 @import "partials/aspect-ratios";
 
+// Layout
+@import "layout/spacing";
+@import "layout/container";
+
 // Pages
 @import "pages/portfolio-details-page/images";
 @import "pages/footer/infinite-carrusel";

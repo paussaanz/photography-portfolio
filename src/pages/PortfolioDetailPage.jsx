@@ -65,23 +65,23 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     return (
         <div data-barba="container" className={`${selectedImage ? 'detail-mode' : ''} `}>
 
-            <section className="hero-details position-relative">
+            <section className="hero-details position--relative">
                 <HeroDetails slug={title} src={heroImage.src} />
             </section>
 
             <section className="text-animation">
-                <div className="py-5 vh-100 align-content-center">
+                <div className="padding--y-5 dimension--vh-100 align-content--center">
                     <TextAnimationContainer
                         text={textAnimation}
                         textColor="text-color--primary"
-                        maskColor="bg-light"
+                        maskColor="background--light"
                     />
                 </div>
             </section>
 
             <div ></div>
             <section ref={imagesSectionRef} className="images-gallery">
-                <div className={`text-color--dark text-center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                <div className={`text-color--dark text-align--center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
                     <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
                     |
                     <Button className="text-color--dark" text="Gallery" onClick={handleChangeOrder} />

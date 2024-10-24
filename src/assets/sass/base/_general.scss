@@ -127,15 +127,6 @@ $font-sizes-md: (
   font-family: 'Gunterz';
 }
 
-
-.object-fit-contain {
-  object-fit: contain;
-}
-
-.object-fit-cover {
-  object-fit: cover;
-}
-
 .bg-image {
   @include bg-image();
   background-image: var(--bg-image);
@@ -148,116 +139,33 @@ $font-sizes-md: (
   }
 }
 
-.w-max {
-  width: max-content;
-}
-
-.h-max {
-  height: max-content;
-}
-
-.h-view {
-  height: 100vh;
-  overflow: clip
-}
-
-.h-95-view {
-  height: 95vh;
-  overflow: clip
-}
-
-.h-80-view {
-  height: 80vh;
-  overflow: clip
-}
-
-.vh-50 {
-  height: 50vh;
-  overflow: clip
-}
-
-.vh-175 {
-  height: 175vh;
-  // overflow: clip
-}
-
-.vh-200 {
-  height: 200vh;
-  overflow: clip
-}
-
-.vh-300 {
-  height: 300vh;
-  overflow: clip
-}
-
-.overflow-clip {
-  overflow: clip
-}
-
-
-.py-hero {
-  padding-bottom: toRem(24)*1rem;
-  padding-top: toRem(150)*1rem;
-}
-
-.py-c {
-  padding-top: toRem(72)*1rem;
-  padding-bottom: toRem(72)*1rem;
-}
-
-
-.py-banner {
-  padding-top: toRem(24)*1rem;
-  padding-bottom: toRem(24)*1rem;
-}
-
-.opacity-80 {
-  opacity: .8;
-}
-
-.opacity-60 {
-  opacity: .6;
-}
-
-.opacity-30 {
-  opacity: .3;
-}
-
-.sticky-top-header {
-  position: sticky;
-  top: calc(toRem(78) * 1rem + $spacer * .5);
-  z-index: 1019;
-}
-
-.overwhite,
-.overdark {
+.over {
   position: relative;
   overflow: clip;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, var(--bg-porcentaje));
-    z-index: 0;
-    /* Asegúrate de que esté entre el video y el contenido */
+    background: rgba(0, 0, 0, var(--bg-porcentaje)); // Fondo oscuro por defecto
+    z-index: 0; // Asegúrate de que esté entre el fondo y el contenido
     height: 100%;
   }
 
   * {
-    z-index: 1;
+    z-index: 1; // El contenido tendrá un índice z más alto que el fondo
+  }
+
+  &--dark {
+    &::before {
+      background: rgba(0, 0, 0, var(--bg-porcentaje)); // Mantiene el fondo oscuro
+    }
   }
 }
 
-.overwhite {
-  &:before {
-    background: rgba(255, 255, 255, var(--bg-porcentaje));
-  }
-}
 
 .blur {
   filter: blur(4px);
@@ -271,46 +179,47 @@ $font-sizes-md: (
   z-index: -1;
 }
 
+/*GENERAL SCSS*/
 
-header {
+.header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   background: transparent;
-  /* Transparecia si lo deseas */
-  transition: all 0.3s ease-in-out;
-  /* Transición suave */
+  transition: all 0.3s ease-in-out; // Transición suave
+
+  &--inverted {
+    mix-blend-mode: difference; // Aplicar mezcla para invertir colores
+  }
 }
 
-header.inverted {
-  // filter: invert(1);
-  mix-blend-mode: difference;
+.overflow {
+  &--hidden {
+    overflow: hidden !important; // Equivalente a "overflow-x-hidden"
+  }
+
+  &--x-clip {
+    overflow-x: clip !important; // Equivalente a "overflow-x-hidden"
+  }
+
+  &--x-hidden {
+    overflow-x: hidden !important; // Equivalente a "overflow-x-hidden"
+  }
+
+  &--y-hidden {
+    overflow-y: hidden !important; // Equivalente a "overflow-y-hidden"
+  }
+
+  &--x-clip {
+    overflow-x: clip !important; // Equivalente a "overflow-x-clip"
+  }
+
+  &--y-clip {
+    overflow-y: clip !important; // Equivalente a "overflow-y-clip"
+  }
 }
 
-.overflow-x-hidden {
-  overflow-x: hidden !important;
-}
-
-.overflow-y-hidden {
-  overflow-y: hidden !important;
-}
-
-.overflow-x-clip {
-  overflow-x: clip !important;
-}
-
-.overflow-y-clip {
-  overflow-y: clip !important;
-}
-
-.pointer-events-none {
-  pointer-events: none;
-}
-
-
-
-/*GENERAL SCSS*/
 .flex {
   &--display {
     display: flex; // Equivalente a "d-flex" en Bootstrap
@@ -355,27 +264,65 @@ header.inverted {
   &--nowrap {
     flex-wrap: nowrap; // Evitar el wrapping de elementos
   }
+
+  // Flex-grow
+  @for $i from 0 through 5 {
+    &--grow-#{$i} {
+      flex-grow: $i !important; // Equivalente a "flex-grow-0", "flex-grow-1", etc. en Bootstrap
+    }
+  }
+
+  // Flex-shrink
+  @for $i from 0 through 5 {
+    &--shrink-#{$i} {
+      flex-shrink: $i !important; // Equivalente a "flex-shrink-0", "flex-shrink-1", etc. en Bootstrap
+    }
+  }
+
+  // Flex-basis
+  @each $basis, $value in (auto: auto, 0: 0%, 25: 25%, 50: 50%, 75: 75%, 100: 100%) {
+    &--basis-#{$basis} {
+      flex-basis: $value !important; // Equivalente a "flex-basis-auto", "flex-basis-0", etc.
+    }
+  }
+
 }
 
 .dimension {
+  &--vh-50 {
+    height: 50vh !important;
+  }
+
   &--vh-100 {
-    height: 100vh;
+    height: 100vh !important;
   }
 
   &--vh-175 {
-    height: 175vh;
+    height: 175vh !important;
+  }
+
+  &--vh-300 {
+    height: 300vh !important;
   }
 
   &--vw-100 {
-    width: 100vw;
+    width: 100vw !important;
+  }
+
+  &--h-max {
+    height: max-content !important;
   }
 
   &--h-100 {
-    height: 100%;
+    height: 100% !important;
+  }
+
+  &--w-max {
+    width: max-content !important;
   }
 
   &--w-100 {
-    width: 100%;
+    width: 100% !important;
   }
 }
 
@@ -454,4 +401,17 @@ header.inverted {
     background-color: $cor-secondary; // Equivalente a "bg-secondary" en Bootstrap
   }
 
+  &--transparent {
+    background-color: transparent; // Equivalente a "bg-secondary" en Bootstrap
+  }
+}
+
+.pointer-events {
+  &--none {
+    pointer-events: none; // Equivalente a "pointer-events-none" en Bootstrap
+  }
+
+  &--auto {
+    pointer-events: auto; // Para restablecer el comportamiento de los eventos
+  }
 }
