@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { editorialsCovers, editorialsParallaxHero } from "../assets/js/images";
-import EditorialCard from "../components/EditorialsPage/EditorialCard";
 import HeroEditorials from "../components/EditorialsPage/HeroEditorials";
 import SwiperEditorialCard from "../components/EditorialsPage/SwiperEditorialCard";
 
