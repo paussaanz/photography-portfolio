@@ -8,14 +8,15 @@
 // Funciones para SASS
 @import "abstracts/functions";
 // Variables generales y overrides de las de bootstrap
-@import "bootstrap-variables";
+@import "abstracts/variables";
 @import "abstracts/mixins";
 
 // Para especificar las clases de Bootstrap que queremos cargar
-@import "bootstrap-loads";
+// @import "bootstrap-loads";
 
 // Utilidades extra estilo bootstrap
 @import 'base/general';
+@import 'base/text';
 
 // Plugins
 //@import "node_modules/bootstrap-select/sass/bootstrap-select";
@@ -29,6 +30,10 @@
 // Elementos nuevos reutilizables
 @import "partials/swiper";
 @import "partials/aspect-ratios";
+
+// Layout
+@import "layout/spacing";
+@import "layout/container";
 
 // Pages
 @import "pages/portfolio-details-page/images";

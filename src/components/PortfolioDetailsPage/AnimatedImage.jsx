@@ -43,7 +43,7 @@ const AnimatedImage = ({
 
     <motion.div
       onClick={onImageClick}
-      className="gallery-item overflow-hidden"
+      className="gallery-item overflow--hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={container}

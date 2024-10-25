@@ -1,32 +1,103 @@
-.navbar-container {
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease-in-out; // Transición suave
+
+  &--inverted {
+    mix-blend-mode: difference; // Aplicar mezcla para invertir colores
+  }
+  &--fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1030; // Matching Bootstrap's z-index for fixed elements
+  }
+}
+
+.cus-navbar {
   position: relative;
-  text-transform: uppercase;
-  font-family: 'gunterz', sans-serif; // Asegúrate de que el nombre de la fuente esté correctamente especificado
-}
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: $cor-navbar-padding-y $cor-navbar-padding-x;
+  color: $cor-navbar-color;
+  transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+  // transform: translateY(0%);
+  // opacity: 1;
+  // pointer-events: all;
+  // z-index: -1;
 
-.navbar-brand-centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+  &--container {
+    position: relative;
+    text-transform: uppercase;
+    font-family: 'gunterz', sans-serif; // Asegúrate de que el nombre de la fuente esté correctamente especificado
+  }
 
-.navbar {
-  transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out; 
-  transform: translateY(0%);
-  opacity: 1;
-  pointer-events: all;
-  z-index: -1;
-}
+  &--brand-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.hide {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none; 
-}
+  &--expand-lg {
+    @media (min-width: 992px) {
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+    }
+  }
 
+  &--container-fluid{
 
-.header-hide{
-  transition: z-index 0s linear 1.5s; // Retrasa el cambio de z-index hasta después de la transición
-  z-index: -100; // Este z-index solo se aplica cuando el navbar se oculta
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &--navbar-nav{
+    @media (min-width: 992px) {
+          flex-direction: row;
+      
+  }
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  &--nav-link{
+    @media (min-width: 992px) {
+          padding-right: 0.94rem;
+          padding-left: 0.94rem;
+      
+  }
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    // font-weight: var(--bs-nav-link-font-weight);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  // Estilos claros (equivalente a "navbar-light")
+  &--light {
+    color: $cor-dark;
+
+    .navbar-brand {
+      color: inherit;
+    }
+  }
 }

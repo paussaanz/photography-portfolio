@@ -12,7 +12,7 @@ const Detail = ({ images, closeOverlay }) => {
   return (
     <div data-barba="container" className="gallery-container">
       <motion.div
-        className="background-overlay bg-light"
+        className="background-overlay background--light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

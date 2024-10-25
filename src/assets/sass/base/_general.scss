@@ -1,307 +1,437 @@
 //  Aquí generamos nuevas clases utils o añadimos alguna funcionalidad nueva a las clases de bootstrap
 :root {
-    // usar la clase bg-image y llamar a este root en el style para añadir la imagen
-    --bg-image: "";
-    --bg-md-image: "";
-    --bg-porcentaje: 0.4;
-  }
-  
-  /*  Configuración fuentes Desktop */
-  
-  $display-font-sizes-md: (
-    1: $cor-display-font-sizes-1-md,
-    2: $cor-display-font-sizes-2-md,
-    3: $cor-display-font-sizes-3-md,
-    4: $cor-display-font-sizes-4-md,
-    5: $cor-display-font-sizes-5-md,
-    6: $cor-display-font-sizes-6-md,
-  );
-  $headings-sizes-md: (
-    1: $cor-h1-font-size-md,
-    2: $cor-h2-font-size-md,
-    3: $cor-h3-font-size-md,
-    4: $cor-h4-font-size-md,
-    5: $cor-h5-font-size-md,
-    6: $cor-h6-font-size-md
-  );
-  $font-sizes-md: (
-    1: $cor-font-size-base-1-md,
-    2: $cor-font-size-base-2-md,
-    3: $cor-font-size-base-3-md,
-    4: $cor-font-size-base-4-md,
-    5: $cor-font-size-base-5-md,
-    6: $cor-font-size-base-6-md,
-  );
-  
-  @each $size, $value in $display-font-sizes-md {
-    .display-#{$size} {
-      font-family: $cor-font-family-headings;
-  
-      @include media-breakpoint-up(md) {
-        font-size: $value !important;
-      }
+  // usar la clase bg-image y llamar a este root en el style para añadir la imagen
+  --bg-image: "";
+  --bg-md-image: "";
+  --bg-porcentaje: 0.4;
+}
+
+*{
+  margin: 0;
+}
+/*  Configuración fuentes Desktop */
+
+$display-font-sizes-md: (
+  1: $cor-display-font-sizes-1-md,
+  2: $cor-display-font-sizes-2-md,
+  3: $cor-display-font-sizes-3-md,
+  4: $cor-display-font-sizes-4-md,
+  5: $cor-display-font-sizes-5-md,
+  6: $cor-display-font-sizes-6-md,
+);
+$headings-sizes-md: (
+  1: $cor-h1-font-size-md,
+  2: $cor-h2-font-size-md,
+  3: $cor-h3-font-size-md,
+  4: $cor-h4-font-size-md,
+  5: $cor-h5-font-size-md,
+  6: $cor-h6-font-size-md
+);
+$font-sizes-md: (
+  1: $cor-font-size-base-1-md,
+  2: $cor-font-size-base-2-md,
+  3: $cor-font-size-base-3-md,
+  4: $cor-font-size-base-4-md,
+  5: $cor-font-size-base-5-md,
+  6: $cor-font-size-base-6-md,
+);
+$font-sizes: (
+  1: $cor-h1-font-size,
+  2: $cor-h2-font-size,
+  3: $cor-h3-font-size,
+  4: $cor-h4-font-size,
+  5: $cor-h5-font-size,
+  6: $cor-h6-font-size,
+);
+
+@each $size, $value in $display-font-sizes-md {
+  .display-#{$size} {
+    font-family: $cor-font-family-headings;
+
+    @include media-breakpoint-up(md) {
+      font-size: $value !important;
     }
   }
-  
-  @each $size, $value in $font-sizes {
-  
-    .h#{$size},
-    h#{$size} {
-      @include title($size);
+}
+
+@each $size, $value in $font-sizes {
+
+  .h#{$size},
+  h#{$size} {
+    @include title($size);
+    font-size: $value;
+  }
+}
+
+@each $size, $value in $headings-sizes-md {
+
+  .h#{$size},
+  h#{$size} {
+    @include media-breakpoint-up(md) {
       font-size: $value;
     }
   }
-  
-  @each $size, $value in $headings-sizes-md {
-  
-    .h#{$size},
-    h#{$size} {
-      @include media-breakpoint-up(md) {
-        font-size: $value;
-      }
-    }
-  }
-  
-  @each $size, $value in $font-sizes-md {
-    .fs-#{$size} {
-      font-family: $cor-font-family-sans-serif;
-  
-      @include media-breakpoint-up(md) {
-        font-size: $value !important;
-      }
-    }
-  }
-  
-  @each $size, $value in $display-font-sizes-md {
-    .display-md-#{$size} {
-      @include media-breakpoint-up(md) {
-        font-size: $value !important;
-      }
-    }
-  }
-  
-  @each $size, $value in $font-sizes-md {
-    .fs-md-#{$size} {
-      font-family: $cor-font-family-sans-serif;
-  
-      @include media-breakpoint-up(md) {
-        font-size: $value !important;
-        text-transform: initial;
-      }
-    }
-  }
-  
-  @each $size, $value in $headings-sizes-md {
-    .st-h#{$size} {
-      @include title($size);
-    }
-  }
-  
-  .legend {
-    font-size: $cor-font-legend !important;
-  
+}
+
+@each $size, $value in $font-sizes-md {
+  .fs-#{$size} {
+    font-family: $cor-font-family-sans-serif;
+
     @include media-breakpoint-up(md) {
-      font-size: $cor-font-legend-md !important;
+      font-size: $value !important;
     }
   }
-  
-  .legend-md {
+}
+
+@each $size, $value in $display-font-sizes-md {
+  .display-md-#{$size} {
     @include media-breakpoint-up(md) {
-      font-size: $cor-font-legend-md !important;
+      font-size: $value !important;
     }
   }
-  
-  .tag {
-    font-size: $cor-font-tag !important;
-  
+}
+
+@each $size, $value in $font-sizes-md {
+  .fs-md-#{$size} {
+    font-family: $cor-font-family-sans-serif;
+
     @include media-breakpoint-up(md) {
-      font-size: $cor-font-tag-md !important;
+      font-size: $value !important;
+      text-transform: initial;
     }
   }
-  
-  .fw-regular {
-    font-weight: 400;
+}
+
+@each $size, $value in $headings-sizes-md {
+  .st-h#{$size} {
+    @include title($size);
   }
-  
-  .gunterz {
-    font-family: 'Gunterz';
+}
+
+.legend {
+  font-size: $cor-font-legend !important;
+
+  @include media-breakpoint-up(md) {
+    font-size: $cor-font-legend-md !important;
   }
-  
-  
-  .object-fit-contain {
-    object-fit: contain;
+}
+
+.legend-md {
+  @include media-breakpoint-up(md) {
+    font-size: $cor-font-legend-md !important;
   }
-  
-  .object-fit-cover {
-    object-fit: cover;
+}
+
+.tag {
+  font-size: $cor-font-tag !important;
+
+  @include media-breakpoint-up(md) {
+    font-size: $cor-font-tag-md !important;
   }
-  
-  .bg-image {
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.gunterz {
+  font-family: 'Gunterz';
+}
+
+.bg-image {
+  @include bg-image();
+  background-image: var(--bg-image);
+}
+
+.bg-md-image {
+  @include media-breakpoint-up(md) {
     @include bg-image();
-    background-image: var(--bg-image);
+    background-image: var(--bg-md-image);
   }
-  
-  .bg-md-image {
-    @include media-breakpoint-up(md) {
-      @include bg-image();
-      background-image: var(--bg-md-image);
-    }
-  }
-  
-  .w-max {
-    width: max-content;
-  }
-  
-  .h-max {
-    height: max-content;
-  }
-  
-  .h-view {
-    height: 100vh;
-    overflow: clip
-  }
-  
-  .h-95-view {
-    height: 95vh;
-    overflow: clip
-  }
-  
-  .h-80-view {
-    height: 80vh;
-    overflow: clip
-  }
-  
-  .vh-50 {
-    height: 50vh;
-    overflow: clip
-  }
-  
-  .vh-175 {
-    height: 175vh;
-    // overflow: clip
-  }
-  
-  .vh-200 {
-    height: 200vh;
-    overflow: clip
-  }
-  
-  .vh-300 {
-    height: 300vh;
-    overflow: clip
-  }
-  
-  .overflow-clip {
-    overflow: clip
-  }
-  
-  
-  .py-hero {
-    padding-bottom: toRem(24)*1rem;
-    padding-top: toRem(150)*1rem;
-  }
-  
-  .py-c {
-    padding-top: toRem(72)*1rem;
-    padding-bottom: toRem(72)*1rem;
-  }
-  
-  
-  .py-banner {
-    padding-top: toRem(24)*1rem;
-    padding-bottom: toRem(24)*1rem;
-  }
-  
-  .opacity-80 {
-    opacity: .8;
-  }
-  
-  .opacity-60 {
-    opacity: .6;
-  }
-  
-  .opacity-30 {
-    opacity: .3;
-  }
-  
-  .sticky-top-header {
-    position: sticky;
-    top: calc(toRem(78) * 1rem + $spacer * .5);
-    z-index: 1019;
-  }
-  
-  .overwhite,
-  .overdark {
-    position: relative;
-    overflow: clip;
-  
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba(0, 0, 0, var(--bg-porcentaje));
-      z-index: 0;
-      /* Asegúrate de que esté entre el video y el contenido */
-      height: 100%;
-    }
-  
-    * {
-      z-index: 1;
-    }
-  }
-  
-  .overwhite {
-    &:before {
-      background: rgba(255, 255, 255, var(--bg-porcentaje));
-    }
-  }
-  
-  .blur {
-    filter: blur(4px);
+}
+
+.over {
+  position: relative;
+  overflow: clip;
+
+  &::before {
+    content: "";
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    width: 101%;
+    background: rgba(0, 0, 0, var(--bg-porcentaje)); // Fondo oscuro por defecto
+    z-index: 0; // Asegúrate de que esté entre el fondo y el contenido
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-  }
-  
-  
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: transparent; /* Transparecia si lo deseas */
-    transition: all 0.3s ease-in-out; /* Transición suave */
-  }
-  
-  header.inverted {
-    // filter: invert(1);
-    mix-blend-mode: difference;
   }
 
-  .overflow-x-hidden{
-    overflow-x: hidden !important;
+  * {
+    z-index: 1; // El contenido tendrá un índice z más alto que el fondo
   }
 
-  .overflow-y-hidden{
-    overflow-y: hidden !important;
+  &--dark {
+    &::before {
+      background: rgba(0, 0, 0, var(--bg-porcentaje)); // Mantiene el fondo oscuro
+    }
+  }
+}
+
+
+.blur {
+  filter: blur(4px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/*GENERAL SCSS*/
+
+
+
+.overflow {
+  &--hidden {
+    overflow: hidden !important; // Equivalente a "overflow-x-hidden"
   }
 
-  .overflow-x-clip{
-    overflow-x: clip !important;
+  &--clip {
+    overflow: clip !important; // Equivalente a "overflow-x-hidden"
   }
 
-  .overflow-y-clip{
-    overflow-y: clip !important;
+  &--x-clip {
+    overflow-x: clip !important; // Equivalente a "overflow-x-hidden"
   }
 
-  .pointer-events-none{
-    pointer-events: none;
+  &--x-hidden {
+    overflow-x: hidden !important; // Equivalente a "overflow-x-hidden"
   }
+
+  &--y-hidden {
+    overflow-y: hidden !important; // Equivalente a "overflow-y-hidden"
+  }
+
+  &--y-clip {
+    overflow-y: clip !important; // Equivalente a "overflow-y-clip"
+  }
+}
+
+.flex {
+  &--display {
+    display: flex; // Equivalente a "d-flex" en Bootstrap
+  }
+
+  &--row {
+    flex-direction: row; // Alineación horizontal (por defecto en flex)
+  }
+
+  &--column {
+    flex-direction: column; // Alineación vertical
+  }
+
+  &--justify-center {
+    justify-content: center; // Centrar horizontalmente
+  }
+
+  &--justify-between {
+    justify-content: space-between; // Distribuir espacio entre elementos
+  }
+
+  &--justify-end {
+    justify-content: flex-end; // Alinear al final del contenedor
+  }
+
+  &--align-center {
+    align-items: center; // Centrar verticalmente
+  }
+
+  &--align-start {
+    align-items: flex-start; // Alinear al inicio verticalmente
+  }
+
+  &--align-end {
+    align-items: flex-end; // Alinear al final verticalmente
+  }
+
+  &--wrap {
+    flex-wrap: wrap; // Permitir el wrapping de elementos
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap; // Evitar el wrapping de elementos
+  }
+
+  // Flex-grow
+  @for $i from 0 through 5 {
+    &--grow-#{$i} {
+      flex-grow: $i !important; // Equivalente a "flex-grow-0", "flex-grow-1", etc. en Bootstrap
+    }
+  }
+
+  // Flex-shrink
+  @for $i from 0 through 5 {
+    &--shrink-#{$i} {
+      flex-shrink: $i !important; // Equivalente a "flex-shrink-0", "flex-shrink-1", etc. en Bootstrap
+    }
+  }
+
+  // Flex-basis
+  @each $basis, $value in (auto: auto, 0: 0%, 25: 25%, 50: 50%, 75: 75%, 100: 100%) {
+    &--basis-#{$basis} {
+      flex-basis: $value !important; // Equivalente a "flex-basis-auto", "flex-basis-0", etc.
+    }
+  }
+
+}
+
+.dimension {
+  &--vh-50 {
+    height: 50vh !important;
+  }
+
+  &--vh-100 {
+    height: 100vh !important;
+  }
+
+  &--vh-175 {
+    height: 175vh !important;
+  }
+
+  &--vh-300 {
+    height: 300vh !important;
+  }
+
+  &--vw-100 {
+    width: 100vw !important;
+  }
+
+  &--h-max {
+    height: max-content !important;
+  }
+
+  &--h-100 {
+    height: 100% !important;
+  }
+
+  &--w-max {
+    width: max-content !important;
+  }
+
+  &--w-100 {
+    width: 100% !important;
+  }
+}
+
+.object-fit {
+  &--cover {
+    object-fit: cover; // Equivalente a "object-fit-cover" en Bootstrap
+  }
+
+  &--contain {
+    object-fit: contain; // Equivalente a "object-fit-contain" en Bootstrap
+  }
+}
+
+.position {
+  &--relative {
+    position: relative; // Equivalente a "position-relative" en Bootstrap
+  }
+
+  &--absolute {
+    position: absolute; // Equivalente a "position-absolute" en Bootstrap
+  }
+
+  &--sticky {
+    position: sticky; // Equivalente a "position-sticky" en Bootstrap
+  }
+
+  &--fixed {
+    position: fixed; // Equivalente a "position-fixed" en Bootstrap
+  }
+
+  &--top-0 {
+    top: 0; // Equivalente a "top-0" en Bootstrap
+  }
+
+  &--bottom-0 {
+    bottom: 0; // Equivalente a "bottom-0" en Bootstrap
+  }
+
+  &--left-0 {
+    left: 0; // Equivalente a "left-0" en Bootstrap
+  }
+
+  &--right-0 {
+    right: 0; // Equivalente a "right-0" en Bootstrap
+  }
+
+  &--top-50 {
+    top: 50%; // Equivalente a "top-0" en Bootstrap
+  }
+
+  &--left-50 {
+    left: 50%; // Equivalente a "top-0" en Bootstrap
+  }
+}
+
+.align-content {
+  &--center {
+    align-content: center; // Equivalente a "align-content-center" en Bootstrap
+  }
+}
+
+.background {
+  &--light {
+    background-color: $cor-light; // Equivalente a "bg-light" en Bootstrap
+  }
+
+  &--dark {
+    background-color: $cor-dark; // Equivalente a "bg-dark" en Bootstrap
+  }
+
+  &--primary {
+    background-color: $cor-primary; // Equivalente a "bg-primary" en Bootstrap
+  }
+
+  &--secondary {
+    background-color: $cor-secondary; // Equivalente a "bg-secondary" en Bootstrap
+  }
+
+  &--transparent {
+    background-color: transparent; // Equivalente a "bg-secondary" en Bootstrap
+  }
+}
+
+.pointer-events {
+  &--none {
+    pointer-events: none; // Equivalente a "pointer-events-none" en Bootstrap
+  }
+
+  &--auto {
+    pointer-events: auto; // Para restablecer el comportamiento de los eventos
+  }
+}
+
+.translate {
+  &--middle {
+    transform: translate(-50%, -50%) !important;
+  }
+
+  &--middle-x {
+    transform: translateX(-50%) !important; 
+  }
+
+  &--middle-y {
+    transform: translateY(-50%) !important;
+  }
+}
+
+.block {
+  &--display {
+      display: block;
+  }
+}

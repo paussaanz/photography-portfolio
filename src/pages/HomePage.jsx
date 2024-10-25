@@ -38,15 +38,15 @@ const HomePage = () => {
     }, [scrollYProgress, location.pathname, scale, rotate]);
 
     return (
-        <div ref={homepageRef} data-barba="container" className="homepage position-relative barba-container">
-            <section className="hero-homepage position-relative">
-                <VideoBackground videoSrc="/DJI_0155.MP4" height="vh-100" />
-                <TextOverlay textColor="text-light" textPosition="center" className="text-animated text-center">
+        <div ref={homepageRef} data-barba="container" className="homepage position--relative barba-container">
+            <section className="hero-homepage position--relative">
+                <VideoBackground videoSrc="/DJI_0155.MP4" height="dimension--vh-100" />
+                <TextOverlay textColor="text-color--light" textPosition="center" className="text-animated text-align--center">
                     <h1>
-                        <span className='d-block'>Capture</span>
-                        <span className="h2 d-block">Brilliance</span>
+                        <span className='block--display'>Capture</span>
+                        <span className="h2 block--display">Brilliance</span>
                     </h1>
-                    <Button href="/portfolio" text="See my work" className="text-light" />
+                    <Button href="/portfolio" text="See my work" className="text-color--light" />
                 </TextOverlay>
             </section>
 
@@ -54,7 +54,7 @@ const HomePage = () => {
                 <motion.div
                     key={location.pathname}
                     style={{ scale, rotate }}
-                    className="position-sticky top-0 py-5 vh-100 align-content-center">
+                    className="position--sticky position--top-0 padding--y-5 dimension--vh-100 align-content--center">
                     <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
                 </motion.div>
 
