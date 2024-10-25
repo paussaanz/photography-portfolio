@@ -30,8 +30,8 @@ const SwiperPortfolio = () => {
             className="position--sticky dimension--vh-300 background--transparent"
             style={{ height: '300vh', rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
         >
-            <div className="position--sticky position--top-0 flex--display dimension--vh-100 flex--align-center flex--justify-start">
-                <div className="position--absolute text-align--center button--centered">
+            <div className="position--sticky position--top-0 flex--display dimension--vh-100 flex--align-center flex--justify-start overflow--clip">
+                <div className="position--absolute text-align--center button--centered text-color--light">
                     <Button className="text-color--light" text="Portfolio" onClick={handleShowPortfolio} /> |
                      <Button className="text-color--light" text="Editorials" onClick={handleShowEditorials} />
                 </div>

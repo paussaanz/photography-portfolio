@@ -84,7 +84,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
 
   return (
-    <div className="container-card-animation dimension--w-100 dimension--vh-300 position--relative">
+    <div className="container-card-animation dimension--w-100 dimension--vh-300 position--relative overflow--clip">
       
       <div className="active-slide position--absolute position--top-0 position--left-0 dimension--w-100 dimension--h-100 overflow-hidden">
         {portfolioCardAnimation.map((image, index) => (

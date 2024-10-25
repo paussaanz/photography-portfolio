@@ -9,35 +9,35 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light background--transparent`}>
-      <div className="container-fluid navbar--container padding--y-4">
+    <nav className={`cus-navbar cus-navbar--expand-lg background--transparent`}>
+      <div className="cus-navbar--container-fluid cus-navbar--container padding--y-4">
         <div className="flex--display flex--grow-1">
-          <ul className="navbar-nav margin--right-auto margin--bottom-2 margin--bottom-lg-0">
+          <ul className="cus-navbar--navbar-nav margin--right-auto margin--bottom-2 margin--bottom-lg-0">
             <li className="nav-item">
-              <Link reloadDocument to="/portfolio" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <Link reloadDocument to="/portfolio" className={`cus-navbar--nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Portfolio
               </Link>
             </li>
             <li className="nav-item">
-              <Link reloadDocument to="/editorials" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <Link reloadDocument to="/editorials" className={`cus-navbar--nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Editorials
               </Link>
             </li>
             <li className="nav-item">
-              <Link reloadDocument to="/about" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <Link reloadDocument to="/about" className={`cus-navbar--nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 About SYP!
               </Link>
 
             </li>
           </ul>
         </div>
-        <Link reloadDocument to="/" className={`navbar--brand-centered`}>
+        <Link reloadDocument to="/" className={`cus-navbar--brand-centered`}>
           <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" />
         </Link>
         <div className="flex--display">
-          <ul className="navbar-nav margin--left--auto margin--bottom-2 margin--bottom-lg-0">
+          <ul className="cus-navbar--navbar-nav margin--left--auto margin--bottom-2 margin--bottom-lg-0">
             <li className="nav-item">
-              <Link reloadDocument to="/contact" className={`nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <Link reloadDocument to="/contact" className={`cus-navbar--nav-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Contact
               </Link>
             </li>

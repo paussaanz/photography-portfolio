@@ -14,6 +14,10 @@
   &--dark {
     color: $cor-dark;
   }
+
+  &--black {
+    color: $cor-black;
+  }
 }
 
 .text-align {
@@ -37,5 +41,11 @@
 .text-transform {
   &--uppercase {
     text-transform: uppercase; // Equivalente a "text-uppercase" en Bootstrap
+  }
+}
+
+.text-decoration {
+  &--none {
+    text-decoration: none;
   }
 }

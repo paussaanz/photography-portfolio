@@ -29,3 +29,37 @@
     }
   }
   
+
+  .container--fluid-bem {
+    width: 100%;
+    padding-right: var(--cor-gutter-width, 15px);
+    padding-left: var(--cor-gutter-width, 15px);
+    margin-right: auto;
+    margin-left: auto;
+  
+    @include media-breakpoint-up(sm) {
+      padding-right: $cor-container-max-widths-sm;
+      padding-left: $cor-container-max-widths-sm;
+    }
+  
+    @include media-breakpoint-up(md) {
+      padding-right: $cor-container-max-widths-md;
+      padding-left: $cor-container-max-widths-md;
+    }
+  
+    @include media-breakpoint-up(lg) {
+      padding-right: $cor-container-max-widths-lg;
+      padding-left: $cor-container-max-widths-lg;
+    }
+  
+    @include media-breakpoint-up(xl) {
+      padding-right: $cor-container-max-widths-xl;
+      padding-left: $cor-container-max-widths-xl;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+      padding-right: $cor-container-max-widths-xxl;
+      padding-left: $cor-container-max-widths-xxl;
+    }
+  }
+  

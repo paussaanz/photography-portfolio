@@ -6,6 +6,9 @@
   --bg-porcentaje: 0.4;
 }
 
+*{
+  margin: 0;
+}
 /*  Configuración fuentes Desktop */
 
 $display-font-sizes-md: (
@@ -31,6 +34,14 @@ $font-sizes-md: (
   4: $cor-font-size-base-4-md,
   5: $cor-font-size-base-5-md,
   6: $cor-font-size-base-6-md,
+);
+$font-sizes: (
+  1: $cor-h1-font-size,
+  2: $cor-h2-font-size,
+  3: $cor-h3-font-size,
+  4: $cor-h4-font-size,
+  5: $cor-h5-font-size,
+  6: $cor-h6-font-size,
 );
 
 @each $size, $value in $display-font-sizes-md {
@@ -181,22 +192,15 @@ $font-sizes-md: (
 
 /*GENERAL SCSS*/
 
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: transparent;
-  transition: all 0.3s ease-in-out; // Transición suave
 
-  &--inverted {
-    mix-blend-mode: difference; // Aplicar mezcla para invertir colores
-  }
-}
 
 .overflow {
   &--hidden {
     overflow: hidden !important; // Equivalente a "overflow-x-hidden"
+  }
+
+  &--clip {
+    overflow: clip !important; // Equivalente a "overflow-x-hidden"
   }
 
   &--x-clip {
@@ -209,10 +213,6 @@ $font-sizes-md: (
 
   &--y-hidden {
     overflow-y: hidden !important; // Equivalente a "overflow-y-hidden"
-  }
-
-  &--x-clip {
-    overflow-x: clip !important; // Equivalente a "overflow-x-clip"
   }
 
   &--y-clip {
@@ -427,5 +427,11 @@ $font-sizes-md: (
 
   &--middle-y {
     transform: translateY(-50%) !important;
+  }
+}
+
+.block {
+  &--display {
+      display: block;
   }
 }

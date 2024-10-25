@@ -4,12 +4,12 @@ const Button = ({ href, text, className, onClick }) => {
     return (
         <>
             {href ? (
-                <a href={href} className={`text-transform--uppercase text-decoration-none ${className}`}>
+                <a href={href} className={`text-transform--uppercase text-decoration--none ${className}`}>
                     {text}
                 </a>
             ) : (
                 <button
-                    className={`text-transform--uppercase text-decoration-none ${className}`}
+                    className={`text-transform--uppercase text-decoration--none ${className}`}
                     onClick={onClick}
                     style={{ background: 'none', border: 'none', cursor: 'pointer' }} 
                 >

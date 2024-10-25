@@ -43,8 +43,8 @@ const HomePage = () => {
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="dimension--vh-100" />
                 <TextOverlay textColor="text-color--light" textPosition="center" className="text-animated text-align--center">
                     <h1>
-                        <span className='d-block'>Capture</span>
-                        <span className="h2 d-block">Brilliance</span>
+                        <span className='block--display'>Capture</span>
+                        <span className="h2 block--display">Brilliance</span>
                     </h1>
                     <Button href="/portfolio" text="See my work" className="text-color--light" />
                 </TextOverlay>
