@@ -27,7 +27,7 @@ const EditorialsPage = () => {
                 </div>
             </section>
             <section className="editorial-cards">
-                <div className="padding--y-5">
+                <div className="padding--y-5 overflow--clip">
                     <SwiperEditorialCard images={editorialsCovers}/>
                 </div>
             </section>
