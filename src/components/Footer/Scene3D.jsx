@@ -43,7 +43,6 @@ const Scene3D = () => {
       gl={{ alpha: true, antialias: true }} // Enable antialiasing
       camera={cameraRef.current} // Use the camera
       onCreated={({ gl }) => {
-        gl.outputEncoding = THREE.sRGBEncoding;
         gl.physicallyCorrectLights = true;
         gl.setClearColor(backgroundColor, 1);
       }}

@@ -1,10 +1,11 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimationContainer from "../components/General/TextAnimationContainer";
 import Button from "../components/General/Buttons/Button";
 import GalleryCarles from "../components/PortfolioDetailsPage/GalleryCarles";
 import Detail from "../components/Detail/Detail";
+import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
@@ -16,8 +17,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
     const handleImageClick = (img) => {
         setSelectedImage(img); // Set the selected image to show in the overlay
-
-        console.log(selectedImage)
     };
 
     const closeOverlay = () => {
@@ -26,10 +25,10 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
     const handleChangeOrder = () => {
         setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
-        setDisabledButtons(true)
+        setDisabledButtons(true);
         setTimeout(() => {
-            setDisabledButtons(false)
-        }, [100])
+            setDisabledButtons(false);
+        }, 100);
 
         scroller.scrollTo('images-gallery', {
             duration: 20,
@@ -37,6 +36,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             smooth: 'linear'
         });
     };
+
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
         const { clientX, clientY, currentTarget } = e;
@@ -48,22 +48,22 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         const sensitivityY = 0.55;
         const deltaX = (centerX - clientX) / sensitivityX;
         const deltaY = (centerY - clientY) / sensitivityY;
-        const translateOnOrder = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`
-        const translateOnUnordered = `translate(0, 0)`
+        const translateOnOrder = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`;
+        const translateOnUnordered = `translate(0, 0)`;
 
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
 
     const handleMouseLeave = () => {
-        const translateOnOrder = 'translate(-50%, -50%)'
-        const translateOnUnordered = `translate(0, 0)`
+        const translateOnOrder = 'translate(-50%, -50%)';
+        const translateOnUnordered = `translate(0, 0)`;
 
         galleryRef.current.style.transform = ordered ? translateOnOrder : translateOnUnordered;
     };
 
-
     return (
         <div data-barba="container" className={`${selectedImage ? 'detail-mode' : ''} `}>
+            <PortfolioDetailPageSeo title={title} heroImage={heroImage} />
 
             <section className="hero-details position--relative">
                 <HeroDetails slug={title} src={heroImage.src} />
@@ -79,7 +79,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 </div>
             </section>
 
-            <div ></div>
+            <div></div>
             <section ref={imagesSectionRef} className="images-gallery">
                 <div className={`text-color--dark text-align--center button--fixed-bottom ${disabledButtons ? 'pointer-events-none' : ''}`}>
                     <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
@@ -95,11 +95,11 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                         />
                     </div>
                 </div>
-            </section >
+            </section>
             {selectedImage && (
                 <Detail images={projectImages} closeOverlay={closeOverlay} />
             )}
-        </div >
+        </div>
     );
 };
 

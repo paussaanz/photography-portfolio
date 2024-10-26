@@ -1,10 +1,11 @@
-import React from 'react';
 import HeroAbout from '../components/AboutPage/HeroAbout';
+import AboutPageSeo from './SEO/AboutPageSeo';
 
 const AboutPage = () => {
     return (
         <div data-barba="container">
-            <HeroAbout/>
+            <AboutPageSeo />
+            <HeroAbout />
         </div>
     );
 };

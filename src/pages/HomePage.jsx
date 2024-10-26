@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import VideoBackground from '../components/HomePage/VideoBackground';
 import TextOverlay from '../components/General/TextOverlay';
 import Button from '../components/General/Buttons/Button';
 import SwiperPortfolio from '../components/HomePage/SwiperPortfolio';
-import { useScroll, useTransform, motion, useMotionValue } from 'framer-motion';
+import { useScroll, motion, useMotionValue } from 'framer-motion';
 import TextAnimationContainer from '../components/General/TextAnimationContainer';
 import { useLocation } from 'react-router-dom';
+import HomeSeo from './SEO/HomeSeo';
 
 const HomePage = () => {
     const homepageRef = useRef(); // Renombramos para evitar duplicidad
@@ -39,6 +40,8 @@ const HomePage = () => {
 
     return (
         <div ref={homepageRef} data-barba="container" className="homepage position--relative barba-container">
+            <HomeSeo />
+
             <section className="hero-homepage position--relative">
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="dimension--vh-100" />
                 <TextOverlay textColor="text-color--light" textPosition="center" className="text-animated text-align--center">
