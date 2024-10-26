@@ -23,8 +23,8 @@ const Scene3D = () => {
 
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
-        event.preventDefault(); // Prevent default behavior
-        console.warn('WebGL context lost!'); // Handle accordingly
+      event.preventDefault(); // Prevent default behavior
+      console.warn('WebGL context lost!'); // Handle accordingly
     };
 
     const canvas = document.querySelector('canvas'); // Ensure you are targeting the right canvas
@@ -65,7 +65,6 @@ const Scene3D = () => {
         color={color}
         anchorX="center"
         anchorY="middle"
-        font="../src/assets/fonts/Gamilia-Regular.ttf"
         textAlign='center'
         material-toneMapped={false}
       >
@@ -77,7 +76,6 @@ const Scene3D = () => {
             color={color}
             anchorX="center"
             anchorY="middle"
-            font="../src/assets/fonts/Gamilia-Regular.ttf"
             material-toneMapped={false}
           >
             {line}
