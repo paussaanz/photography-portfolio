@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextAnimationContainer = ({ text, className = '', textColor, maskColor='bg-light'}) => {
+const TextAnimationContainer = ({ text, className = '', textColor, maskColor='background--light'}) => {
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -45,13 +45,11 @@ const TextAnimationContainer = ({ text, className = '', textColor, maskColor='bg
   }, [text]); // Depend on text, so it re-runs if text changes
 
   return (
-    <div className="container">
-      <div className="row">
+    <>
         <TextAnimation ref={textRef} className={className} textColor={textColor}>
           {text}
         </TextAnimation>
-      </div>
-    </div>
+    </>
   );
 };
 

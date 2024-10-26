@@ -65,26 +65,26 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         <div data-barba="container" className={`${selectedImage ? 'detail-mode' : ''} `}>
             <PortfolioDetailPageSeo title={title} heroImage={heroImage} />
 
-            <section className="hero-details position-relative">
+            <section className="hero-details position--relative">
                 <HeroDetails slug={title} src={heroImage.src} />
             </section>
 
             <section className="text-animation">
-                <div className="py-5 vh-100 align-content-center">
+                <div className="padding--y-5 dimension--vh-100 align-content--center">
                     <TextAnimationContainer
                         text={textAnimation}
-                        textColor="text-primary"
-                        maskColor="bg-light"
+                        textColor="text-color--primary"
+                        maskColor="background--light"
                     />
                 </div>
             </section>
 
             <div></div>
             <section ref={imagesSectionRef} className="images-gallery">
-                <div className={`text-dark text-center bottom-fixed-button ${disabledButtons ? 'pointer-events-none' : ''}`}>
-                    <Button className="text-dark" text="Grid" onClick={handleChangeOrder} />
+                <div className={`text-color--dark text-align--center button--fixed-bottom ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                    <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
                     |
-                    <Button className="text-dark" text="Gallery" onClick={handleChangeOrder} />
+                    <Button className="text-color--dark" text="Gallery" onClick={handleChangeOrder} />
                 </div>
                 <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                     <div className={ordered ? 'gallery' : ''} ref={galleryRef}>

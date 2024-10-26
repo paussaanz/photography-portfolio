@@ -84,26 +84,26 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
 
   return (
-    <div className="container-card-animation w-100 vh-300 position-relative">
+    <div className="container-card-animation dimension--w-100 dimension--vh-300 position--relative overflow--clip">
       
-      <div className="active-slide position-absolute top-0 left-0 w-100 h-100 overflow-hidden">
+      <div className="active-slide position--absolute position--top-0 position--left-0 dimension--w-100 dimension--h-100 overflow-hidden">
         {portfolioCardAnimation.map((image, index) => (
           <div className="bg-images">
-            <img className="position-absolute" src={image.src} alt="" />
+            <img className="position--absolute" src={image.src} alt="" />
           </div>
         ))}
       </div>
 
-      <div className="slider position-sticky top-0 vw-100 vh-100">
+      <div className="slider position--sticky position--top-0 dimension--vw-100 dimension--vh-100">
         {portfolioCardAnimation.map((image, index) => (
-          <div key={index} className="slide vh-100 position-absolute overflow-hidden d-flex flex-column justify-content-center" id={`slide-${index + 1}`}>
-            <a href={image.url} className="text-decoration-none">
-              <div className={`slide-img `}>
-                <img className="vh-50 w-100 object-fit-cover slide-img" src={image.src} alt="" />
+          <div key={index} className="slide dimension--vh-100 position--absolute overflow--hidden flex--display flex--column flex--justify-center" id={`slide-${index + 1}`}>
+            <a href={image.url} className="text-decoration--none">
+              <div className={`slide-img`}>
+                <img className="dimension--vh-50 dimension--w-100 object-fit--cover slide-img" src={image.src} alt="" />
               </div>
-              <div className='slide-copy text-uppercase text-center text-white'>
-                <p className="m-0">{image.name} - {image.date}</p>
-                <p className="m-0">{image.description}</p>
+              <div className='slide-copy text-transform--uppercase text-align--center text-color--light'>
+                <p className="margin--0">{image.name} - {image.date}</p>
+                <p className="margin--0">{image.description}</p>
               </div>
             </a>
           </div>

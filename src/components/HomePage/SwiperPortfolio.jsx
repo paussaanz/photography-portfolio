@@ -27,16 +27,16 @@ const SwiperPortfolio = () => {
     return (
         <motion.div
             ref={sectionRef}
-            className="position-sticky vh-300 bg-transparent"
+            className="position--sticky dimension--vh-300 background--transparent"
             style={{ height: '300vh', rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
         >
-            <div className="position-sticky top-0 d-flex vh-100 align-items-center justify-content-start">
-                <div className="position-absolute z-3 text-light text-center centered-button">
-                    <Button className="text-light" text="Portfolio" onClick={handleShowPortfolio} /> |
-                     <Button className="text-light" text="Editorials" onClick={handleShowEditorials} />
+            <div className="position--sticky position--top-0 flex--display dimension--vh-100 flex--align-center flex--justify-start overflow--clip">
+                <div className="position--absolute text-align--center button--centered text-color--light">
+                    <Button className="text-color--light" text="Portfolio" onClick={handleShowPortfolio} /> |
+                     <Button className="text-color--light" text="Editorials" onClick={handleShowEditorials} />
                 </div>
                 <motion.div
-                    className="swiper-images d-flex"
+                    className="swiper-images flex--display"
                     style={{ x: xTransform }} 
                 >
 

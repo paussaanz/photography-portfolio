@@ -24,9 +24,9 @@ const SwiperEditorialCard = ({ images }) => {
     const xTransform = useTransform(scrollYProgress, [0, 1], [initialPosition, finalPosition]);
 
     return (
-        <motion.div className="vh-300 position-sticky" ref={sectionRef}>
+        <motion.div className="dimension--vh-300 position--sticky" ref={sectionRef}>
             <motion.div
-                className="position-sticky top-0 d-flex vh-100 align-items-center justify-content-start gap-5"
+                className="position--sticky position--top-0 flex--display dimension--vh-100 flex--align-center flex--justify-start gap--5"
                 style={{ x: xTransform }} // Apply the xTransform for horizontal scrolling
             >
                 {images.map((image, i) => {
@@ -39,7 +39,7 @@ const SwiperEditorialCard = ({ images }) => {
                     return (
                         <motion.div
                             key={i}
-                            className="slide d-flex"
+                            className="slide flex--display"
                             style={{
                                 scale: scaleTransform, // Apply individual scaling for each image
                                 width: `${imageStartWidth}px`, // Image width

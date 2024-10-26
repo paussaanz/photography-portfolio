@@ -94,7 +94,7 @@ function App() {
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <div data-barba-namespace="home">
           <Cursor />
-          <header id="header" className={`fixed-top inverted`}>
+          <header id="header" className={`header--fixed-top header--inverted`}>
             <Navbar  />
           </header>
           <main>   

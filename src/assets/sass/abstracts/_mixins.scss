@@ -4,6 +4,51 @@
   background-size:   cover;
 }
 
+@mixin media-breakpoint-up($size) {
+  $min-width: null;
+
+  @if $size == sm {
+    $min-width: $cor-container-max-widths-sm;
+  } @else if $size == md {
+    $min-width: $cor-container-max-widths-md;
+  } @else if $size == lg {
+    $min-width: $cor-container-max-widths-lg;
+  } @else if $size == xl {
+    $min-width: $cor-container-max-widths-xl;
+  } @else if $size == xxl {
+    $min-width: $cor-container-max-widths-xxl;
+  }
+
+  @if $min-width {
+    @media (min-width: $min-width) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  $max-width: null;
+
+  @if $size == sm {
+    $max-width: $cor-container-max-widths-sm - 0.02px;
+  } @else if $size == md {
+    $max-width: $cor-container-max-widths-md - 0.02px;
+  } @else if $size == lg {
+    $max-width: $cor-container-max-widths-lg - 0.02px;
+  } @else if $size == xl {
+    $max-width: $cor-container-max-widths-xl - 0.02px;
+  } @else if $size == xxl {
+    $max-width: $cor-container-max-widths-xxl - 0.02px;
+  }
+
+  @if $max-width {
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+}
+
+
 @mixin title($tipo) {
   font-family: $cor-font-family-headings;
 
