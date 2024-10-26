@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import viteImagemin from 'vite-plugin-imagemin';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
+  base: "/",
   plugins: [
     react(),
     viteImagemin({
@@ -15,6 +16,6 @@ export default defineConfig({
     }),
   ],
   optimizeDeps: {
-    include: ['react-scroll'],  // Incluimos react-scroll para que Vite lo optimice
+    include: ["react-scroll"], // Incluimos react-scroll para que Vite lo optimice
   },
 });

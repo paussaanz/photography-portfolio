@@ -3,6 +3,8 @@ import { Text } from '@react-three/drei';
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
+import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
+
 
 const Scene3D = () => {
   const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
@@ -23,8 +25,8 @@ const Scene3D = () => {
 
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
-        event.preventDefault(); // Prevent default behavior
-        console.warn('WebGL context lost!'); // Handle accordingly
+      event.preventDefault(); // Prevent default behavior
+      console.warn('WebGL context lost!'); // Handle accordingly
     };
 
     const canvas = document.querySelector('canvas'); // Ensure you are targeting the right canvas
@@ -65,7 +67,7 @@ const Scene3D = () => {
         color={color}
         anchorX="center"
         anchorY="middle"
-        font="../src/assets/fonts/Gamilia-Regular.ttf"
+        font={fontFam}
         textAlign='center'
         material-toneMapped={false}
       >
@@ -77,7 +79,7 @@ const Scene3D = () => {
             color={color}
             anchorX="center"
             anchorY="middle"
-            font="../src/assets/fonts/Gamilia-Regular.ttf"
+            font={fontFam}
             material-toneMapped={false}
           >
             {line}
