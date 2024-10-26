@@ -89,7 +89,7 @@
 /* Animaciones morph-out (salida) */
 @keyframes morph-out-top {
   0% {
-    d: path("M 0 40 V 40 Q 100 60 200 40 V 0 H 0 Z");
+    d: path("M 0 40 V 40 Q 100 20 200 40 V 0 H 0 Z");
   }
   100% {
     d: path("M 0 40 V 0 Q 100 0 200 0 V 0 H 0 Z");

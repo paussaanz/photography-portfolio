@@ -6,10 +6,6 @@ const AnimatedButton = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState('');
 
-  // Umbrales de detección
-  const thresholdX = 0.5;  // Umbral horizontal (50%)
-  const thresholdY = 0.5;  // Umbral vertical (50%)
-
   const handleMouseEnter = (e) => {
     if (!buttonRef.current) return;
 
@@ -17,18 +13,15 @@ const AnimatedButton = () => {
     const mouseX = e.clientX - rect.left;  // Coordenada X del mouse respecto al botón
     const mouseY = e.clientY - rect.top;   // Coordenada Y del mouse respecto al botón
 
-    // Mostrar las coordenadas para depuración
-    console.log(`MouseEnter - MouseX: ${mouseX}, MouseY: ${mouseY}, Button Width: ${rect.width}, Button Height: ${rect.height}`);
-
     // Cálculo de la dirección de entrada
-    if (mouseY < rect.height * thresholdY) {
-      setDirection('top'); // Entrando desde la parte superior
-    } else if (mouseY > rect.height * (1 - thresholdY)) {
+    if (mouseY >= rect.height * 0.8 && mouseX >= 0 && mouseX <= rect.width) {
       setDirection('bottom'); // Entrando desde la parte inferior
-    } else if (mouseX < rect.width * thresholdX) {
-      setDirection('left'); // Entrando desde la izquierda
-    } else if (mouseX > rect.width * (1 - thresholdX)) {
-      setDirection('right'); // Entrando desde la derecha
+    } else if (mouseX <= rect.width * 0.2) {
+      setDirection('right'); // Entrando desde la izquierda
+    } else if (mouseY <= rect.height * 0.2) {
+      setDirection('top'); // Entrando desde la parte superior
+    } else if (mouseX >= rect.width * 0.8) {
+      setDirection('left'); // Entrando desde la derecha
     }
 
     setIsAnimating(true);
@@ -41,32 +34,21 @@ const AnimatedButton = () => {
     const mouseX = e.clientX - rect.left;  // Coordenada X del mouse respecto al botón
     const mouseY = e.clientY - rect.top;   // Coordenada Y del mouse respecto al botón
 
-    // Mostrar las coordenadas para depuración
-    console.log(`MouseLeave - MouseX: ${mouseX}, MouseY: ${mouseY}`);
-
-    // Cálculo de la dirección de salida
-    if (mouseY < rect.height * thresholdY) {
+    if (mouseY <= rect.height * 0.2) {
       setDirection('top'); // Saliendo por la parte superior
-    } else if (mouseY > rect.height * (1 - thresholdY)) {
+    } else if (mouseY >= rect.height * 0.8) {
       setDirection('bottom'); // Saliendo por la parte inferior
-    } else if (mouseX < rect.width * thresholdX) {
-      setDirection('left'); // Saliendo por la izquierda
-    } else if (mouseX > rect.width * (1 - thresholdX)) {
-      setDirection('right'); // Saliendo por la derecha
+    } else if (mouseX <= rect.width * 0.2) {
+      setDirection('right'); // Saliendo por la izquierda
+    } else if (mouseX >= rect.width * 0.8) {
+      setDirection('left'); // Saliendo por la derecha
     }
-
     setIsAnimating(false);
   };
 
   return (
-    <div
-      ref={buttonRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="animated-button"
-      style={{ position: 'relative', width: '200px', height: '40px' }} // Asegúrate de que el botón tenga un tamaño fijo
-    >
-      <svg
+    <>
+      {/* <svg
         width="100%"
         height="100%"
         viewBox="0 0 200 40"
@@ -74,11 +56,34 @@ const AnimatedButton = () => {
       >
         <path
           id="path"
-          d="M 0 40 V 40 Q 100 60 200 40 V 0 H 0 Z"
+          d="M 0 40 V 40 Q 100 40 200 40 V 100 150 100 H 0 Z"
           fill="currentColor"
         />
-      </svg>
-    </div>
+      </svg> */}
+
+      <div
+        ref={buttonRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="animated-button"
+        style={{ position: 'relative', width: '200px', height: '40px' }}
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 200 40"
+          className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
+        >
+          <path
+            id="path"
+            d="M 0 40 V 40 Q 100 60 200 40 V 0 H 0 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+    </>
+
   );
 };
 

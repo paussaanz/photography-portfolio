@@ -37,8 +37,6 @@ const Cursor = () => {
             });
 
             function animatedCircles() {
-
-
                 circles.forEach((circle, index) => {
                     const followSpeed = 0.4;
 
@@ -50,14 +48,16 @@ const Cursor = () => {
                         lastPositions[index].y += (lastPositions[index - 1].y - lastPositions[index].y) * followSpeed;
                     }
 
-                    circle.style.left = `${lastPositions[index].x - 12}px`;
-                    circle.style.top = `${lastPositions[index].y - 12}px`;
+                    // Ajusta la posición restando la mitad del tamaño del círculo para centrarlo
+                    const offset = 6; // la mitad de 12px (el tamaño del círculo)
+                    circle.style.left = `${lastPositions[index].x - offset}px`;
+                    circle.style.top = `${lastPositions[index].y - offset}px`;
                     circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
                     circle.style.zIndex = 2000 - index;
-
                 });
-                requestAnimationFrame(animatedCircles)
+                requestAnimationFrame(animatedCircles);
             }
+
 
             animatedCircles();
         }
