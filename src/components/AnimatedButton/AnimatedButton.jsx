@@ -48,19 +48,6 @@ const AnimatedButton = () => {
 
   return (
     <>
-      {/* <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 200 40"
-        className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
-      >
-        <path
-          id="path"
-          d="M 0 40 V 40 Q 100 40 200 40 V 100 150 100 H 0 Z"
-          fill="currentColor"
-        />
-      </svg> */}
-
       <div
         ref={buttonRef}
         onMouseEnter={handleMouseEnter}
@@ -81,6 +68,7 @@ const AnimatedButton = () => {
           />
         </svg>
       </div>
+
 
     </>
 

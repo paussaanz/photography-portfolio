@@ -5,7 +5,9 @@ const HeroAbout = () => {
         <div className="container-bem hero-about">
 
 
-            <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100">
+            <div style={{ flexDirection: "column" }} className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100">
+                <AnimatedButton />
+                <AnimatedButton />
                 <AnimatedButton />
                 {/* <h1 className="margin--bottom-5 text-transform--uppercase text-color--primary">
                     ABOUT SYP!
