@@ -3,6 +3,8 @@ import { Text } from '@react-three/drei';
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
+import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
+
 
 const Scene3D = () => {
   const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
@@ -65,6 +67,7 @@ const Scene3D = () => {
         color={color}
         anchorX="center"
         anchorY="middle"
+        font={fontFam}
         textAlign='center'
         material-toneMapped={false}
       >
@@ -76,6 +79,7 @@ const Scene3D = () => {
             color={color}
             anchorX="center"
             anchorY="middle"
+            font={fontFam}
             material-toneMapped={false}
           >
             {line}
