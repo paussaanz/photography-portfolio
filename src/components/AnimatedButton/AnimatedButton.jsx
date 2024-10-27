@@ -49,6 +49,22 @@ const AnimatedButton = () => {
   return (
     <>
       <div
+        style={{ position: 'relative', width: '300px', height: '100px' }}
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 200 40"
+          className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
+        >
+          <path
+            id="path"
+            d="M 40 0 Q 30 20 40 40 L 200 40 V 0 L 40 0 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
         ref={buttonRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -63,12 +79,11 @@ const AnimatedButton = () => {
         >
           <path
             id="path"
-            d="M 0 40 V 40 Q 100 60 200 40 V 0 H 0 Z"
+            d="M -20 40 V 40 Q 100 60 200 40 V 0 Q 100 0 0 0 H 0 Z"
             fill="currentColor"
           />
         </svg>
       </div>
-
 
     </>
 
