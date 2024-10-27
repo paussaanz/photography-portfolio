@@ -1,7 +1,7 @@
-import './AnimatedButton.scss';
 import { useRef, useState } from 'react';
+import './AnimatedButton.scss';
 
-const AnimatedButton = () => {
+const AnimatedButton = ({ width = '200px', height = '50px' }) => {
   const buttonRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState('');
@@ -47,46 +47,26 @@ const AnimatedButton = () => {
   };
 
   return (
-    <>
-      <div
-        style={{ position: 'relative', width: '300px', height: '100px' }}
+    <div
+      ref={buttonRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="animated-button"
+      style={{ position: 'relative' }}
+    >
+      <p className={`${isAnimating ? 'text-white' : ''}`}>SABES ?</p>
+      <svg
+        width="100%"
+        height="100%"
+        viewBox={`0 0 ${parseInt(width)} ${parseInt(height)}`}
+        className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
       >
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 200 40"
-          className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
-        >
-          <path
-            id="path"
-            d="M 40 0 Q 30 20 40 40 L 200 40 V 0 L 40 0 Z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      <div
-        ref={buttonRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="animated-button"
-        style={{ position: 'relative', width: '200px', height: '40px' }}
-      >
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 200 40"
-          className={`${isAnimating ? 'animate-in' : 'animate-out'} ${direction}`}
-        >
-          <path
-            id="path"
-            d="M -20 40 V 40 Q 100 60 200 40 V 0 Q 100 0 0 0 H 0 Z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-
-    </>
-
+        <path
+          id="path"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
   );
 };
 

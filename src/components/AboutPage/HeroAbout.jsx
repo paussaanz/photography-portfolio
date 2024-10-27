@@ -5,8 +5,15 @@ const HeroAbout = () => {
         <div className="container-bem hero-about">
 
 
-            <div style={{ flexDirection: "column" }} className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100">
+            <div style={{ flexDirection: "column", gap: '5px' }} className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100">
                 <AnimatedButton />
+                <AnimatedButton />
+                <br></br>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                    <AnimatedButton />
+
+                    <AnimatedButton />
+                </div>
                 {/* <h1 className="margin--bottom-5 text-transform--uppercase text-color--primary">
                     ABOUT SYP!
                 </h1> */}
