@@ -1,22 +1,30 @@
 import { useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
-import { useControls } from "leva";
+import { useFrame } from "@react-three/fiber";
 
-const Logo3D = () => {
-    const { nodes } = useGLTF("/3D/syp-2.gltf");
+const Logo3D = ({hovered}) => {
+    const { nodes } = useGLTF("/3D/syp-3.gltf");
     const groupRef = useRef(null);
+    const materialRef = useRef(null);
+    const [targetColor, setTargetColor] = useState(new THREE.Color("#ffffff")); // Initial color
 
-    const materialProps = useControls({
-        thickness: { value: 1, min: 0, max: 3, step: 0.05 },
-        roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-        transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-        ior: { value: 1.45, min: 1, max: 3, step: 0.1 },
-        chromaticAberration: { value: 0.03, min: 0, max: 1 },
-        transparent: true,
-        opacity: 0.9, // Opacity slightly reduced for transparency effect
-    });
-    
+    // Colors for normal and hover states
+    // const normalColor = "#ffffff"; // White
+    // const hoverColor = "#ff0000"; // Red
+
+    // const materialProps = useControls({
+    //     roughness: { value: 0, min: 0, max: 1, step: 0.1 },
+    //     transmission: { value: 1, min: 0, max: 1, step: 0.1 },
+    //     ior: { value: 1.45, min: 1, max: 3, step: 0.1 },
+    //     chromaticAberration: { value: 0.03, min: 0, max: 1 },
+    //     transparent: true,
+    //     opacity: 0.9, // Opacity slightly reduced for transparency effect
+    //     color: 'red',
+    //     thickness: { value: 1, min: 0, max: 3, step: 0.05 },
+
+    // });
+
     console.log(nodes)
     useEffect(() => {
         const model = nodes.Curve;
@@ -39,8 +47,8 @@ const Logo3D = () => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
             const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto
             if (groupRef.current) {
-                groupRef.current.rotation.y = mouseX * Math.PI / 70; // Rotación en Y
-                groupRef.current.rotation.x = mouseY * Math.PI / 70; // Opcional: Rotación en X
+                groupRef.current.rotation.y = mouseX * Math.PI / 15; // Rotación en Y
+                groupRef.current.rotation.x = mouseY * Math.PI / 15; // Opcional: Rotación en X
             }
         };
 
@@ -53,15 +61,45 @@ const Logo3D = () => {
         };
     }, [nodes]);
 
+    useFrame(() => {
+        if (materialRef.current) {
+            const currentColor = new THREE.Color(materialRef.current.color.getHex());
+            const colorChangeSpeed = 0.05; // Adjust speed as needed
+            const hoverColor = new THREE.Color("#DA6A2D");
+            const normalColor = new THREE.Color("#EBE6E0");
+            const target = hovered ? hoverColor : normalColor;
+
+            // Smooth transition between current color and target color
+            currentColor.lerp(target, colorChangeSpeed);
+            materialRef.current.color.set(currentColor);
+        }
+    });
+
+
+    // const onHover = (e) => {
+    //     e.stopPropagation();
+    //     setHovered(true);
+    // };
+
+    // const onUnhover = (e) => {
+    //     e.stopPropagation();
+    //     setHovered(false);
+    // };
+
+
     return (
         <group ref={groupRef}>
             <mesh {...nodes.Curve}>
                 <MeshTransmissionMaterial
-                    thickness={0.1}
-                    roughness={0.1}
-                    transmission={1}
-                    ior={0.8}
-                    chromaticAberration={0.09}
+                    ref={materialRef}
+                    color={targetColor}  // This will initialize the color
+                    metalness={0}        // No metallic effect to keep a pure glass look
+                    transmission={0.9}   // High transmission to ensure material is mostly transparent
+                    roughness={0}        // Completely smooth surface for clear glass appearance
+                    chromaticAberration={0.05} // Slight color fringing for a subtle glass prism effect
+                    thickness={0.1}      // Controls how much the light bends, thinner glass bends less
+                    ior={1.5}            // Index of Refraction similar to glass, affects light bending
+                    envMapIntensity={0.5}
                     transparent
                 />
             </mesh>

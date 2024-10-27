@@ -41,7 +41,6 @@ const HomePage = () => {
     return (
         <div ref={homepageRef} data-barba="container" className="homepage position--relative barba-container">
             <HomeSeo />
-
             <section className="hero-homepage position--relative">
                 <VideoBackground videoSrc="/DJI_0155.MP4" height="dimension--vh-100" />
                 <TextOverlay textColor="text-color--light" textPosition="center" className="text-animated text-align--center">

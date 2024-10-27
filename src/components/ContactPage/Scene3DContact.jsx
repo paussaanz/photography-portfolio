@@ -1,12 +1,12 @@
 import { Canvas } from '@react-three/fiber';
-import { Text } from '@react-three/drei';
+import { Environment, Text } from '@react-three/drei';
 import Logo3DContact from './Logo3DContact';
 import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
 
-const Scene3D = () => {
+const Scene3DContact = ({hovered}) => {
   const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
-  const backgroundColor = new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear();
+  const backgroundColor = new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear();
   const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
   const lines = text.split('\n'); // Divide el texto en líneas
 
@@ -23,8 +23,8 @@ const Scene3D = () => {
 
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
-        event.preventDefault(); // Prevent default behavior
-        console.warn('WebGL context lost!'); // Handle accordingly
+      event.preventDefault(); // Prevent default behavior
+      console.warn('WebGL context lost!'); // Handle accordingly
     };
 
     const canvas = document.querySelector('canvas'); // Ensure you are targeting the right canvas
@@ -46,20 +46,20 @@ const Scene3D = () => {
         gl.setClearColor(backgroundColor, 1);
       }}
     >
-      <directionalLight intensity={1} position={[1, 2, 1]} color={color} />
-      <ambientLight intensity={0.5} /> {/* Reduced intensity */}
+      <directionalLight intensity={1000} position={[1, 2, 1]} color={color} />
+      <ambientLight intensity={5} /> {/* Reduced intensity */}
 
       {/* Point lights with reduced intensity */}
-      <pointLight position={[0, 0, 60]} intensity={1} color={color} />
-      <pointLight position={[0, 20, 60]} intensity={1} color={color} />
-      <pointLight position={[0, -20, 60]} intensity={1} color={color} />
-      <pointLight position={[-40, 10, 60]} intensity={1} color={color} />
-      <pointLight position={[40, 10, 60]} intensity={1} color={color} />
+      <pointLight position={[0, 0, 60]} intensity={100} color={color} />
+      <pointLight position={[0, 20, 60]} intensity={100} color={color} />
+      <pointLight position={[0, -20, 60]} intensity={100} color={color} />
+      <pointLight position={[-40, 10, 60]} intensity={100} color={color} />
+      <pointLight position={[40, 10, 60]} intensity={100} color={color} />
 
 
-      <Logo3DContact />
+      <Logo3DContact hovered={hovered}/>
     </Canvas>
   );
 };
 
-export default Scene3D;
+export default Scene3DContact;
