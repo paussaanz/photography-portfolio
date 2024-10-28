@@ -1,4 +1,3 @@
-import GalleryHover from '../components/AboutPage/GalleryHover';
 import HeroAbout from '../components/AboutPage/HeroAbout';
 import MarqueeAbout from '../components/AboutPage/MarqueeAbout';
 import TextAbout from '../components/AboutPage/TextAbout';
