@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
 
 const Scene3DContact = ({hovered}) => {
-  const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
+  const color = new THREE.Color(149 / 255, 68 / 255, 24 / 255).convertSRGBToLinear();
   const backgroundColor = new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear();
   const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
   const lines = text.split('\n'); // Divide el texto en líneas
@@ -46,11 +46,11 @@ const Scene3DContact = ({hovered}) => {
         gl.setClearColor(backgroundColor, 1);
       }}
     >
-      <directionalLight intensity={1000} position={[1, 2, 1]} color={color} />
-      <ambientLight intensity={5} /> {/* Reduced intensity */}
+      <directionalLight intensity={500} position={[1, 2, 1]} color={color} />
+      <ambientLight intensity={5} /> 
 
       {/* Point lights with reduced intensity */}
-      <pointLight position={[0, 0, 60]} intensity={100} color={color} />
+      {/* <pointLight position={[0, 0, 60]} intensity={100} color={color} /> */}
       <pointLight position={[0, 20, 60]} intensity={100} color={color} />
       <pointLight position={[0, -20, 60]} intensity={100} color={color} />
       <pointLight position={[-40, 10, 60]} intensity={100} color={color} />
