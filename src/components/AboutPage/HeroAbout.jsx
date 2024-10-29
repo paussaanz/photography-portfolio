@@ -1,9 +1,44 @@
+import { useEffect, useRef } from "react";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const HeroAbout = () => {
+    const titleRef = useRef(null);
+    const imageRef = useRef(null);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Define a timeline with ScrollTrigger integration
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top", // When the top of the container reaches the top of the viewport
+                end: "center top", // When the bottom of the container reaches the top of the viewport
+                scrub: 1, // Smooth scrubbing
+            }
+        });
+
+        // Define animation on the timeline
+        tl.fromTo(titleRef.current,
+            { y: 90, fontSize: '40px' }, // Initial y position
+            { y: -0, fontSize: '4px'} // Final y position, adjust as needed
+        );
+
+        // Define animation for the image to move down
+        tl.fromTo(imageRef.current,
+            { y: 100, height: '400px' }, // Initial y position for the image
+            { y: 500, width: '100vw', height: "40%" }, // Final y position for the image
+            0 // This ensures that the image animation is synced with the title animation on the timeline
+        );
+    }, []);
+
     return (
-        <div className="container-bem hero-about">
+        <div ref={containerRef} className="container-bem hero-about">
             <div className="hero-about__content text-color--primary text-align--center flex--display flex--justify-center flex--align-center flex--column dimension--vh-100">
-                <img className="hero-about__image" src="/images/lifestyle-1.jpg" />
-                <h1 className="hero-about__title text-transform--uppercase text-color--primary">
+                <img ref={imageRef} className="hero-about__image" src="/images/lifestyle-1.jpg" />
+                <h1 ref={titleRef} className="hero-about__title text-transform--uppercase text-color--primary">
                     ABOUT SYP!
                 </h1>
             </div>
@@ -12,4 +47,3 @@ const HeroAbout = () => {
 };
 
 export default HeroAbout;
-

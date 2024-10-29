@@ -1,8 +1,15 @@
 .hero-about__image {
-    height: 120px;
-    width: 120px;
+    height: 380px;
+    width: 320px;
     object-fit: cover;
 }
+// .hero-about__image {
+//     width: auto; /* Let the width be defined by the scale initially */
+//     max-width: 100%; /* Ensures that the image does not overflow the screen width */
+//     height: auto; /* Maintains aspect ratio */
+//     object-fit: cover; /* Covers the area without distortion */
+// }
+
 
 .hero-about__title {
     margin: 0px;
@@ -25,35 +32,41 @@
     color: $cor-primary;
 }
 
-.text-about__content{
+.text-about__content {
     font-size: 1rem;
     font-family: gunterz;
     line-height: 2.813rem;
     padding-left: 50px;
     padding-right: 50px;
 
-    &-span{
-        position: inline-block;
+    &-dark {
+        color: $cor-gray;
+        // opacity: 70%;
+    }
+
+    &-span {
         z-index: 10;
         cursor: pointer;
         background-color: transparent;
         color: $cor-secondary;
         font-family: gamilia;
         font-style: italic;
-        font-size: 1rem * toRem(18)
+        font-size: 1rem * toRem(18);
+        line-height: 41px;
     }
 }
 
-.about-split-char{
+.about-split-char {
     transition: transform 0.4s cubic-bezier(0.42, 3, 0.58, 1), color 2.5s ease;
 }
 
-.about-split-char:hover{
-    color:$cor-secondary;
+
+.about-split-char:hover {
+    color: $cor-secondary;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.text-about__images-container{
+.text-about__images-container {
     position: relative;
     width: 100%;
     height: 100%;
@@ -61,11 +74,11 @@
     pointer-events: none;
 }
 
-.text-about__images-gallery{
+.text-about__images-gallery {
     pointer-events: none;
 }
 
-.text-about__images-item{
+.text-about__images-item {
     pointer-events: none;
     position: absolute;
     top: 50%;
@@ -79,25 +92,26 @@
 }
 
 
-  .container-gallery-hover{
-    position: relative;
+.container-gallery-hover {
+    position: absolute;
     // width: 100vw;
     height: 100vh;
     // overflow: hidden;
-  }
-  
-  .item-gallery-hover{
+}
+
+.item-gallery-hover {
     position: absolute;
-    width: 120px; /* or the size of your images */
-    height: 120px; /* or the size of your images */
-    transition: opacity 0.5s ease-out; /* smooth transition for appearing and disappearing */
-    opacity: 0; /* start with images hidden */
-  }
-  
-  .item-gallery-hover img {
+    width: 120px;
+    /* or the size of your images */
+    height: 120px;
+    /* or the size of your images */
+    opacity: 0;
+    /* start with images hidden */
+}
+
+.item-gallery-hover img {
     width: 100%;
     height: auto;
     display: block;
     z-index: 10;
-  }
-  
+}
