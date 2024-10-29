@@ -8,7 +8,7 @@ const AboutPage = () => {
         <div data-barba="container">
             <AboutPageSeo />
 
-            <section className="hero-about-section">
+            <section className="hero-about-section dimension--vh-150 overflow--y-hidden">
                 <HeroAbout />
             </section>
 
