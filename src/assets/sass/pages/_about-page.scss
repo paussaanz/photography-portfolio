@@ -1,7 +1,7 @@
 .hero-about__image {
-    height: 380px;
-    width: 320px;
-    object-fit: cover;
+  height: 380px;
+  width: 320px;
+  object-fit: cover;
 }
 // .hero-about__image {
 //     width: auto; /* Let the width be defined by the scale initially */
@@ -11,118 +11,114 @@
 // }
 
 .image-wrapper {
-    position: relative;
-    height: auto;
-
+  position: relative;
+  height: auto;
 }
-
 
 .hero-about__title {
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 12vw !important;
-    line-height: 12vw;
-    position: absolute;
-    left: 50%;
-    bottom: -130;
-    transform: translate(-50%, 0%);
-    width: 100vw;
+  margin: 0px;
+  margin-top: 10px;
+  font-size: 12vw !important;
+  line-height: 12vw;
+  position: absolute;
+  left: 50%;
+  bottom: -130;
+  transform: translate(-50%, 0%);
+  width: 100vw;
 }
 
-
 .marquee-about__part {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    padding: 0 4px;
-    font-size: 210px;
-    font-family: gunterz;
-    line-height: 210px;
-    font-weight: 600;
-    justify-content: center;
-    color: $cor-primary;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 4px;
+  font-size: 210px;
+  font-family: gunterz;
+  line-height: 210px;
+  font-weight: 600;
+  justify-content: center;
+  color: $cor-primary;
 }
 
 .text-about__content {
-    font-size: 1rem;
-    font-family: gunterz;
-    line-height: 2.813rem;
-    padding-left: 50px;
-    padding-right: 50px;
+  font-size: 1rem;
+  font-family: gunterz;
+  line-height: 2.813rem;
+  padding-left: 50px;
+  padding-right: 50px;
 
-    &-dark {
-        color: $cor-gray;
-        // opacity: 70%;
-    }
+  &-dark {
+    color: $cor-gray;
+    // opacity: 70%;
+  }
 
-    &-span {
-        z-index: 10;
-        cursor: pointer;
-        background-color: transparent;
-        color: $cor-secondary;
-        font-family: gamilia;
-        font-style: italic;
-        font-size: 1rem * toRem(18);
-        line-height: 41px;
-    }
+  &-span {
+    display: inline-block;
+    z-index: 10;
+    cursor: pointer;
+    background-color: transparent;
+    color: $cor-secondary;
+    font-family: gamilia;
+    font-style: italic;
+    font-size: 1rem * toRem(18);
+    line-height: 41px;
+  }
 }
 
 .about-split-char {
-    transition: transform 0.4s cubic-bezier(0.42, 3, 0.58, 1), color 2.5s ease;
+  transition: transform 0.4s cubic-bezier(0.42, 3, 0.58, 1), color 2.5s ease;
 }
 
-
 .about-split-char:hover {
-    color: $cor-secondary;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: $cor-secondary;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .text-about__images-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .text-about__images-gallery {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .text-about__images-item {
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 70px;
-    background: #b0b0b0;
-    margin: 10px;
-    opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 70px;
+  background: #b0b0b0;
+  margin: 10px;
+  opacity: 0;
 }
 
-
 .container-gallery-hover {
-    position: absolute;
-    // width: 100vw;
-    height: 100vh;
-    // overflow: hidden;
+  position: absolute;
+  // width: 100vw;
+  height: 100vh;
+  // overflow: hidden;
 }
 
 .item-gallery-hover {
-    position: absolute;
-    width: 120px;
-    /* or the size of your images */
-    height: 120px;
-    /* or the size of your images */
-    opacity: 0;
-    /* start with images hidden */
+  position: absolute;
+  width: 120px;
+  /* or the size of your images */
+  height: 120px;
+  /* or the size of your images */
+  opacity: 0;
+  /* start with images hidden */
 }
 
 .item-gallery-hover img {
-    width: 100%;
-    height: auto;
-    display: block;
-    z-index: 10;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 10;
 }

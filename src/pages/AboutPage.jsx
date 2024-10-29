@@ -18,7 +18,6 @@ const AboutPage = () => {
 
             <section className="text-about-section">
                 <TextAbout />
-
             </section>
         </div>
     );
