@@ -1,3 +1,4 @@
+import ClipPathAnimation from '../components/AboutPage/ClipPathAnimation';
 import HeroAbout from '../components/AboutPage/HeroAbout';
 import MarqueeAbout from '../components/AboutPage/MarqueeAbout';
 import TextAbout from '../components/AboutPage/TextAbout';
@@ -18,7 +19,10 @@ const AboutPage = () => {
 
             <section className="text-about-section">
                 <TextAbout />
+            </section>
 
+            <section className="work-about-section">
+                <ClipPathAnimation />
             </section>
         </div>
     );
