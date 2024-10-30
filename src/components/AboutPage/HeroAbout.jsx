@@ -25,7 +25,7 @@ const HeroAbout = () => {
             { yPercent: 50, fontSize: '12vw' },
             { yPercent: -45, fontSize: '9vw' }
         );
-    
+
         // Animate the image downwards proportionally
         tl.fromTo(
             imageRef.current,
@@ -38,10 +38,10 @@ const HeroAbout = () => {
     return (
         <div ref={containerRef} className="container-bem hero-about">
             <div className="hero-about__content text-color--primary text-align--center flex--display flex--justify-center flex--align-center flex--column dimension--vh-100">
-                    <img ref={imageRef} className="hero-about__image" src="/images/lifestyle-1.jpg" />
-                    <h1 ref={titleRef} className="hero-about__title text-transform--uppercase text-color--primary">
-                        ABOUT SYP!
-                    </h1>
+                <img ref={imageRef} className="hero-about__image" src="/images/lifestyle-1.jpg" />
+                <h1 ref={titleRef} className="hero-about__title text-transform--uppercase text-color--primary">
+                    ABOUT SYP!
+                </h1>
             </div>
         </div>
     );

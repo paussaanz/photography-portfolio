@@ -1,0 +1,40 @@
+// Variables de tamaño
+$button-width: 200;
+$button-height: 50;
+$curve-offset: $button-height * 0.8; // Puedes cambiar 0.4
+
+.animated-button {
+  width: #{$button-width}px;
+  height: #{$button-height}px;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+  border-radius: 100px;
+
+  p {
+    font-family: "gunterz", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* Color original del texto */
+    transition: color 0.3s ease, opacity 0.3s ease; /* Efecto de transición */
+    z-index: 2; /* Asegúrate de que esté por encima del SVG */
+  }
+
+  .text-white {
+    color: white; /* Color del texto al cubrirse */
+    opacity: 1; /* Opción para hacer el texto invisible */
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  // Path base
+  #path {
+    fill: black;
+  }
+}
