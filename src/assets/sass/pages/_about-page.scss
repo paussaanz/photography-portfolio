@@ -16,15 +16,11 @@
 }
 
 .hero-about__title {
-  margin: 0px;
-  margin-top: 10px;
-  font-size: 12vw !important;
-  line-height: 12vw;
-  position: absolute;
-  left: 50%;
-  bottom: -130;
-  transform: translate(-50%, 0%);
-  width: 100vw;
+    margin: 0px;
+    margin-top: 10px;
+    // font-size: 12vw;
+    line-height: 12vw;
+    width: 100vw;
 }
 
 .marquee-about__part {
