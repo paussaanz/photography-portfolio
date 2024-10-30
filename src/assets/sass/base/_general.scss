@@ -238,6 +238,10 @@ $font-sizes: (
     justify-content: center; // Centrar horizontalmente
   }
 
+  &--justify-around {
+    justify-content: space-around; // Distribuir espacio entre elementos
+  }
+
   &--justify-between {
     justify-content: space-between; // Distribuir espacio entre elementos
   }

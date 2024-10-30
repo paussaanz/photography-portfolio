@@ -15,8 +15,7 @@ import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import GalleryCarles from "./components/PortfolioDetailsPage/GalleryCarles";
-import { AnimatePresence } from "framer-motion";
-
+import ContactForm from "./components/ContactPage/ContactForm";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -111,9 +110,10 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
+              <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>
-          {location.pathname !== "/contact" && (
+          {location.pathname !== "/contact" && location.pathname !== "/contact/form" && (
             <footer>
               <Footer />
             </footer>
