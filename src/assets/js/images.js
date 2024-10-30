@@ -1317,3 +1317,49 @@ export const portfolioDetailsGallery = [
     id: "6-2",
   },
 ];
+
+export const textAboutImages = {
+  experiences: {
+      positions: [
+          { x: -150, y: -100, scale: 1.2, rotation: -10 },
+          { x: 100, y: -150, scale: 1.3, rotation: 15 },
+          { x: -120, y: 100, scale: 1.4, rotation: -20 },
+          { x: 130, y: 80, scale: 1.1, rotation: 10 },
+      ],
+      images: [
+          Lifestyle12,
+          Lifestyle15,
+          Lifestyle3,
+          Lifestyle1
+      ]
+  },
+
+  websites: {
+      positions: [
+          { x: -180, y: -130, scale: 1.3, rotation: -5 },
+          { x: 120, y: -120, scale: 1.5, rotation: 20 },
+          { x: -100, y: 130, scale: 1.2, rotation: -15 },
+          { x: 150, y: 100, scale: 1.0, rotation: 5 },
+      ],
+      images: [
+         Photoshoots13,
+         Photoshoots1,
+         Photoshoots3,
+         Photoshoots16,
+      ]
+  },
+  visions: {
+      positions: [
+          { x: -160, y: -140, scale: 1.1, rotation: -8 },
+          { x: 140, y: -140, scale: 1.4, rotation: 18 },
+          { x: -110, y: 140, scale: 1.2, rotation: -12 },
+          { x: 160, y: 120, scale: 1.1, rotation: 8 },
+      ],
+      images: [
+          Nature13,
+          Nature1,
+          Nature18,
+          Nature16
+      ]
+  },
+};

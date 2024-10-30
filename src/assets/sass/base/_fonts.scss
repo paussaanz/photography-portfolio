@@ -1,39 +1,52 @@
 @font-face {
   font-family: 'Gunterz';
   src: url('../fonts/Gunterz-Black.ttf') format('truetype');
-  font-weight: 900; /* Black */
+  font-weight: 900;
+  /* Black */
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Gunterz';
   src: url('../fonts/Gunterz-Bold.ttf') format('truetype');
-  font-weight: 700; /* Bold */
+  font-weight: 700;
+  /* Bold */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gunterz';
   src: url('../fonts/Gunterz-Medium.ttf') format('truetype');
-  font-weight: 500; /* Medium */
+  font-weight: 500;
+  /* Medium */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gunterz';
   src: url('../fonts/Gunterz-Regular.ttf') format('truetype');
-  font-weight: 400; /* Regular */
+  font-weight: 400;
+  /* Regular */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gamilia';
   src: url('../fonts/Gamilia-Regular.ttf') format('truetype');
-  font-weight: normal; /* 400 */
+  font-weight: normal;
+  /* 400 */
   font-style: normal;
 }
 
-.h-jumbo{
-font-size: 95px;
-font-family: Gunterz;
-font-weight: 700;
+.heading--jumbo {
+  font-size: 95px;
+  font-family: Gunterz;
+  font-weight: 700;
 }
+
+// .heading--about {
+//   margin: 0px;
+//   margin-top: 10px;
+//   font-size: 12vw !important;
+//   line-height: 12vw;
+// }

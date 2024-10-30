@@ -58,8 +58,18 @@
     animation-duration: 1.5s;/* Adjust timing as necessary */
 }
 
-//TEXT INFINITE BANNER
+/*CONTACT BANNER IN CONTACT PAGE*/
+.text-animated-contact {
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;/* Adjust timing as necessary */
 
+}
+.text-animated-contact:hover  {
+    transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+    // cursor: url('/cursor-1.svg'), auto !important; /* Trying SVG cursor */
+}
+
+//TEXT INFINITE BANNER
   .moving-text {
     transform: translate(-1900px, 0px);
     z-index: -1;
@@ -71,6 +81,9 @@
     animation: moveText 10s;
     color: white; /* Color del texto */
     letter-spacing: 8px; /* Espacio entre letras */
-
   }
   
+.text-container{
+    padding-left: 30px;
+    padding-right: 30px;
+}

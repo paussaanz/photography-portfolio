@@ -21,9 +21,7 @@ const Cursor = () => {
                 "#CCCCCC", // Gris suave
                 "#DCDCDC", // Gris casi blanco
                 "#EDEDED"  // Gris muy claro
-            ]
-
-                ;
+            ];
 
 
             circles.forEach((circle, index) => {

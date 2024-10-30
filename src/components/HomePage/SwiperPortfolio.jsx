@@ -28,7 +28,7 @@ const SwiperPortfolio = () => {
         <motion.div
             ref={sectionRef}
             className="position--sticky dimension--vh-300 background--transparent"
-            style={{ height: '300vh', rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
+            style={{ rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
         >
             <div className="position--sticky position--top-0 flex--display dimension--vh-100 flex--align-center flex--justify-start overflow--clip">
                 <div className="position--absolute text-align--center button--centered text-color--light">

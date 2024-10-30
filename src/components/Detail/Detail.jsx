@@ -10,7 +10,7 @@ const Detail = ({ images, closeOverlay }) => {
 
 
   return (
-    <div data-barba="container" className="gallery-container">
+    <div data-barba="container" className="detail-container">
       <motion.div
         className="background-overlay background--light"
         initial={{ opacity: 0 }}

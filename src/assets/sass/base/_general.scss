@@ -8,6 +8,7 @@
 
 *{
   margin: 0;
+  box-sizing: border-box;
 }
 /*  Configuración fuentes Desktop */
 
@@ -265,6 +266,10 @@ $font-sizes: (
     flex-wrap: nowrap; // Evitar el wrapping de elementos
   }
 
+  &--auto {
+    flex: auto; 
+  }
+
   // Flex-grow
   @for $i from 0 through 5 {
     &--grow-#{$i} {
@@ -297,6 +302,10 @@ $font-sizes: (
     height: 100vh !important;
   }
 
+  &--vh-150 {
+    height: 150vh !important;
+  }
+
   &--vh-175 {
     height: 175vh !important;
   }
@@ -313,12 +322,20 @@ $font-sizes: (
     height: max-content !important;
   }
 
+  &--h-fit {
+    height: fit-content !important;
+  }
+
   &--h-100 {
     height: 100% !important;
   }
 
   &--w-max {
     width: max-content !important;
+  }
+
+  &--w-fit {
+    width: fit-content !important;
   }
 
   &--w-100 {

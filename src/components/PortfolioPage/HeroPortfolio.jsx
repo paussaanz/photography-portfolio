@@ -60,7 +60,7 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
                 <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={1} />
             </div>
             <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100"> {/* Alineación centrada */}
-                <motion.div style={{ display: 'flex', position: 'absolute', bottom: '0' }} className="margin--0 text-transform--uppercase text-color--primary overflow--x-clip dimension--vw-100 overflow--hidden flex--align-center flex--justify-center">
+                <motion.div style={{ display: 'flex', position: 'absolute', bottom: '-65px' }} className="margin--0 text-transform--uppercase text-color--primary overflow--x-clip dimension--vw-100 overflow--hidden flex--align-center flex--justify-center">
                     {word.split("").map((letter, index) => (
                         <motion.h1
                             key={index}

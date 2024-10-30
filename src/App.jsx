@@ -113,9 +113,11 @@ function App() {
               <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
             </Routes>
           </main>
-          {/* <footer>
-            <Footer />
-          </footer> */}
+          {location.pathname !== "/contact" && (
+            <footer>
+              <Footer />
+            </footer>
+          )}
         </div>
       </div >
     </>
