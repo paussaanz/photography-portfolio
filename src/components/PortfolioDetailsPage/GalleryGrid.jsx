@@ -1,7 +1,7 @@
 import AnimatedImage from './AnimatedImage';
 
 
-const GalleryCarles = ({ images, ordered, handleImageClick }) => {
+const GalleryGrid = ({ images, ordered, handleImageClick }) => {
 
   return (
     <>
@@ -30,4 +30,4 @@ const GalleryCarles = ({ images, ordered, handleImageClick }) => {
   );
 };
 
-export default GalleryCarles;
+export default GalleryGrid;

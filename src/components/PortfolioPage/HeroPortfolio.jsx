@@ -55,26 +55,23 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     };
 
     return (
-        <div ref={container} className="container-bem hero-cabecera">
-            <div className="images-1 position--relative flex--display dimension--w-100 flex--justify-center">
-                <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={1} />
+        <div ref={container} className="container-bem portfolio__hero">
+            <div className="portfolio__hero-images">
+                <ParallaxImages images={images} getYTransform={getYTransform} classname="portfolio__hero-images-parallax" />
             </div>
-            <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-center dimension--vh-100"> {/* Alineación centrada */}
-                <motion.div style={{ display: 'flex', position: 'absolute', bottom: '-65px' }} className="margin--0 text-transform--uppercase text-color--primary overflow--x-clip dimension--vw-100 overflow--hidden flex--align-center flex--justify-center">
+            <div className="text-color--primary text-align--center flex flex--j-center flex--a-center d--vh-100"> {/* Alineación centrada */}
+                <motion.div style={{ bottom: '-65px' }} className="m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center">
                     {word.split("").map((letter, index) => (
                         <motion.h1
                             key={index}
-                            style={{ y: letterTransforms[index] }} // Asignar la transformación correspondiente
+                            style={{ y: letterTransforms[index] }}
+                            className="portfolio__hero-title" // Asignar la transformación correspondiente
                         >
                             {letter}
                         </motion.h1>
                     ))}
                 </motion.div>
             </div>
-
-            {/* <div className="images-2 position-relative d-flex w-100 justify-content-center">
-                <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={2}/>
-            </div> */}
         </div>
     );
 };

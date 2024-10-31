@@ -5,7 +5,7 @@ const Cursor = () => {
 
     useEffect(() => {
         function cursor() {
-            const circles = Array.from(circleContainerRef.current.querySelectorAll(".circle"));
+            const circles = Array.from(circleContainerRef.current.querySelectorAll(".cursor__custom-circle"));
             const coords = { x: 0, y: 0 };
             let lastPositions = circles.map(() => ({ x: 0, y: 0 }));
 
@@ -70,9 +70,9 @@ const Cursor = () => {
     }, [])
 
     return (
-        <div ref={circleContainerRef} className="custom-cursor-container">
+        <div ref={circleContainerRef} className="cursor__custom">
             {new Array(20).fill().map((_, index) => (
-                <div key={index} className='circle'></div>
+                <div key={index} className='cursor__custom-circle'></div>
             ))}
         </div>
     );

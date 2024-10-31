@@ -4,7 +4,7 @@ const TextOverlay = ({ children, textColor, textPosition, className, onMouseEnte
     : 'position--bottom-0 position--left-50 translate--middle-x';
 
   return (
-    <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className={`text-overlay position--absolute ${positionClasses} ${textColor} ${className}`}>
+    <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className={`text-overlay position--absolute overlay__text-animated ${positionClasses} ${textColor} ${className}`}>
       {children}
     </div>
   );

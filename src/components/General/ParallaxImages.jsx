@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const ParallaxImages = ({ images = [], getYTransform, containerNumber}) => {
+const ParallaxImages = ({ images = [], getYTransform, classname}) => {
     return (
         <>
             {
@@ -8,12 +8,11 @@ const ParallaxImages = ({ images = [], getYTransform, containerNumber}) => {
                     <motion.div 
                         style={{ y: getYTransform(y) }} 
                         key={`i_${i}`} 
-                        className={`position--absolute image-container-${containerNumber}`}
+                        className={`${classname}`}
                     >
                         <img
                             src={src}
-                            placeholder="blur"
-                            className="dimension--h-100 dimension--w-100 object-fit--cover"
+                            className="d--h-100 d--w-100 object-fit--cover"
                             alt={`image-${i}`}
                         />
                     </motion.div>

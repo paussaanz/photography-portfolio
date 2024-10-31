@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
-import TextAnimationContainer from "../components/General/TextAnimationContainer";
+import TextAnimation from "../components/General/TextAnimation";
 import Button from "../components/General/Buttons/Button";
-import GalleryCarles from "../components/PortfolioDetailsPage/GalleryCarles";
+import GalleryGrid from "../components/PortfolioDetailsPage/GalleryGrid";
 import Detail from "../components/Detail/Detail";
 import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
 
@@ -62,16 +62,16 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     };
 
     return (
-        <div data-barba="container" className={`${selectedImage ? 'detail-mode' : ''} `}>
+        <div data-barba="container" className={`${selectedImage ? 'pdetails__detail-mode' : ''} `}>
             <PortfolioDetailPageSeo title={title} heroImage={heroImage} />
 
-            <section className="hero-details position--relative">
+            <section className="pdetails__hero-section position--relative">
                 <HeroDetails slug={title} src={heroImage.src} />
             </section>
 
-            <section className="text-animation">
-                <div className="padding--y-5 dimension--vh-100 align-content--center">
-                    <TextAnimationContainer
+            <section className="pdetails__text-animation-section">
+                <div className="p--y-5 d--vh-100 align-content--center">
+                    <TextAnimation
                         text={textAnimation}
                         textColor="text-color--primary"
                         maskColor="background--light"
@@ -79,16 +79,15 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 </div>
             </section>
 
-            <div></div>
-            <section ref={imagesSectionRef} className="images-gallery">
-                <div className={`text-color--dark text-align--center button--fixed-bottom ${disabledButtons ? 'pointer-events-none' : ''}`}>
-                    <Button className="text-color--dark" text="Grid" onClick={handleChangeOrder} />
+            <section ref={imagesSectionRef} className="pdetails__images-gallery-section">
+                <div className={`pdetails__button--fixed-bottom ${disabledButtons ? 'pointer-events-none' : ''}`}>
+                    <Button className="text-color--primary" text="Grid" onClick={handleChangeOrder} />
                     |
-                    <Button className="text-color--dark" text="Gallery" onClick={handleChangeOrder} />
+                    <Button className="text-color--primary" text="Gallery" onClick={handleChangeOrder} />
                 </div>
-                <div className={ordered ? 'container-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-                    <div className={ordered ? 'gallery' : ''} ref={galleryRef}>
-                        <GalleryCarles
+                <div className={ordered ? 'pdetails__images-gallery' : ''} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+                    <div className={ordered ? 'pdetails__images-gallery--ordered' : ''} ref={galleryRef}>
+                        <GalleryGrid
                             ordered={ordered}
                             images={projectImages}
                             handleImageClick={handleImageClick}

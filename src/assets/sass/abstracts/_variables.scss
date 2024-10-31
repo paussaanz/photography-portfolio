@@ -12,11 +12,8 @@ $cor-spacer: 1rem !default;
 
 // scss-docs-start color-variables CORPORATIVOS
 
-// Define colores alternativos y añádelos en la configuración de bootstrap
 
-// Color corporativo
-
-
+// Colores corporativos
 $cor-primary:                               #341116 !default;
 $cor-secondary:                             #DA6A2D !default;
 
@@ -25,8 +22,6 @@ $cor-dark:                                  #323232 !default;
 $cor-light:                                 #EBE6E0 !default;
 $cor-gray:                                  #71827b !default; //d6d1ca
 $cor-warm-gray:                             #b7bfbc !default;
-
-//Colores secundarios
 
 // Define la paleta de colores básica
 $cor-black: #000000 !default;
@@ -149,10 +144,6 @@ $cor-card-border-radius: 1.875rem !default; // 30px
 $cor-card-border-radius-md: 1.875rem !default;
 $cor-card-bg: $cor-gray;
 $cor-card-img-overlay-padding: $cor-spacer * 1.5;
-// Configuración cards extra incluidas en overrides/_cards
-
-// Configuración sombras
-$cor-box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.04) !default;
 
 // Configuración botones
 $cor-btn-padding-y: 0.625rem !default;
@@ -189,26 +180,6 @@ $cor-input-border-radius: 1rem*toRem(20);
 $cor-input-focus-color: rgba($cor-black, 0.8);
 $cor-input-placeholder-color: $cor-black;
 $cor-input-focus-border-color: $cor-primary;
-// Configuración checkbox
-
-$cor-form-check-input-width: 1.125rem !default;
-//$cor-form-check-input-position:               1rem !default;
-//$cor-form-check-min-height:                   $font-size-base * $line-height-base !default;
-$cor-form-check-padding-start: $cor-form-check-input-width + .5rem !default;
-$cor-form-check-input-bg: rgba($cor-gray, .5) !default;
-$cor-form-check-input-border: 2px solid rgba($cor-white, .9) !default;
-$cor-form-check-input-border-radius: 50% !default;
-$cor-form-check-input-focus-border: 1px solid $cor-primary !default;
-$cor-form-check-input-checked-bg-color: $cor-white !default;
-$cor-form-check-input-checked-border-color: $cor-primary !default;
-$cor-form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$cor-color-icons-svg}'/></svg>") !default;
-$cor-form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$cor-color-icons-svg}'/></svg>") !default;
-$cor-form-check-label-color: $cor-black !default;
-
-// Configuración del select
-$cor-form-select-indicator-color: $cor-black !default;
-$cor-form-select-indicator-padding: 2.25rem !default;
-$cor-form-select-bg-position: right 1rem center !default;
 
 // Configuración dropdown
 $cor-dropdown-min-width: 7.0rem !default;
@@ -269,36 +240,6 @@ $cor-btn-close-bg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/sv
 $cor-btn-close-focus-shadow: 0 !default;
 $cor-btn-close-opacity: 1 !default;
 $cor-btn-close-hover-opacity: .75 !default;
-
-
-// Configurar form-switch-variables
-$cor-form-switch-color: rgba($cor-white, 1) !default;
-$cor-form-switch-width: 3rem !default;
-$cor-form-switch-height: 1.75rem !default;
-$cor-form-switch-box-shadow: none !default;
-
-$cor-form-switch-padding-start: $cor-form-switch-width !default;
-$cor-form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$cor-form-switch-color}'/></svg>") !default;
-$cor-form-switch-border-radius: $cor-form-switch-width !default;
-$cor-form-switch-transition: background-position .15s ease-in-out !default;
-
-$cor-form-switch-focus-color: $cor-white !default;
-$cor-form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$cor-form-switch-focus-color}'/></svg>") !default;
-
-$cor-form-switch-checked-color: $cor-white !default;
-$cor-form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$cor-form-switch-checked-color}'/></svg>") !default;
-$cor-form-switch-checked-bg-position: right center !default;
-
-
-// scss-docs-start alert-variables
-$alert-padding-y: $cor-spacer !default;
-$alert-padding-x: $cor-spacer !default;
-$alert-margin-bottom: 1rem !default;
-//$alert-border-radius:           transparent !default;
-$alert-link-font-weight: 500 !default;
-$alert-border-width: 0 !default;
-$alert-dismissible-padding-r: $alert-padding-x * 3 !default; // 3x covers width of x plus default padding on either side
-// scss-docs-end alert-variables
 
 
 // -------------- FIN Sistema de diseño --------------

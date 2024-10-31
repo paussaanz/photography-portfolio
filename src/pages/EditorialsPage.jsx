@@ -20,16 +20,16 @@ const EditorialsPage = () => {
     };
 
     return (
-        <div data-barba="container" className="editorials-page background--light">
+        <div data-barba="container">
             <EditorialsPageSeo editorialsParallaxHero={editorialsParallaxHero} />
 
-            <section className="editorials-hero dimension--vh-100 overflow--x-clip">
-                <div className="dimension--vh-100 flex--display">
+            <section className="editorials__section-hero">
+                <div className="d--vh-100 flex overflow--x-clip">
                     <HeroEditorials images={editorialsParallaxHero} />
                 </div>
             </section>
-            <section className="editorial-cards">
-                <div className="padding--y-5 overflow--clip">
+            <section className="editorials__section-cards">
+                <div className="p--y-5 overflow--clip">
                     <SwiperEditorialCard images={editorialsCovers} />
                 </div>
             </section>

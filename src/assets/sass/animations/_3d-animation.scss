@@ -1,18 +1,19 @@
 
-.container-card-animation {
+.card-3d__animation{
 
+&-container {
+    width: 100%;
+    height: 300vh;
+    position: relative;
+    overflow: clip;
     transition: background-color 0.5s ease;
 
     .active-slide {
         opacity: 1;
         transition: opacity ease-in-out 0.5s;
-
-        &.no-blur {
-            opacity: 0;
-            //z-index: -1;
-        }
     }
 
+   
     .active-slide img {
         filter: blur(100px);
         background-size: cover;
@@ -31,16 +32,7 @@
     .slide {
         width: 40vh;
     }
-}
-
-
-// #slide-6 {
-//     position: absolute;
-//     top: 50%;
-//     left: 65%;
-//     transform: translateX(-50%) translateY(-50%) translateZ(-18200px);
-//     opacity: 0;
-// }
+}}
 
 #slide-5 {
     position: absolute;

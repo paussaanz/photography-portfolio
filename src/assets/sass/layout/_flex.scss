@@ -1,0 +1,151 @@
+/*Este archivo contiene clases de utilidad para aplicar estilos de flexbox. 
+
+Uso de clases de flex:
+   - `.flex`: Activa `display: flex` en el contenedor.
+   - `.flex--row`: Coloca los elementos en fila (por defecto).
+   - `.flex--row-rev`: Invierte el orden de los elementos en fila.
+   - `.flex--col`: Coloca los elementos en columna.
+   - `.flex--col-rev`: Invierte el orden de los elementos en columna.
+   - `.flex--nowrap`: Evita que los elementos envuelvan (comportamiento predeterminado).
+   - `.flex--wrap`: Permite el envolvimiento de los elementos en múltiples líneas.
+   - `.flex--wrap-reverse`: Envuelve los elementos en múltiples líneas en orden inverso.
+   - `.flex--j-...`: Alinea los elementos al inicio del contenedor.
+   - `.flex--a-...`: Alinea los elementos al inicio del eje transversal.
+   - `.flex--a-c-...`: Alinea el contenido al inicio.
+   - `.flex--auto`: Permite que el elemento ocupe el espacio disponible en el contenedor.
+   - `.flex--g-0` a `.flex--g-5`: Controla el crecimiento del elemento en el contenedor de 0 (sin crecer) a 5 (máximo crecimiento).
+   - `.flex--s-0` a `.flex--s-5`: Controla la reducción del elemento en el contenedor de 0 (sin reducirse) a 5 (máxima reducción).
+   - `.flex--b-auto`: Asigna la base de flex a `auto`.
+   - `.flex--b-0`, `.flex--b-25`, `.flex--basis-50`, `.flex--basis-75`, `.flex--basis-100`: Asigna una base de flex en porcentajes (0% a 100%).
+*/
+
+// Flex container
+.flex {
+    display: flex;
+
+    &--row {
+        flex-direction: row;
+
+        &-rev {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &--col {
+        flex-direction: column;
+
+        &-rev {
+            flex-direction: column-reverse;
+        }
+    }
+
+    // Flex wrap modifiers
+    &--nowrap {
+        flex-wrap: nowrap;
+    }
+
+    &--wrap {
+        flex-wrap: wrap;
+    }
+
+    &--wrap-rev {
+        flex-wrap: wrap-reverse;
+    }
+
+    // Justify content modifiers
+    &--j-start {
+        justify-content: flex-start;
+    }
+
+    &--j-center {
+        justify-content: center;
+    }
+
+    &--j-end {
+        justify-content: flex-end;
+    }
+
+    &--j-between {
+        justify-content: space-between;
+    }
+
+    &--j-around {
+        justify-content: space-around;
+    }
+
+    &--j-evenly {
+        justify-content: space-evenly;
+    }
+
+    // Align items modifiers
+    &--a-start {
+        align-items: flex-start;
+    }
+
+    &--a-center {
+        align-items: center;
+    }
+
+    &--a-end {
+        align-items: flex-end;
+    }
+
+    &--a-stretch {
+        align-items: stretch;
+    }
+
+    &--a-baseline {
+        align-items: baseline;
+    }
+
+    // Align content modifiers (for multi-line flex containers)
+    &--a-c-start {
+        align-content: flex-start;
+    }
+
+    &--a-c-center {
+        align-content: center;
+    }
+
+    &--a-c-end {
+        align-content: flex-end;
+    }
+
+    &--a-c-between {
+        align-content: space-between;
+    }
+
+    &--a-c-around {
+        align-content: space-around;
+    }
+
+    &--a-c-stretch {
+        align-content: stretch;
+    }
+
+    // Flex auto
+    &--auto {
+        flex: auto;
+    }
+
+    // Flex-grow
+    @for $i from 0 through 5 {
+        &--g-#{$i} {
+            flex-grow: $i !important;
+        }
+    }
+
+    // Flex-shrink
+    @for $i from 0 through 5 {
+        &--s-#{$i} {
+            flex-shrink: $i !important;
+        }
+    }
+
+    // Flex-basis
+    @each $basis, $value in (auto: auto, 0: 0%, 25: 25%, 50: 50%, 75: 75%, 100: 100%) {
+        &--b-#{$basis} {
+            flex-basis: $value !important;
+        }
+    }
+}

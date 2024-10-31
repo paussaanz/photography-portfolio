@@ -1,51 +1,30 @@
 // FONTS
-
-// Se deben sustituir los  ";" en las urls por "%3b"  para que al minificar no de problema
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800;900&display=swap');
 @import "base/fonts";
-// @import "node_modules/font-awesome/css/font-awesome.min.css";
 
-// Funciones para SASS
+// Abstracts
 @import "abstracts/functions";
-// Variables generales y overrides de las de bootstrap
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
-// Para especificar las clases de Bootstrap que queremos cargar
-// @import "bootstrap-loads";
-
-// Utilidades extra estilo bootstrap
+// Base
 @import 'base/general';
 @import 'base/text';
 
-// Plugins
-//@import "node_modules/bootstrap-select/sass/bootstrap-select";
-
-// Sobreescritos de bootstrap
-@import "overrides/buttons";
-@import "overrides/navs";
-
-// Elementos nuevos reutilizables
-@import "partials/swiper";
-@import "partials/aspect-ratios";
-
 // Layout
-@import "layout/spacing";
+@import "layout/spacing-dimension";
 @import "layout/container";
+@import "layout/flex";
+@import "layout/cursor";
 
 // Pages
-@import "pages/portfolio-details-page/images";
-@import "pages/footer/infinite-carrusel";
+@import "pages/footer/footer";
+@import "pages/nav/navbar";
 @import "pages/contact-page";
 @import "pages/about-page";
+@import "pages/editorials-page";
+@import "pages/portfolio-page";
+@import "pages/home-page";
+@import "pages/portfolio-detail";
 
 // Animaciones
-@import "animations/cursor";
-@import "animations/text";
-@import "animations/scroll";
 @import "animations/3d-animation";
-@import "animations/parallax";
-@import "animations/carousel";
-@import "animations/gallery";
-@import "animations/detail";
-

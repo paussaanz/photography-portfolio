@@ -36,10 +36,10 @@ const HeroAbout = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="container-bem hero-about">
-            <div className="hero-about__content text-color--primary text-align--center flex--display flex--justify-center flex--align-center flex--column dimension--vh-100">
-                <img ref={imageRef} className="hero-about__image" src="/images/lifestyle-1.jpg" />
-                <h1 ref={titleRef} className="hero-about__title text-transform--uppercase text-color--primary">
+        <div ref={containerRef} className="container-bem">
+            <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
+                <img ref={imageRef} className="about__hero-image" src="/images/lifestyle-1.jpg" />
+                <h1 ref={titleRef} className="about__hero-title">
                     ABOUT SYP!
                 </h1>
             </div>

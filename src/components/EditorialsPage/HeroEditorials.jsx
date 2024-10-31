@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import ParallaxImages from "../General/ParallaxImages";
 
-const HeroEditorials = ({images = []}) => {
+const HeroEditorials = ({ images = [] }) => {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -29,18 +29,19 @@ const HeroEditorials = ({images = []}) => {
 
     return (
         <>
-            <div ref={container} className="container-bem hero-editorials">
-            <div className="images-3 position--relative flex--display dimension--w-100 flex--justify-center">
-                <ParallaxImages images={images} getYTransform={getYTransform} containerNumber={3}/>
-            </div>
-            <div className="body text-color--primary text-align--center flex--display flex--justify-center flex--align-end dimension--vh-100">
-                <motion.h1 style={{ y: xsm }} className="margin--bottom-5 text-transform--uppercase text-color--primary">
-                    EDITORIALS
-                </motion.h1>
-            </div>
+            <div ref={container} className="container-bem editorials__hero">
+                <div className="editorials__hero-images">
+                    <ParallaxImages images={images} getYTransform={getYTransform}  classname="editorials__hero-images-parallax" />
+                </div>
+                <div className="text-color--primary text-align--center flex flex--j-center flex--a-end d--vh-100">
+                    <motion.h1 style={{ y: xsm }} 
+                    className="editorials__hero-title m--b-5">
+                        EDITORIALS
+                    </motion.h1>
+                </div>
 
-            
-        </div>
+
+            </div>
         </>
     );
 };

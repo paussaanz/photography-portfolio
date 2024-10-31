@@ -1,51 +1,135 @@
-.text-color {
-  &--primary {
-    color: $cor-primary;
+.text {
+
+  &-color {
+    &--primary {
+      color: $cor-primary;
+    }
+
+    &--secondary {
+      color: $cor-secondary;
+    }
+
+    &--light {
+      color: $cor-light;
+    }
+
+    &--dark {
+      color: $cor-dark;
+    }
+
+    &--black {
+      color: $cor-black;
+    }
   }
 
-  &--secondary {
-    color: $cor-secondary;
+  &-align {
+    &--center {
+      text-align: center;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--justify {
+      text-align: justify;
+    }
   }
 
-  &--light {
-    color: $cor-light;
+  &-transform {
+    &--uppercase {
+      text-transform: uppercase; // Equivalente a "text-uppercase" en Bootstrap
+    }
   }
 
-  &--dark {
-    color: $cor-dark;
+  &-decoration {
+    &--none {
+      text-decoration: none;
+    }
   }
 
-  &--black {
-    color: $cor-black;
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.text-align {
-  &--center {
-    text-align: center;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
-  &--left {
-    text-align: left;
-  }
-
-  &--right {
-    text-align: right;
-  }
-
-  &--justify {
-    text-align: justify;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.text-transform {
-  &--uppercase {
-    text-transform: uppercase; // Equivalente a "text-uppercase" en Bootstrap
+@keyframes moveText {
+  0% {
+    z-index: -1;
+    transform: translateX(0);
+  }
+
+  100% {
+    z-index: -1;
+    transform: translateX(-100%);
   }
 }
 
-.text-decoration {
-  &--none {
-    text-decoration: none;
-  }
+//TEXT APPEAR ON SCROLL ANIMATION
+.word {
+  position: relative;
+}
+
+.line-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/*OVERLAY TEXT ANIMATION*/
+.overlay__text-animated {
+  animation-name: fadeInUp;
+  animation-duration: 1.5s;
+  /* Adjust timing as necessary */
+}
+
+
+//TEXT INFINITE BANNER
+.moving-text {
+  transform: translate(-1900px, 0px);
+  z-index: -1;
+  width: 1900px;
+  color: white;
+  font-size: 90px;
+  position: absolute;
+  left: 0;
+  animation: moveText 10s;
+  color: white;
+  /* Color del texto */
+  letter-spacing: 8px;
+  /* Espacio entre letras */
+}
+
+.text-container {
+  padding-left: 30px;
+  padding-right: 30px;
 }

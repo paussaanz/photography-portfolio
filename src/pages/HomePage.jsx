@@ -4,7 +4,7 @@ import TextOverlay from '../components/General/TextOverlay';
 import Button from '../components/General/Buttons/Button';
 import SwiperPortfolio from '../components/HomePage/SwiperPortfolio';
 import { useScroll, motion, useMotionValue } from 'framer-motion';
-import TextAnimationContainer from '../components/General/TextAnimationContainer';
+import TextAnimation from '../components/General/TextAnimation';
 import { useLocation } from 'react-router-dom';
 import HomeSeo from './SEO/HomeSeo';
 
@@ -39,11 +39,12 @@ const HomePage = () => {
     }, [scrollYProgress, location.pathname, scale, rotate]);
 
     return (
-        <div ref={homepageRef} data-barba="container" className="homepage position--relative barba-container">
+        <div ref={homepageRef} data-barba="container">
             <HomeSeo />
-            <section className="hero-homepage position--relative">
-                <VideoBackground videoSrc="/DJI_0155.MP4" height="dimension--vh-100" />
-                <TextOverlay textColor="text-color--light" textPosition="center" className="text-animated text-align--center">
+
+            <section className="home__section-hero position--relative">
+                <VideoBackground videoSrc="/DJI_0155.MP4" height="d--vh-100" />
+                <TextOverlay textColor="text-color--light" textPosition="center" className="text-align--center">
                     <h1>
                         <span className='block--display'>Capture</span>
                         <span className="h2 block--display">Brilliance</span>
@@ -52,12 +53,12 @@ const HomePage = () => {
                 </TextOverlay>
             </section>
 
-            <section className="text-animation-homepage swiper-portfolio-homepage">
+            <section className="home__section-swiper-animation">
                 <motion.div
                     key={location.pathname}
                     style={{ scale, rotate }}
-                    className="position--sticky position--top-0 padding--y-5 dimension--vh-100 align-content--center">
-                    <TextAnimationContainer text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
+                    className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center">
+                    <TextAnimation text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
                 </motion.div>
 
                 <SwiperPortfolio />

@@ -1,0 +1,95 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    transition: all 0.3s ease-in-out; // Transición suave
+
+    &--inverted {
+        mix-blend-mode: difference; // Aplicar mezcla para invertir colores
+    }
+
+    &--fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1030; // Matching Bootstrap's z-index for fixed elements
+    }
+}
+
+.cus-navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: $cor-navbar-padding-y $cor-navbar-padding-x;
+    color: $cor-navbar-color;
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+
+    &__container {
+        position: relative;
+        text-transform: uppercase;
+        font-family: 'gunterz', sans-serif; // Asegúrate de que el nombre de la fuente esté correctamente especificado
+    }
+
+    &__logo--centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &--expand-lg {
+        @media (min-width: 992px) {
+            flex-wrap: nowrap !important;
+            justify-content: flex-start !important;
+        }
+    }
+
+    &__container-fluid {
+        display: flex;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 3rem;
+        padding-left: 3rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &__links {
+
+        @media (min-width: 992px) {
+            flex-direction: row;
+        }
+
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    &__item-link {
+
+        @media (min-width: 992px) {
+            padding-right: 0.94rem;
+            padding-left: 0.94rem;
+        }
+
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        text-decoration: none;
+        background: none;
+        border: 0;
+        transition: color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+    }
+
+}

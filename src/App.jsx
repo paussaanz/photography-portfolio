@@ -14,7 +14,7 @@ import Lenis from "lenis";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
-import GalleryCarles from "./components/PortfolioDetailsPage/GalleryCarles";
+import GalleryGrid from "./components/PortfolioDetailsPage/GalleryGrid";
 import ContactForm from "./components/ContactPage/ContactForm";
 
 function App() {
@@ -109,7 +109,7 @@ function App() {
               <Route path="/editorials" element={<EditorialsDetailPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} />
+              {/* <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} /> */}
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>

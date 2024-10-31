@@ -9,19 +9,19 @@ const AboutPage = () => {
         <div data-barba="container">
             <AboutPageSeo />
 
-            <section className="hero-about-section dimension--vh-150 overflow--y-hidden">
+            <section className="about__section-hero d--vh-150 overflow--y-hidden">
                 <HeroAbout />
             </section>
 
-            <section className="marquee-about-section">
+            <section className="about__section-marquee">
                 <MarqueeAbout />
             </section>
 
-            <section className="text-about-section">
+            <section className="about__section-text">
                 <TextAbout />
             </section>
 
-            <section className="work-about-section">
+            <section className="about__section-work">
                 <ClipPathAnimation />
             </section>
         </div>

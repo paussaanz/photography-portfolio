@@ -43,7 +43,7 @@ const AnimatedImage = ({
 
     <motion.div
       onClick={onImageClick}
-      className="gallery-item overflow--hidden"
+      className="gallery-grid__item"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={container}
@@ -78,10 +78,8 @@ const AnimatedImage = ({
           type: "tween",
           stiffness: 30,
         }}
+        className="gallery-grid__item-image"
         style={{
-          objectFit: "cover",
-          width: "100%",
-          height: "100%",
           scale: !ordered && scaleTransform,
           translateY: !ordered && yTransform
         }}

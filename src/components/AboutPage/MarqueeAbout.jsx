@@ -12,22 +12,22 @@ const MarqueeAbout = () => {
         const textTop = new SplitType('#marqueeTop', {
             types: 'chars',
             tagName: 'span',
-            charClass: 'about-split-char',
+            charClass: 'about__marquee-char',
         });
 
         const textMiddle = new SplitType('#marqueeMiddle', {
             types: 'chars',
             tagName: 'span',
-            charClass: 'about-split-char',
+            charClass: 'about__marquee-char',
         });
 
         const textBottom = new SplitType('#marqueeBottom', {
             types: 'chars',
             tagName: 'span',
-            charClass: 'about-split-char',
+            charClass: 'about__marquee-char',
         });
 
-        const chars = document.querySelectorAll('.about-split-char');
+        const chars = document.querySelectorAll('.about__marquee-char');
 
         chars.forEach((char) => {
             char.addEventListener('mousemove', (e) => {
@@ -67,9 +67,9 @@ const MarqueeAbout = () => {
         });
 
 
-        gsap.set(".marquee-about__part-top", { xPercent: 0 });
-        gsap.set(".marquee-about__part-middle", { xPercent: 0 });
-        gsap.set(".marquee-about__part-bottom", { xPercent: 0 });
+        gsap.set("#marqueeTop", { xPercent: 0 });
+        gsap.set("#marqueeMiddle", { xPercent: 0 });
+        gsap.set("#marqueeBottom", { xPercent: 0 });
 
         ScrollTrigger.create({
             trigger: marqueeRef.current,
@@ -79,17 +79,17 @@ const MarqueeAbout = () => {
             onUpdate: (self) => {
                 const progress = self.progress;
 
-                gsap.to(".marquee-about__part-top", {
+                gsap.to("#marqueeTop", {
                     xPercent: -25 * progress,
                     ease: "none",
                 });
 
-                gsap.to(".marquee-about__part-middle", {
+                gsap.to("#marqueeMiddle", {
                     xPercent: 25 * progress,
                     ease: "none",
                 });
 
-                gsap.to(".marquee-about__part-bottom", {
+                gsap.to("#marqueeBottom", {
                     xPercent: -7 * progress,
                     ease: "none",
                 });
@@ -101,15 +101,15 @@ const MarqueeAbout = () => {
 
 
     return (
-        <div ref={marqueeRef} className="marquee-about dimension--vh-100 position--relative text-transform--uppercase overflow--hidden flex--display flex--justify-center flex--align-center">
+        <div ref={marqueeRef} className="d--vh-100 position--relative  flex flex--j-center flex--a-center text-transform--uppercase overflow--hidden">
             <div className="marquee-about__inner">
-                <div id="marqueeTop" className="marquee-about__part marquee-about__part-top">
+                <div id="marqueeTop" className="about__marquee-part">
                     CREATIVE
                 </div>
-                <div id="marqueeMiddle" className="marquee-about__part marquee-about__part-middle">
+                <div id="marqueeMiddle" className="about__marquee-part">
                     Freelance
                 </div>
-                <div id="marqueeBottom" className="marquee-about__part marquee-about__part-bottom">
+                <div id="marqueeBottom" className="about__marquee-part">
                     DEVELOPER
                 </div>
             </div>

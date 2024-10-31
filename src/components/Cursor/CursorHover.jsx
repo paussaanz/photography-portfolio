@@ -17,7 +17,7 @@ const CursorHover = ({visible}) => {
     }, []);
 
     return visible ? (
-        <div className="custom-cursor-hover" style={{ left: `${position.x}px`, top: `${position.y}px` }}>
+        <div className="cursor__custom-hover" style={{ left: `${position.x}px`, top: `${position.y}px` }}>
         </div>
     ) : null;
 };

@@ -9,23 +9,6 @@ const Logo3D = ({hovered}) => {
     const materialRef = useRef(null);
     const [targetColor, setTargetColor] = useState(new THREE.Color("#ffffff")); // Initial color
 
-    // Colors for normal and hover states
-    // const normalColor = "#ffffff"; // White
-    // const hoverColor = "#ff0000"; // Red
-
-    // const materialProps = useControls({
-    //     roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-    //     transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-    //     ior: { value: 1.45, min: 1, max: 3, step: 0.1 },
-    //     chromaticAberration: { value: 0.03, min: 0, max: 1 },
-    //     transparent: true,
-    //     opacity: 0.9, // Opacity slightly reduced for transparency effect
-    //     color: 'red',
-    //     thickness: { value: 1, min: 0, max: 3, step: 0.05 },
-
-    // });
-
-    console.log(nodes)
     useEffect(() => {
         const model = nodes.Curve;
         const box = new THREE.Box3().setFromObject(model);
@@ -74,18 +57,6 @@ const Logo3D = ({hovered}) => {
             materialRef.current.color.set(currentColor);
         }
     });
-
-
-    // const onHover = (e) => {
-    //     e.stopPropagation();
-    //     setHovered(true);
-    // };
-
-    // const onUnhover = (e) => {
-    //     e.stopPropagation();
-    //     setHovered(false);
-    // };
-
 
     return (
         <group ref={groupRef}>

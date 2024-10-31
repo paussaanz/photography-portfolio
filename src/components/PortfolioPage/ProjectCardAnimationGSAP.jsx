@@ -1,4 +1,3 @@
-import ProjectCard from '../General/ProjectCard';
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -30,7 +29,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       const initialZ = getInitialTranslateZ(slide);
 
       ScrollTrigger.create({
-        trigger: ".container-card-animation",
+        trigger: ".card-3d__animation-container",
         start: "top top",
         end: "bottom bottom",
         scrub: 5,
@@ -84,9 +83,8 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
 
   return (
-    <div className="container-card-animation dimension--w-100 dimension--vh-300 position--relative overflow--clip">
-      
-      <div className="active-slide position--absolute position--top-0 position--left-0 dimension--w-100 dimension--h-100 overflow-hidden">
+    <div className="card-3d__animation-container">
+      <div className="active-slide position--absolute position--top-0 position--left-0 d--w-100 d--h-100 overflow-hidden">
         {portfolioCardAnimation.map((image, index) => (
           <div className="bg-images">
             <img className="position--absolute" src={image.src} alt="" />
@@ -94,16 +92,16 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
         ))}
       </div>
 
-      <div className="slider position--sticky position--top-0 dimension--vw-100 dimension--vh-100">
+      <div className="slider position--sticky position--top-0 d--vw-100 d--vh-100">
         {portfolioCardAnimation.map((image, index) => (
-          <div key={index} className="slide dimension--vh-100 position--absolute overflow--hidden flex--display flex--column flex--justify-center" id={`slide-${index + 1}`}>
+          <div key={index} className="slide d--vh-100 position--absolute overflow--hidden flex flex--col flex--j-center" id={`slide-${index + 1}`}>
             <a href={image.url} className="text-decoration--none">
               <div className={`slide-img`}>
-                <img className="dimension--vh-50 dimension--w-100 object-fit--cover slide-img" src={image.src} alt="" />
+                <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" />
               </div>
               <div className='slide-copy text-transform--uppercase text-align--center text-color--light'>
-                <p className="margin--0">{image.name} - {image.date}</p>
-                <p className="margin--0">{image.description}</p>
+                <p className="m--0">{image.name} - {image.date}</p>
+                <p className="m--0">{image.description}</p>
               </div>
             </a>
           </div>
