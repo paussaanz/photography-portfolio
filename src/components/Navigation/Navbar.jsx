@@ -24,7 +24,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="cus-navbar__item">
-              <a onClick={() => handleLinkClick('/contact')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/about')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 About SYP!
               </a>
             </li>
