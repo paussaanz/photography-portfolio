@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
+import { useTransition } from "../../contexts/transitionContext";
 
 const Navbar = () => {
-
+  const { handleLinkClick } = useTransition();
   const location = useLocation();
 
   const isPrimaryPage = location.pathname === '' || location.pathname === '/editorials' || location.pathname === '/portfolio';
@@ -13,32 +14,31 @@ const Navbar = () => {
         <div className="flex flex--g-1">
           <ul className="cus-navbar__links m--r-auto m--b-2 m--b-lg-0">
             <li className="cus-navbar__item">
-              <Link reloadDocument to="/portfolio" className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/portfolio')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Portfolio
-              </Link>
+              </a>
             </li>
             <li className="cus-navbar__item">
-              <Link reloadDocument to="/editorials" className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/editorials')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Editorials
-              </Link>
+              </a>
             </li>
             <li className="cus-navbar__item">
-              <Link reloadDocument to="/about" className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/contact')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 About SYP!
-              </Link>
-
+              </a>
             </li>
           </ul>
         </div>
-        <Link reloadDocument to="/" className="cus-navbar__logo--centered">
+        <a onClick={() => handleLinkClick('/')} className="cus-navbar__logo--centered">
           <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" />
-        </Link>
+        </a>
         <div className="flex">
           <ul className="cus-navbar__links m--l--auto m--b-2 m--b-lg-0">
             <li className="nav-item">
-              <Link reloadDocument to="/contact" className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/contact')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
                 Contact
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

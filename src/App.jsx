@@ -8,13 +8,12 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
-import GalleryGrid from "./components/PortfolioDetailsPage/GalleryGrid";
 import ContactForm from "./components/ContactPage/ContactForm";
 
 function App() {
@@ -91,6 +90,7 @@ function App() {
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
+
         <div data-barba-namespace="home">
           <Cursor />
           <header id="header" className={`header--fixed-top header--inverted`}>

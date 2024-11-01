@@ -4,16 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from './App.jsx'
 import './index.css'
+import { TransitionProvider } from "./contexts/transitionContext.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <TransitionProvider>
+        <App />
+      </TransitionProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
-
-
-

@@ -9,7 +9,6 @@ const ContactPage = () => {
     const [hovered, setHovered] = useState(false);
     const [cursorVisible, setCursorVisible] = useState(false);
 
-
     return (
         <div data-barba="container">
             <ContactPageSeo />
@@ -49,5 +48,6 @@ const ContactPage = () => {
         </div>
     );
 };
+
 
 export default ContactPage;
