@@ -37,7 +37,7 @@ export const TransitionProvider = ({ children }) => {
   };
 
   return (
-    <TransitionContext.Provider value={{ handleLinkClick }}>
+    <TransitionContext.Provider value={{ handleLinkClick }} >
       {children}
       <motion.div
         initial={{ y: '100%' }} // Empieza desde la parte inferior

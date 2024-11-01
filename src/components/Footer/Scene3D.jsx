@@ -25,7 +25,6 @@ const Scene3D = () => {
 
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
-      event.preventDefault(); // Prevent default behavior
       console.warn('WebGL context lost!'); // Handle accordingly
     };
 
@@ -45,6 +44,11 @@ const Scene3D = () => {
       onCreated={({ gl }) => {
         gl.physicallyCorrectLights = true;
         gl.setClearColor(backgroundColor, 1);
+
+        return () => {
+          gl.forceContextLoss();
+          gl.dispose();
+        };
       }}
     >
       <directionalLight intensity={1} position={[1, 2, 1]} color={color} />

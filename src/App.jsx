@@ -15,6 +15,7 @@ import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import ContactForm from "./components/ContactPage/ContactForm";
+import Scene3D from "./components/Footer/Scene3D";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -113,11 +114,6 @@ function App() {
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>
-          {location.pathname !== "/contact" && location.pathname !== "/contact/form" && (
-            <footer>
-              <Footer />
-            </footer>
-          )}
         </div>
       </div >
     </>
