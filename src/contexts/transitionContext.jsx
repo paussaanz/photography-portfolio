@@ -1,15 +1,19 @@
 import { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAnimation, motion } from 'framer-motion';
 
 const TransitionContext = createContext();
 
 export const TransitionProvider = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const controls = useAnimation();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleLinkClick = (path) => {
+    console.log(path, location.pathname);
+    if (path === location.pathname) return;
+
     if (!isTransitioning) {
       setIsTransitioning(true);
       const startTransition = async () => {
