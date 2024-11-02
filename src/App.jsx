@@ -75,6 +75,16 @@ function App() {
     });
   }, []);
 
+
+
+  // Efecto para restablecer el scroll al cambiar de ruta
+  useLayoutEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    lenis.scrollTo(0, { immediate: true });
+  }, [location.pathname]);
+
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
