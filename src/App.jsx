@@ -15,6 +15,7 @@ import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import ContactForm from "./components/ContactPage/ContactForm";
+import Scene3D from "./components/Footer/Scene3D";
 
 import './assets/sass/style.scss'
 
@@ -77,6 +78,7 @@ function App() {
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
+
         <div data-barba-namespace="home">
           <Cursor />
           <header id="header" className={`header--fixed-top header--inverted`}>
@@ -98,11 +100,6 @@ function App() {
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>
-          {location.pathname !== "/contact" && location.pathname !== "/contact/form" && (
-            <footer>
-              <Footer />
-            </footer>
-          )}
         </div>
       </div >
     </>
