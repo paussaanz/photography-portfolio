@@ -52,7 +52,6 @@ export const TransitionProvider = ({ children }) => {
           zIndex: 1000,
         }}
       >
-
         <motion.div
           initial={{ y: '100%' }} // Empieza desde la parte inferior
           animate={controls}

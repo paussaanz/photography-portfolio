@@ -67,8 +67,11 @@
     }
 }
 
-.parallax__image-blur:hover {
-    filter: blur(10px) contrast(1.2) invert(0.25) saturate(3.25);
-    transition: filter 0.5s ease-out;
-    position: relative;
+.parallax__image{
+height: 100%;
+width: 100%;
+object-fit: cover;
+position: absolute;
+top: 0;
+left: 0;
 }

@@ -8,7 +8,7 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import barba from '@barba/core';
@@ -74,6 +74,16 @@ function App() {
       ],
     });
   }, []);
+
+
+
+  // Efecto para restablecer el scroll al cambiar de ruta
+  useLayoutEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    lenis.scrollTo(0, { immediate: true });
+  }, [location.pathname]);
 
   return (
     <>
