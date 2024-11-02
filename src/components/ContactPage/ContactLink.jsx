@@ -1,9 +1,9 @@
-const ContactLink = ({ text, logoClass, fontSize }) => {
+const ContactLink = ({ text, logoClass, fontSize, href }) => {
     return (
-        <div className="contact__link">
-            <div className={`contact__logo-circle contact__logo-circle--${logoClass}`}></div>
+        <a href={href} target="_blank" className="contact__link">
+                <span className={`contact__logo-circle ${logoClass} ${fontSize}`} />
             <span className={`contact__name ${fontSize} text-transform--uppercase`}>{text}</span>
-        </div>
+        </a>
     );
 };
 

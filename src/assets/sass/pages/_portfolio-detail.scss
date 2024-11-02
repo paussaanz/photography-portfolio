@@ -87,7 +87,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: $cor-light;
+    background-color: var(--cor-light);
   }
 
   &_detail-mode {
@@ -125,7 +125,8 @@
     transform: translate(-50%, -50%);
     z-index: 10;
     text-align: center;
-    color: $cor-primary;
+    color: var(--cor-primary);
+    width: 100%;
   }
 }
 

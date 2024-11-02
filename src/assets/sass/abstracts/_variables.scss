@@ -1,8 +1,18 @@
 // -------------- Sistema de diseño --------------
 // Las variables que se definan aquí hay que aplicarlas en las variables de bootstrap definidas a continuación
 
+// Colores corporativos
+:root {
+    --cor-primary: #341116;
+    --cor-secondary: #DA6A2D;
+    --cor-dark: #323232;
+    --cor-light: #EBE6E0 ;
+    --cor-gray: #71827b ;
+    --cor-warm-gray: #b7bfbc;
+}
+
 // Configuración fuentes generales
-$cor-font-family-sans-serif: "Gamilia" !default;
+$cor-font-family-body: "Gamilia" !default;
 
 // Configuración fuentes Headings añadidas en _mixins.scss
 $cor-font-family-headings: "Gunterz" !default;
@@ -10,30 +20,17 @@ $cor-font-family-headings: "Gunterz" !default;
 // Espacio para los bloques
 $cor-spacer: 1rem !default;
 
-// scss-docs-start color-variables CORPORATIVOS
-
-
-// Colores corporativos
-$cor-primary:                               #341116 !default;
-$cor-secondary:                             #DA6A2D !default;
-
-//Colores oscuros
-$cor-dark:                                  #323232 !default;
-$cor-light:                                 #EBE6E0 !default;
-$cor-gray:                                  #71827b !default; //d6d1ca
-$cor-warm-gray:                             #b7bfbc !default;
-
 // Define la paleta de colores básica
 $cor-black: #000000 !default;
 $cor-white: #FFFFFF !default; // Respetar siempre em blanco puro
 $cor-transparent: transparent !default;
 
 // Configuración colores del body
-$cor-body-color: $cor-dark;
+$cor-body-color: var(--cor-dark);
 $cor-body-bg: $cor-white;
 
 // Colores para los iconos reemplazamos # por %23
-$cor-color-icons-svg: str-replace(#{$cor-primary}, "#", "%23");
+$cor-color-icons-svg: str-replace(#{var(--cor-primary)}, "#", "%23");
 $cor-color-icons-svg-white: str-replace(#{$cor-white}, "#", "%23");
 $cor-color-icons-svg-black: str-replace(#{$cor-black}, "#", "%23");
 
@@ -65,12 +62,6 @@ $cor-font-size-base: 1rem * toRem(16) !default; // 14px
 $cor-font-size-base-text: 1rem !default; //16 px
 $cor-line-height-base: 1.2 !default;
 
-// Fuentes extra fs-7 fs-8 añadidas en _utils.css
-$cor-font-legend: $cor-font-size-base-text * toRem(14) !default;
-$cor-font-legend-md: $cor-font-size-base-text * toRem(14) !default;
-$cor-font-tag: $cor-font-size-base-text * toRem(12) !default;
-$cor-font-tag-md: $cor-font-size-base-text * toRem(12) !default;
-
 // Headings
 $cor-headings-line-height: 1.4 !default;
 $cor-headings-font-weight: 600;
@@ -82,7 +73,15 @@ $cor-h2-font-size: $cor-font-size-base-text * toRem(49) !default;
 $cor-h3-font-size: $cor-font-size-base-text * toRem(39) !default;
 $cor-h4-font-size: $cor-font-size-base-text * toRem(31) !default;
 $cor-h5-font-size: $cor-font-size-base-text * toRem(25) !default;
-$cor-h6-font-size: $cor-font-size-base-text * toRem(20) !default; //Body
+$cor-h6-font-size: $cor-font-size-base-text * toRem(20) !default;
+
+// Configuración Headings  a partir de md añadidas en _utils.scss
+$cor-h1-font-size-md: $cor-font-size-base-text * toRem(61) !default;
+$cor-h2-font-size-md: $cor-font-size-base-text * toRem(49) !default;
+$cor-h3-font-size-md: $cor-font-size-base-text * toRem(39) !default;
+$cor-h4-font-size-md: $cor-font-size-base-text * toRem(31) !default;
+$cor-h5-font-size-md: $cor-font-size-base-text * toRem(25) !default;
+$cor-h6-font-size-md: $cor-font-size-base-text * toRem(20) !default;
 
 // Configuraciones altura de linea añadidas en _mixins.scss
 $cor-h1-line-height: 1.10 !default;
@@ -100,21 +99,29 @@ $cor-h4-letter-spacing: normal !default;
 $cor-h5-letter-spacing: normal !default;
 $cor-h6-letter-spacing: normal !default;
 
-// Configuración Headings  a partir de md añadidas en _utils.scss
-$cor-h1-font-size-md: $cor-font-size-base-text * toRem(61) !default;
-$cor-h2-font-size-md: $cor-font-size-base-text * toRem(49) !default;
-$cor-h3-font-size-md: $cor-font-size-base-text * toRem(39) !default;
-$cor-h4-font-size-md: $cor-font-size-base-text * toRem(31) !default;
-$cor-h5-font-size-md: $cor-font-size-base-text * toRem(25) !default;
-$cor-h6-font-size-md: $cor-font-size-base-text * toRem(20) !default;
+//Tipos de letra de cuerpo de texto (b1 - b6) con tipografía Gamilia
+$b1-font-size: $cor-font-size-base-text * toRem(49); // ejemplo 18px
+$b2-font-size: $cor-font-size-base-text * toRem(39); // ejemplo 17px
+$b3-font-size: $cor-font-size-base-text * toRem(31); // 16px
+$b4-font-size: $cor-font-size-base-text * toRem(25); // ejemplo 15px
+$b5-font-size: $cor-font-size-base-text * toRem(20); // ejemplo 14px
+$b6-font-size: $cor-font-size-base-text * toRem(16); // ejemplo 13px
+
+// Configuración cuerpo de texto a partir de md 
+$b1-font-size-md: $cor-font-size-base * toRem(49); // ejemplo 18px
+$b2-font-size-md: $cor-font-size-base * toRem(39); // ejemplo 17px
+$b3-font-size-md: $cor-font-size-base * toRem(31); // 16px
+$b4-font-size-md: $cor-font-size-base * toRem(25); // ejemplo 15px
+$b5-font-size-md: $cor-font-size-base * toRem(20); // ejemplo 14px
+$b6-font-size-md: $cor-font-size-base * toRem(16); // ejemplo 13px
 
 // Configuración fuentes a partir de md .fs-1 .fs-2 y fs-md-1 que corresponde a los tamaños de los encabezados pero para textos añadidas en _utils.css
-$cor-font-size-base-1-md: $cor-h1-font-size-md;
-$cor-font-size-base-2-md: $cor-h2-font-size-md;
-$cor-font-size-base-3-md: $cor-h3-font-size-md;
-$cor-font-size-base-4-md: $cor-h4-font-size-md;
-$cor-font-size-base-5-md: $cor-h5-font-size-md;
-$cor-font-size-base-6-md: $cor-h6-font-size-md;
+// $cor-font-size-base-1-md: $cor-h1-font-size-md;
+// $cor-font-size-base-2-md: $cor-h2-font-size-md;
+// $cor-font-size-base-3-md: $cor-h3-font-size-md;
+// $cor-font-size-base-4-md: $cor-h4-font-size-md;
+// $cor-font-size-base-5-md: $cor-h5-font-size-md;
+// $cor-font-size-base-6-md: $cor-h6-font-size-md;
 
 // Configuración fuentes extra-grandes .display-1 .display-2... añadidas en _utils.scss
 $cor-display-font-sizes-1: $cor-font-size-base-text * 5 !default;
@@ -142,7 +149,7 @@ $card-spacer-x-md: $cor-spacer * 1.5;
 $cor-card-border-width: 0px !default;
 $cor-card-border-radius: 1.875rem !default; // 30px
 $cor-card-border-radius-md: 1.875rem !default;
-$cor-card-bg: $cor-gray;
+$cor-card-bg: var(--cor-gray);
 $cor-card-img-overlay-padding: $cor-spacer * 1.5;
 
 // Configuración botones
@@ -179,7 +186,7 @@ $cor-input-border-color: $cor-white;
 $cor-input-border-radius: 1rem*toRem(20);
 $cor-input-focus-color: rgba($cor-black, 0.8);
 $cor-input-placeholder-color: $cor-black;
-$cor-input-focus-border-color: $cor-primary;
+$cor-input-focus-border-color: var(--cor-primary);
 
 // Configuración dropdown
 $cor-dropdown-min-width: 7.0rem !default;
@@ -196,7 +203,7 @@ $cor-dropdown-inner-border-radius: 5rem !default; // stylelint-disable-line func
 $cor-dropdown-link-color: $cor-black !default;
 $cor-dropdown-link-hover-bg: rgba($cor-black, .08) !default;
 $cor-dropdown-link-active-color: $cor-black !default;
-$cor-dropdown-link-active-bg: $cor-primary !default;
+$cor-dropdown-link-active-bg: var(--cor-primary);
 $cor-dropdown-item-padding-y: $cor-spacer * .8 !default;
 $cor-dropdown-item-padding-x: $cor-spacer * 1 !default;
 

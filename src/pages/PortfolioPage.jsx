@@ -36,6 +36,7 @@ const PortfolioPage = () => {
     }, []);
 
     return (
+
         <div data-barba="container">
             <PortfolioPageSeo portfolioParallaxHero={portfolioParallaxHero} />
 

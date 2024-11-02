@@ -1,8 +1,29 @@
+body.light-theme {
+    --cor-primary: #341116;
+    --cor-secondary: #DA6A2D;
+    --cor-dark: #262626;
+    --cor-light: #EBE6E0;
+    --cor-gray: #71827b;
+    --cor-warm-gray: #b7bfbc;
+}
+
+body.dark-theme {
+    --cor-primary: #DA6A2D;
+    --cor-secondary: 341116;
+    --cor-dark: #EBE6E0;
+    --cor-light: #131313;
+    --cor-gray: #71827b;
+    --cor-warm-gray: #b7bfbc;
+}
+
 // FONTS
 @import "base/fonts";
 
 // Abstracts
 @import "abstracts/functions";
+
+// Define una clase de tema que condicionalmente importará los estilos correctos
+
 @import "abstracts/variables";
 @import "abstracts/mixins";
 

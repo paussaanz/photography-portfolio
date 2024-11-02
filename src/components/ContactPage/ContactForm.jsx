@@ -19,7 +19,8 @@ const ContactForm = () => {
                     </div>
 
                 </div>
-                <div className="contact__form-flex--column">
+                <div className="contact__form-flex--column flex--a-center">
+                    {/* <img src="/images/nature-1.jpg" className="d--w-100 d--h-100 object-fit--cover"/> */}
                     <AnimatedButton text="Submit" />
 
                 </div>

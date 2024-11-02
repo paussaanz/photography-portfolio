@@ -6,149 +6,9 @@
   --bg-porcentaje: 0.4;
 }
 
-*{
+* {
   margin: 0;
   box-sizing: border-box;
-}
-/*  Configuración fuentes Desktop */
-
-$display-font-sizes-md: (
-  1: $cor-display-font-sizes-1-md,
-  2: $cor-display-font-sizes-2-md,
-  3: $cor-display-font-sizes-3-md,
-  4: $cor-display-font-sizes-4-md,
-  5: $cor-display-font-sizes-5-md,
-  6: $cor-display-font-sizes-6-md,
-);
-$headings-sizes-md: (
-  1: $cor-h1-font-size-md,
-  2: $cor-h2-font-size-md,
-  3: $cor-h3-font-size-md,
-  4: $cor-h4-font-size-md,
-  5: $cor-h5-font-size-md,
-  6: $cor-h6-font-size-md
-);
-$font-sizes-md: (
-  1: $cor-font-size-base-1-md,
-  2: $cor-font-size-base-2-md,
-  3: $cor-font-size-base-3-md,
-  4: $cor-font-size-base-4-md,
-  5: $cor-font-size-base-5-md,
-  6: $cor-font-size-base-6-md,
-);
-$font-sizes: (
-  1: $cor-h1-font-size,
-  2: $cor-h2-font-size,
-  3: $cor-h3-font-size,
-  4: $cor-h4-font-size,
-  5: $cor-h5-font-size,
-  6: $cor-h6-font-size,
-);
-
-@each $size, $value in $display-font-sizes-md {
-  .display-#{$size} {
-    font-family: $cor-font-family-headings;
-
-    @include media-breakpoint-up(md) {
-      font-size: $value !important;
-    }
-  }
-}
-
-@each $size, $value in $font-sizes {
-
-  .h#{$size},
-  h#{$size} {
-    @include title($size);
-    font-size: $value;
-  }
-}
-
-@each $size, $value in $headings-sizes-md {
-
-  .h#{$size},
-  h#{$size} {
-    @include media-breakpoint-up(md) {
-      font-size: $value;
-    }
-  }
-}
-
-@each $size, $value in $font-sizes-md {
-  .fs-#{$size} {
-    font-family: $cor-font-family-sans-serif;
-
-    @include media-breakpoint-up(md) {
-      font-size: $value !important;
-    }
-  }
-}
-
-@each $size, $value in $display-font-sizes-md {
-  .display-md-#{$size} {
-    @include media-breakpoint-up(md) {
-      font-size: $value !important;
-    }
-  }
-}
-
-@each $size, $value in $font-sizes-md {
-  .fs-md-#{$size} {
-    font-family: $cor-font-family-sans-serif;
-
-    @include media-breakpoint-up(md) {
-      font-size: $value !important;
-      text-transform: initial;
-    }
-  }
-}
-
-@each $size, $value in $headings-sizes-md {
-  .st-h#{$size} {
-    @include title($size);
-  }
-}
-
-.legend {
-  font-size: $cor-font-legend !important;
-
-  @include media-breakpoint-up(md) {
-    font-size: $cor-font-legend-md !important;
-  }
-}
-
-.legend-md {
-  @include media-breakpoint-up(md) {
-    font-size: $cor-font-legend-md !important;
-  }
-}
-
-.tag {
-  font-size: $cor-font-tag !important;
-
-  @include media-breakpoint-up(md) {
-    font-size: $cor-font-tag-md !important;
-  }
-}
-
-.fw-regular {
-  font-weight: 400;
-}
-
-.gunterz {
-  font-family: 'Gunterz';
-}
-
-.bg-image {
-  @include bg-image();
-  background-image: var(--bg-image);
-}
-
-.bg-md-image {
-  @include media-breakpoint-up(md) {
-    @include bg-image();
-    background-image: var(--bg-md-image);
-  }
 }
 
 .over {
@@ -239,19 +99,19 @@ $font-sizes: (
 
 .background {
   &--light {
-    background-color: $cor-light; // Equivalente a "bg-light" en Bootstrap
+    background-color: var(--cor-light); // Equivalente a "bg-light" en Bootstrap
   }
 
   &--dark {
-    background-color: $cor-dark; // Equivalente a "bg-dark" en Bootstrap
+    background-color: var(--cor-dark); // Equivalente a "bg-dark" en Bootstrap
   }
 
   &--primary {
-    background-color: $cor-primary; // Equivalente a "bg-primary" en Bootstrap
+    background-color: var(--cor-primary); // Equivalente a "bg-primary" en Bootstrap
   }
 
   &--secondary {
-    background-color: $cor-secondary; // Equivalente a "bg-secondary" en Bootstrap
+    background-color: var(--cor-secondary); // Equivalente a "bg-secondary" en Bootstrap
   }
 
   &--transparent {
@@ -275,7 +135,7 @@ $font-sizes: (
   }
 
   &--middle-x {
-    transform: translateX(-50%) !important; 
+    transform: translateX(-50%) !important;
   }
 
   &--middle-y {
@@ -285,11 +145,14 @@ $font-sizes: (
 
 .block {
   &--display {
-      display: block;
+    display: block;
   }
 }
 
-html.lenis, html.lenis body {
+
+/*SCROLL*/
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -308,3 +171,24 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+
+// .transition__slide--in{
+//   position: fixed;
+//   top:0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   background-color: black;
+//   transform-origin: bottom;
+// }
+
+// .transition__slide--out{
+//   position: fixed;
+//   top:0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   background-color: black;
+//   transform-origin: bottom;
+// }

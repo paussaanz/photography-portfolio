@@ -9,6 +9,13 @@ const ContactPage = () => {
     const [hovered, setHovered] = useState(false);
     const [cursorVisible, setCursorVisible] = useState(false);
 
+    const contactLinks = [
+        { text: "LINKEDIN", logoClass: "icon-linkedin", href: "https://www.linkedin.com/in/paula-sanz-perez/" },
+        { text: "GITHUB", logoClass: "icon-github", href: "https://github.com/paussaanz" },
+        { text: "INSTAGRAM", logoClass: "icon-instagram", href: "https://www.instagram.com/sypcreative/" },
+        { text: "BEHANCE", logoClass: "icon-behance", href: "https://www.behance.net/paulasanz1", fontSize:"h6" }
+    ];
+
     return (
         <div data-barba="container">
             <ContactPageSeo />
@@ -18,15 +25,19 @@ const ContactPage = () => {
                 <div className="d--vh-100 flex flex--col">
                     <div className="text-3d-logo d--vh-100 position--relative">
                         <Scene3DContact hovered={hovered} />
-                        <TextOverlay onMouseEnter={() => {
-                            setHovered(true);
-                            setCursorVisible(true);  // Enable custom cursor
-                        }}
+                        <TextOverlay
+                            onMouseEnter={() => {
+                                setHovered(true);
+                                setCursorVisible(true);  // Enable custom cursor
+                            }}
                             onMouseLeave={() => {
                                 setHovered(false);
                                 setCursorVisible(false); // Disable custom cursor
                             }}
-                            textColor="text-color--primary" textPosition="center" className="text-align--center d--w-100">
+                            href="/contact/form"
+                            textColor="text-color--primary"
+                            textPosition="center"
+                            className="text-align--center d--w-100 text-decoration--none">
                             <h1>
                                 <span className='block--display'>Click, design, develop</span>
                                 <span className="block--display">Let's collaborate!</span>
@@ -34,14 +45,24 @@ const ContactPage = () => {
                         </TextOverlay>
                     </div>
                     <div className="contact__email">
-                        <ContactLink text="paula@sypcreative.com" logoClass='mail' fontSize={'h4'} />
+                        <ContactLink
+                            text="paula@sypcreative.com"
+                            href="mailto:paula@sypcreative.com"
+                            logoClass='icon-mail'
+                            fontSize={'h4'} />
 
                     </div>
                     <div className="contact__links">
-                        <ContactLink text="LINKEDIN" logoClass='linkedin' fontSize={'h5'} />
-                        <ContactLink text="GITHUB" logoClass='github' fontSize={'h5'} />
-                        <ContactLink text="INSTAGRAM" logoClass='instagram' fontSize={'h5'} />
-                        <ContactLink text="BEHANCE" logoClass='behance' fontSize={'h5'} />
+                        {contactLinks.map((link) => (
+                            <ContactLink
+                                key={link.text} // Use a unique key for each child in a list
+                                text={link.text}
+                                logoClass={link.logoClass}
+                                href={link.href}
+                                backgroundColor= "background--primary"
+                                fontSize={link.fontSize ? link.fontSize : 'h5'}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

@@ -10,7 +10,7 @@
     margin: 0px;
     margin-top: 10px;
     width: 100vw;
-    color: $cor-primary;
+    color: var(--cor-primary);
     text-transform: uppercase;
   }
 }
@@ -27,14 +27,14 @@
     line-height: 210px;
     font-weight: 600;
     justify-content: center;
-    color: $cor-primary;
+    color: var(--cor-primary);
   }
 
   &-char {
     transition: transform 0.4s cubic-bezier(0.42, 3, 0.58, 1), color 2.5s ease;
 
     &:hover {
-      color: $cor-secondary;
+      color: var(--cor-secondary);
       transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
@@ -53,7 +53,7 @@
     z-index: 10;
     cursor: pointer;
     background-color: transparent;
-    color: $cor-secondary;
+    color: var(--cor-secondary);
     font-family: gamilia;
     font-style: italic;
     font-size: 1rem * toRem(18);

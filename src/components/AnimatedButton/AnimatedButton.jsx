@@ -113,7 +113,7 @@ const generateKeyframes = (width, height, uniqueId) => {
   `;
 };
 
-const AnimatedButton = ({ width = 200, height = 30 }) => {
+const AnimatedButton = ({ width = 200, height = 30 , text}) => {
   const buttonRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState('');
@@ -171,7 +171,7 @@ const AnimatedButton = ({ width = 200, height = 30 }) => {
       className="animated-button"
       style={{ position: 'relative', width, height }}
     >
-      <p className={`${isAnimating ? 'text-white' : ''}`}>SABES?</p>
+      <p className={`${isAnimating ? 'text-white' : ''}`}>{text}</p>
       <svg
         width="105%"
         height="105%"
