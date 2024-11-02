@@ -1,20 +1,156 @@
+/*  Configuración fuentes Desktop (-md) y Mobile*/
+$display-sizes-md: (
+  1: $cor-display-font-sizes-1-md,
+  2: $cor-display-font-sizes-2-md,
+  3: $cor-display-font-sizes-3-md,
+  4: $cor-display-font-sizes-4-md,
+  5: $cor-display-font-sizes-5-md,
+  6: $cor-display-font-sizes-6-md,
+);
+
+$display-sizes: (
+  1: $cor-display-font-sizes-1,
+  2: $cor-display-font-sizes-2,
+  3: $cor-display-font-sizes-3,
+  4: $cor-display-font-sizes-4,
+  5: $cor-display-font-sizes-5,
+  6: $cor-display-font-sizes-6,
+);
+
+$headings-sizes-md: (
+  1: $cor-h1-font-size-md,
+  2: $cor-h2-font-size-md,
+  3: $cor-h3-font-size-md,
+  4: $cor-h4-font-size-md,
+  5: $cor-h5-font-size-md,
+  6: $cor-h6-font-size-md,
+);
+
+$headings-sizes: (
+  1: $cor-h1-font-size,
+  2: $cor-h2-font-size,
+  3: $cor-h3-font-size,
+  4: $cor-h4-font-size,
+  5: $cor-h5-font-size,
+  6: $cor-h6-font-size,
+);
+
+$font-sizes: (
+  1: $b1-font-size,
+  2: $b2-font-size,
+  3: $b3-font-size,
+  4: $b4-font-size,
+  5: $b5-font-size,
+  6: $b6-font-size,
+);
+
+$font-sizes-md: (
+  1: $b1-font-size-md,
+  2: $b2-font-size-md,
+  3: $b3-font-size-md,
+  4: $b4-font-size-md,
+  5: $b5-font-size-md,
+  6: $b6-font-size-md,
+);
+
+
+/** ESTILOS PARA DISPLAY -- Font Gunterz
+Usa .d1, .d2, .d3, etc., para aplicar tamaños de fuente predefinidos para los títulos grandes, 
+según el mapa $display-sizes.
+
+Para ajustes responsivos en pantallas medianas y mayores, utiliza el sufijo -md (ej., .d1-md).
+Estas clases (como .d1-md, .d2-md) aplicarán diferentes tamaños de fuente cuando el ancho
+de la pantalla alcance el breakpoint `md`, definido en el mapa $display-sizes-md.
+**/
+@each $size, $value in $display-sizes {
+  .d#{$size} {
+    font-family: $cor-font-family-headings;
+
+    @include media-breakpoint-up(md) {
+      font-size: $value !important;
+    }
+  }
+}
+
+@each $size, $value in $display-sizes-md {
+  .d#{$size}-md {
+    @include media-breakpoint-up(md) {
+      font-size: $value !important;
+    }
+  }
+}
+
+/** ESTILOS PARA HEADING -- Font Gunterz
+Usa .h1, .h2, .h3, etc., para aplicar tamaños de fuente predefinidos para los títulos, 
+según el mapa $heading-sizes.
+
+Para ajustes responsivos en pantallas medianas y mayores, utiliza el sufijo -md (ej., .h1-md).
+Estas clases (como .h1-md, .h2-md) aplicarán diferentes tamaños de fuente cuando el ancho
+de la pantalla alcance el breakpoint `md`, definido en el mapa $heading-sizes-md.
+**/
+@each $size, $value in $headings-sizes {
+
+  .h#{$size},
+  h#{$size} {
+    @include title($size);
+    font-size: $value;
+  }
+}
+
+@each $size, $value in $headings-sizes-md {
+
+  .h#{$size}-md,
+  h#{$size} {
+    @include media-breakpoint-up(md) {
+      font-size: $value;
+    }
+  }
+}
+
+/** ESTILOS PARA BODY -- Font Gamilia
+Usa .b1, .b2, .b3, etc., para aplicar tamaños de fuente predefinidos para el texto de cuerpo, 
+según el mapa $font-sizes.
+Ejemplo: <p class="b1">Este es un texto de cuerpo con tamaño 1.</p>
+
+Para ajustes responsivos en pantallas medianas y mayores, utiliza el sufijo -md (ej., .b1-md).
+Estas clases (como .b1-md, .b2-md) aplicarán diferentes tamaños de fuente cuando el ancho
+de la pantalla alcance el breakpoint `md`, definido en el mapa $font-sizes-md.
+Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas medianas.</p>
+**/
+@each $size, $value in $font-sizes {
+  .b#{$size} {
+    font-family: $cor-font-family-body;
+    font-size: $value;
+  }
+}
+
+@each $size, $value in $font-sizes-md {
+
+  .b#{$size}-md {
+    @include media-breakpoint-up(md) {
+      font-size: $value !important;
+      text-transform: initial;
+    }
+  }
+}
+
 .text {
 
   &-color {
     &--primary {
-      color: $cor-primary;
+      color: var(--cor-primary);
     }
 
     &--secondary {
-      color: $cor-secondary;
+      color: var(--cor-secondary);
     }
 
     &--light {
-      color: $cor-light;
+      color: var(--cor-light);
     }
 
     &--dark {
-      color: $cor-dark;
+      color: var(--cor-dark);
     }
 
     &--black {
@@ -52,9 +188,11 @@
     }
   }
 
+  &__overlay-animated {
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+  }
 }
-
-
 
 @keyframes fadeInUp {
   from {
@@ -80,18 +218,6 @@
   }
 }
 
-@keyframes moveText {
-  0% {
-    z-index: -1;
-    transform: translateX(0);
-  }
-
-  100% {
-    z-index: -1;
-    transform: translateX(-100%);
-  }
-}
-
 //TEXT APPEAR ON SCROLL ANIMATION
 .word {
   position: relative;
@@ -103,30 +229,6 @@
   right: 0;
   height: 100%;
   width: 100%;
-}
-
-/*OVERLAY TEXT ANIMATION*/
-.overlay__text-animated {
-  animation-name: fadeInUp;
-  animation-duration: 1.5s;
-  /* Adjust timing as necessary */
-}
-
-
-//TEXT INFINITE BANNER
-.moving-text {
-  transform: translate(-1900px, 0px);
-  z-index: -1;
-  width: 1900px;
-  color: white;
-  font-size: 90px;
-  position: absolute;
-  left: 0;
-  animation: moveText 10s;
-  color: white;
-  /* Color del texto */
-  letter-spacing: 8px;
-  /* Espacio entre letras */
 }
 
 .text-container {

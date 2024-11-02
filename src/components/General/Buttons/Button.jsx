@@ -9,7 +9,7 @@ const Button = ({ href, text, className, onClick }) => {
                 </a>
             ) : (
                 <button
-                    className={`text-transform--uppercase text-decoration--none ${className}`}
+                    className={`b6 text-transform--uppercase text-decoration--none ${className}`}
                     onClick={onClick}
                     style={{ background: 'none', border: 'none', cursor: 'pointer' }} 
                 >

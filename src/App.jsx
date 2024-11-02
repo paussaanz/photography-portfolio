@@ -8,14 +8,15 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useRef } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
-import GalleryGrid from "./components/PortfolioDetailsPage/GalleryGrid";
 import ContactForm from "./components/ContactPage/ContactForm";
+
+import './assets/sass/style.scss'
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -67,26 +68,11 @@ function App() {
           },
           afterEnter() {
             const lenis = lenisRef.current;
-            if (lenis) {
-              // Asegurarse de que el scroll va al tope de inmediato al entrar en una nueva página
-              lenis.scrollTo(0, { immediate: true });
-            }
           },
         },
       ],
     });
   }, []);
-
-
-
-  // Efecto para restablecer el scroll al cambiar de ruta
-  useLayoutEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-
-    // Saltar al tope de la página inmediatamente
-    lenis.scrollTo(0, { immediate: true });
-  }, [location.pathname]);
 
   return (
     <>
@@ -106,10 +92,9 @@ function App() {
               <Route path="/portfolio/sports" element={<PortfolioDetailPage title="sports" images={portfolioDetails.sports} textAnimation={"In sports photography, dynamic energy transcends the frame, transforming fleeting moments of intensity into echoes of triumph and struggle. Each image resonates with the pulse of competition, capturing not just the action but the spirit that ignites the heart of the game. The lens reveals the determination and passion that drive athletes, inviting viewers to feel the thrill of victory and the weight of defeat."} />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/editorials" element={<EditorialsPage />} />
-              <Route path="/editorials" element={<EditorialsDetailPage />} />
+              <Route path="/editorials/detail" element={<EditorialsDetailPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              {/* <Route path="/gallery" element={<GalleryCarles images={portfolioDetails.photoshoots.projectImages} />} /> */}
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>

@@ -2,14 +2,24 @@ import { Canvas } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 
 const Scene3D = () => {
-  const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
-  const backgroundColor = new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear();
-  const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
+  const { theme } = useContext(ThemeContext);
+
+  const backgroundColor = theme === 'dark-theme'
+    ? new THREE.Color(218 / 255, 106 / 255, 45 / 255).convertSRGBToLinear() // Color oscuro
+    : new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear(); // Color claro (blanco)
+
+    const color = theme === 'dark-theme'
+    ? new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear() // Color oscuro
+    : new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear(); // Color claro (blanco)
+
+    // const color = new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear();
+    const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
   const lines = text.split('\n'); // Divide el texto en líneas
 
   const cameraRef = useRef(); // Ref to hold the camera instance

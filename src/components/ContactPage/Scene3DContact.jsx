@@ -2,13 +2,16 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, Text } from '@react-three/drei';
 import Logo3DContact from './Logo3DContact';
 import * as THREE from 'three';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const Scene3DContact = ({hovered}) => {
+  const { theme } = useContext(ThemeContext);
+
   const color = new THREE.Color(149 / 255, 68 / 255, 24 / 255).convertSRGBToLinear();
-  const backgroundColor = new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear();
-  const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES"; // Texto con saltos de línea
-  const lines = text.split('\n'); // Divide el texto en líneas
+  const backgroundColor = theme === 'dark-theme'
+    ? new THREE.Color(19 / 255, 19 / 255, 19 / 255).convertSRGBToLinear() // Color oscuro
+    : new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear(); // Color claro (blanco)
 
   const cameraRef = useRef(); // Ref to hold the camera instance
 

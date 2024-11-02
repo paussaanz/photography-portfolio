@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: $cor-primary;
+    background-color: var(--cor-primary);
 
     &-3d-logo {
         flex-grow: 1 !important;
@@ -19,17 +19,17 @@
         justify-content: flex-start;
         overflow: hidden;
         padding-top: 120px;
-        color: $cor-secondary;
+        color: var(--cor-secondary);
 
         /* Pausa la animación y cambia el color del texto y logo en hover */
         &:hover .footer__carrusel-item {
             animation-play-state: paused;
-            color: $cor-light;
+            color: var(--cor-light);
             /* Cambia el color del texto */
         }
 
         &:hover .footer__carrusel-item .footer__carrusel-item--logo {
-            background-color: $cor-light;
+            background-color: var(--cor-light);
             /* Cambia el color del logo */
         }
     }
@@ -59,7 +59,7 @@
             width: 75px;
             height: 75px;
             margin: 0 2rem;
-            background-color: $cor-secondary;
+            background-color: var(--cor-secondary);
             mask-image: url('/logo-dark.svg');
             mask-size: contain;
             mask-repeat: no-repeat;

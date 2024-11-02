@@ -1,9 +1,11 @@
 import { useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
 import { useFrame } from "@react-three/fiber";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Logo3D = ({hovered}) => {
+    const { theme } = useContext(ThemeContext);
     const { nodes } = useGLTF("/3D/syp-3.gltf");
     const groupRef = useRef(null);
     const materialRef = useRef(null);
@@ -48,7 +50,10 @@ const Logo3D = ({hovered}) => {
         if (materialRef.current) {
             const currentColor = new THREE.Color(materialRef.current.color.getHex());
             const colorChangeSpeed = 0.05; // Adjust speed as needed
-            const hoverColor = new THREE.Color("#DA6A2D");
+            const hoverColor = theme === 'dark-theme'
+            ? new THREE.Color("#6B5154")
+            : new THREE.Color("#DA6A2D")
+
             const normalColor = new THREE.Color("#EBE6E0");
             const target = hovered ? hoverColor : normalColor;
 

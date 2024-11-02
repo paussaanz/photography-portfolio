@@ -31,7 +31,7 @@ const SwiperPortfolio = () => {
             style={{ rotate, scale }} // Se le da una altura significativa para permitir el scroll vertical
         >
             <div className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start overflow--clip">
-                <div className="home__swiper-animation-button--centered position--absolute text-align--center text-color--light">
+                <div className="home__swiper-animation-button--centered">
                     <Button className="text-color--light" text="Portfolio" onClick={handleShowPortfolio} /> |
                     <Button className="text-color--light" text="Editorials" onClick={handleShowEditorials} />
                 </div>
