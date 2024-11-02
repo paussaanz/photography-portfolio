@@ -45,14 +45,27 @@ export const TransitionProvider = ({ children }) => {
         transition={{ duration: 0.5, ease: 'easeInOut' }}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'black', // Cambia esto al color que prefieras
+          top: -15,
+          left: -15,
+          width: '120%',
+          height: '120%',
           zIndex: 1000,
         }}
-      />
+      >
+        <motion.div
+          initial={{ y: '100%' }} // Empieza desde la parte inferior
+          animate={controls}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          style={{
+            position: 'fixed',
+            width: '110%',
+            height: '110%',
+            backgroundImage: 'linear-gradient(to bottom, #341116, #531d20, #732a28, #933a2d, #b34d2f, #c2633a, #d17846, #df8d53, #e2a572, #e5bb95, #e8d1b9, #ebe6e0)', // Cambia esto al color que prefieras
+            filter: 'blur(10px)',
+          }}
+        />
+          {/* Aqui puedometer texto o algo */}
+      </motion.div>
     </TransitionContext.Provider>
   );
 };

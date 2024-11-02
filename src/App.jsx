@@ -8,7 +8,7 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Lenis from "lenis";
 import barba from '@barba/core';
