@@ -60,7 +60,7 @@ export const TransitionProvider = ({ children }) => {
             position: 'fixed',
             width: '110%',
             height: '110%',
-            backgroundImage: 'linear-gradient(to bottom, #341116, #531d20, #732a28, #933a2d, #b34d2f, #c2633a, #d17846, #df8d53, #e2a572, #e5bb95, #e8d1b9, #ebe6e0)', // Cambia esto al color que prefieras
+            backgroundColor: 'var(--cor-primary)', 
             filter: 'blur(10px)',
           }}
         />

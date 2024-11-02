@@ -49,22 +49,22 @@
 
     &.icon-linkedin:before {
       content: "\e903";
-      color: #da6a2d;
+      color: var(--cor-secondary);
     }
 
     &.icon-github:before {
       content: "\e901";
-      color: #da6a2d;
+      color: var(--cor-secondary);
     }
 
     &.icon-instagram:before {
       content: "\e902";
-      color: #da6a2d;
+      color: var(--cor-secondary);
     }
 
     &.icon-behance:before {
       content: "\e900";
-      color: #da6a2d;
+      color: var(--cor-secondary);
     }
     &.icon-mail {
       background: transparent;
