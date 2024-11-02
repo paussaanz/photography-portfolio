@@ -84,7 +84,6 @@ function App() {
     const lenis = lenisRef.current;
     if (!lenis) return;
 
-    // Saltar al tope de la página inmediatamente
     lenis.scrollTo(0, { immediate: true });
   }, [location.pathname]);
 
