@@ -49,7 +49,7 @@ export const TransitionProvider = ({ children }) => {
           left: -15,
           width: '120%',
           height: '120%',
-          zIndex: 1000,
+          zIndex: 100000,
         }}
       >
         <motion.div

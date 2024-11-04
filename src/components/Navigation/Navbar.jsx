@@ -14,17 +14,17 @@ const Navbar = () => {
         <div className="flex flex--g-1">
           <ul className="cus-navbar__links m--r-auto m--b-2 m--b-lg-0">
             <li className="cus-navbar__item">
-              <a onClick={() => handleLinkClick('/portfolio')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/portfolio')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--navbar-light' : 'text-color--navbar-light'}`}>
                 Portfolio
               </a>
             </li>
             <li className="cus-navbar__item">
-              <a onClick={() => handleLinkClick('/editorials')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/editorials')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--navbar-light' : 'text-color--navbar-light'}`}>
                 Editorials
               </a>
             </li>
             <li className="cus-navbar__item">
-              <a onClick={() => handleLinkClick('/about')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/about')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--navbar-light' : 'text-color--navbar-light'}`}>
                 About SYP!
               </a>
             </li>
@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="flex">
           <ul className="cus-navbar__links m--l--auto m--b-2 m--b-lg-0">
             <li className="nav-item">
-              <a onClick={() => handleLinkClick('/contact')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--light' : 'text-color--light'}`}>
+              <a onClick={() => handleLinkClick('/contact')} className={`cus-navbar__item-link ${isPrimaryPage ? 'text-color--navbar-light' : 'text-color--navbar-light'}`}>
                 Contact
               </a>
             </li>

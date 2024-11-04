@@ -1,20 +1,21 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
 import { useContext, useEffect, useRef } from 'react';
 import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 
 const Scene3D = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark-theme';
 
-  const backgroundColor = theme === 'dark-theme'
+  const backgroundColor = isDarkMode
     ? new THREE.Color(218 / 255, 106 / 255, 45 / 255).convertSRGBToLinear() // Color oscuro
     : new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear(); // Color claro (blanco)
 
-    const color = theme === 'dark-theme'
+    const color = isDarkMode
     ? new THREE.Color(52 / 255, 17 / 255, 22 / 255).convertSRGBToLinear() // Color oscuro
     : new THREE.Color(0.8549, 0.4157, 0.1765).convertSRGBToLinear(); // Color claro (blanco)
 
@@ -46,6 +47,17 @@ const Scene3D = () => {
     };
   }, []);
 
+  const SetBackground = ({ color }) => {
+    const { gl } = useThree();
+
+    useEffect(() => {
+      gl.setClearColor(color, 1);
+      gl.renderLists.dispose();
+    }, [color, gl]);
+    return null;
+  };
+
+  
   return (
     <Canvas
       style={{ background: 'transparent' }}
@@ -61,6 +73,8 @@ const Scene3D = () => {
         };
       }}
     >
+      <SetBackground color={backgroundColor} />
+
       <directionalLight intensity={1} position={[1, 2, 1]} color={color} />
       <ambientLight intensity={0.5} /> {/* Reduced intensity */}
 

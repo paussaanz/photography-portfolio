@@ -24,8 +24,8 @@ const ClipPathAnimation = () => {
 
         images.forEach((img, index) => {
             timeline.fromTo(ref.current.children[index],
-                { clipPath: 'polygon(100% 0px, 100% 0px, 100% 100%, 150% 100%)' },
-                { clipPath: 'polygon(-100% 0%, 100% 0%, 100% 100%, -25% 100%)', duration: 1 },
+                { clipPath: 'circle(0% at 100% 0%)' }, // Empieza desde un punto pequeño
+                { clipPath: 'circle(150% at 100% 0%)', duration: 1 } // Aumenta al tamaño deseado
             );
         });
     }, []);

@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import { Environment, Text } from '@react-three/drei';
 import Logo3DContact from './Logo3DContact';
 import * as THREE from 'three';
@@ -38,17 +38,28 @@ const Scene3DContact = ({hovered}) => {
     };
   }, []);
 
+  const SetBackground = ({ color }) => {
+    const { gl } = useThree();
+    useEffect(() => {
+      gl.setClearColor(color, 1);
+      gl.renderLists.dispose();
+    }, [color, gl]);
+    return null;
+  };
+
   return (
     <Canvas
       style={{ background: 'transparent' }}
       gl={{ alpha: true, antialias: true }} // Enable antialiasing
-      camera={cameraRef.current} // Use the camera
+      camera={cameraRef.current} // Use the cameraa
       onCreated={({ gl }) => {
         gl.outputEncoding = THREE.sRGBEncoding;
         gl.physicallyCorrectLights = true;
         gl.setClearColor(backgroundColor, 1);
       }}
     >
+
+<SetBackground color={backgroundColor} />
       <directionalLight intensity={500} position={[1, 2, 1]} color={color} />
       <ambientLight intensity={5} /> 
 

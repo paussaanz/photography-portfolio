@@ -1,7 +1,14 @@
+import { useLocation } from 'react-router-dom';
 import InfiniteCarrusel from './InfiniteCarrusel';
 import Scene3D from './Scene3D';
 
+const HIDDEN_ROUTES = ["/contact", "/contact/form"]
 const Footer = () => {
+const location = useLocation();
+
+if(HIDDEN_ROUTES.includes(location.pathname)){
+    return null
+}
     return (
         <div className='footer__section'>
             <section className='footer__section-carrusel'>

@@ -16,6 +16,7 @@ import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import ContactForm from "./components/ContactPage/ContactForm";
 import Scene3D from "./components/Footer/Scene3D";
+import ThemeButton from "./components/General/Buttons/ThemeButton";
 
 import './assets/sass/style.scss'
 
@@ -110,6 +111,7 @@ function App() {
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>
+          <ThemeButton/>
         </div>
       </div >
     </>

@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: space-between;
     padding: $cor-navbar-padding-y $cor-navbar-padding-x;
-    color: $cor-navbar-color;
+    color: var(--cor-navbar-light);
     transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
 
     &__container {
