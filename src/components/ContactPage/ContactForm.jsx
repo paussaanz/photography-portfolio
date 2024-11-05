@@ -1,4 +1,5 @@
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
+import CursorNew from "../Cursor/CursorTrail";
 import ThemeButton from "../General/Buttons/ThemeButton";
 import ContactFormSelector from "./ContactFormSelector";
 
@@ -26,7 +27,6 @@ const ContactForm = () => {
 
                 </div>
 
-                <ThemeButton/>
             </div>
         </div>
     );

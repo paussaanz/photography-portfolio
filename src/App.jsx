@@ -19,6 +19,7 @@ import Scene3D from "./components/Footer/Scene3D";
 import ThemeButton from "./components/General/Buttons/ThemeButton";
 
 import './assets/sass/style.scss'
+import CursorTrail from "./components/Cursor/CursorTrail";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -91,7 +92,7 @@ function App() {
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
 
         <div data-barba-namespace="home">
-          <Cursor />
+          <CursorTrail />
           <header id="header" className={`header--fixed-top header--inverted`}>
             <Navbar />
           </header>
