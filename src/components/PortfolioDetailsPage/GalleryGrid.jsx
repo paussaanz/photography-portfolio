@@ -1,7 +1,7 @@
 import AnimatedImage from './AnimatedImage';
 
 
-const GalleryGrid = ({ images, ordered, handleImageClick }) => {
+const GalleryGrid = ({ images, ordered, handleImageClick, closeOverlay }) => {
 
   return (
     <>
@@ -20,8 +20,10 @@ const GalleryGrid = ({ images, ordered, handleImageClick }) => {
               parallaxSpeed={-40}
               ordered={ordered}
               index={index}
+              images={images}
+              img={img}
+              closeOverlay={closeOverlay}
               onImageClick={() => handleImageClick(img)} // Pass click handler
-
             />
           ))}
         </div>

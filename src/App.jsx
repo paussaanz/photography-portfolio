@@ -8,14 +8,12 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect, useLayoutEffect, useRef } from "react";
-import Cursor from "./components/Cursor/Cursor";
-import Lenis from "lenis";
+import { useEffect } from "react";
 import barba from '@barba/core';
 import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import ContactForm from "./components/ContactPage/ContactForm";
-import Scene3D from "./components/Footer/Scene3D";
+
 import ThemeButton from "./components/General/Buttons/ThemeButton";
 
 import './assets/sass/style.scss'
@@ -23,34 +21,6 @@ import CursorTrail from "./components/Cursor/CursorTrail";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
-  const lenisRef = useRef(null); // Utiliza un ref para manejar la instancia de Lenis
-
-  // Inicializa Lenis solo una vez cuando el componente se monta
-  useEffect(() => {
-    const lenis = new Lenis({
-      smoothWheel: true,
-      lerp: 0.1,
-      duration: 1.2,
-    });
-
-    lenisRef.current = lenis;
-
-    // Función para manejar la animación del scroll
-    function raf(time) {
-      const lenis = lenisRef.current;
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Limpia la instancia de Lenis al desmontar el componente
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
-
 
   useEffect(() => {
     barba.init({
@@ -79,23 +49,15 @@ function App() {
 
 
 
-  // Efecto para restablecer el scroll al cambiar de ruta
-  useLayoutEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-
-    lenis.scrollTo(0, { immediate: true });
-  }, [location.pathname]);
-
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
-
         <div data-barba-namespace="home">
-          <CursorTrail />
           <header id="header" className={`header--fixed-top header--inverted`}>
             <Navbar />
+            <CursorTrail />
           </header>
+
           <main>
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />
@@ -112,7 +74,7 @@ function App() {
               <Route path="/contact/form" element={<ContactForm />} />
             </Routes>
           </main>
-          <ThemeButton/>
+          <ThemeButton />
         </div>
       </div >
     </>
