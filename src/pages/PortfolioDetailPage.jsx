@@ -6,6 +6,7 @@ import Button from "../components/General/Buttons/Button";
 import GalleryGrid from "../components/PortfolioDetailsPage/GalleryGrid";
 import Detail from "../components/Detail/Detail";
 import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
+import Lenis from "lenis";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
@@ -14,6 +15,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const imagesSectionRef = useRef(null);
     const galleryRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
+    const lenis = useRef(new Lenis()).current;
 
     const handleImageClick = (img) => {
         setSelectedImage(img); // Set the selected image to show in the overlay
@@ -95,9 +97,9 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                     </div>
                 </div>
             </section>
-            {selectedImage && (
-                <Detail images={projectImages} closeOverlay={closeOverlay} />
-            )}
+            {/* {selectedImage && (
+                <Detail images={projectImages} />
+            )} */}
         </div>
     );
 };
