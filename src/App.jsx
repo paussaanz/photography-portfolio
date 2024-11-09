@@ -55,9 +55,10 @@ function App() {
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top header--inverted`}>
             <Navbar />
-            <CursorTrail />
           </header>
-
+          <div className="cursor--inverted">
+            <CursorTrail />
+          </div>
           <main>
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />

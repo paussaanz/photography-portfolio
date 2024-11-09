@@ -66,7 +66,10 @@ const CursorTrail = () => {
                 }
             });
 
-            pathRef.current.setAttribute('d', `M ${points.current.map(p => `${p.x} ${p.y}`).join(' L ')}`);
+            if (points.current.length > 0) {
+                pathRef.current.setAttribute('d', `M ${points.current.map(p => `${p.x} ${p.y}`).join(' L ')}`);
+            }
+
             requestAnimationFrame(animate);
         };
 
@@ -80,50 +83,5 @@ const CursorTrail = () => {
     );
 };
 
-export default CursorTrail;  
+export default CursorTrail;
 
-     
-// import React, { useRef, useEffect, useState } from 'react';
-
-// const CursorNew = () => {
-//     const svgRef = useRef(null);
-//     const [points, setPoints] = useState([]); 
-//     const ww = window.innerWidth
-//     const wh = window.innerHeight;
-
-//     useEffect(() => {
-//         const move = (e) => {
-//             const newPoint = { x: e.clientX, y: e.clientY };
-//             setPoints(prevPoints => [...prevPoints, newPoint]);
-//         };
-
-//         document.addEventListener("mousemove", move);
-
-//         return () => {
-//             document.removeEventListener("mousemove", move);
-//         };
-//     }, []);
-
-//     useEffect(() => {
-//         const path = svgRef.current.querySelector('.cursor__path');
-//         if (path) {
-//             path.setAttribute("d", `M ${points.map(p => `${p.x} ${p.y}`).join(" L ")}`);
-//         }
-//     }, [points]);
-
-//     useEffect(() => {
-//         svgRef.current.style.width= ww + "px";
-//         svgRef.current.style.height= wh + "px";
-//         if(svgRef.current){
-//             svgRef.current.setAttribute("viewBox", `0 0 ${ww} ${wh}`)
-//         }
-//     }, [ww, wh]);
-
-//     return (
-//         <svg ref={svgRef} className="cursor__trail" viewBox="0 0 400 400">
-//             <path className="cursor__path" d="M 100 100 L 200 200 L 300 100" />
-//         </svg>
-//     );
-// };
-
-// export default CursorNew;

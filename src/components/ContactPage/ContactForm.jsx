@@ -1,5 +1,4 @@
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
-import CursorNew from "../Cursor/CursorTrail";
 import ThemeButton from "../General/Buttons/ThemeButton";
 import ContactFormSelector from "./ContactFormSelector";
 
@@ -26,6 +25,8 @@ const ContactForm = () => {
                     <AnimatedButton text="Submit" />
 
                 </div>
+
+                <ThemeButton/>
 
             </div>
         </div>

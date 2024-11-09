@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { createPortal } from "react-dom";
 import Lenis from "lenis";
 import LenisContext from "../../contexts/LenisContext";
+import AnimatedThumbnailList from "./AnimatedImageThumbnails";
 
 const AnimatedImage = ({
   images,
@@ -16,7 +17,6 @@ const AnimatedImage = ({
   parallaxSpeed = -40,
   index,
   img,
-  closeOverlay,
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -42,7 +42,8 @@ const AnimatedImage = ({
   const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
   const MAX_WIDTH = 800;
-  const MAX_HEIGHT = 600;
+  const MAX_HEIGHT = 700;
+
 
   useEffect(() => {
     if (isZoomed) {
@@ -112,14 +113,6 @@ const AnimatedImage = ({
             animate={isExiting ? { opacity: 0 } : { opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: 10,
-            }}
           />
           <div className="pdetails__container-detail">
             <motion.button
@@ -145,12 +138,12 @@ const AnimatedImage = ({
                 isExiting
                   ? { opacity: 0, y: 100 }
                   : {
-                    top: "12%",
-                    left: "50%",
+                    top: "50%",
+                    left: "45%",
                     width: imageSize.width,
                     height: imageSize.height,
                     x: "-50%",
-                    y: "0",
+                    y: "-50%",
                     opacity: 1,
                   }
               }
@@ -181,53 +174,12 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-            <div
-              className="pdetails__container-thumbnails"
-              style={{
-                position: "fixed",
-                bottom: "5%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                display: "flex",
-                gap: "10px",
-                zIndex: 20,
-                padding: "10px",
-                maxWidth: "80vw",
-                overflowX: "auto",
-              }}
-            >
-              {images.map((img, idx) => (
-                <motion.div
-                  key={idx}
-                  className={`pdetails__card-thumbnail ${selectedImage === img.src
-                    ? "pdetails__card-thumbnail--selected"
-                    : ""
-                    }`}
-                  onClick={() => setSelectedImage(img.src)}
-                  initial={{ opacity: 0, y: 0 }}
-                  animate={isExiting ? { opacity: 0 } : { opacity: 1 }}
-                  exit={{
-                    opacity: 0,
-                    y: 50,
-                  }}
-                  whileHover={{ opacity: 0.8 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "8px",
-                    backgroundImage: `url(${img.src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    cursor: "pointer",
-                    boxShadow:
-                      selectedImage === img.src
-                        ? "0px 0px 8px rgba(0, 0, 0, 0.3)"
-                        : "none",
-                  }}
-                />
-              ))}
-            </div>
+            <AnimatedThumbnailList
+              imageList={images}
+              setSelectedImage={setSelectedImage}
+              selectedImage={selectedImage}
+              isExiting={isExiting}
+            />
           </div>
         </>
       )}
