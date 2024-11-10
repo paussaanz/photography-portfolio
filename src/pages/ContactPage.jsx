@@ -7,7 +7,7 @@ import CursorHover from '../components/Cursor/CursorHover';
 
 const ContactPage = () => {
     const [hovered, setHovered] = useState(false);
-    const [cursorVisible, setCursorVisible] = useState(false);
+    const [cursorVisible, setCursorVisible] = useState(true);
 
     const contactLinks = [
         { text: "LINKEDIN", logoClass: "icon-linkedin", href: "https://www.linkedin.com/in/paula-sanz-perez/" },

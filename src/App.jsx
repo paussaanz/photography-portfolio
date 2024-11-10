@@ -56,9 +56,9 @@ function App() {
           <header id="header" className={`header--fixed-top header--inverted`}>
             <Navbar />
           </header>
-          <div className="cursor--inverted">
-            <CursorTrail />
-          </div>
+
+          <CursorTrail />
+
           <main>
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />

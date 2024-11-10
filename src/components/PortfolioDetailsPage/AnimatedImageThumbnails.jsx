@@ -41,7 +41,7 @@ const AnimatedThumbnailList = ({ imageList, setSelectedImage, selectedImage, isE
 
         return () => {
             lenis.destroy();
-            containerRef.current.removeEventListener("scroll", handleScroll);
+            containerRef.current && containerRef.current.removeEventListener("scroll", handleScroll);
         };
     }, []);
 

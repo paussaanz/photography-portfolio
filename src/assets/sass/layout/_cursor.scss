@@ -1,32 +1,17 @@
 /*Customized cursor styles*/
-// .cursor__custom {
-//     cursor: pointer !important;
-//     z-index: 10000000;
+.cursor__custom {
   
-//     &-circle{
-//       height: 12px;
-//       width: 12px;
-//       border-radius: 24px;
-//       background-color: black;
-//       position: fixed;
-//       top: 0;
-//       left: 0;
-//       pointer-events: none;
-//       z-index: 1000000; /* so that it stays on top of all other elements */
-    
-//     }
-  
-//     &-hover{
-//       position: fixed;
-//       pointer-events: none;
-//       z-index: 9999;
-//       width: 150px; /* Adjust size as needed */
-//       height: 150px; /* Adjust size as needed */
-//       background: url('/cursor-4.svg') no-repeat center center;
-//       background-size: cover;
-//       transform: translate(-50%, -50%); /* Center the cursor image */
-//     }
-//   }
+    &-hover{
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      width: 150px; /* Adjust size as needed */
+      height: 150px; /* Adjust size as needed */
+      background: url('/cursor-4.svg') no-repeat center center;
+      background-size: cover;
+      transform: translate(-50%, -50%); /* Center the cursor image */
+    }
+  }
   
 
 
@@ -38,6 +23,10 @@
     left: 0;
     pointer-events: none;
   z-index: 1000000000000;
+
+  &--inverted{
+    mix-blend-mode: var(--cor-cursor-mix);
+  }
   }
 
   &__path{
@@ -48,4 +37,6 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
+
+
 }

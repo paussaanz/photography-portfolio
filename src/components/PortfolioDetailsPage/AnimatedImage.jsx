@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from "framer-motion";
 import { createPortal } from "react-dom";
 import Lenis from "lenis";
 import LenisContext from "../../contexts/LenisContext";
@@ -37,13 +37,20 @@ const AnimatedImage = ({
   const [selectedImage, setSelectedImage] = useState(images[0].src);
   const [imageSize, setImageSize] = useState({ width: "auto", height: "auto" });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [blurValue, setBlurValue] = useState(20);
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
   const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const blurAmount = useTransform(scrollYProgress, [0, 0.0001], [blurValue, 0]); // Ajusta [0, 10] para la cantidad de desenfoque que necesites
 
   const MAX_WIDTH = 800;
   const MAX_HEIGHT = 700;
 
+
+  // Escuchar cambios en scrollYProgress para actualizar blurValue en tiempo real
+  useMotionValueEvent(blurAmount, "change", (latest) => {
+    setBlurValue(latest);
+  });
 
   useEffect(() => {
     if (isZoomed) {
@@ -220,13 +227,14 @@ const AnimatedImage = ({
           height: `${height}`,
         }}
       >
+
+        
         <motion.img
           src={img.src}
           alt={`img-${index}`}
           initial={{ scale: 1 }}
           animate={{
-            marginTop: ordered ? "0" : `-${mousePosition.y * 0.04}px`,
-            marginLeft: ordered ? "0" : `-${mousePosition.x * 0.04}px`,
+            filter: `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
           }}
           transition={{
             type: "tween",
