@@ -77,7 +77,7 @@ const CursorTrail = () => {
     }, []);
 
     return (
-        <svg ref={svgRef} className="cursor__trail">
+        <svg ref={svgRef} className="cursor__trail cursor__trail--inverted">
             <path ref={pathRef} className="cursor__path" d="" />
         </svg>
     );

@@ -43,7 +43,7 @@ const HomePage = () => {
             <HomeSeo />
 
             <section className="home__section-hero position--relative">
-                <VideoBackground videoSrc="/DJI_0155.MP4" height="d--vh-100" />
+                <VideoBackground videoSrc="/vallina-corto.mov" height="d--vh-100" />
                 <TextOverlay textColor="text-color--light" textPosition="center" className="text-align--center">
                     <h1>
                         <span className='block--display'>Capture</span>

@@ -13,7 +13,7 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
 
     // Dividir texto en líneas y palabras
     const typeSplit = new SplitType(textRef.current, {
-      types: 'lines, words',
+      types: 'words, chars',
     });
 
     // Crear máscaras para cada palabra
@@ -39,6 +39,46 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
       duration: 1,
       stagger: 0.5,
     });
+
+    typeSplit.chars.forEach((char) => {
+      char.addEventListener('mousemove', (e) => {
+        const rect = char.getBoundingClientRect();
+        const charX = rect.left + rect.width / 2;
+        const charY = rect.top + rect.height / 2;
+  
+        const distanceX = (e.clientX - charX) / 0.5;
+        const distanceY = (e.clientY - charY) / 0.5;
+        const rotationAngle = (e.clientX - charX) / 0.8;
+  
+        gsap.to(char, {
+          x: distanceX,
+          y: distanceY,
+          rotate: rotationAngle,
+          scale:1.6,
+          duration: 0.3,
+          ease: 'power3.out',
+        });
+      });
+  
+      // Reset character position when the mouse leaves
+      char.addEventListener('mouseleave', () => {
+        gsap.to(char, {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: 'power3.out',
+        });
+        gsap.delayedCall(1.5, () => {
+          gsap.to(char, {
+            rotation: 0, // Reset rotation to 0
+            scale:1,
+            duration: 0.5, // Duration of the reset
+            ease: 'power3.out',
+          });
+        });
+      });
+    });
+    
 
     return () => {
       typeSplit.revert();

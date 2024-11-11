@@ -129,6 +129,8 @@ const AnimatedImageThumbnails = () => {
             start();
             scrollContainer.removeEventListener('scroll', handleScroll);
             scrollContainer.removeEventListener('pointerenter', startInteraction);
+            lenis.destroy();
+            containerRef.current && containerRef.current.removeEventListener("scroll", handleScroll);
         };
     }, [stop, start, images, loopImages, squareSize]);
 

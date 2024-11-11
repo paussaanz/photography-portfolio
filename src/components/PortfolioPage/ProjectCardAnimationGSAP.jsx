@@ -35,7 +35,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
         scrub: 5,
         onUpdate: (self) => {
           const progress = self.progress;
-          const zIncrement = progress * 14700;
+          const zIncrement = progress * 10000;
           const currentZ = initialZ + zIncrement;
           let opacity;
 
