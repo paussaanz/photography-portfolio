@@ -45,32 +45,31 @@ const AnimatedImageThumbnails = () => {
         const drawDeformedImage = (img, yPosition, curveFactor) => {
             const aspectRatio = img.width / img.height;
             const width = squareSize;
-            const height = squareSize / aspectRatio;
-            const imageWidth = img.width;
-            const imageHeight = img.height;
+            const height = squareSize;
 
+            let scaledWidth, scaledHeight, offsetX = 0, offsetY = 0;
 
-            let scaledWidth, scaledHeight;
-    
-            // Escala la imagen para que ocupe todo el ancho o alto del canvas
+            // Escalar la imagen para que ocupe todo el ancho o alto del canvas
             if (aspectRatio > 1) { // Imagen horizontal
+                scaledHeight = height;
+                scaledWidth = height * aspectRatio;
+                offsetX = (scaledWidth - width) / 2 * -1; // Centrar horizontalmente si se desborda
+                offsetY = 0; // No se necesita ajuste vertical
+            } else { // Imagen vertical o cuadrada
                 scaledWidth = width;
                 scaledHeight = width / aspectRatio;
-            } else { // Imagen vertical o cuadrada
-                scaledWidth = height * aspectRatio;
-                scaledHeight = height;
+                offsetX = 0; // No se necesita ajuste horizontal
+                offsetY = 0;
             }
 
-            
             for (let i = 0; i < numSubdivisions; i++) {
-                const srcX = (imageWidth / numSubdivisions) * i;
-                const srcWidth = imageWidth / numSubdivisions;
+                const srcX = (img.width / numSubdivisions) * i;
+                const srcWidth = img.width / numSubdivisions;
 
-                // Calcula las coordenadas de destino en el canvas
-                const destX = (width / numSubdivisions) * i;
-                const destWidth = width / numSubdivisions;
+                // Calcula las coordenadas de destino en el canvas usando scaledWidth y scaledHeight
+                const destX = (scaledWidth / numSubdivisions) * i + offsetX;
+                const destWidth = scaledWidth / numSubdivisions;
 
-                // Calcula el desplazamiento de la curva y ajusta en base a la dirección
                 const curveOffset = curveFactor * curveIntensity * Math.sin((i / numSubdivisions) * Math.PI);
                 const adjustedCurveOffset = scrollDirection === 'down' ? curveOffset : -curveOffset;
 
@@ -78,12 +77,13 @@ const AnimatedImageThumbnails = () => {
                 context.drawImage(
                     img,
                     srcX, 0,
-                    srcWidth, imageHeight,
-                    destX, yPosition + adjustedCurveOffset,
+                    srcWidth, img.height,
+                    destX, yPosition + offsetY + adjustedCurveOffset,
                     destWidth, scaledHeight
                 );
             }
         };
+
 
         const drawImages = (curveFactor) => {
             context.clearRect(0, 0, canvas.width, canvas.height);
