@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent }
 import { createPortal } from "react-dom";
 import Lenis from "lenis";
 import LenisContext from "../../contexts/LenisContext";
-import AnimatedThumbnailList from "./AnimatedImageThumbnails";
+import AnimatedImageThumbnails from "./AnimatedImageThumbnails";
 
 const AnimatedImage = ({
   images,
@@ -53,17 +53,10 @@ const AnimatedImage = ({
   });
 
   useEffect(() => {
-    if (isZoomed) {
-      stop();
-    } else {
-      start();
-    }
 
-    return () => {
-      start();
-    };
+    return () => start();
+  }, []);
 
-  }, [isZoomed, start, stop]);
 
   useEffect(() => {
     const img = new Image();
@@ -181,12 +174,7 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-            <AnimatedThumbnailList
-              imageList={images}
-              setSelectedImage={setSelectedImage}
-              selectedImage={selectedImage}
-              isExiting={isExiting}
-            />
+            <AnimatedImageThumbnails />
           </div>
         </>
       )}

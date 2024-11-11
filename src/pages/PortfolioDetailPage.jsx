@@ -15,7 +15,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const imagesSectionRef = useRef(null);
     const galleryRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
-    const lenis = useRef(new Lenis()).current;
 
     const handleImageClick = (img) => {
         setSelectedImage(img); // Set the selected image to show in the overlay

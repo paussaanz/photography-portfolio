@@ -21,34 +21,6 @@ import CursorTrail from "./components/Cursor/CursorTrail";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
-
-  useEffect(() => {
-    barba.init({
-      transitions: [
-        {
-          name: 'fade',
-          leave(data) {
-            return gsap.to(data.current.container, {
-              opacity: 0,
-              duration: 0.5,
-            });
-          },
-          enter(data) {
-            return gsap.from(data.next.container, {
-              opacity: 0,
-              duration: 0.5,
-            });
-          },
-          afterEnter() {
-            const lenis = lenisRef.current;
-          },
-        },
-      ],
-    });
-  }, []);
-
-
-
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
