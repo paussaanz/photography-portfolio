@@ -37,7 +37,7 @@ const AnimatedImage = ({
   const [selectedImage, setSelectedImage] = useState(images[0].src);
   const [imageSize, setImageSize] = useState({ width: "auto", height: "auto" });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [blurValue, setBlurValue] = useState(20);
+  const [blurValue, setBlurValue] = useState(10);
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
   const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
@@ -213,6 +213,8 @@ const AnimatedImage = ({
           gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
           width: `${width}`,
           height: `${height}`,
+          filter: `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
+
         }}
       >
 

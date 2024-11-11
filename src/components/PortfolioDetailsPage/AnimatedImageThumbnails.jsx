@@ -30,25 +30,38 @@ const AnimatedImageThumbnails = () => {
         stop();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
+        const devicePixelRatio = window.devicePixelRatio || 1;
+
         let lastScrollTop = squareSize * images.length;
         let scrollDirection = 'down';
         let isScrolling = false;
         let curveFactor = 0;
         let lastTimestamp = 0;
 
-        canvas.width = squareSize;
-        canvas.height = squareSize * loopImages.length;
+        canvas.width = squareSize * devicePixelRatio;
+        canvas.height = squareSize * loopImages.length * devicePixelRatio;
+        context.scale(devicePixelRatio, devicePixelRatio);
 
         const drawDeformedImage = (img, yPosition, curveFactor) => {
+            const aspectRatio = img.width / img.height;
             const width = squareSize;
-            const height = squareSize;
+            const height = squareSize / aspectRatio;
             const imageWidth = img.width;
             const imageHeight = img.height;
 
-            // Asegura que el ancho escalado esté en proporción con las subdivisiones
-            const scaledWidth = width * 1.2;
-            const scaledHeight = height * 1.2;
 
+            let scaledWidth, scaledHeight;
+    
+            // Escala la imagen para que ocupe todo el ancho o alto del canvas
+            if (aspectRatio > 1) { // Imagen horizontal
+                scaledWidth = width;
+                scaledHeight = width / aspectRatio;
+            } else { // Imagen vertical o cuadrada
+                scaledWidth = height * aspectRatio;
+                scaledHeight = height;
+            }
+
+            
             for (let i = 0; i < numSubdivisions; i++) {
                 const srcX = (imageWidth / numSubdivisions) * i;
                 const srcWidth = imageWidth / numSubdivisions;
@@ -129,8 +142,6 @@ const AnimatedImageThumbnails = () => {
             start();
             scrollContainer.removeEventListener('scroll', handleScroll);
             scrollContainer.removeEventListener('pointerenter', startInteraction);
-            lenis.destroy();
-            containerRef.current && containerRef.current.removeEventListener("scroll", handleScroll);
         };
     }, [stop, start, images, loopImages, squareSize]);
 
