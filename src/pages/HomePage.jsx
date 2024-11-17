@@ -7,6 +7,7 @@ import { useScroll, motion, useMotionValue } from 'framer-motion';
 import TextAnimation from '../components/General/TextAnimation';
 import { useLocation } from 'react-router-dom';
 import HomeSeo from './SEO/HomeSeo';
+import LoaderImages from '../components/TransitionOverlay/LoaderImages';
 
 const HomePage = () => {
     const homepageRef = useRef(); // Renombramos para evitar duplicidad
@@ -42,17 +43,9 @@ const HomePage = () => {
         <div ref={homepageRef} data-barba="container">
             <HomeSeo />
 
-            <section className="home__section-hero position--relative">
-                <VideoBackground videoSrc="/vallina-corto.mov" height="d--vh-100" />
-                <TextOverlay textColor="text-color--light" textPosition="center" className="text-align--center">
-                    <h1>
-                        <span className='block--display'>Capture</span>
-                        <span className="h2 block--display">Brilliance</span>
-                    </h1>
-                    <Button href="/portfolio" text="See my work" className="text-color--light" />
-                </TextOverlay>
+            <section className="home__section-hero position--relative d--vh-100 overflow--hidden">
+                    <LoaderImages />
             </section>
-
             <section className="home__section-swiper-animation">
                 <motion.div
                     key={location.pathname}

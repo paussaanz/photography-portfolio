@@ -1,5 +1,4 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navigation/Navbar";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -8,16 +7,12 @@ import EditorialsPage from "./pages/EditorialsPage";
 import HomePage from "./pages/HomePage";
 import PortfolioDetailPage from "./pages/PortfolioDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import { useEffect } from "react";
-import barba from '@barba/core';
-import gsap from 'gsap'; // Para animaciones
 import { portfolioDetails } from "./assets/js/images";
 import ContactForm from "./components/ContactPage/ContactForm";
-
 import ThemeButton from "./components/General/Buttons/ThemeButton";
-
-import './assets/sass/style.scss'
 import CursorTrail from "./components/Cursor/CursorTrail";
+import LoaderImages from "./components/TransitionOverlay/LoaderImages";
+import './assets/sass/style.scss'
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
@@ -45,6 +40,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/contact/form" element={<ContactForm />} />
+              <Route path="/loader" element={<LoaderImages/>}/>
             </Routes>
           </main>
           <ThemeButton />

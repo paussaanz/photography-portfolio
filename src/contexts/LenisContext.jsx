@@ -23,7 +23,7 @@ export const LenisProvider = ({ children }) => {
 
     if (!isLenisActive) lenis.destroy();
 
-    console.log('dntro?')
+    // console.log('dntro?')
     lenisRef.current = lenis;
 
     function raf(time) {

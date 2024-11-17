@@ -38,7 +38,7 @@ const HeroAbout = () => {
     return (
         <div ref={containerRef} className="container-bem">
             <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
-                <img ref={imageRef} className="about__hero-image" src="/images/lifestyle-1.jpg" />
+                <img ref={imageRef} className="about__hero-image" src="/images/lifestyle-1.webp" />
                 <h1 ref={titleRef} className="about__hero-title">
                     ABOUT SYP!
                 </h1>

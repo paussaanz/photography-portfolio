@@ -25,9 +25,6 @@ const Logo3D = ({hovered}) => {
         const scaleFactor = 10 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
-        console.log(scaleFactor, "SCALE")
-
-        console.log(size, "SIZE")
         const onMouseMove = (event) => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
             const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto

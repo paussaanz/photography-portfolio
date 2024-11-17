@@ -1,139 +1,139 @@
 //HOMEPAGE SWIPER
-import LifestyleHome from "/images/lifestyle-13.jpg";
-import MusicHome from "/images/music-1.jpg";
-import NatureHome from "/images/nature-10.jpg";
-import PhotoshootsHome from "/images/photoshoots-8.jpg";
-import SportsHome from "/images/sports-5.jpg";
+import LifestyleHome from "/images/lifestyle-13.webp";
+import MusicHome from "/images/music-1.webp";
+import NatureHome from "/images/nature-10.webp";
+import PhotoshootsHome from "/images/photoshoots-8.webp";
+import SportsHome from "/images/sports-5.webp";
 
 //PORTFOLIO PAGE SWIPER
-import LifestylePortfolio from "/images/lifestyle-1.jpg";
-import MusicPortfolio from "/images/music-1.jpg";
-import NaturePortfolio from "/images/nature-2.jpg";
-import PhotoshootsPortfolio from "/images/photoshoots-2.jpg";
-import SportsPortfolio from "/images/sports-2.jpg";
+import LifestylePortfolio from "/images/lifestyle-1.webp";
+import MusicPortfolio from "/images/music-1.webp";
+import NaturePortfolio from "/images/nature-2.webp";
+import PhotoshootsPortfolio from "/images/photoshoots-2.webp";
+import SportsPortfolio from "/images/sports-2.webp";
 
 //PORTFOLIO PAGE PARALLAX
-import PortfolioParallax4 from "/images/lifestyle-16.jpg";
-import PortfolioParallax5 from "/images/lifestyle-8.jpg";
-import PortfolioParallax1 from "/images/nature-6.jpg";
-import PortfolioParallax2 from "/images/photoshoots-10.jpg";
-import PortfolioParallax6 from "/images/photoshoots-28.jpg";
-import PortfolioParallax3 from "/images/sports-5.jpg";
+import PortfolioParallax4 from "/images/lifestyle-16.webp";
+import PortfolioParallax5 from "/images/lifestyle-8.webp";
+import PortfolioParallax1 from "/images/nature-6.webp";
+import PortfolioParallax2 from "/images/photoshoots-10.webp";
+import PortfolioParallax6 from "/images/photoshoots-28.webp";
+import PortfolioParallax3 from "/images/sports-5.webp";
 
 //EDITORIALS
 import EditorialCover1 from "/images/editorial-cover-1.png";
 import EditorialCover2 from "/images/editorial-cover-2.png";
 
 //PHOTOSHOOTS
-import Photoshoots1 from "/images/photoshoots-1.jpg";
-import Photoshoots10 from "/images/photoshoots-10.jpg";
-import Photoshoots11 from "/images/photoshoots-11.jpg";
-import Photoshoots12 from "/images/photoshoots-12.jpg";
-import Photoshoots13 from "/images/photoshoots-13.jpg";
-import Photoshoots14 from "/images/photoshoots-14.jpg";
-import Photoshoots15 from "/images/photoshoots-15.jpg";
-import Photoshoots16 from "/images/photoshoots-16.jpg";
-import Photoshoots17 from "/images/photoshoots-17.jpg";
-import Photoshoots18 from "/images/photoshoots-18.jpg";
-import Photoshoots19 from "/images/photoshoots-19.jpg";
-import Photoshoots2 from "/images/photoshoots-2.jpg";
-import Photoshoots20 from "/images/photoshoots-20.jpg";
-import Photoshoots21 from "/images/photoshoots-21.jpg";
-import Photoshoots22 from "/images/photoshoots-22.jpg";
-import Photoshoots23 from "/images/photoshoots-23.jpg";
-import Photoshoots24 from "/images/photoshoots-24.jpg";
-import Photoshoots25 from "/images/photoshoots-25.jpg";
-import Photoshoots26 from "/images/photoshoots-26.jpg";
-import Photoshoots27 from "/images/photoshoots-27.jpg";
-import Photoshoots28 from "/images/photoshoots-28.jpg";
-import Photoshoots29 from "/images/photoshoots-29.jpg";
-import Photoshoots3 from "/images/photoshoots-3.jpg";
-import Photoshoots30 from "/images/photoshoots-30.jpg";
-import Photoshoots31 from "/images/photoshoots-31.jpg";
-import Photoshoots32 from "/images/photoshoots-32.jpg";
-import Photoshoots33 from "/images/photoshoots-33.jpg";
-import Photoshoots4 from "/images/photoshoots-4.jpg";
-import Photoshoots5 from "/images/photoshoots-5.jpg";
-import Photoshoots6 from "/images/photoshoots-6.jpg";
-import Photoshoots7 from "/images/photoshoots-7.jpg";
-import Photoshoots8 from "/images/photoshoots-8.jpg";
-import Photoshoots9 from "/images/photoshoots-9.jpg";
+import Photoshoots1 from "/images/photoshoots-1.webp";
+import Photoshoots10 from "/images/photoshoots-10.webp";
+import Photoshoots11 from "/images/photoshoots-11.webp";
+import Photoshoots12 from "/images/photoshoots-12.webp";
+import Photoshoots13 from "/images/photoshoots-13.webp";
+import Photoshoots14 from "/images/photoshoots-14.webp";
+import Photoshoots15 from "/images/photoshoots-15.webp";
+import Photoshoots16 from "/images/photoshoots-16.webp";
+import Photoshoots17 from "/images/photoshoots-17.webp";
+import Photoshoots18 from "/images/photoshoots-18.webp";
+import Photoshoots19 from "/images/photoshoots-19.webp";
+import Photoshoots2 from "/images/photoshoots-2.webp";
+import Photoshoots20 from "/images/photoshoots-20.webp";
+import Photoshoots21 from "/images/photoshoots-21.webp";
+import Photoshoots22 from "/images/photoshoots-22.webp";
+import Photoshoots23 from "/images/photoshoots-23.webp";
+import Photoshoots24 from "/images/photoshoots-24.webp";
+import Photoshoots25 from "/images/photoshoots-25.webp";
+import Photoshoots26 from "/images/photoshoots-26.webp";
+import Photoshoots27 from "/images/photoshoots-27.webp";
+import Photoshoots28 from "/images/photoshoots-28.webp";
+import Photoshoots29 from "/images/photoshoots-29.webp";
+import Photoshoots3 from "/images/photoshoots-3.webp";
+import Photoshoots30 from "/images/photoshoots-30.webp";
+import Photoshoots31 from "/images/photoshoots-31.webp";
+import Photoshoots32 from "/images/photoshoots-32.webp";
+import Photoshoots33 from "/images/photoshoots-33.webp";
+import Photoshoots4 from "/images/photoshoots-4.webp";
+import Photoshoots5 from "/images/photoshoots-5.webp";
+import Photoshoots6 from "/images/photoshoots-6.webp";
+import Photoshoots7 from "/images/photoshoots-7.webp";
+import Photoshoots8 from "/images/photoshoots-8.webp";
+import Photoshoots9 from "/images/photoshoots-9.webp";
 
 //MUSIC
-import Music1 from "/images/music-1.jpg";
-import Music2 from "/images/music-2.jpg";
-import Music3 from "/images/music-3.jpg";
-import Music4 from "/images/music-4.jpg";
-import Music5 from "/images/music-5.jpg";
-import Music6 from "/images/music-6.jpg";
-import Music7 from "/images/music-7.jpg";
-import Music8 from "/images/music-8.jpg";
-import Music9 from "/images/music-9.jpg";
-// import Music10 from '/images/music-10.jpg';
-import Music11 from "/images/music-11.jpg";
-import Music12 from "/images/music-12.jpg";
-import Music13 from "/images/music-13.jpg";
-import Music14 from "/images/music-14.jpg";
-import Music15 from "/images/music-15.jpg";
+import Music1 from "/images/music-1.webp";
+import Music2 from "/images/music-2.webp";
+import Music3 from "/images/music-3.webp";
+import Music4 from "/images/music-4.webp";
+import Music5 from "/images/music-5.webp";
+import Music6 from "/images/music-6.webp";
+import Music7 from "/images/music-7.webp";
+import Music8 from "/images/music-8.webp";
+import Music9 from "/images/music-9.webp";
+// import Music10 from '/images/music-10.webp';
+import Music11 from "/images/music-11.webp";
+import Music12 from "/images/music-12.webp";
+import Music13 from "/images/music-13.webp";
+import Music14 from "/images/music-14.webp";
+import Music15 from "/images/music-15.webp";
 
 //NATURE
-import Nature1 from "/images/nature-1.jpg";
-import Nature10 from "/images/nature-10.jpg";
-import Nature11 from "/images/nature-11.jpg";
-import Nature12 from "/images/nature-12.jpg";
-import Nature13 from "/images/nature-13.jpg";
-import Nature14 from "/images/nature-14.jpg";
-import Nature15 from "/images/nature-15.jpg";
-import Nature16 from "/images/nature-16.jpg";
-import Nature17 from "/images/nature-17.jpg";
-import Nature18 from "/images/nature-18.jpg";
-import Nature19 from "/images/nature-19.jpg";
-import Nature2 from "/images/nature-2.jpg";
-import Nature20 from "/images/nature-20.jpg";
-import Nature21 from "/images/nature-21.jpg";
-import Nature22 from "/images/nature-22.jpg";
-import Nature23 from "/images/nature-23.jpg";
-import Nature24 from "/images/nature-24.jpg";
-import Nature25 from "/images/nature-25.jpg";
-import Nature26 from "/images/nature-26.jpg";
-import Nature27 from "/images/nature-27.jpg";
-import Nature28 from "/images/nature-28.jpg";
-import Nature29 from "/images/nature-29.jpg";
-import Nature3 from "/images/nature-3.jpg";
-import Nature4 from "/images/nature-4.jpg";
-import Nature5 from "/images/nature-5.jpg";
-import Nature6 from "/images/nature-6.jpg";
-import Nature7 from "/images/nature-7.jpg";
-import Nature8 from "/images/nature-8.jpg";
-import Nature9 from "/images/nature-9.jpg";
+import Nature1 from "/images/nature-1.webp";
+import Nature10 from "/images/nature-10.webp";
+import Nature11 from "/images/nature-11.webp";
+import Nature12 from "/images/nature-12.webp";
+import Nature13 from "/images/nature-13.webp";
+import Nature14 from "/images/nature-14.webp";
+import Nature15 from "/images/nature-15.webp";
+import Nature16 from "/images/nature-16.webp";
+import Nature17 from "/images/nature-17.webp";
+import Nature18 from "/images/nature-18.webp";
+import Nature19 from "/images/nature-19.webp";
+import Nature2 from "/images/nature-2.webp";
+import Nature20 from "/images/nature-20.webp";
+import Nature21 from "/images/nature-21.webp";
+import Nature22 from "/images/nature-22.webp";
+import Nature23 from "/images/nature-23.webp";
+import Nature24 from "/images/nature-24.webp";
+import Nature25 from "/images/nature-25.webp";
+import Nature26 from "/images/nature-26.webp";
+import Nature27 from "/images/nature-27.webp";
+import Nature28 from "/images/nature-28.webp";
+import Nature29 from "/images/nature-29.webp";
+import Nature3 from "/images/nature-3.webp";
+import Nature4 from "/images/nature-4.webp";
+import Nature5 from "/images/nature-5.webp";
+import Nature6 from "/images/nature-6.webp";
+import Nature7 from "/images/nature-7.webp";
+import Nature8 from "/images/nature-8.webp";
+import Nature9 from "/images/nature-9.webp";
 
 //LIFESTYLE
-import Lifestyle1 from "/images/lifestyle-1.jpg";
-import Lifestyle10 from "/images/lifestyle-10.jpg";
-import Lifestyle11 from "/images/lifestyle-11.jpg";
-import Lifestyle12 from "/images/lifestyle-12.jpg";
-import Lifestyle13 from "/images/lifestyle-13.jpg";
-import Lifestyle14 from "/images/lifestyle-14.jpg";
-import Lifestyle15 from "/images/lifestyle-15.jpg";
-import Lifestyle16 from "/images/lifestyle-16.jpg";
-import Lifestyle2 from "/images/lifestyle-2.jpg";
-import Lifestyle3 from "/images/lifestyle-3.jpg";
-import Lifestyle4 from "/images/lifestyle-4.jpg";
-import Lifestyle5 from "/images/lifestyle-5.jpg";
-import Lifestyle6 from "/images/lifestyle-6.jpg";
-import Lifestyle7 from "/images/lifestyle-7.jpg";
-import Lifestyle8 from "/images/lifestyle-8.jpg";
-import Lifestyle9 from "/images/lifestyle-9.jpg";
+import Lifestyle1 from "/images/lifestyle-1.webp";
+import Lifestyle10 from "/images/lifestyle-10.webp";
+import Lifestyle11 from "/images/lifestyle-11.webp";
+import Lifestyle12 from "/images/lifestyle-12.webp";
+import Lifestyle13 from "/images/lifestyle-13.webp";
+import Lifestyle14 from "/images/lifestyle-14.webp";
+import Lifestyle15 from "/images/lifestyle-15.webp";
+import Lifestyle16 from "/images/lifestyle-16.webp";
+import Lifestyle2 from "/images/lifestyle-2.webp";
+import Lifestyle3 from "/images/lifestyle-3.webp";
+import Lifestyle4 from "/images/lifestyle-4.webp";
+import Lifestyle5 from "/images/lifestyle-5.webp";
+import Lifestyle6 from "/images/lifestyle-6.webp";
+import Lifestyle7 from "/images/lifestyle-7.webp";
+import Lifestyle8 from "/images/lifestyle-8.webp";
+import Lifestyle9 from "/images/lifestyle-9.webp";
 
 //SPORTS
-import Sports1 from "/images/sports-1.jpg";
-import Sports2 from "/images/sports-2.jpg";
-import Sports3 from "/images/sports-3.jpg";
-import Sports4 from "/images/sports-4.jpg";
-import Sports5 from "/images/sports-5.jpg";
-import Sports6 from "/images/sports-6.jpg";
-import Sports7 from "/images/sports-7.jpg";
-import Sports8 from "/images/sports-8.jpg";
+import Sports1 from "/images/sports-1.webp";
+import Sports2 from "/images/sports-2.webp";
+import Sports3 from "/images/sports-3.webp";
+import Sports4 from "/images/sports-4.webp";
+import Sports5 from "/images/sports-5.webp";
+import Sports6 from "/images/sports-6.webp";
+import Sports7 from "/images/sports-7.webp";
+import Sports8 from "/images/sports-8.webp";
 
 export const homeSwiperImages = [
   {
@@ -732,30 +732,30 @@ export const portfolioDetails = {
         colStart: 1,
         colSpan: 4,
         rowStart: 1,
-        rowSpan: 8,
+        rowSpan: 5,
         id: "1-0",
       },
       {
         src: Nature2,
-        colStart: 7,
+        colStart: 6,
         colSpan: 3,
         rowStart: 2,
-        rowSpan: 6,
+        rowSpan: 3,
         id: "1-1",
       },
       {
         src: Nature3,
         colStart: 6,
         colSpan: 6,
-        rowStart: 9,
-        rowSpan: 4,
+        rowStart: 5,
+        rowSpan: 3,
         id: "1-2",
       },
       {
         src: Nature4,
         colStart: 2,
         colSpan: 4,
-        rowStart: 11,
+        rowStart: 6,
         rowSpan: 5,
         width: "90%",
         id: "1-3",
@@ -764,66 +764,66 @@ export const portfolioDetails = {
         src: Nature5,
         colStart: 8,
         colSpan: 4,
-        rowStart: 14,
-        rowSpan: 4,
+        rowStart: 8,
+        rowSpan: 5,
         width: "95%",
         id: "1-4",
       },
       {
         src: Nature6,
-        colStart: 2,
+        colStart: 1,
         colSpan: 3,
-        rowStart: 18,
-        rowSpan: 5,
+        rowStart: 11,
+        rowSpan: 3,
         width: "90%",
         id: "2-0",
       },
       {
         src: Nature7,
-        colStart: 5,
-        colSpan: 3,
-        rowStart: 21,
-        rowSpan: 5,
+        colStart: 4,
+        colSpan: 4,
+        rowStart: 12,
+        rowSpan: 4,
         width: "90%",
         id: "2-1",
       },
       {
         src: Nature8,
-        colStart: 8,
-        colSpan: 5,
-        rowStart: 22,
-        rowSpan: 9,
+        colStart: 9,
+        colSpan: 4,
+        rowStart: 13,
+        rowSpan: 5,
         id: "2-2",
       },
       {
         src: Nature9,
         colStart: 1,
         colSpan: 5,
-        rowStart: 27,
-        rowSpan: 8,
+        rowStart: 16,
+        rowSpan: 6,
         id: "2-3",
       },
       {
         src: Nature10,
         colStart: 7,
         colSpan: 4,
-        rowStart: 32,
+        rowStart: 18,
         rowSpan: 4,
         id: "2-4",
       },
       {
         src: Nature11,
-        colStart: 6,
-        colSpan: 3,
-        rowStart: 37,
-        rowSpan: 6,
+        colStart: 5,
+        colSpan: 5,
+        rowStart: 22,
+        rowSpan: 3,
         id: "3-0",
       },
       {
         src: Nature12,
         colStart: 10,
         colSpan: 3,
-        rowStart: 38,
+        rowStart: 23,
         rowSpan: 4,
         width: "90%",
         height: "120%",
@@ -833,56 +833,56 @@ export const portfolioDetails = {
         src: Nature13,
         colStart: 2,
         colSpan: 3,
-        rowStart: 40,
-        rowSpan: 5,
+        rowStart: 23,
+        rowSpan: 3,
         id: "3-2",
       },
       {
         src: Nature14,
         colStart: 4,
-        colSpan: 6,
-        rowStart: 44,
-        rowSpan: 10,
+        colSpan: 5,
+        rowStart: 28,
+        rowSpan: 6,
         id: "3-3",
       },
       {
         src: Nature15,
         colStart: 9,
-        colSpan: 3,
-        rowStart: 53,
-        rowSpan: 5,
+        colSpan: 4,
+        rowStart: 29,
+        rowSpan: 6,
         id: "3-4",
       },
       {
         src: Nature16,
         colStart: 2,
         colSpan: 4,
-        rowStart: 58,
-        rowSpan: 8,
+        rowStart: 35,
+        rowSpan: 6,
         id: "4-0",
       },
       {
         src: Nature17,
         colStart: 7,
-        colSpan: 5,
-        rowStart: 59,
-        rowSpan: 6,
+        colSpan: 4,
+        rowStart: 36,
+        rowSpan: 4,
         height: "120%",
         id: "4-1",
       },
       {
         src: Nature18,
-        colStart: 2,
-        colSpan: 5,
-        rowStart: 67,
-        rowSpan: 6,
+        colStart: 1,
+        colSpan: 4,
+        rowStart: 41,
+        rowSpan: 5,
         id: "4-2",
       },
       {
         src: Nature19,
         colStart: 9,
         colSpan: 3,
-        rowStart: 68,
+        rowStart: 41,
         rowSpan: 4,
         height: "115%",
         id: "4-3",
@@ -891,7 +891,7 @@ export const portfolioDetails = {
         src: Nature20,
         colStart: 2,
         colSpan: 3,
-        rowStart: 74,
+        rowStart: 46,
         rowSpan: 5,
         id: "4-4",
       },
@@ -906,11 +906,12 @@ export const portfolioDetails = {
       },
       {
         src: Nature22,
-        colStart: 10,
-        colSpan: 2,
-        rowStart: 74,
-        rowSpan: 5,
+        colStart: 5,
+        colSpan: 3,
+        rowStart: 43,
+        rowSpan: 4,
         width: "130%",
+        height: "115%",
         id: "5-1",
       },
       {
@@ -949,10 +950,11 @@ export const portfolioDetails = {
       },
       {
         src: Nature27,
-        colStart: 8,
+        colStart: 9,
         colSpan: 4,
-        rowStart: 91,
-        rowSpan: 8,
+        rowStart: 1,
+        rowSpan: 3,
+        height: "130%",
         id: "6-1",
       },
       {

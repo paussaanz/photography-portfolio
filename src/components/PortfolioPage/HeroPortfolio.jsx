@@ -15,9 +15,6 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     const md = useTransform(scrollYProgress, [0, 1], [0, -300]);
     const lg = useTransform(scrollYProgress, [0, 1], [0, -400]);
 
-    // Aumentar tamaño de letra
-    const scale = useTransform(scrollYProgress, [0, 0.025], [0.8, 1]);
-
     // Nuevos valores iniciales de desplazamiento para cada letra (para empezar más abajo)
     const initialYPositions = [700, 720, 680, 740, 750, 710, 690, 760, 730]; // Aumentar más para empezar más abajo
 
