@@ -46,7 +46,7 @@ const ClipPathAnimation = () => {
                         }}>
                             <div className="flex flex--col d--h-100">
                                 <div className="about__work-flex-item">
-                                    <img src={image.src} alt="Descriptive text" className="about__work-flex-item-image object-fit--cover" />
+                                    <img src={image.src} loading="lazy" alt="Descriptive text" className="about__work-flex-item-image object-fit--cover" />
                                 </div>
                                 <div className="about__work-flex-item">
                                     hola

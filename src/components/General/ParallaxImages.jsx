@@ -38,6 +38,7 @@
                                     filter: hoveredImageIndex === i ? 'blur(10px) contrast(1.2) invert(0.25) saturate(3.25)' : 'none',
                                     transition: 'filter 0.5s ease-out',
                                 }}
+                                loading="lazy"
                             />
                             <img
                                 src={src}
@@ -49,6 +50,7 @@
                                     : 'none',
                                     zIndex: 2,
                                 }}
+                                loading="lazy"
                             />
                         </motion.div>
                     ))

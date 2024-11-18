@@ -2,10 +2,34 @@ import { useEffect, useRef } from "react";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const HeroAbout = () => {
+const LoaderAbout = () => {
     const titleRef = useRef(null);
     const imageRef = useRef(null);
     const containerRef = useRef(null);
+
+
+    useEffect(() => {
+        const tl = gsap.timeline({
+            delay: 0
+        });
+
+        tl.fromTo(".about__hero-image-loader", {
+            height: 0
+        },
+            {
+                height: 400,
+                duration: 2,
+                ease: "power4.inOut"
+            });
+
+        tl.to(".about__hero-title-loader", {
+            opacity: 1,
+            delay: -1,
+            duration: 1,
+            ease: "power4.inOut"
+        })
+    })
+
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -33,13 +57,15 @@ const HeroAbout = () => {
             { yPercent: 110, width: '100vw', height: "70vh" }, // Final position in sync with title
             0 // Synchronizes with title animation
         );
+
+
     }, []);
 
     return (
         <div ref={containerRef} className="container-bem">
             <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
-                <img ref={imageRef} loading="lazy" className="about__hero-image" src="/images/photoshoots-32.webp" />
-                <h1 ref={titleRef} className="about__hero-title">
+                <img ref={imageRef} className="about__hero-image about__hero-image-loader" src="/images/photoshoots-32.webp" alt="Hero image" loading="lazy"/>
+                <h1 ref={titleRef} className="about__hero-title about__hero-title-loader">
                     ABOUT SYP!
                 </h1>
             </div>
@@ -47,4 +73,4 @@ const HeroAbout = () => {
     );
 };
 
-export default HeroAbout;
+export default LoaderAbout;

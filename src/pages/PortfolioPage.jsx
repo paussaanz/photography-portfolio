@@ -6,10 +6,12 @@ import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/im
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import PortfolioPageSeo from './SEO/PortfolioPageSeo';
+import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
 
-const PortfolioPage = () => {
+const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
 
+    console.log(isVisited)
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +44,12 @@ const PortfolioPage = () => {
 
             <section className="portfolio__hero-section">
                 <div className="d--vh-175 flex">
-                    <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
+                    {isVisited ?
+                        <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
+                        :
+                        <LoaderPortfolio images={portfolioParallaxHero} />
+                    }
+
                 </div>
             </section>
 
@@ -56,7 +63,7 @@ const PortfolioPage = () => {
                 </div>
 
                 <div className="portfolio__projects-animation-section">
-                        <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} />
+                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} />
                 </div>
             </section>
         </div>

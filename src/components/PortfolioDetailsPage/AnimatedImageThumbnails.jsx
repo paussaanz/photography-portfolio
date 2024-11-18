@@ -11,11 +11,11 @@ const AnimatedImageThumbnails = () => {
     const curveIntensity = 10; // Ajusta la intensidad de la curvatura
 
     const imagePaths = [
-        '/images/lifestyle-1.webp',
-        '/images/lifestyle-2.webp',
-        '/images/lifestyle-3.webp',
-        '/images/lifestyle-4.webp',
-        '/images/lifestyle-5.webp'
+        '/images/mid/lifestyle-1.webp',
+        '/images/mid/lifestyle-2.webp',
+        '/images/mid/lifestyle-3.webp',
+        '/images/mid/lifestyle-4.webp',
+        '/images/mid/lifestyle-5.webp'
     ];
 
     const images = imagePaths.map((src) => {

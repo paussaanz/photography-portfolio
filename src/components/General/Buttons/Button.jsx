@@ -10,7 +10,7 @@ const Button = ({ text, className, onClick }) => {
         button.addEventListener('mouseleave', resetText);
 
         function getRandomCharacter() {
-            const chars = "ΔΓΦΨπΣξλ0123456789★✈︎♫♪☯☢☠✪✿♪♫☼☾€¥$¢£₹©®";
+            const chars = "0123456789";
             return chars[Math.floor(Math.random() * chars.length)];
         }
 

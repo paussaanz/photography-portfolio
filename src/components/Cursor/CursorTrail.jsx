@@ -67,7 +67,7 @@ const CursorTrail = () => {
             });
 
             if (points.current.length > 0) {
-                pathRef.current.setAttribute('d', `M ${points.current.map(p => `${p.x} ${p.y}`).join(' L ')}`);
+                pathRef.current && pathRef.current.setAttribute('d', `M ${points.current.map(p => `${p.x} ${p.y}`).join(' L ')}`);
             }
 
             requestAnimationFrame(animate);

@@ -63,15 +63,19 @@
                 width: 35vh;
                 z-index: 3;
             }
+
+            &-loader {
+                    opacity: 0;
+            }
         }
     }
 }
 
-.parallax__image{
-height: 100%;
-width: 100%;
-object-fit: cover;
-position: absolute;
-top: 0;
-left: 0;
+.parallax__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

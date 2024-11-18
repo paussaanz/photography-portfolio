@@ -1,7 +1,6 @@
 /*HERO SCSS*/
 .about__hero {
   &-image {
-    height: 380px;
     width: 320px;
     object-fit: cover;
   }
@@ -9,9 +8,13 @@
   &-title {
     margin: 0px;
     margin-top: 10px;
+    opacity: 1;
     width: 100vw;
     color: var(--cor-primary);
     text-transform: uppercase;
+    &-loader{
+      opacity: 0;
+    }
   }
 }
 
@@ -81,10 +84,9 @@
       display: block;
       z-index: 10;
     }
-
-
   }
 }
+
 
 /*CLIP PATH SCSS*/
 .about__work-flex-item{

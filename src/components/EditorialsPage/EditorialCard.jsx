@@ -12,7 +12,7 @@ const EditorialCard = ({ src, name, year, scale, opacity }) => {
         className="flex flex--col flex--j-center flex--a-center"
         style={{ height: '50vh', width: '50vw' }}
       >
-        <img className="d--h-100 d--w-100 object-fit--cover" src={src} alt={name} />
+        <img className="d--h-100 d--w-100 object-fit--cover" src={src} alt={name} loading="lazy"/>
       </div>
       <div
         className="flex flex--j-between text-transform--uppercase text-color--primary h5"
