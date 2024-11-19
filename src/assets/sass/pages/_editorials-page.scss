@@ -1,6 +1,5 @@
 .editorials_ {
     &_hero {
-
         &-title {
             margin: 0px;
             margin-top: 10px;
@@ -9,7 +8,6 @@
         }
 
         &-images {
-
             position: relative;
             display: flex;
             width: 100%;
@@ -58,6 +56,9 @@
                     width: 20vh;
                     z-index: 3;
 
+                }
+                &-loader{
+                    opacity: 0;
                 }
             }
         }

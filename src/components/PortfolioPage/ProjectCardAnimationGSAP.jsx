@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { portfolioCardAnimation } from '../../assets/js/images';
+import { Link } from 'react-router-dom';
 
 const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
@@ -87,7 +88,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       <div className="active-slide position--absolute position--top-0 position--left-0 d--w-100 d--h-100 overflow-hidden">
         {portfolioCardAnimation.map((image, index) => (
           <div className="bg-images">
-            <img className="position--absolute" src={image.src} alt="" />
+            <img className="position--absolute" src={image.src} alt="" loading="lazy"/>
           </div>
         ))}
       </div>
@@ -95,15 +96,15 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       <div className="slider position--sticky position--top-0 d--vw-100 d--vh-100">
         {portfolioCardAnimation.map((image, index) => (
           <div key={index} className="slide d--vh-100 position--absolute overflow--hidden flex flex--col flex--j-center" id={`slide-${index + 1}`}>
-            <a href={image.url} className="text-decoration--none">
+            <Link to={image.url} className="text-decoration--none">
               <div className={`slide-img`}>
-                <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" />
+                <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" loading="lazy"/>
               </div>
               <div className='slide-copy text-transform--uppercase text-align--center text-color--light'>
                 <p className="m--0">{image.name} - {image.date}</p>
                 <p className="m--0">{image.description}</p>
               </div>
-            </a>
+            </Link>
           </div>
 
         ))}

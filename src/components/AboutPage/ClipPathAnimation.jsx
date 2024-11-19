@@ -7,9 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 const ClipPathAnimation = () => {
     const ref = useRef(null);
     const images = [
-        { src: "/images/lifestyle-1.jpg", bgColor: "#FFD700" }, // Gold
-        { src: "/images/lifestyle-5.jpg", bgColor: "#ADD8E6" }, // Light Blue
-        { src: "/images/lifestyle-7.jpg", bgColor: "#90EE90" }, // Light Green
+        { src: "/images/lifestyle-1.webp", bgColor: "#FFD700" }, // Gold
+        { src: "/images/lifestyle-5.webp", bgColor: "#ADD8E6" }, // Light Blue
+        { src: "/images/lifestyle-7.webp", bgColor: "#90EE90" }, // Light Green
     ]; // Replace these paths with your actual image paths
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const ClipPathAnimation = () => {
                         }}>
                             <div className="flex flex--col d--h-100">
                                 <div className="about__work-flex-item">
-                                    <img src={image.src} alt="Descriptive text" className="about__work-flex-item-image object-fit--cover" />
+                                    <img src={image.src} loading="lazy" alt="Descriptive text" className="about__work-flex-item-image object-fit--cover" />
                                 </div>
                                 <div className="about__work-flex-item">
                                     hola

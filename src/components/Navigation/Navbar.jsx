@@ -31,7 +31,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a onClick={() => handleLinkClick('/')} className="cus-navbar__logo--centered">
-          <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" />
+          <img src="/logo-white.svg" alt="Logo de Gunterz" width="39" height="61" loading="lazy"/>
         </a>
         <div className="flex">
           <ul className="cus-navbar__links m--l--auto m--b-2 m--b-lg-0">

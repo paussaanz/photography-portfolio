@@ -50,7 +50,7 @@ const SwiperEditorialCard = ({ images }) => {
                                 },
                             }}
                         >
-                            <img className="editorials__cards-slide-image" src={image.src} alt={`Slide ${i}`} />
+                            <img className="editorials__cards-slide-image" src={image.src} alt={`Slide ${i}`} loading="lazy"/>
                         </motion.div>
                     );
                 })}

@@ -213,7 +213,7 @@ const AnimatedImage = ({
           gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
           width: `${width}`,
           height: `${height}`,
-          filter: `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
+          filter:  !ordered && `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
 
         }}
       >
@@ -224,7 +224,7 @@ const AnimatedImage = ({
           alt={`img-${index}`}
           initial={{ scale: 1 }}
           animate={{
-            filter: `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
+            filter: !ordered &&  `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
           }}
           transition={{
             type: "tween",

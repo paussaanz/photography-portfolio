@@ -11,11 +11,11 @@ const AnimatedImageThumbnails = () => {
     const curveIntensity = 10; // Ajusta la intensidad de la curvatura
 
     const imagePaths = [
-        '/images/lifestyle-1.jpg',
-        '/images/lifestyle-2.jpg',
-        '/images/lifestyle-3.jpg',
-        '/images/lifestyle-4.jpg',
-        '/images/lifestyle-5.jpg'
+        '/images/mid/lifestyle-1.webp',
+        '/images/mid/lifestyle-2.webp',
+        '/images/mid/lifestyle-3.webp',
+        '/images/mid/lifestyle-4.webp',
+        '/images/mid/lifestyle-5.webp'
     ];
 
     const images = imagePaths.map((src) => {
@@ -110,17 +110,20 @@ const AnimatedImageThumbnails = () => {
             lastScrollTop = scrollTop;
             lastTimestamp = timestamp;
 
-            drawImages(curveFactor);
+            drawImages(curveFactor)
+            console.log(scrollTop, squareSize  * (loopImages.length - images.length))
 
-            if (scrollDirection === 'down' && scrollTop >= squareSize * (loopImages.length - images.length)) {
+            if (scrollDirection === 'down' && scrollTop >= 1300) {
                 loopImages.push(...loopImages.splice(0, images.length));
                 scrollContainerRef.current.scrollTop -= squareSize * images.length;
                 drawImages(curveFactor);
             } else if (scrollDirection === 'up' && scrollTop <= squareSize) {
+              
                 loopImages.unshift(...loopImages.splice(-images.length, images.length));
                 scrollContainerRef.current.scrollTop += squareSize * images.length;
                 drawImages(curveFactor);
             }
+
 
             clearTimeout(isScrolling);
             isScrolling = setTimeout(() => {

@@ -46,8 +46,8 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
         const charX = rect.left + rect.width / 2;
         const charY = rect.top + rect.height / 2;
   
-        const distanceX = (e.clientX - charX) / 0.5;
-        const distanceY = (e.clientY - charY) / 0.5;
+        const distanceX = (e.clientX - charX) / 7;
+        const distanceY = (e.clientY - charY) / 1;
         const rotationAngle = (e.clientX - charX) / 0.8;
   
         gsap.to(char, {
