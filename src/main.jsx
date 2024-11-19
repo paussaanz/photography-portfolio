@@ -8,7 +8,11 @@ import App from './App.jsx'
 import { LenisProvider } from "./contexts/LenisContext.jsx";
 
 import './index.css'
+
+import { LogoTransitionProvider } from "./contexts/LogoTransitionContext.jsx";
+
 import { LoaderContextProvider } from "./contexts/LoaderContext.jsx";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 console.log(window.location.pathname)
@@ -19,10 +23,12 @@ root.render(
       <LenisProvider>
         <ThemeProvider>
           <TransitionProvider>
-            <LoaderContextProvider>
+            <LogoTransitionProvider>
+              <LoaderContextProvider>
               <App />
               <Footer />
-            </LoaderContextProvider>
+              </LoaderContextProvider>
+            </LogoTransitionProvider>
           </TransitionProvider>
         </ThemeProvider>
       </LenisProvider>

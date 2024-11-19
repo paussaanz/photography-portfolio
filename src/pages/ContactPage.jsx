@@ -13,7 +13,7 @@ const ContactPage = () => {
         { text: "LINKEDIN", logoClass: "icon-linkedin", href: "https://www.linkedin.com/in/paula-sanz-perez/" },
         { text: "GITHUB", logoClass: "icon-github", href: "https://github.com/paussaanz" },
         { text: "INSTAGRAM", logoClass: "icon-instagram", href: "https://www.instagram.com/sypcreative/" },
-        { text: "BEHANCE", logoClass: "icon-behance", href: "https://www.behance.net/paulasanz1", fontSize:"h6" }
+        { text: "BEHANCE", logoClass: "icon-behance", href: "https://www.behance.net/paulasanz1", fontSize: "h6" }
     ];
 
     return (
@@ -59,7 +59,7 @@ const ContactPage = () => {
                                 text={link.text}
                                 logoClass={link.logoClass}
                                 href={link.href}
-                                backgroundColor= "background--primary"
+                                backgroundColor="background--primary"
                                 fontSize={link.fontSize ? link.fontSize : 'h5'}
                             />
                         ))}
