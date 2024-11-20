@@ -13,33 +13,39 @@ export const LenisProvider = ({ children }) => {
   console.log(isLenisActive)
   
   useEffect(() => {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      lerp: 0.1,
+      duration: 1.2,
+    });
+    
 
-    if (!lenisRef && isLenisActive) {
-
-      const lenis = new Lenis({
-        smoothWheel: true,
-        lerp: 0.1,
-        duration: 1.2,
-      });
-
-      setLenisRef(lenis);
-
-      function raf(time) {
-        if (isLenisActive) {
-          lenis.raf(time);
-        }
-        requestAnimationFrame(raf);
+    if (!isLenisActive) {
+console.log("destroy1")
+       lenis.destroy();
       }
 
+    // console.log('dntro?')
+    setLenisRef(lenis);
+
+    function raf(time) {
+      if (isLenisActive) lenis.raf(time); // Solo anima cuando Lenis está activo
       requestAnimationFrame(raf);
     }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      console.log("destroy")
+      lenis.destroy();
+    };
   }, [isLenisActive]);
 
-  useEffect(() => {
-    if (lenisRef) {
-      // Reacciona a cambios en la ubicación para restablecer el scroll
-      lenisRef.scrollTo(0, { immediate: true });
-    }
+
+  useLayoutEffect(() => {
+    const lenis = lenisRef;
+    if (!lenis) return;
+    lenis.scrollTo(0, { immediate: true });
   }, [location.pathname]);
 
   const lenisContextValue = {
@@ -56,34 +62,34 @@ export const LenisProvider = ({ children }) => {
 };
 
 //CARLOSSS
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     smoothWheel: true,
-  //     lerp: 0.1,
-  //     duration: 1.2,
-  //   });
+//   useEffect(() => {
+//     const lenis = new Lenis({
+//       smoothWheel: true,
+//       lerp: 0.1,
+//       duration: 1.2,
+//     });
     
 
-  //   if (!isLenisActive) lenis.destroy();
+//     if (!isLenisActive) lenis.destroy();
 
-  //   // console.log('dntro?')
-  //   lenisRef.current = lenis;
+//     // console.log('dntro?')
+//     lenisRef.current = lenis;
 
-  //   function raf(time) {
-  //     if (isLenisActive) lenis.raf(time); // Solo anima cuando Lenis está activo
-  //     requestAnimationFrame(raf);
-  //   }
+//     function raf(time) {
+//       if (isLenisActive) lenis.raf(time); // Solo anima cuando Lenis está activo
+//       requestAnimationFrame(raf);
+//     }
 
-  //   requestAnimationFrame(raf);
+//     requestAnimationFrame(raf);
 
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, [isLenisActive]);
+//     return () => {
+//       lenis.destroy();
+//     };
+//   }, [isLenisActive]);
 
-//CARLOSSS
-  // useLayoutEffect(() => {
-  //   const lenis = lenisRef.current;
-  //   if (!lenis) return;
-  //   lenis.scrollTo(0, { immediate: true });
-  // }, [location.pathname]);
+// CARLOSSS
+//   useLayoutEffect(() => {
+//     const lenis = lenisRef.current;
+//     if (!lenis) return;
+//     lenis.scrollTo(0, { immediate: true });
+//   }, [location.pathname]);

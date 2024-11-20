@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimation from "../components/General/TextAnimation";
@@ -16,32 +16,34 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const galleryRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
-    const { lenis, start } = useContext(LenisContext);  // Utiliza el contexto de Lenis
+    const { lenis, stop } = useContext(LenisContext);  // Utiliza el contexto de Lenis
 
 
     const handleImageClick = (img) => {
         setSelectedImage(img); // Set the selected image to show in the overlay
-            
-   
+
+
     };
 
     const closeOverlay = () => {
         setSelectedImage(null); // Close overlay when clicked outside or on a close button
     };
-   
-    const handleChangeOrder = () => {
-      
 
+    const handleChangeOrder = () => {
         setOrdered(prev => !prev);
         setDisabledButtons(true);
         setTimeout(() => {
             setDisabledButtons(false);
         }, 100);
-    
+
+
+    };
+
+    useEffect(() => {
         setTimeout(() => {
             requestAnimationFrame(() => {
-              
                 if (imagesSectionRef.current && lenis) {
+                    // stop();
                     const offsetTop = imagesSectionRef.current.offsetTop;
                     lenis.scrollTo(offsetTop, { immediate: true });
                 } else {
@@ -49,7 +51,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 }
             });
         }, 100);
-    };
+    }, [ordered]);
 
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered
