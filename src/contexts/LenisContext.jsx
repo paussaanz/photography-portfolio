@@ -7,45 +7,43 @@ const LenisContext = createContext();
 export default LenisContext;
 
 export const LenisProvider = ({ children }) => {
-  const lenisRef = useRef(null);
   const location = useLocation();
   const [isLenisActive, setIsLenisActive] = useState(true); // Nuevo estado para controlar Lenis
+  const [lenisRef, setLenisRef] = useState(null)
   console.log(isLenisActive)
+  
   useEffect(() => {
 
-    // No inicializa Lenis si está inactivo
+    if (!lenisRef && isLenisActive) {
 
-    const lenis = new Lenis({
-      smoothWheel: true,
-      lerp: 0.1,
-      duration: 1.2,
-    });
+      const lenis = new Lenis({
+        smoothWheel: true,
+        lerp: 0.1,
+        duration: 1.2,
+      });
 
-    if (!isLenisActive) lenis.destroy();
+      setLenisRef(lenis);
 
-    // console.log('dntro?')
-    lenisRef.current = lenis;
+      function raf(time) {
+        if (isLenisActive) {
+          lenis.raf(time);
+        }
+        requestAnimationFrame(raf);
+      }
 
-    function raf(time) {
-      if (isLenisActive) lenis.raf(time); // Solo anima cuando Lenis está activo
       requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
   }, [isLenisActive]);
 
-  useLayoutEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-    lenis.scrollTo(0, { immediate: true });
+  useEffect(() => {
+    if (lenisRef) {
+      // Reacciona a cambios en la ubicación para restablecer el scroll
+      lenisRef.scrollTo(0, { immediate: true });
+    }
   }, [location.pathname]);
 
   const lenisContextValue = {
-    lenis: lenisRef.current,
+    lenis: lenisRef,
     stop: () => setIsLenisActive(false), // Cambia el estado a inactivo
     start: () => setIsLenisActive(true), // Cambia el estado a activo
   };
@@ -56,3 +54,36 @@ export const LenisProvider = ({ children }) => {
     </LenisContext.Provider>
   );
 };
+
+//CARLOSSS
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     smoothWheel: true,
+  //     lerp: 0.1,
+  //     duration: 1.2,
+  //   });
+    
+
+  //   if (!isLenisActive) lenis.destroy();
+
+  //   // console.log('dntro?')
+  //   lenisRef.current = lenis;
+
+  //   function raf(time) {
+  //     if (isLenisActive) lenis.raf(time); // Solo anima cuando Lenis está activo
+  //     requestAnimationFrame(raf);
+  //   }
+
+  //   requestAnimationFrame(raf);
+
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, [isLenisActive]);
+
+//CARLOSSS
+  // useLayoutEffect(() => {
+  //   const lenis = lenisRef.current;
+  //   if (!lenis) return;
+  //   lenis.scrollTo(0, { immediate: true });
+  // }, [location.pathname]);

@@ -1,12 +1,12 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimation from "../components/General/TextAnimation";
 import Button from "../components/General/Buttons/Button";
 import GalleryGrid from "../components/PortfolioDetailsPage/GalleryGrid";
-import Detail from "../components/Detail/Detail";
 import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
-import Lenis from "lenis";
+import LenisContext from "../contexts/LenisContext";
+
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const { heroImage, projectImages } = images;
@@ -16,26 +16,39 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const galleryRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
+    const { lenis, start } = useContext(LenisContext);  // Utiliza el contexto de Lenis
+
+
     const handleImageClick = (img) => {
         setSelectedImage(img); // Set the selected image to show in the overlay
+            
+   
     };
 
     const closeOverlay = () => {
         setSelectedImage(null); // Close overlay when clicked outside or on a close button
     };
-
+   
     const handleChangeOrder = () => {
-        setOrdered(prev => !prev); // Cambia el orden cuando el botón es presionado
+      
+
+        setOrdered(prev => !prev);
         setDisabledButtons(true);
         setTimeout(() => {
             setDisabledButtons(false);
         }, 100);
-
-        scroller.scrollTo('images-gallery', {
-            duration: 20,
-            delay: 0,
-            smooth: 'linear'
-        });
+    
+        setTimeout(() => {
+            requestAnimationFrame(() => {
+              
+                if (imagesSectionRef.current && lenis) {
+                    const offsetTop = imagesSectionRef.current.offsetTop;
+                    lenis.scrollTo(offsetTop, { immediate: true });
+                } else {
+                    console.error("Lenis instance is not available.");
+                }
+            });
+        }, 100);
     };
 
     const handleMouseMove = (e) => {
@@ -96,9 +109,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                     </div>
                 </div>
             </section>
-            {/* {selectedImage && (
-                <Detail images={projectImages} />
-            )} */}
         </div>
     );
 };

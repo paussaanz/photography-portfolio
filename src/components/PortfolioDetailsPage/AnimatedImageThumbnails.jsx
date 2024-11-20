@@ -1,3 +1,33 @@
+// import React from 'react';
+
+// const AnimatedImageThumbnails = ({ imagesArray }) => {
+//     return (
+//         <div style={{ position: 'absolute', right: '0', top: '0', zIndex: '1000000' }}>
+//             <div
+//                 // ref={scrollContainerRef}
+//                 style={{
+//                     height: '100vh',
+//                     overflowY: 'scroll',
+//                     width: '150px',
+//                 }}
+//             >
+//             <div className="flex flex--wrap flex--j-center flex--a-center">
+//             {imagesArray.map((image, index) => (
+
+//                     <img src={image.src} alt={image.alt} className="object-fit--cover" style={{ transition: 'transform 0.3s ease', cursor: 'pointer', height: '150px', width: '150px' }}
+//                         onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+//                         onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+//                     />
+
+//             ))}
+// </div>
+//         </div>
+//         </div>
+//     );
+// }
+
+// export default AnimatedImageThumbnails;
+
 import { useRef, useEffect, useContext } from 'react';
 import LenisContext from '../../contexts/LenisContext';
 
@@ -30,19 +60,7 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
         '/images/thumbnails/nature-17.webp',
         '/images/thumbnails/nature-18.webp',
         '/images/thumbnails/nature-19.webp',
-        '/images/thumbnails/nature-20.webp',
-        '/images/thumbnails/nature-21.webp',
-        '/images/thumbnails/nature-22.webp',
-        '/images/thumbnails/nature-23.webp',
-        '/images/thumbnails/nature-24.webp',
-        '/images/thumbnails/nature-25.webp',
-        '/images/thumbnails/nature-26.webp',
-        '/images/thumbnails/nature-27.webp',
-        '/images/thumbnails/nature-28.webp',
-        '/images/thumbnails/nature-29.webp',
-        '/images/thumbnails/nature-30.webp',
-        '/images/thumbnails/nature-31.webp',
-        '/images/thumbnails/nature-32.webp'
+       
     ];
     // const imagePaths = imagesArray.map((image) => image.src);
 
