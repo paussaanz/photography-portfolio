@@ -79,3 +79,108 @@
     top: 0;
     left: 0;
 }
+
+.card-3d__animation {
+
+    &-container {
+        width: 100%;
+        height: 300vh;
+        position: relative;
+        transition: background-color 0.5s ease;
+    }
+
+    &-slider {
+        position: sticky;
+        transform-style: preserve-3d;
+        perspective: 750px;
+        z-index: 3;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &-slide {
+        position: absolute;
+        width: 45vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    &-active-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity ease-in-out 0.5s;
+
+        &--image {
+            position: absolute;
+            filter: blur(100px);
+            background-size: cover;
+            transform: scale(1.125);
+            height: 100%;
+            object-fit: cover;
+
+            &-1 {
+                z-index: 2;
+            }
+        }
+
+    }
+}
+
+
+#slide-5 {
+    position: absolute;
+    top: 50%;
+    /* valor aleatorio */
+    left: 50%;
+    /* valor aleatorio */
+    transform: translateX(-50%) translateY(-50%) translateZ(-10000px);
+    opacity: 0;
+}
+
+#slide-4 {
+    position: absolute;
+    top: 70%;
+    /* valor aleatorio */
+    left: 15%;
+    /* valor aleatorio */
+    transform: translateX(-50%) translateY(-50%) translateZ(-7700px);
+    opacity: 0;
+}
+
+#slide-3 {
+    position: absolute;
+    top: 40%;
+    /* valor aleatorio */
+    left: 90%;
+    /* valor aleatorio */
+    transform: translateX(-50%) translateY(-50%) translateZ(-5400px);
+    opacity: 0;
+}
+
+#slide-2 {
+    position: absolute;
+    top: 85%;
+    /* valor aleatorio */
+    left: 30%;
+    /* valor aleatorio */
+    transform: translateX(-50%) translateY(-50%) translateZ(-3100px);
+    opacity: 0;
+}
+
+#slide-1 {
+    position: absolute;
+    top: 30%;
+    /* valor aleatorio */
+    left: 60%;
+    /* valor aleatorio */
+    transform: translateX(-50%) translateY(-50%) translateZ(-800px);
+    opacity: 1;
+}

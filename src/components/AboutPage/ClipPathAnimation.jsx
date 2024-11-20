@@ -7,9 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 const ClipPathAnimation = () => {
     const ref = useRef(null);
     const images = [
-        { src: "/images/lifestyle-1.webp", bgColor: "#FFD700" }, // Gold
-        { src: "/images/lifestyle-5.webp", bgColor: "#ADD8E6" }, // Light Blue
-        { src: "/images/lifestyle-7.webp", bgColor: "#90EE90" }, // Light Green
+        { src: "/images/mid/lifestyle-1.webp", bgColor: "#FFD700" }, // Gold
+        { src: "/images/mid/lifestyle-5.webp", bgColor: "#ADD8E6" }, // Light Blue
+        { src: "/images/mid/lifestyle-7.webp", bgColor: "#90EE90" }, // Light Green
     ]; // Replace these paths with your actual image paths
 
     useEffect(() => {

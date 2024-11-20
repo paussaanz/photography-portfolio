@@ -1,22 +1,50 @@
 import { useRef, useEffect, useContext } from 'react';
 import LenisContext from '../../contexts/LenisContext';
 
-const AnimatedImageThumbnails = () => {
+const AnimatedImageThumbnails = ({ imagesArray }) => {
     const canvasRef = useRef(null);
     const scrollContainerRef = useRef(null);
     const { stop, start } = useContext(LenisContext);
 
     const squareSize = 150; // Tamaño fijo de las imágenes
-    const numSubdivisions = 50; // Número de subdivisiones para una malla más precisa
+    const numSubdivisions = 40; // Número de subdivisiones para una malla más precisa
     const curveIntensity = 10; // Ajusta la intensidad de la curvatura
 
     const imagePaths = [
-        '/images/mid/lifestyle-1.webp',
-        '/images/mid/lifestyle-2.webp',
-        '/images/mid/lifestyle-3.webp',
-        '/images/mid/lifestyle-4.webp',
-        '/images/mid/lifestyle-5.webp'
+        '/images/thumbnails/nature-1.webp',
+        '/images/thumbnails/nature-2.webp',
+        '/images/thumbnails/nature-3.webp',
+        '/images/thumbnails/nature-4.webp',
+        '/images/thumbnails/nature-5.webp',
+        '/images/thumbnails/nature-6.webp',
+        '/images/thumbnails/nature-7.webp',
+        '/images/thumbnails/nature-8.webp',
+        '/images/thumbnails/nature-9.webp',
+        '/images/thumbnails/nature-10.webp',
+        '/images/thumbnails/nature-11.webp',
+        '/images/thumbnails/nature-12.webp',
+        '/images/thumbnails/nature-13.webp',
+        '/images/thumbnails/nature-14.webp',
+        '/images/thumbnails/nature-15.webp',
+        '/images/thumbnails/nature-16.webp',
+        '/images/thumbnails/nature-17.webp',
+        '/images/thumbnails/nature-18.webp',
+        '/images/thumbnails/nature-19.webp',
+        '/images/thumbnails/nature-20.webp',
+        '/images/thumbnails/nature-21.webp',
+        '/images/thumbnails/nature-22.webp',
+        '/images/thumbnails/nature-23.webp',
+        '/images/thumbnails/nature-24.webp',
+        '/images/thumbnails/nature-25.webp',
+        '/images/thumbnails/nature-26.webp',
+        '/images/thumbnails/nature-27.webp',
+        '/images/thumbnails/nature-28.webp',
+        '/images/thumbnails/nature-29.webp',
+        '/images/thumbnails/nature-30.webp',
+        '/images/thumbnails/nature-31.webp',
+        '/images/thumbnails/nature-32.webp'
     ];
+    // const imagePaths = imagesArray.map((image) => image.src);
 
     const images = imagePaths.map((src) => {
         const img = new Image();
@@ -90,15 +118,28 @@ const AnimatedImageThumbnails = () => {
 
 
         const drawImages = (curveFactor) => {
-            context.clearRect(0, 0, canvas.width, canvas.height);
 
-            loopImages.forEach((img, index) => {
-                const yPosition = index * squareSize;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        
+            const visibleStartIndex = Math.max(
+                Math.floor(scrollContainerRef.current.scrollTop / squareSize) - 1,
+                0
+            );
+            const visibleEndIndex = Math.min(
+                visibleStartIndex + Math.ceil(scrollContainerRef.current.clientHeight / squareSize) + 2,
+                loopImages.length
+            );
+        
+            for (let i = visibleStartIndex; i < visibleEndIndex; i++) {
+                const img = loopImages[i];
+                const yPosition = i * squareSize;
                 if (img.complete) {
                     drawDeformedImage(img, yPosition, curveFactor);
                 }
-            });
+            }
         };
+        
+        let isAnimating = false;
 
         const handleScroll = (event) => {
             const scrollTop = scrollContainerRef.current.scrollTop;
@@ -114,18 +155,27 @@ const AnimatedImageThumbnails = () => {
             lastScrollTop = scrollTop;
             lastTimestamp = timestamp;
 
-            drawImages(curveFactor);
+            // drawImages(curveFactor);
+            if (!isAnimating) {
+                isAnimating = true;
+                requestAnimationFrame(() => {
+                    drawImages(curveFactor);
+                    isAnimating = false;
+                });
+            }
 
-            if (scrollDirection === 'down' && scrollTop >= squareSize * (loopImages.length - images.length)) {
+            if (scrollDirection === 'down' && scrollTop >= squareSize * (loopImages.length - (images.length + 3))) {
                 loopImages.push(...loopImages.splice(0, images.length));
                 scrollContainerRef.current.scrollTop -= squareSize * images.length;
-                drawImages(curveFactor);
+
             } else if (scrollDirection === 'up' && scrollTop <= squareSize) {
                 loopImages.unshift(...loopImages.splice(-images.length, images.length));
                 scrollContainerRef.current.scrollTop += squareSize * images.length;
-                drawImages(curveFactor);
+
             }
 
+            console.log(scrollContainerRef.current.scrollTop, "SCROLL")
+            // console.log(squareSize * (loopImages.length - images.length), "OTRO")
             clearTimeout(isScrolling);
             isScrolling = setTimeout(() => {
                 curveFactor = 0;

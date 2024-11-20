@@ -241,15 +241,15 @@ export const portfolioCardAnimation = [
   {
     src: PhotoshootsPortfolio,
     name: "Photoshoots",
-    date: 2023,
-    description: "Description 2",
+    date: "2022 - 2023",
+    description: "SYP's photoshoots blend vivid colors and dynamic lighting in studio and outdoor settings, showcasing creative posing and keen visual flair.",
     url: "/portfolio/photoshoots",
   },
   {
     src: NaturePortfolio,
     name: "Nature",
-    date: 2023,
-    description: "Description 1",
+    date: "2021-2024",
+    description: "Capturing the essence of the natural world, these photos focus on intricate details and vibrant landscapes in both familiar and remote settings.",
     url: "/portfolio/nature",
   },
   {

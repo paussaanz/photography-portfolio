@@ -174,7 +174,7 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-            <AnimatedImageThumbnails />
+            <AnimatedImageThumbnails imagesArray={images}/>
           </div>
         </>
       )}

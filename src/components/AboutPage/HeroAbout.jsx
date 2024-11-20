@@ -38,7 +38,7 @@ const HeroAbout = () => {
     return (
         <div ref={containerRef} className="container-bem">
             <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
-                <img ref={imageRef} loading="lazy" className="about__hero-image" src="/images/photoshoots-32.webp" />
+                <img ref={imageRef} loading="lazy" className="about__hero-image" src="/images/mid/photoshoots-32.webp" />
                 <h1 ref={titleRef} className="about__hero-title">
                     ABOUT SYP!
                 </h1>

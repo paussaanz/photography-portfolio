@@ -64,7 +64,7 @@ const LoaderAbout = () => {
     return (
         <div ref={containerRef} className="container-bem">
             <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
-                <img ref={imageRef} className="about__hero-image about__hero-image-loader" src="/images/photoshoots-32.webp" alt="Hero image" loading="lazy"/>
+                <img ref={imageRef} className="about__hero-image about__hero-image-loader" src="/images/mid/photoshoots-32.webp" alt="Hero image" loading="lazy"/>
                 <h1 ref={titleRef} className="about__hero-title about__hero-title-loader">
                     ABOUT SYP!
                 </h1>

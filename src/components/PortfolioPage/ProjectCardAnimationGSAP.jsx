@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { portfolioCardAnimation } from '../../assets/js/images';
 import { Link } from 'react-router-dom';
 
 const ProjectCardAnimation = ({ homeSwiperImages }) => {
-
+  const container = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const slides = gsap.utils.toArray('.slide');
-    const activeSlideImages = gsap.utils.toArray('.active-slide img');
+
+    if (!container.current) return;
+
+    const slides = container.current.querySelectorAll('.card-3d__animation-slide'); // Selección dentro del contenedor
+    const activeSlide = container.current.querySelector('.card-3d__animation-active-slide'); // Selección del contenedor
+    const activeSlideImages = container.current.querySelectorAll('.card-3d__animation-active-slide--image'); // Selección de imágenes dentro de .active-slide
+
 
     function getInitialTranslateZ(slide) {
       const style = window.getComputedStyle(slide);
@@ -26,11 +31,32 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
       return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
     }
 
+    
     slides.forEach((slide, i) => {
       const initialZ = getInitialTranslateZ(slide);
-
       ScrollTrigger.create({
-        trigger: ".card-3d__animation-container",
+        trigger: container.current,
+        start: "top center",
+        end: "bottom bottom",
+
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const zIncrement = progress * 10000;
+          const currentZ = initialZ + zIncrement;
+          let opacity;
+
+          gsap.to(activeSlide, {
+            opacity: progress * 100,
+            ease: "power4.out",
+            duration: 0.5
+          });
+
+          
+        }
+      }); 
+      
+      ScrollTrigger.create({
+        trigger: container.current,
         start: "top top",
         end: "bottom bottom",
         scrub: 5,
@@ -39,7 +65,7 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
           const zIncrement = progress * 10000;
           const currentZ = initialZ + zIncrement;
           let opacity;
-
+         
           //OPACIDAD DE LAS SLIDES
           if (currentZ > -2500) {
 
@@ -51,27 +77,22 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
           slide.style.opacity = opacity;
           slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
 
-          //OPACIDAD DE LOS FONDOS
-          if (currentZ < 640) {
-            let minZ = -3000;     // Valor mínimo donde opacidad es 0
-            let maxZ = 700;   // Valor máximo donde opacidad es 1
-            let progress = gsap.utils.clamp(0, 1, (currentZ - minZ) / (maxZ - minZ));
-            // Si currentZ es menor a 640, animar opacidad al valor calculado de progress
+          if (currentZ >= -1300 && currentZ <= 1000) {
+            // Dentro del tramo [-1300, 640], la opacidad es 1
             gsap.to(activeSlideImages[i], {
-              opacity: progress,
-              duration: 1.5,
+              opacity: 1,
+              duration: 0.5, // Suaviza la transición si entra al rango
               ease: "power3.out"
             });
-            console.log(activeSlideImages[i])
           } else {
-            // Si currentZ es mayor o igual a 640, reducir opacidad a 0 con animación suave
+            // Fuera del tramo [-1300, 640], la opacidad es 0
             gsap.to(activeSlideImages[i], {
-              opacity: 0,  // Asegurar que opacidad es 1
-              duration: 1.5,
+              opacity: 0,
+              duration: 0.5, // Suaviza la transición si sale del rango
               ease: "power3.out"
             });
           }
-
+          
         }
       });
     });
@@ -84,35 +105,29 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
 
   return (
-    <div className="card-3d__animation-container">
-      <div className="active-slide position--absolute position--top-0 position--left-0 d--w-100 d--h-100 overflow-hidden">
+    
+    <div ref={container} className="card-3d__animation-container">
+      <div className="card-3d__animation-active-slide">
         {portfolioCardAnimation.map((image, index) => (
-          <div className="bg-images">
-            <img className="position--absolute" src={image.src} alt="" loading="lazy"/>
-          </div>
+          <img className={`card-3d__animation-active-slide--image card-3d__animation-active-slide--image-${index + 1}`} src={image.src} alt="" loading="lazy" />
         ))}
       </div>
 
-      <div className="slider position--sticky position--top-0 d--vw-100 d--vh-100">
+      <div className="card-3d__animation-slider">
         {portfolioCardAnimation.map((image, index) => (
-          <div key={index} className="slide d--vh-100 position--absolute overflow--hidden flex flex--col flex--j-center" id={`slide-${index + 1}`}>
+          <div key={index} className="card-3d__animation-slide" id={`slide-${index + 1}`}>
             <Link to={image.url} className="text-decoration--none">
               <div className={`slide-img`}>
-                <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" loading="lazy"/>
+                <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" loading="lazy" />
               </div>
               <div className='slide-copy text-transform--uppercase text-align--center text-color--light'>
-                <p className="m--0">{image.name} - {image.date}</p>
-                <p className="m--0">{image.description}</p>
+                <p className="m--0">{image.name} | {image.date}</p>
+                {/* <p className="m--0">{image.description}</p> */}
               </div>
             </Link>
           </div>
-
         ))}
-
       </div>
-
-
-
     </div >
   );
 

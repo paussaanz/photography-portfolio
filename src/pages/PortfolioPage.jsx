@@ -23,7 +23,7 @@ const PortfolioPage = ({ isVisited }) => {
             scrub: 15, // Suaviza el efecto
             onUpdate: (self) => {
                 const progress = self.progress;
-                const newColor = `rgba(0, 0, 0, ${progress})`;
+                const newColor = `rgba(200, 180, 230, ${progress})`;
                 gsap.to(sectionRef.current, {
                     backgroundColor: newColor,
                     duration: 0.5,
@@ -63,7 +63,7 @@ const PortfolioPage = ({ isVisited }) => {
                 </div>
 
                 <div className="portfolio__projects-animation-section">
-                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} />
+                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>
                 </div>
             </section>
         </div>

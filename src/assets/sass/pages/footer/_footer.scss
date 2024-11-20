@@ -1,4 +1,6 @@
 .footer__section {
+    position: relative;
+    z-index:100000;
     height: 100vh;
     display: flex;
     flex-direction: column;

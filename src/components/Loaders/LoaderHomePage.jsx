@@ -18,7 +18,6 @@ const LoaderHomePage = () => {
     const { handleLinkClick } = useTransition();
     const { stop, start } = useContext(LenisContext);
 
-    // GSAP animations
     useEffect(() => {
         stop();
 
@@ -39,7 +38,6 @@ const LoaderHomePage = () => {
                 duration: 2,
                 ease: "power4.inOut",
             }, colIndex === 0 ? 0 : "-=4");
-            console.log("HOLAAA", colIndex)
         });
 
         // Additional animations
