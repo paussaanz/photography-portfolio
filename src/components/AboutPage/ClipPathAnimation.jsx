@@ -4,36 +4,41 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ClipPathAnimation = () => {
+const ClipPathAnimation = ({ onImageChange, images }) => {
     const ref = useRef(null);
-    const images = [
-        { src: "/images/mid/lifestyle-1.webp", bgColor: "#FFD700" }, // Gold
-        { src: "/images/mid/lifestyle-5.webp", bgColor: "#ADD8E6" }, // Light Blue
-        { src: "/images/mid/lifestyle-7.webp", bgColor: "#90EE90" }, // Light Green
-    ]; // Replace these paths with your actual image paths
 
+    
     useEffect(() => {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: ref.current,
                 start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
+                end: "bottom+=200vh top",
+                scrub: true,
+                onUpdate: (self) => {
+                    const progress = self.progress; // Progress from 0 to 1
+                    const index = Math.min(Math.floor(progress * images.length), images.length - 1); // Cap the index
+                    onImageChange(index); 
+                    console.log(index, "INDEX")// Notify the parent of the active image
+                },
+            },
         });
 
         images.forEach((img, index) => {
-            timeline.fromTo(ref.current.children[index],
-                { clipPath: 'circle(0% at 100% 0%)' }, // Empieza desde un punto pequeño
-                { clipPath: 'circle(150% at 100% 0%)', duration: 1 } // Aumenta al tamaño deseado
+            timeline.fromTo(
+                ref.current.children[index],
+                { clipPath: "circle(0% at 100% 0%)" }, // Start from a small point
+                { clipPath: "circle(150% at 100% 0%)", duration: 1 } // Expand to desired size
             );
         });
-    }, []);
+
+
+    }, [onImageChange]);
 
     return (
-        <div className="d--vh-300 position--sticky">
-            <div className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start overflow--clip">
-                <div ref={ref} className="overflow--hidden d--vh-100 position--relative" style={{ width: '100%' }}>
+        <>
+            <div className="favorites-about__clip-path">
+                <div ref={ref} className="overflow--hidden d--vh-100 d--w-100">
                     {images.map((image, index) => (
                         <div key={index} style={{
                             position: 'absolute',
@@ -41,22 +46,18 @@ const ClipPathAnimation = () => {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            backgroundColor: image.bgColor,
-
                         }}>
                             <div className="flex flex--col d--h-100">
-                                <div className="about__work-flex-item">
-                                    <img src={image.src} loading="lazy" alt="Descriptive text" className="about__work-flex-item-image object-fit--cover" />
+                                <div className="favorites-about__clip-path-item">
+                                    <img src={image.src} loading="lazy" alt={`Favorite Image ${index}`} className="favorites-about__clip-path-item-image object-fit--cover" />
                                 </div>
-                                <div className="about__work-flex-item">
-                                    hola
-                                </div>
+
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

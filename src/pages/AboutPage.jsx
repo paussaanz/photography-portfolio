@@ -1,4 +1,4 @@
-import ClipPathAnimation from '../components/AboutPage/ClipPathAnimation';
+import FavoritesAbout from '../components/AboutPage/FavoritesAbout';
 import HeroAbout from '../components/AboutPage/HeroAbout';
 import MarqueeAbout from '../components/AboutPage/MarqueeAbout';
 import TextAbout from '../components/AboutPage/TextAbout';
@@ -27,7 +27,7 @@ const AboutPage = ({ isVisited }) => {
             </section>
 
             <section className="about__section-work">
-                <ClipPathAnimation />
+                <FavoritesAbout/>
             </section>
         </div>
     );

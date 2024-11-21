@@ -237,6 +237,11 @@ Uso de clases de gap (`.g`):
         }
     }
 
+    &--y-auto{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
     &--t-auto {
         margin-top: auto;
     }

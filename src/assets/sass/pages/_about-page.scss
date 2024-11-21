@@ -12,7 +12,8 @@
     width: 100vw;
     color: var(--cor-primary);
     text-transform: uppercase;
-    &-loader{
+
+    &-loader {
       opacity: 0;
     }
   }
@@ -87,18 +88,54 @@
   }
 }
 
-
 /*CLIP PATH SCSS*/
-.about__work-flex-item{
-  flex: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10px;
- 
-  &-image{
-    height: 100%;
-    width: 100%;
-  }
-}
+.favorites-about {
 
+  &__text {
+    position: relative;
+    text-align: center;
+
+    &-gamilia {
+      font-size: 6rem;
+      line-height: 80px;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    &-list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      padding: 0;
+      list-style: none;
+      opacity: 0;
+
+      &-item {
+        transition: transform 0.5s ease;
+      }
+    }
+  }
+
+  &__clip-path {
+    position: sticky;
+    height: 600px;
+    width: 500px;
+  }
+
+  &__clip-path-item {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10px;
+
+    &-image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+
+}
