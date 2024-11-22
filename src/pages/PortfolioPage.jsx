@@ -6,9 +6,11 @@ import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/im
 import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
 import ProjectCardMobile from '../components/PortfolioPage/ProjectCardMobile';
+import { useMediaQuery } from '../contexts/MediaQueryContext';
 
-const PortfolioPage = ({ isVisited, isMobile }) => {
+const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
+    const { isMobile } = useMediaQuery();
 
     const cardsData = [
         { image: "/images/mid/lifestyle-18.webp", title: "LIFESTYLE", subtitle: "2020" },
@@ -22,7 +24,7 @@ const PortfolioPage = ({ isVisited, isMobile }) => {
             <PortfolioPageSeo portfolioParallaxHero={portfolioParallaxHero} />
 
             <section className="portfolio__hero-section">
-                <div className="d--vh-175 flex">
+                <div className={`${isMobile ? 'd--vh-100' : 'd--vh-175'} flex`}>
                     {isVisited ?
                         <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
                         :
