@@ -1,41 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimation from '../components/General/TextAnimation';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
 import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/images';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
+import ProjectCardMobile from '../components/PortfolioPage/ProjectCardMobile';
 
-const PortfolioPage = ({ isVisited }) => {
+const PortfolioPage = ({ isVisited, isMobile }) => {
     const sectionRef = useRef(null);
 
-    console.log(isVisited)
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Inicializa el ScrollTrigger
-        const scrollTriggerInstance = ScrollTrigger.create({
-            trigger: sectionRef.current, // Contenedor donde quieres aplicar el ScrollTrigger
-            start: "top top", // Inicia en la parte superior
-            end: "bottom bottom", // Termina en la parte inferior
-            scrub: 15, // Suaviza el efecto
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const newColor = `rgba(200, 180, 230, ${progress})`;
-                gsap.to(sectionRef.current, {
-                    backgroundColor: newColor,
-                    duration: 0.5,
-                    ease: "power3.out"
-                });
-            }
-        });
-
-        return () => {
-            scrollTriggerInstance.kill();
-        };
-    }, []);
+    const cardsData = [
+        { image: "/images/mid/lifestyle-18.webp", title: "LIFESTYLE", subtitle: "2020" },
+        { image: "/images/mid/sports-4.webp", title: "SPORTS", subtitle: "2022" },
+        { image: "/images/mid/nature-15.webp", title: "NATURE", subtitle: "2024" },
+      ];
 
     return (
 
@@ -63,7 +42,10 @@ const PortfolioPage = ({ isVisited }) => {
                 </div>
 
                 <div className="portfolio__projects-animation-section">
-                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>
+                    {isMobile ? 
+                    <ProjectCardMobile cards={cardsData}/>
+                    :
+                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>}
                 </div>
             </section>
         </div>

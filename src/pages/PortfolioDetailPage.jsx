@@ -36,10 +36,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             setDisabledButtons(false);
         }, 100);
 
-
-    };
-
-    useEffect(() => {
         setTimeout(() => {
             requestAnimationFrame(() => {
                 if (imagesSectionRef.current && lenis) {
@@ -51,7 +47,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 }
             });
         }, 100);
-    }, [ordered]);
+    };
 
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered

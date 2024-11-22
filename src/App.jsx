@@ -14,12 +14,24 @@ import CursorTrail from "./components/Cursor/CursorTrail";
 import LoaderPortfolio from "./components/Loaders/LoaderPortfolio";
 import './assets/sass/style.scss'
 import { useEffect, useState } from "react";
+// import { LinkReveal } from "./components/General/LinkReveal";
 
 function App() {
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
 
   const [isVisited, setIsVisited] = useState(false); // State to track visit status
   const [initialPath, setInitialPath] = useState(location.pathname); // Tracks the first path user visited
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 720);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 720);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Clear localStorage key on page load
   useEffect(() => {
@@ -57,13 +69,14 @@ function App() {
               <Route path="/portfolio/nature" element={<PortfolioDetailPage title="nature" images={portfolioDetails.nature} textAnimation={"The intricate dance of light and shadow comes alive in nature photography, where landscapes breathe life into stillness. Each frame becomes a portal to the sublime, showcasing the beauty of flora and fauna often overlooked. These images invite contemplation and appreciation for the delicate balance of ecosystems, reminding us of our connection to the natural world."} />} />
               <Route path="/portfolio/lifestyle" element={<PortfolioDetailPage title="lifestyle" images={portfolioDetails.lifestyle} textAnimation={"Photography serves as a visual language, communicating emotions and hidden truths in every scene. My collection reflects everyday moments transformed into art, showcasing the beauty often overlooked. Each image stands as a testament to the connection between the photographer and their environment, inviting viewers to see the world through my eyes."} />} />
               <Route path="/portfolio/sports" element={<PortfolioDetailPage title="sports" images={portfolioDetails.sports} textAnimation={"In sports photography, dynamic energy transcends the frame, transforming fleeting moments of intensity into echoes of triumph and struggle. Each image resonates with the pulse of competition, capturing not just the action but the spirit that ignites the heart of the game. The lens reveals the determination and passion that drive athletes, inviting viewers to feel the thrill of victory and the weight of defeat."} />} />
-              <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} />} />
+              <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} isMobile={isMobile}/>} />
               <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
               <Route path="/editorials/detail" element={<EditorialsDetailPage />} />
               <Route path="/about" element={<AboutPage isVisited={isVisited}/>} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/contact/form" element={<ContactForm />} />
               <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
+              {/* <Route path="/links" element={<LinkReveal/>}/> */}
             </Routes>
           </main>
           <ThemeButton />
