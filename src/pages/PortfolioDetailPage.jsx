@@ -1,5 +1,4 @@
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimation from "../components/General/TextAnimation";
 import Button from "../components/General/Buttons/Button";
