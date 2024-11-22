@@ -22,6 +22,10 @@
                     height: 38vh;
                     width: 27vh;
                     z-index: 1;
+
+                    @include media-breakpoint-down(md) {
+                        display: none;
+                    }
                 }
 
                 &:nth-of-type(2) {
@@ -30,6 +34,13 @@
                     height: 28vh;
                     width: 18vh;
                     z-index: 2;
+
+                    @include media-breakpoint-down(md) {
+                        right: -8vw;
+                        top: 104vh;
+                        height: 24vh;
+                        width: 41vh;
+                    }
                 }
 
                 &:nth-of-type(3) {
@@ -38,6 +49,13 @@
                     height: 30vh;
                     width: 22vh;
                     z-index: 3;
+
+                    @include media-breakpoint-down(md) {
+                        right: 13vw;
+                        top: 55vh;
+                        height: 31vh;
+                        width: 24vh;
+                    }
                 }
 
                 &:nth-of-type(4) {
@@ -46,6 +64,14 @@
                     height: 22vh;
                     width: 15vh;
                     z-index: 3;
+
+                    @include media-breakpoint-down(md) {
+                        left: 49vw;
+                        top: 58vh;
+                        height: 33vh;
+                        width: 27vh;
+                        z-index: 1;
+                    }
 
                 }
 
@@ -56,8 +82,15 @@
                     width: 20vh;
                     z-index: 3;
 
+                    @include media-breakpoint-down(md) {
+                        left: 7vw;
+                        height: 23vh;
+                        width: 15vh;
+                    }
+
                 }
-                &-loader{
+
+                &-loader {
                     opacity: 0;
                 }
             }
