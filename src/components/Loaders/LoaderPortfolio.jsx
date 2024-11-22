@@ -23,11 +23,18 @@ const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
         });
 
         tl.to(".portfolio__hero-title-loader", {
-            top: '100%',
+            bottom: -65,
             duration: 2,
             delay: -2,
             ease: "power4.inOut"
         });
+
+        tl.to(".portfolio__hero-mobile-title", {
+            top: "100%",
+            duration: 2,
+            delay: -2,
+            ease: "power4.inOut"
+        })
 
     }, []);
 
@@ -89,7 +96,7 @@ const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
                 {isMobile ? (
                     <motion.div
                         style={{ top: '0%' }}
-                        className="portfolio__hero-mobile-title portfolio__hero-title-loader m--0 text-transform--uppercase position--absolute text-color--primary overflow--hidden flex flex--a-center flex--j-center"
+                        className="portfolio__hero-mobile-title m--0 text-transform--uppercase position--absolute text-color--primary overflow--hidden flex flex--a-center flex--j-center"
                     >
                         <h1 className="portfolio__hero-title">
                             {word}
