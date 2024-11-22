@@ -73,8 +73,8 @@ de la pantalla alcance el breakpoint `md`, definido en el mapa $display-sizes-md
 }
 
 @each $size, $value in $display-sizes-md {
-  .d#{$size}-md {
-    @include media-breakpoint-up(md) {
+  .d#{$size}-mbl {
+    @include media-breakpoint-down(md) {
       font-size: $value !important;
     }
   }
@@ -99,9 +99,9 @@ de la pantalla alcance el breakpoint `md`, definido en el mapa $heading-sizes-md
 
 @each $size, $value in $headings-sizes-md {
 
-  .h#{$size}-md,
+  .h#{$size}-mbl,
   h#{$size} {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-down(md) {
       font-size: $value;
     }
   }
@@ -126,8 +126,8 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
 
 @each $size, $value in $font-sizes-md {
 
-  .b#{$size}-md {
-    @include media-breakpoint-up(md) {
+  .b#{$size}-mbl {
+    @include media-breakpoint-down(md) {
       font-size: $value !important;
       text-transform: initial;
     }
@@ -162,21 +162,18 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
     }
   }
 
+
   &-align {
-    &--center {
-      text-align: center;
-    }
+    @each $alignment in (center, left, right, justify) {
+      &--#{$alignment} {
+        text-align: #{$alignment}; // Estilo base para móviles
 
-    &--left {
-      text-align: left;
-    }
-
-    &--right {
-      text-align: right;
-    }
-
-    &--justify {
-      text-align: justify;
+        &-mbl {
+          @include media-breakpoint-down(md) {
+            text-align: #{$alignment} !important; // Variante para pantallas medianas o más grandes
+          }
+        }
+      }
     }
   }
 
@@ -236,6 +233,10 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
 }
 
 .text-container {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0;
+
+  @media (min-width: $cor-container-max-widths-md) {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
 }

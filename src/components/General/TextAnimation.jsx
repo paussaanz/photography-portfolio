@@ -88,7 +88,7 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
 
   return (
     <div className={`text-container ${className}`}>
-      <div ref={textRef} className={`b4 b1-md text-align--center ${textColor} text-transform--uppercase`}>
+      <div ref={textRef} className={`b1 b4-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}>
         {text}
       </div>
     </div>

@@ -5,16 +5,16 @@ const generateKeyframes = (width, height, uniqueId) => {
   const curveOffset = height * 0.8;
 
   return `
-    /* Animaciones de entrada */
     @keyframes morph-in-top-${uniqueId} {
       0% {
         d: path(
-          "M 0 ${height} V 0 Q ${width / 2} 0 ${width} 0 V 0 H 0 Z"
+        
+          "M -10 ${height} V 0 Q ${width / 2} 0 ${width} 0 V 0 H 0 Z"
         );
       }
       100% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width / 2} ${height + curveOffset} ${width} ${height} V 0 H 0 Z"
+          "M -10 ${height} V ${height} Q ${width / 2} ${height + curveOffset * 5} ${width} ${height} V 0 H 0 Z"
         );
       }
     }
@@ -22,12 +22,12 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-in-bottom-${uniqueId} {
       0% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width} ${width * 1.5} ${width} ${width * 1.5} V ${height} Q ${width / 2} 0 0 ${height} H 0 Z"
+          "M -10 ${height} V ${height} Q ${width} ${width * 1.5} ${width} ${width * 1.5} V ${height} Q ${width / 2} 0 0 ${height} H 0 Z"
         );
       }
       100% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width} ${width * 1.5} ${width} ${width * 1.5} V 0 Q ${width / 2} 0 0 0 H 0 Z"
+          "M -10 ${height} V ${height} Q ${width} ${width * 1.5} ${width} ${width * 1.5} V 0 Q ${width / 2} 0 0 0 H 0 Z"
         );
       }
     }
@@ -35,12 +35,12 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-in-left-${uniqueId} {
       0% {
         d: path(
-          "M ${width} 0 Q ${width - curveOffset} ${height / 2} ${width} ${height} L ${width} ${height} V 0 L ${width / 5} 0 Z"
+          "M ${width} 0 Q ${width - curveOffset} ${height / 2} ${width} ${height} L ${width} ${height} V 0 L ${width / 5}  0 Z"
         );
       }
       100% {
         d: path(
-          "M 0 0 Q 0 ${height / 2} 0 ${height} L ${width} ${height} V 0 L ${width / 5} 0 Z"
+          "M -10 0 Q 0 ${height / 2} 0 ${height} L ${width} ${height} V 0 L ${width / 5} 0 Z"
         );
       }
     }
@@ -48,7 +48,7 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-in-right-${uniqueId} {
       0% {
         d: path(
-          "M 0 0 Q ${curveOffset} ${height / 2} 0 ${height} L 0 ${height} V 0 L ${width - curveOffset} 0 Z"
+          "M -10 0 Q ${curveOffset} ${height / 2} 0 ${height} L 0 ${height} V 0 L ${width - curveOffset} 0 Z"
         );
       }
       100% {
@@ -62,12 +62,12 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-out-top-${uniqueId} {
       0% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width / 2} ${curveOffset} ${width} ${height} V 0 H 0 Z"
+          "M -10 ${height} V ${height} Q ${width / 2} ${curveOffset / 5} ${width} ${height} V 0 H 0 Z"
         );
       }
       100% {
         d: path(
-          "M 0 ${height} V 0 Q ${width / 2} 0 ${width} 0 V 0 H 0 Z"
+          "M -10 ${height} V 0 Q ${width / 2} 0 ${width} 0 V 0 H 0 Z"
         );
       }
     }
@@ -75,12 +75,12 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-out-bottom-${uniqueId} {
       0% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width / 2} ${height} ${width} ${height} V 0 Q 60 0 0 0 H 0 Z"
+          "M -10 ${height} V ${height} Q ${width / 2} ${height} ${width} ${height} V 0 Q 60 0 0 0 H 0 Z"
         );
       }
       100% {
         d: path(
-          "M 0 ${height} V ${height} Q ${width / 2} ${height} ${width} ${height} V ${height} Q ${width / 2} ${height + 60} 0 ${height} H 0 Z"
+          "M -10 ${height} V ${height} Q ${width / 2} ${height} ${width} ${height} V ${height} Q ${width / 2} ${height + 60} 0 ${height} H 0 Z"
         );
       }
     }
@@ -88,7 +88,7 @@ const generateKeyframes = (width, height, uniqueId) => {
     @keyframes morph-out-left-${uniqueId} {
       0% {
         d: path(
-          "M 0 0 Q ${curveOffset} ${height / 2} 0 ${height} L ${width} ${height} V 0 L ${width / 5} 0 Z"
+          "M -10 0 Q ${curveOffset} ${height / 2} 0 ${height} L ${width} ${height} V 0 L ${width / 5} 0 Z"
         );
       }
       100% {
@@ -106,18 +106,26 @@ const generateKeyframes = (width, height, uniqueId) => {
       }
       100% {
         d: path(
-          "M 0 0 Q 0 ${height / 2} 0 ${height} L 0 ${height} V 0 L ${width - curveOffset} 0 Z"
+          "M -10 0 Q 0 ${height / 2} 0 ${height} L 0 ${height} V 0 L ${width - curveOffset} 0 Z"
         );
       }
     }
   `;
 };
 
-const AnimatedButton = ({ width = 200, height = 30 , text}) => {
+const AnimatedButton = ({
+  width = 200,
+  height = 30,
+  text,
+  onClick,
+  // onSubmit,
+  // isSubmit = false,
+  isSelected = false
+}) => {
   const buttonRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState('');
-  const uniqueId = `${width}-${height}-${Math.random().toString(36).substr(2, 5)}`;
+  const uniqueId = useRef(`${width}-${height}-${Math.random().toString(36).substr(2, 5)}`).current;
 
   useEffect(() => {
     const styleSheet = document.createElement('style');
@@ -146,7 +154,9 @@ const AnimatedButton = ({ width = 200, height = 30 , text}) => {
     setIsAnimating(true);
   };
 
+
   const handleMouseLeave = (e) => {
+    if (e.type !== 'mouseleave') return;
     const rect = buttonRef.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -168,7 +178,8 @@ const AnimatedButton = ({ width = 200, height = 30 , text}) => {
       ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="animated-button"
+      onClick={onClick}
+      className={`animated-button flex--s-0 ${isSelected ? 'selected' : ''}`}
       style={{ position: 'relative', width, height }}
     >
       <p className={`${isAnimating ? 'text-white' : ''}`}>{text}</p>

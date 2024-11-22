@@ -30,42 +30,55 @@ Uso de clases de gap (`.g`):
 */
 
 .d {
-    // Viewport Heights
+
+    // Viewport Heights -- ONLY ON DESKTOP
     @each $size, $value in (50: 50vh, 100: 100vh, 150: 150vh, 175: 175vh, 300: 300vh) {
         &--vh-#{$size} {
             height: $value !important;
         }
     }
 
-    // Viewport Widths
+    // Viewport Widths -- ONLY ON DESKTOP
     @each $size, $value in (50: 50vw, 100: 100vw) {
         &--vw-#{$size} {
             width: $value !important;
         }
     }
 
-    &--h-max {
-        height: max-content !important;
-    }
-
-    &--h-fit {
-        height: fit-content !important;
-    }
-
     &--h-100 {
         height: 100% !important;
-    }
 
-    &--w-max {
-        width: max-content !important;
+        &-mbl {
+            @include media-breakpoint-down(md) {
+                height: 100% !important; // Mobile variant
+            }
+        }
     }
+//BORRABLES
+    // &--w-max {
+    //     width: max-content !important;
+    // }
 
-    &--w-fit {
-        width: fit-content !important;
-    }
+    // &--w-fit {
+    //     width: fit-content !important;
+    // }
 
+    // &--h-max {
+        //     height: max-content !important;
+        // }
+    
+        // &--h-fit {
+        //     height: fit-content !important;
+        // }
+        
     &--w-100 {
         width: 100% !important;
+
+        &-mbl {
+            @include media-breakpoint-down(md) {
+                width: 100% !important; // Mobile variant
+            }
+        }
     }
 }
 
@@ -237,7 +250,7 @@ Uso de clases de gap (`.g`):
         }
     }
 
-    &--y-auto{
+    &--y-auto {
         margin-top: auto;
         margin-bottom: auto;
     }

@@ -139,3 +139,90 @@
 
 
 }
+
+// .wrapper{
+//   width: 450px;
+//   background-color: #fff;
+//   padding: 30px;
+//   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+// }
+
+
+.input-data {
+  height: 30px;
+  width: 100%;
+  position: relative;
+
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-family: 'gunterz';
+    padding: 0;
+    border-bottom: 2px solid var(--cor-primary);
+    background-color: transparent;
+    outline: none; // Quita el recuadro de focus
+
+    &:focus+label,
+    &:not(:placeholder-shown)+label {
+      bottom: 35px;
+      color: var(--cor-primary);
+    }
+  }
+
+  label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    pointer-events: none;
+    transition: bottom 0.3s ease, color 0.3s ease;
+    color: var(--cor-primary);
+    font-family: 'gamilia';
+    text-transform: uppercase;
+  }
+
+  
+
+}
+
+.input-data-area{
+  position: relative;
+  label {
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    pointer-events: none;
+    transition: bottom 0.3s ease, color 0.3s ease;
+    color: var(--cor-primary);
+    font-family: 'gamilia';
+    text-transform: uppercase;
+  }
+  textarea#message {
+    border: none;
+    border-bottom: 2px solid var(--cor-primary) !important;
+    resize: none;
+    width: 100% !important; 
+    height: 100px;
+    line-height: 1.5;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    overflow: hidden;
+  }
+
+  textarea#message:focus {
+    border-bottom: 2px solid var(--cor-primary);
+  }
+
+  textarea#message::placeholder {
+    color: transparent;
+  }
+
+  textarea#message:focus+label,
+  textarea#message:not(:placeholder-shown)+label {
+    bottom: 110px;
+    /* Adjust based on textarea height */
+    color: var(--cor-primary);
+  }
+}

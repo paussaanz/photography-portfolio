@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "../../../contexts/ThemeContext"
+import { useTheme } from "../../../contexts/ThemeContext";
 
 const ThemeButton = () => {
     const { theme, toggleTheme } = useTheme();
-    const isDarkMode = theme === 'dark-theme';
-    const mounted = useRef(false)
+    const isDarkMode = theme === "dark-theme";
+    const mounted = useRef(false);
 
     useEffect(() => {
         mounted.current = true;
-    }, [])
+    }, []);
 
     const svgVariants = {
         moon: { rotate: 40 },
@@ -22,7 +22,7 @@ const ThemeButton = () => {
     };
 
     const maskedCircleVariants = {
-        moon: { cx: 12, cy: 4 },
+        moon: { cx: 12, cy: 4 }, // Definimos todos los atributos
         sun: { cx: 30, cy: 0 },
     };
 
@@ -45,7 +45,10 @@ const ThemeButton = () => {
                 strokeLinejoin="round"
                 variants={svgVariants}
                 animate={isDarkMode ? "moon" : "sun"}
-                transition={{ duration: mounted.current ? 0.5 : 0, ease: [0.42, 0, 0.58, 1] }}
+                transition={{
+                    duration: mounted.current ? 0.5 : 0,
+                    ease: [0.42, 0, 0.58, 1],
+                }}
                 style={{ cursor: "pointer" }}
                 onClick={() => toggleTheme((prev) => !prev)}
             >
@@ -54,21 +57,34 @@ const ThemeButton = () => {
                     <motion.circle
                         variants={maskedCircleVariants}
                         animate={isDarkMode ? "moon" : "sun"}
-                        transition={{ duration: mounted.current ? 0.5 : 0, ease: [0.42, 0, 0.58, 1] }}
-                        cx="12"
-                        cy="4"
-                        r="9"
+                        transition={{
+                            duration: mounted.current ? 0.5 : 0,
+                            ease: [0.42, 0, 0.58, 1],
+                        }}
+                        initial={{
+                            cx: 12, // Valor inicial seguro
+                            cy: 4, // Valor inicial seguro
+                            r: 9,  // Valor inicial seguro
+                        }}
                         fill="black"
                     />
                 </mask>
                 <motion.circle
                     variants={circleVariants}
                     animate={isDarkMode ? "moon" : "sun"}
-                    transition={{ duration: mounted.current ? 0.5 : 0, ease: [0.42, 0, 0.58, 1] }}
+                    transition={{
+                        duration: mounted.current ? 0.5 : 0,
+                        ease: [0.42, 0, 0.58, 1],
+                    }}
+                    initial={{
+                        cx: 12, // Valor inicial seguro
+                        cy: 12, // Valor inicial seguro
+                        r: 9,  // Valor inicial seguro
+                    }}
                     fill={isDarkMode ? "white" : "black"}
-                    cx="12"
-                    cy="12"
-                    r="9"
+                    cx="12" // Respaldo de seguridad
+                    cy="12" // Respaldo de seguridad
+                    r="9" // Respaldo de seguridad
                     mask="url(#mask)"
                 />
 
@@ -90,6 +106,6 @@ const ThemeButton = () => {
             </motion.svg>
         </div>
     );
-}
+};
 
 export default ThemeButton;

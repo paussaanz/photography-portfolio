@@ -10,7 +10,7 @@ const Button = ({ text, className, onClick }) => {
         button.addEventListener('mouseleave', resetText);
 
         function getRandomCharacter() {
-            const chars = "0123456789";
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789*&#=€-$%!+?";
             return chars[Math.floor(Math.random() * chars.length)];
         }
 
@@ -21,16 +21,24 @@ const Button = ({ text, className, onClick }) => {
             button.dataset.animating = 'true';
 
             let textArray = originalText.current.split('');
+            const totalRounds = textArray.length;
+            let revealedIndex = 0;
+
             const interval = setInterval(() => {
                 // Only shuffle non-space characters
-                textArray = textArray.map(char => char === ' ' ? ' ' : getRandomCharacter());
-                button.textContent = textArray.join('');
-            }, 90);
+                const shuffledArray = textArray.map((char, index) => {
+                    return index <= revealedIndex ? char : char === " " ? " " : getRandomCharacter();
+                });
 
-            setTimeout(() => {
-                clearInterval(interval);
-                resetText();
-            }, 600); // Runs the animation for 500ms
+                button.textContent = shuffledArray.join("");
+
+                // Advance the revealed index
+                revealedIndex++;
+                if (revealedIndex >= totalRounds) {
+                    clearInterval(interval);
+                    button.dataset.animating = "false";
+                }
+            }, 90);
         }
 
         function resetText() {
