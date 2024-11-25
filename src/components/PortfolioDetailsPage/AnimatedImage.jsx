@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
-import Lenis from "lenis";
 import LenisContext from "../../contexts/LenisContext";
 import AnimatedImageThumbnails from "./AnimatedImageThumbnails";
 
@@ -23,7 +22,6 @@ const AnimatedImage = ({
     target: container,
     offset: ["start center", "center start"],
   });
-
   const { stop, start } = useContext(LenisContext);
 
   const [isZoomed, setIsZoomed] = useState(false);
@@ -36,47 +34,42 @@ const AnimatedImage = ({
   });
   const [selectedImage, setSelectedImage] = useState(images[0].src);
   const [imageSize, setImageSize] = useState({ width: "auto", height: "auto" });
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [blurValue, setBlurValue] = useState(10);
+  const [clipPath, setClipPath] = useState("");
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
-  const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const blurAmount = useTransform(scrollYProgress, [0, 0.0001], [blurValue, 0]); // Ajusta [0, 10] para la cantidad de desenfoque que necesites
 
-  const MAX_WIDTH = 800;
-  const MAX_HEIGHT = 700;
+  const calculateClipPath = (scrollY) => {
+    const containerElement = container.current;
+    if (!containerElement) return;
 
+    const { width: actualWidth, height: actualHeight } = containerElement.getBoundingClientRect();
+    const deltaY = scrollY - lastScrollY;
+    const direction = deltaY > 0 ? 1 : -1;
+    const velocity = Math.min(Math.abs(deltaY), 50);
 
-  // Escuchar cambios en scrollYProgress para actualizar blurValue en tiempo real
-  useMotionValueEvent(blurAmount, "change", (latest) => {
-    setBlurValue(latest);
-  });
+    const topCurve = direction * velocity * 2 + 30;
+    const bottomCurve = actualHeight - 130 + direction * velocity * 2;
+
+    setClipPath(
+      `path("M0 30 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 30 L${actualWidth} ${actualHeight - 130} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight - 130} Z")`
+    );
+  };
 
   useEffect(() => {
-
-    return () => start();
-  }, []);
-
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = selectedImage;
-    img.onload = () => {
-      const ratio = img.width / img.height;
-      let width = img.width;
-      let height = img.height;
-
-      if (width > MAX_WIDTH) {
-        width = MAX_WIDTH;
-        height = MAX_WIDTH / ratio;
-      }
-      if (height > MAX_HEIGHT) {
-        height = MAX_HEIGHT;
-        width = MAX_HEIGHT * ratio;
-      }
-      setImageSize({ width, height });
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      calculateClipPath(scrollY);
+      setLastScrollY(scrollY);
     };
-  }, [selectedImage]);
+
+    window.addEventListener("scroll", handleScroll);
+    calculateClipPath(window.scrollY);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   const handleZoomIn = () => {
     if (container.current) {
@@ -174,7 +167,7 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-            <AnimatedImageThumbnails imagesArray={images}/>
+            <AnimatedImageThumbnails imagesArray={images} />
           </div>
         </>
       )}
@@ -188,21 +181,10 @@ const AnimatedImage = ({
       <motion.div
         onClick={handleZoomIn}
         className="gallery-grid__item"
-        onMouseMove={(e) => {
-          const rect = container.current.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          setMousePosition({ x, y });
-        }}
-        onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
         ref={container}
         layout
         initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          marginTop: !ordered ? "0" : `-${mousePosition.y * 0.3}px`,
-          marginLeft: !ordered ? "0" : `-${mousePosition.x * 0.3}px`,
-        }}
+        animate={{ opacity: 1 }}
         transition={{
           duration: 0.75,
           type: "tween",
@@ -212,27 +194,21 @@ const AnimatedImage = ({
           gridColumn: !ordered && `${colStart} / span ${colSpan}`,
           gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
           width: `${width}`,
-          height: `${height}`,
-          filter:  !ordered && `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
-
+          height: `auto`,
+          clipPath: clipPath,
+          WebkitClipPath: clipPath,
         }}
       >
-
-        
         <motion.img
           src={img.src}
           alt={`img-${index}`}
           initial={{ scale: 1 }}
-          animate={{
-            filter: !ordered &&  `blur(${blurValue}px)`, // Aplica el desenfoque dinámico basado en scroll
-          }}
           transition={{
             type: "tween",
             stiffness: 30,
           }}
           className="gallery-grid__item-image"
           style={{
-            scale: !ordered && scaleTransform,
             translateY: !ordered && yTransform,
           }}
         />
