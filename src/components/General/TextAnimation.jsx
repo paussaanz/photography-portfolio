@@ -87,7 +87,7 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
   }, [text]);
 
   return (
-    <div className={`text-container ${className}`}>
+    <div className={`text-container ${className} container-bem-mbl`}>
       <div ref={textRef} className={`b1 b4-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}>
         {text}
       </div>

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimation from '../components/General/TextAnimation';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
-import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/images';
+import { portfolioCardAnimation, portfolioParallaxHero, mobilePortfolioCard } from './../assets/js/images';
 import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
 import ProjectCardMobile from '../components/PortfolioPage/ProjectCardMobile';
@@ -45,7 +45,7 @@ const PortfolioPage = ({ isVisited }) => {
 
                 <div className="portfolio__projects-animation-section">
                     {isMobile ? 
-                    <ProjectCardMobile cards={cardsData}/>
+                    <ProjectCardMobile images={mobilePortfolioCard}/>
                     :
                     <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>}
                 </div>

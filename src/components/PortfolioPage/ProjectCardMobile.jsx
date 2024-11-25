@@ -1,20 +1,23 @@
-const ProjectCardMobile = ({ cards }) => {
-    return (
-      <div>
-        <div className="card-column">
-          {cards.map((card, index) => (
-            <div className="card" key={index}>
-              <div className="card__image-wrapper">
-                <img src={card.image} alt={card.title} className="card__image" />
+import { Link } from "react-router-dom";
+
+const ProjectCardMobile = ({ images }) => {
+  return (
+    <div>
+      <div className="mobile__portfolio-card-column">
+        {images.map((image, index) => (
+          <Link to={image.url} className="text-decoration--none">
+            <div className="mobile__card" key={index}>
+              <div className="mobile__card-image-wrapper">
+                <img src={image.src} alt={image.title} className="mobile__card-image" />
               </div>
-              <p className="text-color--primary h4 m--t-2">{card.title}</p>
-              <p className="text-color--primary b4">{card.subtitle}</p>
+              <p className="text-color--primary h4 m--t-2">{image.title}</p>
+              <p className="text-color--primary b4">{image.subtitle}</p>
             </div>
-          ))}
-        </div>
+          </Link>
+        ))}
       </div>
-    );
-  };
-  
-  export default ProjectCardMobile;
-  
+    </div>
+  );
+};
+
+export default ProjectCardMobile;

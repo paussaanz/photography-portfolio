@@ -37,6 +37,7 @@
                 height: 60vh;
                 width: 50vh;
                 z-index: 1;
+
                 @include media-breakpoint-down(md) {
                     height: 40vh;
                     width: 30vh;
@@ -49,6 +50,7 @@
                 height: 35vh;
                 width: 30vh;
                 z-index: 2;
+
                 @include media-breakpoint-down(md) {
                     display: none;
                 }
@@ -60,6 +62,7 @@
                 height: 35vh;
                 width: 30vh;
                 z-index: 3;
+
                 @include media-breakpoint-down(md) {
                     left: 58vw;
                     top: 75vh;
@@ -74,6 +77,7 @@
                 height: 55vh;
                 width: 40vh;
                 z-index: 1;
+
                 @include media-breakpoint-down(md) {
                     top: 75vh;
                     left: 33vw;
@@ -88,6 +92,7 @@
                 height: 85vh;
                 width: 60vh;
                 z-index: 2;
+
                 @include media-breakpoint-down(md) {
                     height: 40vh;
                     width: 30vh;
@@ -101,6 +106,7 @@
                 height: 48vh;
                 width: 35vh;
                 z-index: 3;
+
                 @include media-breakpoint-down(md) {
                     height: 30vh;
                     width: 21vh;
@@ -231,38 +237,30 @@
     opacity: 1;
 }
 
-.card-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* Espaciado entre tarjetas */
-    // align-items: center; /* Centra las tarjetas horizontalmente */
-    padding: 20px;
-}
+.mobile_ {
+    &_portfolio-card-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    // align-items: center;
-    width: 100%;
-    // text-align: center;
+    &_card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 
-}
+    &_card-image-wrapper {
+        width: 100%;
+        height: 450px;
+        overflow: hidden;
+    }
 
-.card__image-wrapper {
-    width: 100%;
-    height: 500px;
-    /* Altura fija para las imágenes */
-    overflow: hidden;
-    /* Oculta cualquier parte que sobresalga */
-    //    border-radius: 8px;
-}
-
-.card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Asegura que la imagen se ajuste correctamente */
-    display: block;
-    /* Elimina cualquier espacio blanco adicional */
+    &_card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
 }
