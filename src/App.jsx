@@ -22,6 +22,7 @@ function App() {
 
   const [isVisited, setIsVisited] = useState(false); // State to track visit status
   const [initialPath, setInitialPath] = useState(location.pathname); // Tracks the first path user visited
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { isMobile } = useMediaQuery();
 
@@ -47,8 +48,8 @@ function App() {
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <div data-barba-namespace="home">
-          <header id="header" className={`header--fixed-top header--inverted`}>
-            <Navbar />
+          <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
+            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
           </header>
 
           {!isMobile && <CursorTrail />}
