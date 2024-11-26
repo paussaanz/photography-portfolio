@@ -49,7 +49,7 @@ function App() {
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
-            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           </header>
 
           {!isMobile && <CursorTrail />}
