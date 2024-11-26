@@ -2,15 +2,18 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 const SwiperEditorialCard = ({ images }) => {
+    const { isMobile } = useMediaQuery();
+
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
     });
 
-    const imageStartWidth = 900; // Image width in pixels
+    const imageStartWidth = isMobile ? '300' : '900'; // Image width in pixels
     const imageEndWidth = 940; // Image width in pixels
     const gap = 3 * 16; // 3rem in pixels (1rem = 16px)
     const viewportWidth = window.innerWidth; // Viewport width

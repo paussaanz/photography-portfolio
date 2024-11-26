@@ -12,12 +12,6 @@ const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
     const { isMobile } = useMediaQuery();
 
-    const cardsData = [
-        { image: "/images/mid/lifestyle-18.webp", title: "LIFESTYLE", subtitle: "2020" },
-        { image: "/images/mid/sports-4.webp", title: "SPORTS", subtitle: "2022" },
-        { image: "/images/mid/nature-15.webp", title: "NATURE", subtitle: "2024" },
-      ];
-
     return (
 
         <div data-barba="container">
