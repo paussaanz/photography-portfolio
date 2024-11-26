@@ -25,17 +25,20 @@ Uso de clases de flex:
 
     &--row {
         flex-direction: row;
-
-        &-rev {
-            flex-direction: row-reverse;
+        &-mbl {
+            @include media-breakpoint-down(md) {
+                flex-direction: row;
+            }
         }
     }
 
     &--col {
         flex-direction: column;
 
-        &-rev {
-            flex-direction: column-reverse;
+        &-mbl {
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+            }
         }
     }
 
