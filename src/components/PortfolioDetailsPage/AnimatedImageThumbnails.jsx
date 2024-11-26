@@ -37,7 +37,7 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
     const { stop, start } = useContext(LenisContext);
 
     const squareSize = 150; // Tamaño fijo de las imágenes
-    const numSubdivisions = 40; // Número de subdivisiones para una malla más precisa
+    const numSubdivisions = 50; // Número de subdivisiones para una malla más precisa
     const curveIntensity = 10; // Ajusta la intensidad de la curvatura
 
     const imagePaths = [
@@ -60,7 +60,17 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
         '/images/thumbnails/nature-17.webp',
         '/images/thumbnails/nature-18.webp',
         '/images/thumbnails/nature-19.webp',
-       
+        '/images/thumbnails/nature-20.webp',
+        '/images/thumbnails/nature-21.webp',
+        '/images/thumbnails/nature-22.webp',
+        '/images/thumbnails/nature-23.webp',
+        '/images/thumbnails/nature-24.webp',
+        '/images/thumbnails/nature-25.webp',
+        '/images/thumbnails/nature-26.webp',
+        '/images/thumbnails/nature-27.webp',
+        '/images/thumbnails/nature-28.webp',
+        '/images/thumbnails/nature-29.webp',
+        '/images/thumbnails/nature-30.webp',
     ];
     // const imagePaths = imagesArray.map((image) => image.src);
 
@@ -85,7 +95,7 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
         let lastTimestamp = 0;
 
         canvas.width = squareSize * devicePixelRatio;
-        canvas.height = squareSize * loopImages.length * devicePixelRatio;
+        canvas.height = squareSize * (32 * 3) * devicePixelRatio;
         context.scale(devicePixelRatio, devicePixelRatio);
 
         const drawDeformedImage = (img, yPosition, curveFactor) => {
@@ -138,17 +148,8 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
         const drawImages = (curveFactor) => {
 
             context.clearRect(0, 0, canvas.width, canvas.height);
-        
-            const visibleStartIndex = Math.max(
-                Math.floor(scrollContainerRef.current.scrollTop / squareSize) - 1,
-                0
-            );
-            const visibleEndIndex = Math.min(
-                visibleStartIndex + Math.ceil(scrollContainerRef.current.clientHeight / squareSize) + 2,
-                loopImages.length
-            );
-        
-            for (let i = visibleStartIndex; i < visibleEndIndex; i++) {
+
+            for (let i = 0; i < loopImages.length; i++) {
                 const img = loopImages[i];
                 const yPosition = i * squareSize;
                 if (img.complete) {
@@ -156,7 +157,7 @@ const AnimatedImageThumbnails = ({ imagesArray }) => {
                 }
             }
         };
-        
+
         let isAnimating = false;
 
         const handleScroll = (event) => {
