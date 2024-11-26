@@ -2,10 +2,12 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ParallaxImages from "../General/ParallaxImages";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 
 
 const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
+    const { isMobile } = useMediaQuery();
 
     useEffect(() => {
 
@@ -15,7 +17,7 @@ const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
 
         tl.to(".portfolio__hero-images-parallax-loader", {
             opacity: 1,
-            stagger:0.25,
+            stagger: 0.25,
             duration: 2,
             ease: "power4.inOut"
         });
@@ -26,6 +28,13 @@ const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
             delay: -2,
             ease: "power4.inOut"
         });
+
+        tl.to(".portfolio__hero-mobile-title", {
+            top: "100%",
+            duration: 2,
+            delay: -2,
+            ease: "power4.inOut"
+        })
 
     }, []);
 
@@ -79,22 +88,37 @@ const LoaderPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     };
 
     return (
-        <div ref={container}className="container-bem portfolio__hero">
+        <div ref={container} className="container-bem portfolio__hero">
             <div className="portfolio__hero-images">
                 <ParallaxImages images={images} getYTransform={getYTransform} classname="portfolio__hero-images-parallax portfolio__hero-images-parallax-loader" />
             </div>
             <div className="text-color--primary text-align--center flex flex--j-center flex--a-center d--vh-100"> {/* Alineación centrada */}
-                <motion.div style={{ bottom: '-380px' }} className="portfolio__hero-title-loader m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center">
-                    {word.split("").map((letter, index) => (
-                        <motion.h1
-                            key={index}
-                            style={{ y: letterTransforms[index] }}
-                            className="portfolio__hero-title" // Asignar la transformación correspondiente
-                        >
-                            {letter}
-                        </motion.h1>
-                    ))}
-                </motion.div>
+                {isMobile ? (
+                    <motion.div
+                        style={{ top: '0%' }}
+                        className="portfolio__hero-mobile-title m--0 text-transform--uppercase position--absolute text-color--primary overflow--hidden flex flex--a-center flex--j-center"
+                    >
+                        <h1 className="portfolio__hero-title">
+                            {word}
+                        </h1>
+
+                    </motion.div>
+                ) : (
+                    <motion.div
+                        style={{ bottom: '-380px' }}
+                        className="portfolio__hero-title-loader m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center"
+                    >
+                        {word.split("").map((letter, index) => (
+                            <motion.h1
+                                key={index}
+                                style={{ y: letterTransforms[index] }}
+                                className="portfolio__hero-title"
+                            >
+                                {letter}
+                            </motion.h1>
+                        ))}
+                    </motion.div>
+                )}
             </div>
         </div>
     );

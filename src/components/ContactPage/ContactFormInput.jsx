@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactFormInput = ({ id, name, type, label, placeholder, value, onChange, required, onFocus, onBlur }) => {
     return (
-        <div className="input-data">
+        <div className="contact__form-input-data">
             <input
                 id={id}
                 name={name} // Added name attribute

@@ -1,5 +1,4 @@
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { scroller } from "react-scroll";  // Importamos 'scroller' para hacer scroll
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimation from "../components/General/TextAnimation";
 import Button from "../components/General/Buttons/Button";
@@ -16,7 +15,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
     const galleryRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null); // State to manage selected image for overlay
 
-    const { lenis, stop } = useContext(LenisContext);  // Utiliza el contexto de Lenis
+    const { lenis } = useContext(LenisContext);  // Utiliza el contexto de Lenis
 
 
     const handleImageClick = (img) => {
@@ -36,10 +35,6 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
             setDisabledButtons(false);
         }, 100);
 
-
-    };
-
-    useEffect(() => {
         setTimeout(() => {
             requestAnimationFrame(() => {
                 if (imagesSectionRef.current && lenis) {
@@ -51,7 +46,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
                 }
             });
         }, 100);
-    }, [ordered]);
+    };
 
     const handleMouseMove = (e) => {
         if (!galleryRef.current) return; // Prevents errors if gallery is not rendered

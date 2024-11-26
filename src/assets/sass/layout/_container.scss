@@ -28,6 +28,25 @@
       max-width: $cor-container-max-widths-xxl; // 1480px
     }
   }
+
+  .container-bem-mbl {
+    --gutter-x: 1.5rem;
+    --gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--gutter-x) * 0.5);
+    padding-left: calc(var(--gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+  
+    // Max-widths por breakpoint
+    @media (max-width: 576px) {
+      max-width: $cor-container-max-widths-sm; // 540px
+    }
+  
+    @media (max-width: 768px) {
+      max-width: $cor-container-max-widths-md; // 720px
+    }
+  }
   
 
   .container--fluid-bem {

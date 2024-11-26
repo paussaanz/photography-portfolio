@@ -2,9 +2,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import ParallaxImages from "../General/ParallaxImages";
 import gsap from "gsap";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
-const LoaderEditorials = ({ images = [], word="EDITORIALS" }) => {
+const LoaderEditorials = ({ images = [], word = "EDITORIALS" }) => {
     const container = useRef(null);
+    const { isMobile } = useMediaQuery();
+
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ['start end', 'end start']
@@ -43,10 +46,17 @@ const LoaderEditorials = ({ images = [], word="EDITORIALS" }) => {
 
         tl.to(".editorials__hero-title-loader", {
             bottom: -65,
-            delay: -1,
+            duration: 2,
+            delay: -2,
+            ease: "power4.inOut"
+
+        })
+        tl.to(".portfolio__hero-mobile-title", {
+            top: '100%',
+            duration: 2,
+            delay: -2,
             ease: "power4.inOut"
         })
-
     }, []);
 
     // Nuevos valores iniciales de desplazamiento para cada letra (para empezar más abajo)
@@ -72,7 +82,7 @@ const LoaderEditorials = ({ images = [], word="EDITORIALS" }) => {
         return useTransform(scrollYProgress, [start, end], [initialY, 0]); // Mapeo desde initialY hasta 0 en su rango
     });
 
-    
+
     return (
         <>
             <div ref={container} className="container-bem editorials__hero">
@@ -80,17 +90,31 @@ const LoaderEditorials = ({ images = [], word="EDITORIALS" }) => {
                     <ParallaxImages images={images} getYTransform={getYTransform} classname="editorials__hero-images-parallax editorials__hero-images-parallax-loader" />
                 </div>
                 <div className="text-color--primary text-align--center flex flex--j-center flex--a-end d--vh-100">
-                    <motion.div style={{ bottom: '-380px' }} className="editorials__hero-title-loader m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center">
-                        {word.split("").map((letter, index) => (
-                            <motion.h1
-                                key={index}
-                                style={{ y: letterTransforms[index] }}
-                                className="editorials__hero-title" // Asignar la transformación correspondiente
+                    {
+                        isMobile ? (
+                            <motion.div
+                                style={{ top: '0%' }}
+                                className="portfolio__hero-mobile-title  m--0 text-transform--uppercase position--absolute text-color--primary overflow--hidden flex flex--a-center flex--j-center"
                             >
-                                {letter}
-                            </motion.h1>
-                        ))}
-                    </motion.div>
+                                <h1 className="portfolio__hero-title">
+                                    {word}
+                                </h1>
+
+                            </motion.div>
+                        ) : (
+                            <motion.div style={{ bottom: '-380px' }} className="editorials__hero-title-loader m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center">
+                                {word.split("").map((letter, index) => (
+                                    <motion.h1
+                                        key={index}
+                                        style={{ y: letterTransforms[index] }}
+                                        className="editorials__hero-title" // Asignar la transformación correspondiente
+                                    >
+                                        {letter}
+                                    </motion.h1>
+                                ))}
+                            </motion.div>
+                        )
+                    }
                 </div>
             </div>
         </>
@@ -98,3 +122,4 @@ const LoaderEditorials = ({ images = [], word="EDITORIALS" }) => {
 };
 
 export default LoaderEditorials;
+

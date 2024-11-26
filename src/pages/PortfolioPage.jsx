@@ -1,41 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimation from '../components/General/TextAnimation';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
-import { portfolioCardAnimation, portfolioParallaxHero } from './../assets/js/images';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { portfolioCardAnimation, portfolioParallaxHero, mobilePortfolioCard } from './../assets/js/images';
 import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
+import ProjectCardMobile from '../components/PortfolioPage/ProjectCardMobile';
+import { useMediaQuery } from '../contexts/MediaQueryContext';
 
 const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
+    const { isMobile } = useMediaQuery();
 
-    console.log(isVisited)
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Inicializa el ScrollTrigger
-        const scrollTriggerInstance = ScrollTrigger.create({
-            trigger: sectionRef.current, // Contenedor donde quieres aplicar el ScrollTrigger
-            start: "top top", // Inicia en la parte superior
-            end: "bottom bottom", // Termina en la parte inferior
-            scrub: 15, // Suaviza el efecto
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const newColor = `rgba(200, 180, 230, ${progress})`;
-                gsap.to(sectionRef.current, {
-                    backgroundColor: newColor,
-                    duration: 0.5,
-                    ease: "power3.out"
-                });
-            }
-        });
-
-        return () => {
-            scrollTriggerInstance.kill();
-        };
-    }, []);
+    const cardsData = [
+        { image: "/images/mid/lifestyle-18.webp", title: "LIFESTYLE", subtitle: "2020" },
+        { image: "/images/mid/sports-4.webp", title: "SPORTS", subtitle: "2022" },
+        { image: "/images/mid/nature-15.webp", title: "NATURE", subtitle: "2024" },
+      ];
 
     return (
 
@@ -43,7 +24,7 @@ const PortfolioPage = ({ isVisited }) => {
             <PortfolioPageSeo portfolioParallaxHero={portfolioParallaxHero} />
 
             <section className="portfolio__hero-section">
-                <div className="d--vh-175 flex">
+                <div className={`${isMobile ? 'd--vh-100' : 'd--vh-175'} flex`}>
                     {isVisited ?
                         <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
                         :
@@ -54,7 +35,7 @@ const PortfolioPage = ({ isVisited }) => {
             </section>
 
             <section className="portfolio__text-animation-section" ref={sectionRef}>
-                <div className="p--y-5 d--vh-100 align-content--center">
+                <div className={`${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center`}>
                     <TextAnimation
                         text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
                         textColor='text-color--primary'
@@ -63,7 +44,10 @@ const PortfolioPage = ({ isVisited }) => {
                 </div>
 
                 <div className="portfolio__projects-animation-section">
-                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>
+                    {isMobile ? 
+                    <ProjectCardMobile images={mobilePortfolioCard}/>
+                    :
+                    <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef}/>}
                 </div>
             </section>
         </div>

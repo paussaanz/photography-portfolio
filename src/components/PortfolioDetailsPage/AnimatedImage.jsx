@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { createPortal } from "react-dom";
 import LenisContext from "../../contexts/LenisContext";
 import AnimatedImageThumbnails from "./AnimatedImageThumbnails";
+import AnimatedThumbnailList from "./AnimatedImageThumbnails";
 
 const AnimatedImage = ({
   images,
@@ -167,7 +168,16 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-            <AnimatedImageThumbnails imagesArray={images} />
+
+            {/* <AnimatedImageThumbnails imagesArray={images}/> */}
+
+            <AnimatedThumbnailList
+              imageList={images}
+              setSelectedImage={setSelectedImage}
+              selectedImage={selectedImage}
+              isExiting={isExiting}
+            />
+
           </div>
         </>
       )}

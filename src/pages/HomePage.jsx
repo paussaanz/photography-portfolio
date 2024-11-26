@@ -3,16 +3,18 @@ import VideoBackground from '../components/HomePage/VideoBackground';
 import TextOverlay from '../components/General/TextOverlay';
 import Button from '../components/General/Buttons/Button';
 import SwiperPortfolio from '../components/HomePage/SwiperPortfolio';
-import { useScroll, motion, useMotionValue } from 'framer-motion';
+import { useScroll, motion, useMotionValue, useTransform } from 'framer-motion';
 import TextAnimation from '../components/General/TextAnimation';
 import { useLocation } from 'react-router-dom';
 import HomeSeo from './SEO/HomeSeo';
 import LoaderHomePage from '../components/Loaders/LoaderHomePage';
+import AnimatedHeading from '../components/General/LinkReveal';
 
-const HomePage = ({isVisited}) => {
+const HomePage = ({ isVisited }) => {
     const homepageRef = useRef(); // Renombramos para evitar duplicidad
     const location = useLocation();
 
+    const word = "CAPTURE"
     const { scrollYProgress } = useScroll({
         target: homepageRef,
         offset: ["start start", "center center"]
@@ -20,6 +22,10 @@ const HomePage = ({isVisited}) => {
 
     const scale = useMotionValue(1);
     const rotate = useMotionValue(0);
+
+
+    const yTranslate = useTransform(scrollYProgress, [0, 0.1], ["0%", "-100%"]);
+    const yTranslateInverse = useTransform(scrollYProgress, [0, 0.1], ["100%", "0%"]);
 
     useEffect(() => {
         scale.set(1);
@@ -52,6 +58,34 @@ const HomePage = ({isVisited}) => {
                                 <span className='block--display'>Capture</span>
                                 <span className="h2 block--display">Brilliance</span>
                             </h1>
+
+                            {/* <h1>
+                                <div className="text-decoration--none position--relative block--display white-space--nowrap overflow--hidden">
+                                    <motion.div
+                                        style={{ y: yTranslate }}>
+                                        CAPTURE
+                                    </motion.div>
+                                    <motion.div
+                                        style={{ y: yTranslateInverse }}
+                                        className="position--absolute inset--0">
+                                        CAPTURE
+                                    </motion.div>
+                                </div>
+
+                                <div className="text-decoration--none position--relative block--display white-space--nowrap overflow--hidden">
+                                    <motion.div
+                                        style={{ y: yTranslate }}
+                                        className="h2">
+                                        BRILLIANCE
+                                    </motion.div>
+                                    <motion.div
+                                        style={{ y: yTranslateInverse }}
+                                        className="h2 position--absolute inset--0">
+                                        BRILLIANCE
+                                    </motion.div>
+                                </div>
+                            </h1> */}
+
                             <Button href="/portfolio" text="See my work" className="text-color--light" />
                         </TextOverlay>
                     </>
@@ -69,7 +103,7 @@ const HomePage = ({isVisited}) => {
 
                 <SwiperPortfolio />
             </section>
-        </div>
+        </div >
     );
 };
 

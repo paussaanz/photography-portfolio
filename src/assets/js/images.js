@@ -26,6 +26,14 @@ import EditorialCover2 from "/images/editorial-cover-2.png";
 
 //PHOTOSHOOTS
 import Photoshoots1 from "/images/mid/photoshoots-1.webp";
+import Photoshoots2 from "/images/mid/photoshoots-2.webp";
+import Photoshoots3 from "/images/mid/photoshoots-3.webp";
+import Photoshoots4 from "/images/mid/photoshoots-4.webp";
+import Photoshoots5 from "/images/mid/photoshoots-5.webp";
+import Photoshoots6 from "/images/mid/photoshoots-6.webp";
+import Photoshoots7 from "/images/mid/photoshoots-7.webp";
+import Photoshoots8 from "/images/mid/photoshoots-8.webp";
+import Photoshoots9 from "/images/mid/photoshoots-9.webp";
 import Photoshoots10 from "/images/mid/photoshoots-10.webp";
 import Photoshoots11 from "/images/mid/photoshoots-11.webp";
 import Photoshoots12 from "/images/mid/photoshoots-12.webp";
@@ -36,7 +44,6 @@ import Photoshoots16 from "/images/mid/photoshoots-16.webp";
 import Photoshoots17 from "/images/mid/photoshoots-17.webp";
 import Photoshoots18 from "/images/mid/photoshoots-18.webp";
 import Photoshoots19 from "/images/mid/photoshoots-19.webp";
-import Photoshoots2 from "/images/mid/photoshoots-2.webp";
 import Photoshoots20 from "/images/mid/photoshoots-20.webp";
 import Photoshoots21 from "/images/mid/photoshoots-21.webp";
 import Photoshoots22 from "/images/mid/photoshoots-22.webp";
@@ -47,17 +54,12 @@ import Photoshoots26 from "/images/mid/photoshoots-26.webp";
 import Photoshoots27 from "/images/mid/photoshoots-27.webp";
 import Photoshoots28 from "/images/mid/photoshoots-28.webp";
 import Photoshoots29 from "/images/mid/photoshoots-29.webp";
-import Photoshoots3 from "/images/mid/photoshoots-3.webp";
 import Photoshoots30 from "/images/mid/photoshoots-30.webp";
 import Photoshoots31 from "/images/mid/photoshoots-31.webp";
 import Photoshoots32 from "/images/mid/photoshoots-32.webp";
 import Photoshoots33 from "/images/mid/photoshoots-33.webp";
-import Photoshoots4 from "/images/mid/photoshoots-4.webp";
-import Photoshoots5 from "/images/mid/photoshoots-5.webp";
-import Photoshoots6 from "/images/mid/photoshoots-6.webp";
-import Photoshoots7 from "/images/mid/photoshoots-7.webp";
-import Photoshoots8 from "/images/mid/photoshoots-8.webp";
-import Photoshoots9 from "/images/mid/photoshoots-9.webp";
+import Photoshoots34 from "/images/mid/photoshoots-34.webp";
+
 
 //MUSIC
 import Music1 from "/images/mid/music-1.webp";
@@ -78,6 +80,14 @@ import Music15 from "/images/mid/music-15.webp";
 
 //NATURE
 import Nature1 from "/images/mid/nature-1.webp";
+import Nature2 from "/images/mid/nature-2.webp";
+import Nature3 from "/images/mid/nature-3.webp";
+import Nature4 from "/images/mid/nature-4.webp";
+import Nature5 from "/images/mid/nature-5.webp";
+import Nature6 from "/images/mid/nature-6.webp";
+import Nature7 from "/images/mid/nature-7.webp";
+import Nature8 from "/images/mid/nature-8.webp";
+import Nature9 from "/images/mid/nature-9.webp";
 import Nature10 from "/images/mid/nature-10.webp";
 import Nature11 from "/images/mid/nature-11.webp";
 import Nature12 from "/images/mid/nature-12.webp";
@@ -88,7 +98,6 @@ import Nature16 from "/images/mid/nature-16.webp";
 import Nature17 from "/images/mid/nature-17.webp";
 import Nature18 from "/images/mid/nature-18.webp";
 import Nature19 from "/images/mid/nature-19.webp";
-import Nature2 from "/images/mid/nature-2.webp";
 import Nature20 from "/images/mid/nature-20.webp";
 import Nature21 from "/images/mid/nature-21.webp";
 import Nature22 from "/images/mid/nature-22.webp";
@@ -99,23 +108,13 @@ import Nature26 from "/images/mid/nature-26.webp";
 import Nature27 from "/images/mid/nature-27.webp";
 import Nature28 from "/images/mid/nature-28.webp";
 import Nature29 from "/images/mid/nature-29.webp";
-import Nature3 from "/images/mid/nature-3.webp";
-import Nature4 from "/images/mid/nature-4.webp";
-import Nature5 from "/images/mid/nature-5.webp";
-import Nature6 from "/images/mid/nature-6.webp";
-import Nature7 from "/images/mid/nature-7.webp";
-import Nature8 from "/images/mid/nature-8.webp";
-import Nature9 from "/images/mid/nature-9.webp";
+import Nature30 from "/images/mid/nature-30.webp";
+import Nature31 from "/images/mid/nature-31.webp";
+import Nature32 from "/images/mid/nature-32.webp";
+import Nature from "/images/mid/nature.webp";
 
 //LIFESTYLE
 import Lifestyle1 from "/images/mid/lifestyle-1.webp";
-import Lifestyle10 from "/images/mid/lifestyle-10.webp";
-import Lifestyle11 from "/images/mid/lifestyle-11.webp";
-import Lifestyle12 from "/images/mid/lifestyle-12.webp";
-import Lifestyle13 from "/images/mid/lifestyle-13.webp";
-import Lifestyle14 from "/images/mid/lifestyle-14.webp";
-import Lifestyle15 from "/images/mid/lifestyle-15.webp";
-import Lifestyle16 from "/images/mid/lifestyle-16.webp";
 import Lifestyle2 from "/images/mid/lifestyle-2.webp";
 import Lifestyle3 from "/images/mid/lifestyle-3.webp";
 import Lifestyle4 from "/images/mid/lifestyle-4.webp";
@@ -124,6 +123,27 @@ import Lifestyle6 from "/images/mid/lifestyle-6.webp";
 import Lifestyle7 from "/images/mid/lifestyle-7.webp";
 import Lifestyle8 from "/images/mid/lifestyle-8.webp";
 import Lifestyle9 from "/images/mid/lifestyle-9.webp";
+import Lifestyle10 from "/images/mid/lifestyle-10.webp";
+import Lifestyle11 from "/images/mid/lifestyle-11.webp";
+import Lifestyle12 from "/images/mid/lifestyle-12.webp";
+import Lifestyle13 from "/images/mid/lifestyle-13.webp";
+import Lifestyle14 from "/images/mid/lifestyle-14.webp";
+import Lifestyle15 from "/images/mid/lifestyle-15.webp";
+import Lifestyle16 from "/images/mid/lifestyle-16.webp";
+import Lifestyle17 from "/images/mid/lifestyle-17.webp";
+import Lifestyle18 from "/images/mid/lifestyle-18.webp";
+import Lifestyle19 from "/images/mid/lifestyle-19.webp";
+import Lifestyle20 from "/images/mid/lifestyle-20.webp";
+import Lifestyle21 from "/images/mid/lifestyle-21.webp";
+import Lifestyle22 from "/images/mid/lifestyle-22.webp";
+import Lifestyle23 from "/images/mid/lifestyle-23.webp";
+import Lifestyle24 from "/images/mid/lifestyle-24.webp";
+import Lifestyle25 from "/images/mid/lifestyle-25.webp";
+import Lifestyle26 from "/images/mid/lifestyle-26.webp";
+import Lifestyle27 from "/images/mid/lifestyle-27.webp";
+import Lifestyle28 from "/images/mid/lifestyle-28.webp";
+import Lifestyle29 from "/images/mid/lifestyle-29.webp";
+import Lifestyle30 from "/images/mid/lifestyle-30.webp";
 
 //SPORTS
 import Sports1 from "/images/mid/sports-1.webp";
@@ -134,6 +154,16 @@ import Sports5 from "/images/mid/sports-5.webp";
 import Sports6 from "/images/mid/sports-6.webp";
 import Sports7 from "/images/mid/sports-7.webp";
 import Sports8 from "/images/mid/sports-8.webp";
+import Sports9 from "/images/mid/sports-9.webp";
+import Sports10 from "/images/mid/sports-10.webp";
+import Sports11 from "/images/mid/sports-11.webp";
+import Sports12 from "/images/mid/sports-12.webp";
+import Sports13 from "/images/mid/sports-13.webp";
+import Sports14 from "/images/mid/sports-14.webp";
+import Sports15 from "/images/mid/sports-15.webp";
+import Sports16 from "/images/mid/sports-16.webp";
+import Sports17 from "/images/mid/sports-17.webp";
+import Sports18 from "/images/mid/sports-18.webp";
 
 export const homeSwiperImages = [
   {
@@ -1322,46 +1352,81 @@ export const portfolioDetailsGallery = [
 
 export const textAboutImages = {
   experiences: {
-      positions: [
-          { x: -150, y: -100, scale: 1.2, rotation: -10 },
-          { x: 100, y: -150, scale: 1.3, rotation: 15 },
-          { x: -120, y: 100, scale: 1.4, rotation: -20 },
-          { x: 130, y: 80, scale: 1.1, rotation: 10 },
-      ],
-      images: [
-          Lifestyle12,
-          Lifestyle15,
-          Lifestyle3,
-          Lifestyle1
-      ]
+    positions: [
+      { x: -150, y: -100, scale: 1.2, rotation: -10 },
+      { x: 100, y: -150, scale: 1.3, rotation: 15 },
+      { x: -120, y: 100, scale: 1.4, rotation: -20 },
+      { x: 130, y: 80, scale: 1.1, rotation: 10 },
+    ],
+    images: [
+      Lifestyle12,
+      Lifestyle15,
+      Lifestyle3,
+      Lifestyle1
+    ]
   },
 
   websites: {
-      positions: [
-          { x: -180, y: -130, scale: 1.3, rotation: -5 },
-          { x: 120, y: -120, scale: 1.5, rotation: 20 },
-          { x: -100, y: 130, scale: 1.2, rotation: -15 },
-          { x: 150, y: 100, scale: 1.0, rotation: 5 },
-      ],
-      images: [
-         Photoshoots13,
-         Photoshoots1,
-         Photoshoots3,
-         Photoshoots16,
-      ]
+    positions: [
+      { x: -180, y: -130, scale: 1.3, rotation: -5 },
+      { x: 120, y: -120, scale: 1.5, rotation: 20 },
+      { x: -100, y: 130, scale: 1.2, rotation: -15 },
+      { x: 150, y: 100, scale: 1.0, rotation: 5 },
+    ],
+    images: [
+      Photoshoots13,
+      Photoshoots1,
+      Photoshoots3,
+      Photoshoots16,
+    ]
   },
   visions: {
-      positions: [
-          { x: -160, y: -140, scale: 1.1, rotation: -8 },
-          { x: 140, y: -140, scale: 1.4, rotation: 18 },
-          { x: -110, y: 140, scale: 1.2, rotation: -12 },
-          { x: 160, y: 120, scale: 1.1, rotation: 8 },
-      ],
-      images: [
-          Nature13,
-          Nature1,
-          Nature18,
-          Nature16
-      ]
+    positions: [
+      { x: -160, y: -140, scale: 1.1, rotation: -8 },
+      { x: 140, y: -140, scale: 1.4, rotation: 18 },
+      { x: -110, y: 140, scale: 1.2, rotation: -12 },
+      { x: 160, y: 120, scale: 1.1, rotation: 8 },
+    ],
+    images: [
+      Nature13,
+      Nature1,
+      Nature18,
+      Nature16
+    ]
   },
 };
+
+//MOBILE
+
+export const mobilePortfolioCard = [
+  {
+    src: PhotoshootsPortfolio,
+    title: "Photoshoots",
+    subtitle: "2023",
+    url: "/portfolio/photoshoots",
+  },
+  {
+    src: Nature15,
+    title: "Nature",
+    subtitle: "2022",
+    url: "/portfolio/nature",
+  },
+  {
+    src: Sports4,
+    title: "Sports",
+    subtitle: "2024",
+    url: "/portfolio/photoshoots",
+  },
+  {
+    src: Music3,
+    title: "Music",
+    subtitle: "2023",
+    url: "/portfolio/photoshoots",
+  },
+  {
+    src: Lifestyle18,
+    title: "Lifestyle",
+    subtitle: "2024",
+    url: "/portfolio/photoshoots",
+  },
+]

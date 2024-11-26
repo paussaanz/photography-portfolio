@@ -42,7 +42,7 @@ const ContactForm = () => {
 
     return (
         <form data-barba="container" className="contact__form-container" onSubmit={handleSubmit}>
-            <div className="flex flex--row flex--j-between d--h-100 g--5">
+            <div className="flex flex--row flex--col-mbl flex--j-between d--h-100 g--5">
                 <div className="contact__form-flex--column g--5">
                     <h2 className="text-transform--uppercase text-color--primary h6">About You</h2>
                     <div className="d--h-100 flex flex--col flex--j-between">
@@ -108,7 +108,7 @@ const ContactForm = () => {
                             required
                         />
 
-                        <div className="input-data-area">
+                        <div className="contact__form-input-data-area">
                             <textarea
                                 id="message"
                                 name="message"
@@ -145,7 +145,7 @@ const ContactForm = () => {
                 </div>
                 <div className="contact__form-flex--column">
                     <div className="flex flex--col flex--a-center flex--j-between d--w-100 d--h-100">
-                        <div style={{height: "600px", position: 'relative', width: '100%', border: '3px var(--cor-primary) solid', borderRadius: '80px'}}>
+                        <div className="contact__form-svg-animation">
 
                         <ContactFormSvg focusedField={focusedField} />
                         </div>
