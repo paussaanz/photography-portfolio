@@ -218,14 +218,12 @@
 
 // export default AnimatedImageThumbnails;
 
-
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 
 const AnimatedThumbnailList = ({ imageList, setSelectedImage, selectedImage, isExiting }) => {
     const containerRef = useRef(null);
-
     useEffect(() => {
         const lenis = new Lenis({
             wrapper: containerRef.current,
@@ -257,6 +255,7 @@ const AnimatedThumbnailList = ({ imageList, setSelectedImage, selectedImage, isE
                 }
             }
         };
+
 
         containerRef.current.addEventListener("scroll", handleScroll);
 
