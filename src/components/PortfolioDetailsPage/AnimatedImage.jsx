@@ -46,7 +46,7 @@ const AnimatedImage = ({
     const { width: actualWidth, height: actualHeight } = containerElement.getBoundingClientRect();
     const deltaY = scrollY - lastScrollY;
     const direction = deltaY > 0 ? 1 : -1;
-    const velocity = Math.min(Math.abs(deltaY), 50);
+    const velocity = Math.min(Math.abs(deltaY), 50); // cambiar este valor para establecer el maximo de curva como quieras
 
     const topCurve = direction * velocity * 2 + 30;
     const bottomCurve = actualHeight - 130 + direction * velocity * 2;
