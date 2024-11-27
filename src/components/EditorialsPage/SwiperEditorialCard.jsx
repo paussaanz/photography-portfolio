@@ -1,5 +1,3 @@
-
-
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
@@ -8,14 +6,15 @@ const SwiperEditorialCard = ({ images }) => {
     const { isMobile } = useMediaQuery();
 
     const sectionRef = useRef(null);
+    
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
     });
 
-    const imageStartWidth = isMobile ? '300' : '900'; // Image width in pixels
-    const imageEndWidth = 940; // Image width in pixels
-    const gap = 3 * 16; // 3rem in pixels (1rem = 16px)
+    const imageStartWidth = isMobile ? 300 : 900; // Image width in pixels
+    const imageEndWidth = isMobile ? 312 : 940; // Image width in pixels
+    const gap = isMobile ? 16 : 48;; // 3rem in pixels (1rem = 16px)
     const viewportWidth = window.innerWidth; // Viewport width
     const totalImages = images.length;
 
@@ -29,7 +28,7 @@ const SwiperEditorialCard = ({ images }) => {
     return (
         <motion.div className="d--vh-300 position--sticky" ref={sectionRef}>
             <motion.div
-                className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start g--5"
+                className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start g--5 g--3-mbl"
                 style={{ x: xTransform }} // Apply the xTransform for horizontal scrolling
             >
                 {images.map((image, i) => {
