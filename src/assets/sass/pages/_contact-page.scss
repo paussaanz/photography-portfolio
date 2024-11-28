@@ -1,5 +1,21 @@
 .contact {
+  &__text-mbl {
+    @include media-breakpoint-down(md) {
+      line-height: 21px;
+    }
+  }
 
+  &__title-mbl {
+    @include media-breakpoint-down(md) {
+      font-size: 1.49rem;
+    }
+  }
+
+  &__underline-mbl{
+    border-bottom: 1px var(--cor-primary) solid;
+    width: fit-content;
+    margin: auto;
+  }
   // Modificador para el email
   &__email {
     color: var(--cor-primary);
@@ -101,6 +117,7 @@
     width: 100%;
     border: 3px var(--cor-primary) solid;
     border-radius: 80px;
+
     @include media-breakpoint-down(md) {
       display: none;
     }
@@ -189,3 +206,5 @@
 
   }
 }
+
+

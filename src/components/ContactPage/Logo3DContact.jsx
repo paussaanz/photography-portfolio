@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { useFrame } from "@react-three/fiber";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-const Logo3D = ({hovered}) => {
+const Logo3D = ({ hovered, isMobile }) => {
     const { theme } = useContext(ThemeContext);
     const { nodes } = useGLTF("/3D/syp-3.gltf");
     const groupRef = useRef(null);
@@ -22,7 +22,7 @@ const Logo3D = ({hovered}) => {
         }
 
         const size = box.getSize(new THREE.Vector3()).length();
-        const scaleFactor = 10 / size;
+        const scaleFactor = isMobile ? 9 / size : 10 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
         const onMouseMove = (event) => {
@@ -48,11 +48,11 @@ const Logo3D = ({hovered}) => {
             const currentColor = new THREE.Color(materialRef.current.color.getHex());
             const colorChangeSpeed = 0.05; // Adjust speed as needed
             const hoverColor = theme === 'dark-theme'
-            ? new THREE.Color("#6B5154")
-            : new THREE.Color("#DA6A2D")
+                ? new THREE.Color("#6B5154")
+                : new THREE.Color("#DA6A2D")
 
             const normalColor = new THREE.Color("#EBE6E0");
-            const target = hovered ? hoverColor : normalColor;
+            const target = hovered !== undefined ? (hovered ? hoverColor : normalColor) : hoverColor;
 
             // Smooth transition between current color and target color
             currentColor.lerp(target, colorChangeSpeed);

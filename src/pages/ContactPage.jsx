@@ -4,10 +4,12 @@ import Scene3DContact from '../components/ContactPage/Scene3DContact';
 import TextOverlay from '../components/General/TextOverlay';
 import ContactPageSeo from './SEO/ContactPageSeo';
 import CursorHover from '../components/Cursor/CursorHover';
+import { useMediaQuery } from '../contexts/MediaQueryContext';
 
 const ContactPage = () => {
     const [hovered, setHovered] = useState(false);
     const [cursorVisible, setCursorVisible] = useState(true);
+    const { isMobile } = useMediaQuery();
 
     const contactLinks = [
         { text: "LINKEDIN", logoClass: "icon-linkedin", href: "https://www.linkedin.com/in/paula-sanz-perez/" },
@@ -21,29 +23,46 @@ const ContactPage = () => {
             <ContactPageSeo />
             <CursorHover visible={cursorVisible} />
 
-            <section className="contact__section-hero">
-                <div className="d--vh-100 flex flex--col">
-                    <div className="text-3d-logo d--vh-100 position--relative">
-                        <Scene3DContact hovered={hovered} />
-                        <TextOverlay
-                            onMouseEnter={() => {
-                                setHovered(true);
-                                setCursorVisible(true);  // Enable custom cursor
-                            }}
-                            onMouseLeave={() => {
-                                setHovered(false);
-                                setCursorVisible(false); // Disable custom cursor
-                            }}
-                            href="/contact/form"
-                            textColor="text-color--primary"
-                            textPosition="center"
-                            className="text-align--center d--w-100 text-decoration--none">
-                            <h1>
-                                <span className='block--display'>Click, design, develop</span>
-                                <span className="block--display">Let's collaborate!</span>
-                            </h1>
-                        </TextOverlay>
-                    </div>
+            <section className="contact__section-hero container-bem-mbl">
+                <div className="d--vh-100 flex flex--col p--t-7-mbl">
+                    {isMobile ?
+                        <>
+                            <div className="contact__intro-mbl">
+                                <h1 className='text-color--primary contact__title-mbl text-align--center'>
+                                    <span className='block--display'>Click, design, develop</span>
+                                    <span className='contact__underline-mbl block--display'>let's collaborate!</span>
+                                </h1>
+                                <p className='contact__text-mbl text-transform--uppercase p--t-3 b6'>
+                                    If you have a project in mind, <br /> reach out today and let's create <br /> something amazing together!
+                                </p>
+                            </div>
+                            <div className="contact__logo-mbl overflow--clip">
+                                <Scene3DContact  />
+                            </div>
+                        </>
+                        :
+                        <div className="text-3d-logo d--vh-100 position--relative">
+                            <Scene3DContact hovered={hovered} />
+                            <TextOverlay
+                                onMouseEnter={() => {
+                                    setHovered(true);
+                                    setCursorVisible(true);  // Enable custom cursor
+                                }}
+                                onMouseLeave={() => {
+                                    setHovered(false);
+                                    setCursorVisible(false); // Disable custom cursor
+                                }}
+                                href="/contact/form"
+                                textColor="text-color--primary"
+                                textPosition={`${isMobile ? " " : "center"}`}
+                                className="text-align--center d--w-100 text-decoration--none">
+                                <h1>
+                                    <span className='block--display'>Click, design, develop</span>
+                                    <span className="block--display">Let's collaborate!</span>
+                                </h1>
+                            </TextOverlay>
+                        </div>
+                    }
                     <div className="contact__email">
                         <ContactLink
                             text="paula@sypcreative.com"

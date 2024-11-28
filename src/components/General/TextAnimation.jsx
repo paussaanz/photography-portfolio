@@ -28,14 +28,14 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
       scrollTrigger: {
         trigger: textRef.current,
         start: 'top center',
-        end: '+=100vh',
+        end: '+=100vw',
         scrub: 1,
       },
     });
 
     const allMasks = gsap.utils.toArray('.line-mask');
     tl.to(allMasks, {
-      height: '0%',
+      width: '0%',
       duration: 1,
       stagger: 0.5,
     });
