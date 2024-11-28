@@ -72,9 +72,9 @@ const FavoritesAbout = () => {
     return (
         <div style={{ height: '400vh', position: 'relative' }}>
             <div className="d--vh-100 position--sticky position--top-0">
-                <div className="flex flex--column flex--j-between d--h-100">
+                <div className="flex flex--row flex--col-mbl flex--j-between d--h-100">
                     <div className="favorites-about__text d--w-100 m--y-auto text-align--center text-color--primary">
-                        <h1 className="favorites-about__text-title text-transform--uppercase"><span>SOME OF MY</span> <span className="b1 favorites-about__text-gamilia">Personal <br /> Favorites</span> </h1>
+                        <h1 className="favorites-about__text-title text-transform--uppercase h2-mbl"><span>SOME OF MY</span> <span className="b1 favorites-about__text-gamilia">Personal <br /> Favorites</span> </h1>
                         <ul className="favorites-about__text-list d--w-100">
                             {images.map(
                                 (image, index) => (

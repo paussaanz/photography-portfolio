@@ -32,6 +32,11 @@
     font-weight: 600;
     justify-content: center;
     color: var(--cor-primary);
+
+    @include media-breakpoint-down(md) {
+      font-size: 90px;
+      line-height: 105px;
+    }
   }
 
   &-char {
@@ -51,6 +56,14 @@
   line-height: 2.813rem;
   padding-left: 50px;
   padding-right: 50px;
+  text-align: center;
+
+  @include media-breakpoint-down(md){
+    line-height: 1.5rem !important;
+    text-align: left !important;
+    padding-left: 20px;
+  padding-right: 20px;
+  }
 
   &-span {
     display: inline-block;
@@ -62,6 +75,9 @@
     font-style: italic;
     font-size: 1rem * toRem(18);
     line-height: 41px;
+    @include media-breakpoint-down(md){
+      line-height: 30px !important;
+    }
   }
 }
 

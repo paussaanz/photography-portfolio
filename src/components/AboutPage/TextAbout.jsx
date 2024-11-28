@@ -72,7 +72,7 @@ const TextAbout = () => {
 
     return (
         <>
-            <div className="about__text-content text-transform--uppercase text-color--primary text-align--center d--100 align-content--center">
+            <div className="about__text-content text-transform--uppercase text-color--primary align-content--center">
                 <p className="p--b-5">
                     I'm Paula Sanz, a creative mind with a passion for both <span className="about__text-content-span">photography</span> and web development.
                     Graduated in Audiovisual Communication, I honed my skills in <span className="about__text-content-span">visual storytelling</span> through photography,
