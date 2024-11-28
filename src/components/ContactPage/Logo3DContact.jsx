@@ -22,8 +22,13 @@ const Logo3D = ({ hovered, isMobile }) => {
         }
 
         const size = box.getSize(new THREE.Vector3()).length();
-        const scaleFactor = isMobile ? 9 / size : 10 / size;
+        const scaleFactor = isMobile ? 5 / size : 10 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+        if (isMobile) {
+            // For mobile, remove the mouse listener since it's not needed
+            return;
+        }
 
         const onMouseMove = (event) => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
@@ -43,14 +48,13 @@ const Logo3D = ({ hovered, isMobile }) => {
         };
     }, [nodes]);
 
-    useFrame(() => {
+    useFrame(({ clock }) => {
+        const elapsedTime = clock.getElapsedTime(); // Get elapsed time in seconds
+
         if (materialRef.current) {
             const currentColor = new THREE.Color(materialRef.current.color.getHex());
-            const colorChangeSpeed = 0.05; // Adjust speed as needed
-            const hoverColor = theme === 'dark-theme'
-                ? new THREE.Color("#6B5154")
-                : new THREE.Color("#DA6A2D")
-
+            const colorChangeSpeed = 0.05;
+            const hoverColor = theme === 'dark-theme' ? new THREE.Color("#6B5154") : new THREE.Color("#DA6A2D");
             const normalColor = new THREE.Color("#EBE6E0");
             const target = hovered !== undefined ? (hovered ? hoverColor : normalColor) : hoverColor;
 
@@ -58,7 +62,15 @@ const Logo3D = ({ hovered, isMobile }) => {
             currentColor.lerp(target, colorChangeSpeed);
             materialRef.current.color.set(currentColor);
         }
+
+        if (isMobile) {
+            // Apply a continuous rotation on the y-axis for mobile
+            groupRef.current.position.y = 0.09 * Math.sin(elapsedTime * 3);
+            groupRef.current.rotation.y = elapsedTime * 0.5; // Adjust the multiplier to control speed
+
+        }
     });
+
 
     return (
         <group ref={groupRef}>

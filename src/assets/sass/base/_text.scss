@@ -103,6 +103,7 @@ de la pantalla alcance el breakpoint `md`, definido en el mapa $heading-sizes-md
   h#{$size} {
     @include media-breakpoint-down(md) {
       font-size: $value;
+      font-family: 'gunterz';
     }
   }
 }

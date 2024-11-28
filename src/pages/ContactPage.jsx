@@ -36,7 +36,7 @@ const ContactPage = () => {
                                     If you have a project in mind, <br /> reach out today and let's create <br /> something amazing together!
                                 </p>
                             </div>
-                            <div className="contact__logo-mbl overflow--clip">
+                            <div className="contact__logo-mbl overflow--clip d--h-100">
                                 <Scene3DContact  />
                             </div>
                         </>
@@ -68,10 +68,10 @@ const ContactPage = () => {
                             text="paula@sypcreative.com"
                             href="mailto:paula@sypcreative.com"
                             logoClass='icon-mail'
-                            fontSize={'h4'} />
+                            fontSize={isMobile ? 'h6-mbl ': 'h4'} />
 
                     </div>
-                    <div className="contact__links">
+                    {isMobile ? <></> : <div className="contact__links">
                         {contactLinks.map((link) => (
                             <ContactLink
                                 key={link.text} // Use a unique key for each child in a list
@@ -82,7 +82,7 @@ const ContactPage = () => {
                                 fontSize={link.fontSize ? link.fontSize : 'h5'}
                             />
                         ))}
-                    </div>
+                    </div>}
                 </div>
             </section>
         </div>
