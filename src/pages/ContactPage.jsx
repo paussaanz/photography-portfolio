@@ -24,20 +24,25 @@ const ContactPage = () => {
             <CursorHover visible={cursorVisible} />
 
             <section className="contact__section-hero container-bem-mbl">
-                <div className="d--vh-100 flex flex--col p--t-7-mbl">
+                <div className="d--vh-navbar flex flex--col p--t-7-mbl">
                     {isMobile ?
                         <>
                             <div className="contact__intro-mbl">
                                 <h1 className='text-color--primary contact__title-mbl text-align--center'>
                                     <span className='block--display'>Click, design, develop</span>
-                                    <span className='contact__underline-mbl block--display'>let's collaborate!</span>
+                                    <span onTouchStart={() => {
+                                        setCursorVisible(true);  // Activar cursor personalizado para dispositivos táctiles
+                                    }}
+                                        className='contact__underline-mbl block--display'>
+                                        let's collaborate!
+                                    </span>
                                 </h1>
                                 <p className='contact__text-mbl text-transform--uppercase p--t-3 b6'>
                                     If you have a project in mind, <br /> reach out today and let's create <br /> something amazing together!
                                 </p>
                             </div>
                             <div className="contact__logo-mbl overflow--clip d--h-100">
-                                <Scene3DContact  />
+                                <Scene3DContact />
                             </div>
                         </>
                         :
@@ -68,7 +73,7 @@ const ContactPage = () => {
                             text="paula@sypcreative.com"
                             href="mailto:paula@sypcreative.com"
                             logoClass='icon-mail'
-                            fontSize={isMobile ? 'h6-mbl ': 'h4'} />
+                            fontSize={isMobile ? 'h6-mbl ' : 'h4'} />
 
                     </div>
                     {isMobile ? <></> : <div className="contact__links">
