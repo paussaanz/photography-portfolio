@@ -38,7 +38,7 @@ Uso de clases de gap (`.g`):
     }
 
     // Viewport Heights -- ONLY ON DESKTOP
-    @each $size, $value in (50: 50vh, 100: 100vh, 150: 150vh, 175: 175vh, 300: 300vh) {
+    @each $size, $value in (50: 50vh, 100: var(--full-vh), 150: 150vh, 175: 175vh, 300: 300vh) {
         &--vh-#{$size} {
             height: $value;
         }

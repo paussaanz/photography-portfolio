@@ -4,6 +4,13 @@
   --bg-image: "";
   --bg-md-image: "";
   --bg-porcentaje: 0.4;
+  --full-vh: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --full-vh: 100dvh;
+  }
 }
 
 * {
