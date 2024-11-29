@@ -22,7 +22,7 @@ const Logo3D = ({ hovered, isMobile }) => {
         }
 
         const size = box.getSize(new THREE.Vector3()).length();
-        const scaleFactor = isMobile ? 5 / size : 10 / size;
+        const scaleFactor = isMobile ? 7 / size : 10 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
         if (isMobile) {
