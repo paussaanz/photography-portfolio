@@ -68,7 +68,7 @@ const Scene3DContact = ({ hovered }) => {
         background: 'transparent',
         width: '100%',
         height: "100%",
-        marginTop: '-90px'
+        marginTop: isMobile && '-90px',
       }}
       gl={{ alpha: true, antialias: true, powerPreference: 'low-power' }}
       camera={cameraRef.current} // Use the cameraa

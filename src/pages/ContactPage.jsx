@@ -35,7 +35,7 @@ const ContactPage = () => {
         { text: "LINKEDIN", logoClass: "icon-linkedin", href: "https://www.linkedin.com/in/paula-sanz-perez/" },
         { text: "GITHUB", logoClass: "icon-github", href: "https://github.com/paussaanz" },
         { text: "INSTAGRAM", logoClass: "icon-instagram", href: "https://www.instagram.com/sypcreative/" },
-        { text: "BEHANCE", logoClass: "icon-behance", href: "https://www.behance.net/paulasanz1", fontSize: "h6" }
+        { text: "BEHANCE", logoClass: "icon-behance", href: "https://www.behance.net/paulasanz1", logoSize: "h6" }
     ];
 
     return (
@@ -89,15 +89,17 @@ const ContactPage = () => {
                     }
                     <div className="contact__email">
                         <ContactLink
+                            isMobile={isMobile}
                             text="paula@sypcreative.com"
                             href="mailto:paula@sypcreative.com"
                             logoClass='icon-mail'
-                            fontSize={isMobile ? 'h6-mbl ' : 'h4'} />
+                            logoSize={isMobile ? 'h6-mbl ' : 'h4'} />
 
                     </div>
-                    {isMobile ? <></> : <div className="contact__links">
+                    <div className="contact__links">
                         {contactLinks.map((link) => (
                             <ContactLink
+                                isMobile={isMobile}
                                 key={link.text} // Use a unique key for each child in a list
                                 text={link.text}
                                 logoClass={link.logoClass}
@@ -106,7 +108,7 @@ const ContactPage = () => {
                                 fontSize={link.fontSize ? link.fontSize : 'h5'}
                             />
                         ))}
-                    </div>}
+                    </div>
                 </div>
             </section>
         </div>
