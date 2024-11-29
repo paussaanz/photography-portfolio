@@ -30,9 +30,13 @@ Uso de clases de gap (`.g`):
 */
 
 .d {
-    &--vh-navbar{
-            height: calc(100vh - 8.25rem); /* Ajusta 7rem al tamaño de tu padding */
+    &--vh-navbar {
+        @include media-breakpoint-down(md) {
+            height: calc(100vh - 8.25rem) !important;
+            /* Ajusta 7rem al tamaño de tu padding */
+        }
     }
+
     // Viewport Heights -- ONLY ON DESKTOP
     @each $size, $value in (50: 50vh, 100: 100vh, 150: 150vh, 175: 175vh, 300: 300vh) {
         &--vh-#{$size} {

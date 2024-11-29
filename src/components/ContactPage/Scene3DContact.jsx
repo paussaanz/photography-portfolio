@@ -65,10 +65,10 @@ const Scene3DContact = ({ hovered }) => {
   return (
     <Canvas
       style={{
-        background: 'transparent', 
-        width: '100vw',
+        background: 'transparent',
+        width: '100%',
         height: "100%",
-        overflow: "visible"
+        marginTop: '-90px'
       }}
       gl={{ alpha: true, antialias: true, powerPreference: 'low-power' }}
       camera={cameraRef.current} // Use the cameraa
@@ -91,7 +91,7 @@ const Scene3DContact = ({ hovered }) => {
       <pointLight position={[40, 10, 60]} intensity={100} color={color} />
 
 
-      <Logo3DContact hovered={hovered} isMobile={isMobile}/>
+      <Logo3DContact hovered={hovered} isMobile={isMobile} />
     </Canvas>
   );
 };

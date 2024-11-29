@@ -41,9 +41,6 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
 
         onUpdate: (self) => {
           const progress = self.progress;
-          const zIncrement = progress * 10000;
-          const currentZ = initialZ + zIncrement;
-          let opacity;
 
           gsap.to(activeSlide, {
             opacity: progress * 100,
