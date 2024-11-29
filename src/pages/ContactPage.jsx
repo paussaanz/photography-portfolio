@@ -44,10 +44,10 @@ const ContactPage = () => {
             {!isMobile && <CursorHover visible={cursorVisible} />}
 
             <section className="contact__section-hero container-bem-mbl">
-                <div className="d--vh-navbar d--vh-100 flex flex--col p--t-7-mbl ">
+                <div className="d--vh-100 flex flex--col">
                     {isMobile ?
                         <>
-                            <div className="contact__intro-mbl">
+                            <div className="contact__intro-mbl p--t-6-mbl">
                                 <h1 className='contact__title-mbl p--b-3'>
                                     {text.split('').map((char, index) => (
                                         <span key={index} style={{ color: index === activeIndex ? 'var(--cor-secondary)' : 'var(--cor-primary)' }}>{char}</span>
