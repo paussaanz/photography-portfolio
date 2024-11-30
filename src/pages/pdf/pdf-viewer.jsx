@@ -13,7 +13,7 @@ const PdfViewer = ({ file }) => {
     const loadPdfPage = async () => {
       try {
         const loadingTask = pdfjs.getDocument(file);
-        const pdf = await loadingTask.promise;
+        const loadedPdf = await loadingTask.promise;
 
         setNumPages(pdf.numPages); // Set total number of pages
 
