@@ -12,6 +12,7 @@ import ContactForm from "./components/ContactPage/ContactForm";
 import ThemeButton from "./components/General/Buttons/ThemeButton";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import LoaderPortfolio from "./components/Loaders/LoaderPortfolio";
+import PdfViewer from "./pages/pdf/pdf-viewer";
 import './assets/sass/style.scss'
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "./contexts/MediaQueryContext";
@@ -49,7 +50,7 @@ function App() {
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
-            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           </header>
 
           {!isMobile && <CursorTrail />}
@@ -69,6 +70,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/contact/form" element={<ContactForm />} />
               <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
+              <Route path="/test" element={<PdfViewer />} />
               {/* <Route path="/links" element={<LinkReveal/>}/> */}
             </Routes>
           </main>
