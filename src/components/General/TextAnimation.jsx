@@ -2,11 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useMediaQuery } from '../../contexts/MediaQueryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TextAnimation = ({ text, className = '', textColor = "text-color--primary", maskColor = 'background--light' }) => {
   const textRef = useRef(null);
+  const { isMobile } = useMediaQuery();
 
   useEffect(() => {
     if (!textRef.current) return;
@@ -28,7 +30,7 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
       scrollTrigger: {
         trigger: textRef.current,
         start: 'top center',
-        end: '+=100vw',
+        end: isMobile ? 'bottom bottom' : '+=100vh',
         scrub: 1,
       },
     });

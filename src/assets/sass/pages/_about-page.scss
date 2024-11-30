@@ -58,11 +58,10 @@
   padding-right: 50px;
   text-align: center;
 
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(md) {
+    padding-top: 3.5rem;
     line-height: 1.5rem !important;
     text-align: left !important;
-    padding-left: 20px;
-  padding-right: 20px;
   }
 
   &-span {
@@ -75,7 +74,8 @@
     font-style: italic;
     font-size: 1rem * toRem(18);
     line-height: 41px;
-    @include media-breakpoint-down(md){
+
+    @include media-breakpoint-down(md) {
       line-height: 30px !important;
     }
   }
