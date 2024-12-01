@@ -1,32 +1,36 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
+import prerender from "vite-plugin-prerender";
 
 export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    viteCompression({ algorithm: "brotliCompress" }), // Comprime los activos con Brotli
+    viteCompression({ algorithm: "brotliCompress" }),
     viteCompression({ algorithm: "gzip" }),
+    prerender({
+      routes: ["/", "/about", "/contact", "/portfolio"], // Rutas comunes
+    }),
   ],
   build: {
-    target: "esnext", // Apunta a la última versión de JavaScript
-    cssCodeSplit: true, // Divide los CSS para mejorar la carga
-    sourcemap: false, // Desactiva los mapas de fuente para reducir el tamaño
-    minify: "esbuild", // Usa esbuild para minificación rápida
-    assetsInlineLimit: 8192, // Archivos pequeños en línea para mejorar la carga
+    target: "esnext",
+    cssCodeSplit: true,
+    sourcemap: false,
+    minify: "esbuild",
+    assetsInlineLimit: 8192,
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom", "three", "gsap"], // Divide dependencias pesadas
+          vendor: ["react", "react-dom", "three", "gsap"],
         },
-        entryFileNames: "assets/[name].[hash].js", // Nombres de archivo con hash
+        entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[hash].[ext]",
       },
     },
   },
   esbuild: {
-    drop: ["console", "debugger"], // Elimina console.log y debugger en producción
+    drop: ["console", "debugger"],
   },
 });
