@@ -53,6 +53,7 @@ function App() {
             <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           </header>
 
+          {!isMobile && <CursorTrail />}
 
           <main>
             <Routes location={location}>
@@ -69,7 +70,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/contact/form" element={<ContactForm />} />
               <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
-              <Route path="/test" element={<PdfViewer file="./prueba.pdf" />} />
+              <Route path="/test" element={<PdfViewer file="./azul.pdf" />} />
               {/* <Route path="/links" element={<LinkReveal/>}/> */}
             </Routes>
           </main>

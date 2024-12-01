@@ -1,105 +1,147 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf";
-import "pdfjs-dist/legacy/build/pdf.worker.entry"; // Import the worker
+import "pdfjs-dist/legacy/build/pdf.worker.entry";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const PdfViewer = ({ file }) => {
-  const containerRef = useRef(null);
-  const canvasRef = useRef(null); // Reuse a single canvas
-  const [scale, setScale] = useState(1.5);
-  const [error, setError] = useState(null);
-  const [numPages, setNumPages] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1); // Current page state
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null); // Contenedor para ScrollTrigger
+  const renderTaskRef = useRef(null); // Referencia al render task actual
+  const [pdf, setPdf] = useState(null);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const loadPdf = async () => {
       try {
         const loadingTask = pdfjs.getDocument(file);
-        const pdf = await loadingTask.promise;
+        const loadedPdf = await loadingTask.promise;
 
-        setNumPages(pdf.numPages); // Set total number of pages
+        setPdf(loadedPdf);
+        setTotalPages(loadedPdf.numPages);
 
-        // Render the current page
-        await renderPage(pdf, currentPage);
+        renderPage(loadedPdf, 1); // Renderiza la primera página inicialmente
       } catch (error) {
-        console.error("Error loading PDF:", error);
-        setError("Failed to load PDF. Please try again.");
-      }
-    };
-
-    const renderPage = async (pdf, pageNumber) => {
-      try {
-        const page = await pdf.getPage(pageNumber);
-        const viewport = page.getViewport({ scale });
-
-        // Reuse the canvas element
-        if (!canvasRef.current) {
-          const canvas = document.createElement("canvas");
-          canvasRef.current = canvas;
-          if (containerRef.current) containerRef.current.appendChild(canvas);
-        }
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-
-        // Adjust canvas size
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        // Render page to canvas
-        const renderContext = {
-          canvasContext: context,
-          viewport,
-        };
-
-        await page.render(renderContext).promise;
-      } catch (error) {
-        console.error("Error rendering page:", error);
-        setError("Failed to render the page. Please try again.");
+        console.error("Error cargando el PDF:", error);
       }
     };
 
     loadPdf();
-  }, [file, scale, currentPage]); // Re-run when file, scale, or currentPage changes
+  }, [file]);
+
+  useEffect(() => {
+    if (pdf && totalPages > 0) {
+      setupScrollAnimation(pdf);
+    }
+  }, [pdf, totalPages]);
+
+  const renderPage = async (pdfDoc, pageNumber) => {
+    try {
+      if (pageNumber < 1 || pageNumber > totalPages) {
+        console.error(`Página inválida solicitada: ${pageNumber}`);
+        return; // Evitar renderizaciones fuera de rango
+      }
+
+      if (renderTaskRef.current) {
+        renderTaskRef.current.cancel();
+      }
+
+      const page = await pdfDoc.getPage(pageNumber);
+
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
+
+      const rotation = (page.rotate || 0) % 360;
+      const viewport = page.getViewport({ scale: 1, rotation });
+      const containerWidth = window.innerWidth;
+      const containerHeight = window.innerHeight;
+
+      const scale = Math.min(
+        containerWidth / viewport.width,
+        containerHeight / viewport.height
+      );
+
+      const scaledViewport = page.getViewport({ scale, rotation });
+      canvas.width = scaledViewport.width;
+      canvas.height = scaledViewport.height;
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: scaledViewport,
+      };
+
+      renderTaskRef.current = page.render(renderContext);
+      await renderTaskRef.current.promise;
+    } catch (error) {
+      if (error.name === "RenderingCancelledException") {
+        console.log(`Renderización cancelada para la página ${pageNumber}.`);
+      } else {
+        console.error("Error al renderizar la página:", error);
+      }
+    }
+  };
+
+  const setupScrollAnimation = (pdfDoc) => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+    const scrollHeight = totalPages * window.innerHeight;
+
+    gsap.to(containerRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: `+=${scrollHeight}`,
+        scrub: true,
+        pin: true,
+        onUpdate: (self) => {
+          const newPage = Math.ceil(self.progress * totalPages);
+
+          if (newPage >= 1 && newPage <= totalPages) {
+            renderPage(pdfDoc, newPage);
+          }
+        },
+      },
+    });
+  };
 
   return (
-    <div>
-      {/* Page Navigation */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "10px",
-          marginTop: "200px",
-        }}
-      >
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, numPages))}
-          disabled={currentPage === numPages}
-        >
-          Next
-        </button>
+    <div ref={containerRef} style={styles.container}>
+      <canvas ref={canvasRef} style={styles.canvas} />
+      <div style={styles.spacer}>
+        <p>Has llegado al final del PDF. Sigue explorando.</p>
       </div>
-
-      {/* PDF Display */}
-      {error ? (
-        <div style={{ color: "red", textAlign: "center" }}>{error}</div>
-      ) : (
-        <div
-          ref={containerRef}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
-      )}
     </div>
   );
+};
+
+const styles = {
+  container: {
+    position: "relative",
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "#f0f0f0",
+    overflow: "hidden",
+  },
+  canvas: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
+  spacer: {
+    position: "relative",
+    marginTop: "100vh",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#e0e0e0",
+  },
 };
 
 export default PdfViewer;
