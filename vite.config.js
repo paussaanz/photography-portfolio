@@ -1,7 +1,6 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
-import prerender from "vite-plugin-prerender";
 
 export default defineConfig({
   base: "/",
@@ -9,9 +8,6 @@ export default defineConfig({
     react(),
     viteCompression({ algorithm: "brotliCompress" }),
     viteCompression({ algorithm: "gzip" }),
-    prerender({
-      routes: ["/", "/about", "/contact", "/portfolio"], // Rutas comunes
-    }),
   ],
   build: {
     target: "esnext",
