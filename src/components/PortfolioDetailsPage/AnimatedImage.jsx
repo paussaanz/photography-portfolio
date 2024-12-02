@@ -24,7 +24,7 @@ const AnimatedImage = ({
     offset: ["start center", "center start"],
   });
   const { stop, start } = useContext(LenisContext);
-
+  const [isVertical, setIsVertical] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [initialPosition, setInitialPosition] = useState({
@@ -97,6 +97,22 @@ const AnimatedImage = ({
     }
   };
 
+
+  const getImageAspectRatio = (src) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = src;
+
+      img.onload = () => {
+        const aspectRatio = img.naturalWidth / img.naturalHeight;
+        setIsVertical(aspectRatio < 1);
+
+      };
+
+      img.onerror = () => reject("Error loading image");
+    });
+  };
+
   const zoomedImage = (
     <AnimatePresence>
       {(isZoomed || isExiting) && (
@@ -134,8 +150,8 @@ const AnimatedImage = ({
                   : {
                     top: "50%",
                     left: "45%",
-                    width: imageSize.width,
-                    height: imageSize.height,
+                    width: isVertical ? 500 : 1000,
+                    height: isVertical ? 800 : 700,
                     x: "-50%",
                     y: "-50%",
                     opacity: 1,
@@ -172,6 +188,7 @@ const AnimatedImage = ({
             {/* <AnimatedImageThumbnails imagesArray={images}/> */}
 
             <AnimatedThumbnailList
+              getImageAspectRatio={getImageAspectRatio}
               imageList={images}
               setSelectedImage={setSelectedImage}
               selectedImage={selectedImage}

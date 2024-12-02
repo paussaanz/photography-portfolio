@@ -19,17 +19,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <LenisProvider>
-      <MediaQueryProvider>
-        <ThemeProvider>
-          <TransitionProvider>
-            <LogoTransitionProvider>
-              <LoaderContextProvider>
-              <App />
-              <Footer />
-              </LoaderContextProvider>
-            </LogoTransitionProvider>
-          </TransitionProvider>
-        </ThemeProvider>
+        <MediaQueryProvider>
+          <ThemeProvider>
+            <TransitionProvider>
+              <LogoTransitionProvider>
+                <App />
+                <Footer />
+              </LogoTransitionProvider>
+            </TransitionProvider>
+          </ThemeProvider>
         </MediaQueryProvider>
       </LenisProvider>
     </BrowserRouter>
