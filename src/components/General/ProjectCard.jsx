@@ -11,8 +11,8 @@ const ProjectCard = ({ src, name, date, description }) => {
                 </div>
 
                 <div className='text-transform--uppercase text-align--center text-color--light'>
-                    <p className="m--0">{name} - {date}</p>
-                    <p className="m--0">{description}</p>
+                    <p className="m--0 h4">{name}</p>
+                    <p className="m--0 text-style--italic">{description}</p>
                 </div>
             </div>
         </>

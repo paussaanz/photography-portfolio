@@ -117,8 +117,10 @@ const ProjectCardAnimation = ({ homeSwiperImages }) => {
               <div className={`slide-img`}>
                 <img className="d--vh-50 d--w-100 object-fit--cover slide-img" src={image.src} alt="" loading="lazy" />
               </div>
-              <div className='slide-copy text-transform--uppercase text-align--center text-color--light'>
-                <p className="m--0">{image.name} | {image.date}</p>
+              <div className='slide-copy flex flex--row text-transform--uppercase text-align--center text-color--light m--t-3'>
+                <p className="m--0 h4">{image.name}</p>
+                <p className="m--0 h6">{image.date}</p>
+
                 {/* <p className="m--0">{image.description}</p> */}
               </div>
             </Link>

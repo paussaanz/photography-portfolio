@@ -163,6 +163,11 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
     }
   }
 
+  &-style {
+    &--italic {
+      font-style: italic;
+    }
+  }
 
   &-align {
     @each $alignment in (center, left, right, justify) {
@@ -187,6 +192,10 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
   &-decoration {
     &--none {
       text-decoration: none;
+    }
+
+    &--underline {
+      text-decoration: underline;
     }
   }
 

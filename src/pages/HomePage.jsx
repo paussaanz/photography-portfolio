@@ -59,33 +59,6 @@ const HomePage = ({ isVisited }) => {
                                 <span className="h2 block--display">Brilliance</span>
                             </h1>
 
-                            {/* <h1>
-                                <div className="text-decoration--none position--relative block--display white-space--nowrap overflow--hidden">
-                                    <motion.div
-                                        style={{ y: yTranslate }}>
-                                        CAPTURE
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ y: yTranslateInverse }}
-                                        className="position--absolute inset--0">
-                                        CAPTURE
-                                    </motion.div>
-                                </div>
-
-                                <div className="text-decoration--none position--relative block--display white-space--nowrap overflow--hidden">
-                                    <motion.div
-                                        style={{ y: yTranslate }}
-                                        className="h2">
-                                        BRILLIANCE
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ y: yTranslateInverse }}
-                                        className="h2 position--absolute inset--0">
-                                        BRILLIANCE
-                                    </motion.div>
-                                </div>
-                            </h1> */}
-
                             <Button href="/portfolio" text="See my work" className="text-color--light" />
                         </TextOverlay>
                     </>
