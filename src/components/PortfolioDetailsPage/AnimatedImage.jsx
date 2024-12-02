@@ -82,8 +82,10 @@ const AnimatedImage = ({
         height: rect.height,
       });
     }
+    getImageAspectRatio(img.src)
     setSelectedImage(img.src);
     setIsZoomed(true);
+
   };
 
   const handleZoomOut = () => {
