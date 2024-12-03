@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const CursorHover = ({visible}) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-    // const [visible, setVisible] = useState(true);
 
     useEffect(() => {
         const handleMouseMove = (e) => {

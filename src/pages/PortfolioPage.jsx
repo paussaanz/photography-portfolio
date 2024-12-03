@@ -12,12 +12,6 @@ const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
     const { isMobile } = useMediaQuery();
 
-    const cardsData = [
-        { image: "/images/mid/lifestyle-18.webp", title: "LIFESTYLE", subtitle: "2020" },
-        { image: "/images/mid/sports-4.webp", title: "SPORTS", subtitle: "2022" },
-        { image: "/images/mid/nature-15.webp", title: "NATURE", subtitle: "2024" },
-      ];
-
     return (
 
         <div data-barba="container">
@@ -35,7 +29,7 @@ const PortfolioPage = ({ isVisited }) => {
             </section>
 
             <section className="portfolio__text-animation-section" ref={sectionRef}>
-                <div className={`${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center`}>
+                <div className={`${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center position--relative z-index--5`}>
                     <TextAnimation
                         text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
                         textColor='text-color--primary'

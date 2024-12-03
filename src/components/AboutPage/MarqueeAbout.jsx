@@ -101,7 +101,7 @@ const MarqueeAbout = () => {
 
 
     return (
-        <div ref={marqueeRef} className="d--vh-100 position--relative  flex flex--j-center flex--a-center text-transform--uppercase overflow--hidden">
+        <div ref={marqueeRef} className="d--vh-100 d--h-100-mbl position--relative  flex flex--j-center flex--a-center text-transform--uppercase overflow--hidden">
             <div className="marquee-about__inner">
                 <div id="marqueeTop" className="about__marquee-part">
                     CREATIVE

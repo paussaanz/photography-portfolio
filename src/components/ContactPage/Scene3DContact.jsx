@@ -4,9 +4,11 @@ import Logo3DContact from './Logo3DContact';
 import * as THREE from 'three';
 import { useContext, useEffect, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { useMediaQuery } from '../../contexts/MediaQueryContext';
 
-const Scene3DContact = ({hovered}) => {
+const Scene3DContact = ({ hovered }) => {
   const { theme } = useContext(ThemeContext);
+  const { isMobile } = useMediaQuery();
 
   const color = new THREE.Color(149 / 255, 68 / 255, 24 / 255).convertSRGBToLinear();
   const backgroundColor = theme === 'dark-theme'
@@ -16,14 +18,27 @@ const Scene3DContact = ({hovered}) => {
   const cameraRef = useRef(); // Ref to hold the camera instance
 
   useEffect(() => {
-    const aspect = window.innerWidth / window.innerHeight;
-    const camera = new THREE.OrthographicCamera(-10 * aspect, 10 * aspect, 10, -10, 0.1, 1000);
-    camera.position.set(10, 10, 10); // Set the camera position
-    camera.lookAt(0, 0, 0); // Look at the center of the scene
-    camera.updateProjectionMatrix(); // Update the projection matrix
+    const handleResize = () => {
+      const aspect = window.innerWidth / window.innerHeight;
+      if (cameraRef.current) {
+        cameraRef.current.left = -10 * aspect;
+        cameraRef.current.right = 10 * aspect;
+        cameraRef.current.top = 10;
+        cameraRef.current.bottom = -10;
+        cameraRef.current.updateProjectionMatrix();
+      }
+    };
 
-    cameraRef.current = camera; // Store camera instance in ref
+    handleResize(); // Call once to initialize
+    window.addEventListener('resize', handleResize);
 
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  useEffect(() => {
     // Handle WebGL context loss
     const handleContextLoss = (event) => {
       event.preventDefault(); // Prevent default behavior
@@ -49,8 +64,13 @@ const Scene3DContact = ({hovered}) => {
 
   return (
     <Canvas
-      style={{ background: 'transparent' }}
-      gl={{ alpha: true, antialias: true }} // Enable antialiasing
+      style={{
+        background: 'transparent',
+        width: '100%',
+        height: "100%",
+        marginTop: isMobile && '-60px',
+      }}
+      gl={{ alpha: true, antialias: true, powerPreference: 'low-power' }}
       camera={cameraRef.current} // Use the cameraa
       onCreated={({ gl }) => {
         gl.outputEncoding = THREE.sRGBEncoding;
@@ -59,9 +79,9 @@ const Scene3DContact = ({hovered}) => {
       }}
     >
 
-<SetBackground color={backgroundColor} />
+      <SetBackground color={backgroundColor} />
       <directionalLight intensity={500} position={[1, 2, 1]} color={color} />
-      <ambientLight intensity={5} /> 
+      <ambientLight intensity={5} />
 
       {/* Point lights with reduced intensity */}
       {/* <pointLight position={[0, 0, 60]} intensity={100} color={color} /> */}
@@ -71,7 +91,7 @@ const Scene3DContact = ({hovered}) => {
       <pointLight position={[40, 10, 60]} intensity={100} color={color} />
 
 
-      <Logo3DContact hovered={hovered}/>
+      <Logo3DContact hovered={hovered} isMobile={isMobile} />
     </Canvas>
   );
 };

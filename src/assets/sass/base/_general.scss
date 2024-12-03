@@ -4,6 +4,13 @@
   --bg-image: "";
   --bg-md-image: "";
   --bg-porcentaje: 0.4;
+  --full-vh: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --full-vh: 100dvh;
+  }
 }
 
 * {
@@ -15,6 +22,9 @@ div {
   line-height: 1; /* O igual al tamaño de la fuente */
 }
 
+.z-index--5{
+  z-index: 5;
+}
 
 #root{
   min-width: 100vw;
@@ -174,7 +184,7 @@ div {
     left: 0;
     padding-left: 20px;
     padding-bottom: 12px;
-    z-index: 10300000;
+    z-index: 1030000;
   }
 
   &__animation {

@@ -2,11 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useMediaQuery } from '../../contexts/MediaQueryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TextAnimation = ({ text, className = '', textColor = "text-color--primary", maskColor = 'background--light' }) => {
   const textRef = useRef(null);
+  const { isMobile } = useMediaQuery();
 
   useEffect(() => {
     if (!textRef.current) return;
@@ -28,14 +30,14 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
       scrollTrigger: {
         trigger: textRef.current,
         start: 'top center',
-        end: '+=100vh',
+        end: isMobile ? 'bottom bottom' : '+=100vh',
         scrub: 1,
       },
     });
 
     const allMasks = gsap.utils.toArray('.line-mask');
     tl.to(allMasks, {
-      height: '0%',
+      width: '0%',
       duration: 1,
       stagger: 0.5,
     });
@@ -88,7 +90,7 @@ const TextAnimation = ({ text, className = '', textColor = "text-color--primary"
 
   return (
     <div className={`text-container ${className} container-bem-mbl`}>
-      <div ref={textRef} className={`b1 b4-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}>
+      <div ref={textRef} className={`b1 b2-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}>
         {text}
       </div>
     </div>

@@ -19,7 +19,6 @@ const ClipPathAnimation = ({ onImageChange, images }) => {
                     const progress = self.progress; // Progress from 0 to 1
                     const index = Math.min(Math.floor(progress * images.length), images.length - 1); // Cap the index
                     onImageChange(index); 
-                    console.log(index, "INDEX")// Notify the parent of the active image
                 },
             },
         });

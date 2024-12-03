@@ -98,7 +98,6 @@
     }
 
     &_cards-slide {
-        width: 900px;
         height: 600px;
         display: flex;
         flex-shrink: 0;
@@ -108,5 +107,23 @@
             height: 100%;
             object-fit: cover;
         }
+    }
+}
+
+.pdf-flipbook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    .pdf-canvas {
+        margin: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform-origin: center center;
+        transition: transform 0.3s;
+    }
+
+    .pdf-canvas:hover {
+        transform: scale(1.05);
     }
 }

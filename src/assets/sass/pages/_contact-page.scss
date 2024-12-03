@@ -1,5 +1,31 @@
 .contact {
 
+  &__intro-mbl {
+    z-index: 2;
+  }
+
+  &__text-mbl {
+    @include media-breakpoint-down(md) {
+      line-height: 21px;
+    }
+  }
+
+  &__title-mbl {
+    @include media-breakpoint-down(md) {
+      font-size: 3.49rem;
+    }
+  }
+
+  &__title-mbl span {
+    transition: color 0.2s ease-in-out;
+  }
+
+  &__logo-mbl {
+    @include media-breakpoint-down(md) {
+      margin-top: -70px;
+    }
+  }
+
   // Modificador para el email
   &__email {
     color: var(--cor-primary);
@@ -15,15 +41,10 @@
     padding: 20px 5vw;
     text-decoration: none;
 
-    // Ajustes para versión móvil
-    @media (max-width: $cor-grid-breakpoints-lg) {
+    @include media-breakpoint-down(md){
       flex-direction: column;
-      padding: 20px; // Ajuste de padding para móvil
-
-      &>.contact__link {
-        margin-bottom: 10px;
-
-      }
+      padding: 30px 0px 60px;
+      align-items: flex-start;
     }
   }
 
@@ -34,6 +55,12 @@
     justify-content: center;
     gap: 10px;
     text-decoration: none;
+
+    @include media-breakpoint-down(md){
+      align-items: baseline;
+      justify-content:flex-start;
+
+    }
   }
 
   &__logo-circle {
@@ -48,31 +75,49 @@
     background-repeat: no-repeat;
 
     &.icon-linkedin:before {
-      content: "\e903";
+      content: "\e904";
       color: var(--cor-secondary);
     }
 
     &.icon-github:before {
-      content: "\e901";
-      color: var(--cor-secondary);
-    }
-
-    &.icon-instagram:before {
       content: "\e902";
       color: var(--cor-secondary);
     }
 
-    &.icon-behance:before {
-      content: "\e900";
+    &.icon-instagram:before {
+      content: "\e903";
       color: var(--cor-secondary);
     }
+
+    &.icon-behance:before {
+      content: "\e901";
+      color: var(--cor-secondary);
+    }
+
+    &.icon-arrow {
+      width: auto; // Elimina el ancho fijo si no necesitas un círculo
+      height: auto; // Elimina la altura fija si no necesitas un círculo
+      border-radius: 0; // Elimina la forma circular
+      background-color: transparent; // Fondo transparente
+      display: flex; // Asegúrate de que los elementos internos estén alineados correctamente
+      justify-content: center;
+      align-items: center;
+
+      &:before {
+        content: "\e900"; // Icono de flecha
+        color: var(--cor-primary); // Define el color del icono
+        background-color: transparent; // Fondo del pseudo-elemento transparente
+        font-size: inherit; // Asegúrate de que la fuente sea consistente
+      }
+    }
+
 
     &.icon-mail {
       background: transparent;
     }
 
     &.icon-mail:before {
-      content: "\e904";
+      content: "\e905";
       color: #da6a2d;
     }
 
@@ -101,6 +146,7 @@
     width: 100%;
     border: 3px var(--cor-primary) solid;
     border-radius: 80px;
+
     @include media-breakpoint-down(md) {
       display: none;
     }
