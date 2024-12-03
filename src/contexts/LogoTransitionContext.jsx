@@ -51,7 +51,9 @@ export const LogoTransitionProvider = ({ children }) => {
           }}
           animate={{
             scale: 1,
-            borderWidth: '100vw', // Incrementa el tamaño del borde para cubrir toda la pantalla
+            // si estoy en mobile que use 100vh, si no que use 100vw en el borderWidth
+            borderWidth: document.documentElement.clientWidth < document.documentElement.clientHeight ? '100vh' : '100vw',
+
           }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
           style={{
@@ -73,7 +75,7 @@ export const LogoTransitionProvider = ({ children }) => {
             width: '0px',
             height: '0px',
             borderRadius: '50%',
-            borderWidth: '100vw', // Mantiene el borde grande en la animación de salida
+            borderWidth: document.documentElement.clientWidth < document.documentElement.clientHeight ? '100vh' : '100vw',
             borderColor: 'var(--cor-primary)',
             borderStyle: 'solid',
             x: clickPosition.x,
@@ -82,8 +84,8 @@ export const LogoTransitionProvider = ({ children }) => {
             translateY: '-50%',
           }}
           animate={{
-            width: '200vw', // Crece hasta cubrir toda la pantalla
-            height: '200vw',
+            width: document.documentElement.clientWidth < document.documentElement.clientHeight ? '200vh' : '200vw',
+            height: document.documentElement.clientWidth < document.documentElement.clientHeight ? '200vh' : '200vw',
             borderWidth: 0, // Desaparece el borde a medida que crece
           }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
