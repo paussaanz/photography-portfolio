@@ -10,12 +10,12 @@ const FavoritesAbout = () => {
     const listItemsRef = useRef([]); // Store references to the <li> elements
 
     const images = [
-        { src: "/images/mid/lifestyle-1.webp", name: "MADRID" }, // Gold
-        { src: "/images/mid/lifestyle-5.webp", name: "LISBON" }, // Light Blue
-        { src: "/images/mid/lifestyle-7.webp", name: "FORMIGAL" }, // Light Green
-        { src: "/images/mid/lifestyle-1.webp", name: "MADRID2" }, // Gold
-        { src: "/images/mid/lifestyle-5.webp", name: "LISBON2" }, // Light Blue
-        { src: "/images/mid/lifestyle-7.webp", name: "FORMIGAL2" }, // Light Green
+        { src: "/images/mid/lifestyle-1.webp", name: '"Echoes of Elegance"' }, // Gold
+        { src: "/images/mid/nature.webp", name: '"Silent Watcher"' }, // Light Blue
+        { src: "/images/mid/photoshoots-31.webp", name: '"Gravity in Motion"' }, // Light Green
+        { src: "/images/mid/nature-8.webp", name: '"Roadside Bond"' }, // Gold
+        { src: "/images/mid/sports-9.webp", name: '"Chasing Liquid Mountains"' }, // Light Blue
+        { src: "/images/mid/lifestyle-13.webp", name: '"Timeless Pause"' }, // Light Green
     ]; // Replace these paths with your actual image paths
 
 

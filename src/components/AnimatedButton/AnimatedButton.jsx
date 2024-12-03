@@ -179,10 +179,10 @@ const AnimatedButton = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      className={`animated-button flex--s-0 ${isSelected ? 'selected' : ''}`}
+      className={`animated__button flex--s-0 ${isSelected ? 'selected' : ''}`}
       style={{ position: 'relative', width, height }}
     >
-      <p className={`${isAnimating ? 'text-white' : ''}`}>{text}</p>
+      <p className={`${isAnimating ? 'text-white' : ''} animated__button-text`}>{text}</p>
       <svg
         width="105%"
         height="105%"

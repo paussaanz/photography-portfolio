@@ -536,7 +536,7 @@ export const portfolioDetails = {
       {
         src: Photoshoots22,
         colStart: 9,
-        colSpan: 3,
+        colSpan: 4,
         rowStart: 71,
         rowSpan: 6,
         id: "5-1",

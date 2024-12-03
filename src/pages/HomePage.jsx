@@ -71,7 +71,8 @@ const HomePage = ({ isVisited }) => {
                     key={location.pathname}
                     style={{ scale, rotate }}
                     className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center">
-                    <TextAnimation text="Photography is the art of capturing fleeting moments, turning the transient into something eternal. Through the lens, everyday scenes transform into extraordinary glimpses of life. It allows us to explore perspectives beyond our own, revealing the hidden depths of both nature and humanity." />
+                    <TextAnimation text="SYP! is where creativity and technology collide. With a focus on design, programming, and photography, I turn ideas into visually striking and functionally seamless experiences that leave a mark. It’s not just about what’s created—it’s about how it connects, inspires, and stands out."
+                    />
                 </motion.div>
 
                 <SwiperPortfolio />
