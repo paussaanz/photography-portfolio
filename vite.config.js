@@ -10,7 +10,7 @@ export default defineConfig({
     viteCompression({ algorithm: "gzip" }),
   ],
   build: {
-    target: "esnext",
+    target: "es2020",
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",
