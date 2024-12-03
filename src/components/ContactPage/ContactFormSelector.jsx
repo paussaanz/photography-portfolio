@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
 
-const ContactFormSelector = ({ question, reset }) => {
+const ContactFormSelector = ({ question, answers, reset }) => {
     const [selectedButtons, setSelectedButtons] = useState([]);
 
     useEffect(() => {
@@ -22,24 +22,17 @@ const ContactFormSelector = ({ question, reset }) => {
 
     return (
         <div className="flex flex--col">
-            <h3 className="text-transform--uppercase b6 m--b-3">{question}</h3>
+            <h3 className="text-transform--uppercase b6 m--b-4">{question}</h3>
             <div className="flex flex--wrap g--2">
-                <AnimatedButton width={130} text="Branding"
-                    onClick={() => handleButtonClick("Option 1")}
-                    isSelected={selectedButtons.includes("Option 1")}
-                />
-                <AnimatedButton width={180} text="Webdesign"
-                    onClick={() => handleButtonClick("Option 2")}
-                    isSelected={selectedButtons.includes("Option 2")}
-                />
-                <AnimatedButton text="Submit"
-                    onClick={() => handleButtonClick("Option 3")}
-                    isSelected={selectedButtons.includes("Option 3")}
-                />
-                <AnimatedButton text="Submit"
-                    onClick={() => handleButtonClick("Option 4")}
-                    isSelected={selectedButtons.includes("Option 4")}
-                />
+                {answers.map((answer) => (
+                    <AnimatedButton
+                        key={answer} // Use a unique key for each button
+                        width={210}
+                        text={answer} // Use the current answer as the button text
+                        onClick={() => handleButtonClick(answer)} // Pass the answer to handleButtonClick
+                        isSelected={selectedButtons.includes(answer)} // Check if the answer is selected
+                    />
+                ))}
             </div>
         </div>
     );

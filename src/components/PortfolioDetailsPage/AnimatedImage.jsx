@@ -36,7 +36,7 @@ const AnimatedImage = ({
   const [selectedImage, setSelectedImage] = useState(images[0].src);
   const [imageSize, setImageSize] = useState({ width: "auto", height: "auto" });
   const [clipPath, setClipPath] = useState("");
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0); // Use a ref to track scroll position
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
 
@@ -45,23 +45,23 @@ const AnimatedImage = ({
     if (!containerElement) return;
 
     const { width: actualWidth, height: actualHeight } = containerElement.getBoundingClientRect();
-    const deltaY = scrollY - lastScrollY;
+    const deltaY = scrollY - lastScrollYRef.current; // Access last scroll value from the ref
     const direction = deltaY > 0 ? 1 : -1;
-    const velocity = Math.min(Math.abs(deltaY), 50); // cambiar este valor para establecer el maximo de curva como quieras
+    const velocity = Math.min(Math.abs(deltaY), 20); // cambiar este valor para establecer el maximo de curva como quieras
 
-    const topCurve = direction * velocity * 2 + 30;
-    const bottomCurve = actualHeight - 130 + direction * velocity * 2;
+    const topCurve = direction * velocity * 2 + 10;
+    const bottomCurve = actualHeight + direction * velocity * 2;
 
     setClipPath(
-      `path("M0 30 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 30 L${actualWidth} ${actualHeight - 130} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight - 130} Z")`
-    );
+      `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`);
+    
+      lastScrollYRef.current = scrollY; // Update the ref directly
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       calculateClipPath(scrollY);
-      setLastScrollY(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -70,7 +70,7 @@ const AnimatedImage = ({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   const handleZoomIn = () => {
     if (container.current) {
@@ -186,9 +186,6 @@ const AnimatedImage = ({
               </AnimatePresence>
             </motion.div>
 
-
-            {/* <AnimatedImageThumbnails imagesArray={images}/> */}
-
             <AnimatedThumbnailList
               getImageAspectRatio={getImageAspectRatio}
               imageList={images}
@@ -224,8 +221,8 @@ const AnimatedImage = ({
           gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
           width: `${width}`,
           height: `auto`,
-          clipPath: clipPath,
-          WebkitClipPath: clipPath,
+          clipPath: !ordered && clipPath,
+          WebkitClipPath: !ordered && clipPath,
         }}
       >
         <motion.img
