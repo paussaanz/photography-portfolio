@@ -1,13 +1,11 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
-import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    visualizer({ open: true }),
     viteCompression({
       algorithm: "brotliCompress",
       ext: ".br",
