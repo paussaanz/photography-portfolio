@@ -60,7 +60,7 @@ function App() {
                   path="/portfolio/photoshoots"
                   element={
                     <PortfolioDetailPage
-                      title="photoshoots"
+                      title="photo   shoots"
                       images={portfolioDetails.photoshoots}
                       textAnimation={"A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."}
                     />

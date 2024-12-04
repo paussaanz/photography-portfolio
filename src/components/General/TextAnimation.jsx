@@ -47,13 +47,15 @@ const TextAnimation = ({
       });
 
       char.addEventListener("mouseleave", () => {
-        gsap.to(char, {
-          x: 0,
-          y: 0,
-          rotate: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power3.out",
+        gsap.delayedCall(1.5, () => {
+          gsap.to(char, {
+            x: 0,
+            y: 0,
+            rotation: 0, // Reset rotation to 0
+            scale:1,
+            duration: 0.5, // Duration of the reset
+            ease: 'power3.out',
+          });
         });
       });
     });
