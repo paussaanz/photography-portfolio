@@ -45,8 +45,5 @@ export default defineConfig({
   },
   esbuild: {
     drop: ["console", "debugger"],
-    define: {
-      "process.env.NODE_ENV": JSON.stringify("production"),
-    },
   },
 });
