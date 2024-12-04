@@ -1,0 +1,110 @@
+.editorials-detail__main-section__container {
+  display: flex;
+  width: 100%; // Asegurar que el contenedor principal ocupa todo el ancho
+
+  &__text,
+  &__img {
+    flex: 1; // Cada hijo ocupará la misma proporción dentro del contenedor
+    max-width: 50%; // Limita cada hijo al 50% del ancho del contenedor
+  }
+
+  &__text {
+    line-height: 24px;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 1.3rem;
+    padding: 1.5rem; // Opcional: espacio interior para el texto
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      max-width: 600px;
+    }
+
+    h2 {
+      font-size: 32px;
+      text-align: right;
+      line-height: 35px;
+      font-weight: 500;
+      margin-bottom: 75px;
+      max-width: 680px;
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+
+    img {
+      width: 150%; // La imagen ocupará el 100% del ancho disponible
+      height: auto; // Mantiene la proporción original de la imagen
+    }
+  }
+}
+
+.editorials-detail__main-section__thumbnails {
+  width: 100%;
+  margin-top: 3rem;
+
+  &__text,
+  &__images {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  &__text {
+    justify-content: end;
+
+    &--content {
+      padding: 1.5rem;
+      line-height: 24px;
+      font-family: "Darker Grotesque", sans-serif;
+      font-size: 1.3rem;
+      flex: 1;
+      max-width: 50%;
+    }
+
+    & img {
+      flex: 1;
+      max-width: 50%;
+      padding-right: 1.5rem;
+    }
+  }
+
+  &__images {
+    justify-content: space-between;
+
+    &--content {
+      flex: 1;
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+
+      & p {
+        line-height: 24px;
+        font-family: "Darker Grotesque", sans-serif;
+        font-size: 33px;
+        text-align: right;
+      }
+    }
+
+    img {
+      flex: 1;
+      max-width: 48%;
+    }
+  }
+}
+
+.editorials-detail__main-section__long-image {
+  width: 100%;
+}
+
+.editorials-detail__long-image-paragraph {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.3rem;
+  line-height: 24px;
+  padding: 7.5rem;
+  margin-top: 8rem;
+}

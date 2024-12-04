@@ -106,6 +106,7 @@ function App() {
                     />
                   }
                 />
+
                 <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} isMobile={isMobile} />} />
                 <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
                 <Route path="/editorials/detail" element={<EditorialsDetailPage />} />
