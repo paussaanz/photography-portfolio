@@ -121,20 +121,16 @@ div {
     background-color: var(--cor-light); // Equivalente a "bg-light" en Bootstrap
   }
 
-  &--dark {
-    background-color: var(--cor-dark); // Equivalente a "bg-dark" en Bootstrap
-  }
-
   &--primary {
     background-color: var(--cor-primary); // Equivalente a "bg-primary" en Bootstrap
   }
 
-  &--secondary {
-    background-color: var(--cor-secondary); // Equivalente a "bg-secondary" en Bootstrap
-  }
-
   &--transparent {
     background-color: transparent; // Equivalente a "bg-secondary" en Bootstrap
+  }
+
+  &--primary-greece {
+    background-color: var(--cor-primary-greece); 
   }
 }
 

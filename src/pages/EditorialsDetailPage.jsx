@@ -1,6 +1,5 @@
-import { useState } from "react";
 import EditorialsDetailPageSeo from "./SEO/EditorialsDetailPageSeo";
-import BookPathAnimation from "../components/EditorialsDetailPage/BookPathAnimation";
+import HeroEditorialsDetail from "../components/EditorialsDetailPage/HeroEditorialsDetail";
 
 const EditorialsPage = () => {
   const slides = [
@@ -11,10 +10,11 @@ const EditorialsPage = () => {
   ];
 
   return (
-    <div data-barba="container">
+    <div data-barba="container" className="background--primary-greece">
       <EditorialsDetailPageSeo />
-
-      <BookPathAnimation slides={slides} />
+      <section className="editorials-detail__hero-section d--vh-100">
+        <HeroEditorialsDetail />
+      </section>
     </div>
   );
 };

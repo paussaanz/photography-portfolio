@@ -150,16 +150,16 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
       color: var(--cor-light);
     }
 
-    &--dark {
-      color: var(--cor-dark);
-    }
-
     &--navbar-light {
       color: var(--cor-navbar-light);
     }
 
-    &--black {
-      color: $cor-black;
+    &--primary-greece {
+      color: var(--cor-primary-greece);
+    }
+
+    &--secondary-greece {
+      color: var(--cor-secondary-greece);
     }
   }
 

@@ -6,7 +6,10 @@ body.light-theme {
     --cor-gray: #71827b;
     --cor-warm-gray: #b7bfbc;
     --cor-cursor-mix: color-burn;
-
+    --cor-primary-greece: #B8D0EC;
+    --cor-secondary-greece: #054421;
+    --cor-primary-tanzania: #B83A25;
+    --cor-secondary-tanzania: #F0EBC5;
 }
 
 body.dark-theme {
@@ -17,7 +20,10 @@ body.dark-theme {
     --cor-gray: #71827b;
     --cor-warm-gray: #b7bfbc;
     --cor-cursor-mix: difference;
-
+    --cor-primary-greece: #054421;
+    --cor-secondary-greece: #B8D0EC;
+    --cor-primary-tanzania: #F0EBC5;
+    --cor-secondary-tanzania: #B83A25;
 }
 
 // FONTS
@@ -50,3 +56,4 @@ body.dark-theme {
 @import "pages/portfolio-page";
 @import "pages/home-page";
 @import "pages/portfolio-detail";
+@import "pages/editorials-detail";

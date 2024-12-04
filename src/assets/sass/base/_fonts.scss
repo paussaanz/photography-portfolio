@@ -4,7 +4,8 @@
   font-weight: 900;
   /* Black */
   font-style: normal;
-  font-display: swap !important; /* Ensures fallback font is shown while loading */
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
 }
 
 @font-face {
@@ -13,7 +14,8 @@
   font-weight: 700;
   /* Bold */
   font-style: normal;
-  font-display: swap !important; /* Ensures fallback font is shown while loading */
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
 }
 
 @font-face {
@@ -22,7 +24,8 @@
   font-weight: 500;
   /* Medium */
   font-style: normal;
-  font-display: swap !important; /* Ensures fallback font is shown while loading */
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
 }
 
 @font-face {
@@ -31,7 +34,8 @@
   font-weight: 400;
   /* Regular */
   font-style: normal;
-  font-display: swap !important; /* Ensures fallback font is shown while loading */
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
 }
 
 @font-face {
@@ -40,7 +44,8 @@
   font-weight: normal;
   /* 400 */
   font-style: normal;
-  font-display: swap !important; /* Ensures fallback font is shown while loading */
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
 }
 
 .heading--jumbo {
@@ -51,8 +56,8 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('./../fonts/social-font/icomoon.eot?eum11x');
-  src:  url('./../fonts/social-font/icomoon.eot?eum11x#iefix') format('embedded-opentype'),
+  src: url('./../fonts/social-font/icomoon.eot?eum11x');
+  src: url('./../fonts/social-font/icomoon.eot?eum11x#iefix') format('embedded-opentype'),
     url('./../fonts/social-font/icomoon.ttf?eum11x') format('truetype'),
     url('./../fonts/social-font/icomoon.woff?eum11x') format('woff'),
     url('./../fonts/social-font/icomoon.svg?eum11x#icomoon') format('svg');
@@ -61,7 +66,8 @@
   font-display: swap;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
@@ -75,3 +81,5 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
