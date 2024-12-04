@@ -33,7 +33,7 @@ export default defineConfig({
             if (id.includes("gsap")) return "gsap"; // GSAP in its own chunk
             if (id.includes("framer-motion")) return "framer-motion";
             if (id.includes("three")) return "three"; // Separate chunk for Three.js
-            return "vendor"; // Group remaining dependencies
+            // return "vendor"; // Group remaining dependencies
           }
         },
       },
