@@ -33,10 +33,20 @@ export default defineConfig({
             if (id.includes("gsap")) return "gsap"; // GSAP in its own chunk
             if (id.includes("framer-motion")) return "framer-motion";
             if (id.includes("three")) return "three"; // Separate chunk for Three.js
-            // return "vendor"; // Group remaining dependencies
+            return "vendor"; // Group remaining dependencies
           }
         },
       },
     }
+  },
+  optimizeDeps: {
+    include: ["three", "@react-three/fiber", "@react-three/drei"],
+    exclude: ["three/examples/jsm"], // Exclude unused parts
+  },
+  esbuild: {
+    drop: ["console", "debugger"],
+    define: {
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    },
   },
 });

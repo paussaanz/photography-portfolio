@@ -42,30 +42,38 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     exit: { opacity: 0, y: -10 },
   };
 
-  // Helper to render links
   const renderLinks = (links, isSubmenu = false) =>
-    links.map((link, index) => (
-      <motion.li
-        key={index}
-        className={isSubmenu ? "cus-navbar__mbl--submenu--item" : "cus-navbar__mbl--links-item"}
-        variants={linkVariants}
-      >
-        <a
-          onClick={() => {
-            handleLinkClick(
-              isSubmenu
-                ? `/portfolio/${link.toLowerCase()}`
-                : `/${link.toLowerCase().replace(/\s+/g, "")}`
-            );
-            setIsMenuOpen(false);
-          }}
-          className={isSubmenu ? "cus-navbar__mbl--submenu--link" : "cus-navbar__links--item-link text-color--navbar-light glow-text"}
-        >
-          {link}
-        </a>
-      </motion.li>
-    ));
+    links.map((link, index) => {
+      const targetPath =
+        isSubmenu && link.toLowerCase() === "see all"
+          ? "/portfolio/" // Redirect to /portfolio/ for "See all"
+          : isSubmenu
+            ? `/portfolio/${link.toLowerCase()}`
+            : `/${link.toLowerCase().replace(/\s+/g, "")}`;
 
+      return (
+        <motion.li
+          key={index}
+          className={isSubmenu ? "cus-navbar__mbl--submenu--item" : "cus-navbar__mbl--links-item"}
+          variants={linkVariants}
+        >
+          <a
+            onClick={() => {
+              handleLinkClick(targetPath);
+              setIsMenuOpen(false);
+            }}
+            className={
+              isSubmenu
+                ? "cus-navbar__mbl--submenu--link"
+                : "cus-navbar__links--item-link text-color--navbar-light glow-text"
+            }
+          >
+            {link}
+          </a>
+        </motion.li>
+      );
+    });
+    
   return (
     <nav className="cus-navbar">
       <div className="cus-navbar__container p--y-4">
@@ -76,9 +84,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <li key={index} className="cus-navbar__links--item">
                 <a
                   onClick={() => handleLinkClick(`/${link.toLowerCase().replace(/\s+/g, "")}`)}
-                  className={`cus-navbar__links--item-link ${
-                    isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
-                  }`}
+                  className={`cus-navbar__links--item-link ${isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
+                    }`}
                 >
                   {link}
                 </a>
@@ -107,9 +114,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             <li className="cus-navbar__links--item">
               <a
                 onClick={() => handleLinkClick("/contact")}
-                className={`cus-navbar__links--item-link ${
-                  isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
-                }`}
+                className={`cus-navbar__links--item-link ${isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
+                  }`}
               >
                 Contact
               </a>
@@ -180,7 +186,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               </AnimatePresence>
             </motion.li>
 
-            {renderLinks(["Editorials", "About", "Contact"])}
+            {renderLinks(["Editorials", "AboutSyp!", "Contact"])}
           </motion.ul>
         </motion.div>
       </div>
