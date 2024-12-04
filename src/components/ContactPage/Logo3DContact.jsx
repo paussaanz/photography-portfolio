@@ -1,7 +1,7 @@
-import { useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { Color, Box3, Vector3 } from "three"; // Import only required classes
+import { useContext, useEffect, useRef, useState } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Logo3D = ({ hovered, isMobile }) => {
@@ -10,21 +10,17 @@ const Logo3D = ({ hovered, isMobile }) => {
   const groupRef = useRef(null);
   const materialRef = useRef(null);
 
-  const [targetColor, setTargetColor] = useState(
-    new THREE.Color("#ffffff") // Default color
-  );
-
   useEffect(() => {
     const model = nodes.Curve;
-    const box = new THREE.Box3().setFromObject(model);
-    const center = box.getCenter(new THREE.Vector3());
+    const box = new Box3().setFromObject(model);
+    const center = box.getCenter(new Vector3());
     model.position.sub(center); // Center the model
 
     if (groupRef.current) {
       groupRef.current.position.set(0, 0, 0);
     }
 
-    const size = box.getSize(new THREE.Vector3()).length();
+    const size = box.getSize(new Vector3()).length();
     const scaleFactor = isMobile ? 7 / size : 10 / size;
     groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
@@ -50,27 +46,25 @@ const Logo3D = ({ hovered, isMobile }) => {
     const elapsedTime = clock.getElapsedTime();
 
     if (materialRef.current) {
-      const hoverColor = theme === "dark-theme" ? new THREE.Color("#6B5154") : new THREE.Color("#DA6A2D");
-      const normalColor = new THREE.Color("#EBE6E0");
+      const hoverColor = theme === "dark-theme" ? new Color("#6B5154") : new Color("#DA6A2D");
+      const normalColor = new Color("#EBE6E0");
       const target = hovered ? hoverColor : normalColor;
 
       // Smooth color transition
       materialRef.current.color.lerp(target, 0.05);
     }
 
-    if (isMobile) {
+    if (isMobile && groupRef.current) {
       // Add subtle floating and rotation animation for mobile
-      if (groupRef.current) {
-        groupRef.current.position.y = 0.09 * Math.sin(elapsedTime * 3);
-        groupRef.current.rotation.y += 0.01; // Continuous slow rotation
-      }
+      groupRef.current.position.y = 0.09 * Math.sin(elapsedTime * 3);
+      groupRef.current.rotation.y += 0.01; // Continuous slow rotation
     }
   });
 
   return (
     <group ref={groupRef}>
       <mesh {...nodes.Curve}>
-        <MeshTransmissionMaterial
+        <meshPhysicalMaterial
           ref={materialRef}
           metalness={0}
           transmission={0.9}

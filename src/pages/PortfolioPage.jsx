@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import HeroPortfolio from '../components/PortfolioPage/HeroPortfolio';
 import TextAnimation from '../components/General/TextAnimation';
 import ProjectCardAnimationGSAP from '../components/PortfolioPage/ProjectCardAnimationGSAP';
@@ -12,16 +12,30 @@ const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
     const { isMobile } = useMediaQuery();
 
-    const heroContent = useMemo(() => isVisited 
-        ? <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />
-        : <LoaderPortfolio images={portfolioParallaxHero} />, [isVisited]);
+    const heroContent = useMemo(() => {
+        if (isVisited) {
+            return <HeroPortfolio images={portfolioParallaxHero} word="PORTFOLIO" />;
+        }
+        return <LoaderPortfolio images={portfolioParallaxHero} />;
+    }, [isVisited]);
 
-    const projectCardContent = useMemo(() => isMobile 
-        ? <ProjectCardMobile images={mobilePortfolioCard} />
-        : <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef} />, [isMobile]);
+    const projectCardContent = useMemo(() => {
+        if (isMobile) {
+            return <ProjectCardMobile images={mobilePortfolioCard} />;
+        }
+        return <ProjectCardAnimationGSAP portfolioCardAnimation={portfolioCardAnimation} parentRef={sectionRef} />;
+    }, [isMobile]);
 
     const sectionClass = useMemo(() => `${isMobile ? 'd--vh-100' : 'd--vh-175'} flex`, [isMobile]);
     const textAnimationClass = useMemo(() => `${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center position--relative z-index--5`, [isMobile]);
+
+    useEffect(() => {
+        return () => {
+            portfolioCardAnimation.forEach((image) => URL.revokeObjectURL(image.src));
+            portfolioParallaxHero.forEach((image) => URL.revokeObjectURL(image.src));
+            mobilePortfolioCard.forEach((image) => URL.revokeObjectURL(image.src));
+        };
+    }, []);
 
     return (
         <div data-barba="container">

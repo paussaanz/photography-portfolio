@@ -4,41 +4,42 @@ import { ScrollTrigger } from "gsap/all";
 import { portfolioCardAnimation } from "../../assets/js/images";
 import { Link } from "react-router-dom";
 
-const ProjectCardAnimation = ({ }) => {
-  const container = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
+
+const getInitialTranslateZ = (slide) => {
+  const style = window.getComputedStyle(slide);
+  const matrix = style.transform.match(/matrix3d\((.+)\)/);
+  if (matrix) {
+    const values = matrix[1].split(", ");
+    return parseFloat(values[14] || 0);
+  }
+  return 0;
+};
+
+const mapRange = (value, inMin, inMax, outMin, outMax) =>
+  ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+
+const ProjectCardAnimation = () => {
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (!containerRef.current) return;
 
-    if (!container.current) return;
-
-    const slides = container.current.querySelectorAll(".card-3d__animation-slide");
-    const activeSlide = container.current.querySelector(".card-3d__animation-active-slide");
-    const activeSlideImages = container.current.querySelectorAll(".card-3d__animation-active-slide--image");
-
-    const getInitialTranslateZ = (slide) => {
-      const style = window.getComputedStyle(slide);
-      const matrix = style.transform.match(/matrix3d\((.+)\)/);
-      if (matrix) {
-        const values = matrix[1].split(", ");
-        return parseFloat(values[14] || 0);
-      }
-      return 0;
-    };
-
-    const mapRange = (value, inMin, inMax, outMin, outMax) => {
-      return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-    };
+    const container = containerRef.current;
+    const slides = Array.from(container.querySelectorAll(".card-3d__animation-slide"));
+    const activeSlide = container.querySelector(".card-3d__animation-active-slide");
+    const activeSlideImages = Array.from(
+      container.querySelectorAll(".card-3d__animation-active-slide--image")
+    );
 
     slides.forEach((slide, i) => {
       const initialZ = getInitialTranslateZ(slide);
 
       ScrollTrigger.create({
-        trigger: container.current,
+        trigger: container,
         start: "top center",
         end: "bottom bottom",
-        onUpdate: (self) => {
-          const progress = self.progress;
+        onUpdate: ({ progress }) => {
           gsap.to(activeSlide, {
             opacity: progress * 100,
             ease: "power4.out",
@@ -48,12 +49,11 @@ const ProjectCardAnimation = ({ }) => {
       });
 
       ScrollTrigger.create({
-        trigger: container.current,
+        trigger: container,
         start: "top top",
         end: "bottom bottom",
         scrub: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
+        onUpdate: ({ progress }) => {
           const zIncrement = progress * 10000;
           const currentZ = initialZ + zIncrement;
 
@@ -81,7 +81,7 @@ const ProjectCardAnimation = ({ }) => {
   }, []);
 
   return (
-    <div ref={container} className="card-3d__animation-container">
+    <div ref={containerRef} className="card-3d__animation-container">
       <div className="card-3d__animation-active-slide">
         {portfolioCardAnimation.map((image, index) => (
           <img

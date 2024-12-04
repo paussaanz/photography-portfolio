@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useScroll } from "framer-motion";
 import ParallaxImages from "../General/ParallaxImages";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
@@ -12,9 +12,18 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     offset: ["start end", "end center"],
   });
 
-  // Retrieve yTransforms and letterTransforms using reusable animation hooks
-  const yTransforms = getYTransform(scrollYProgress);
-  const letterTransforms = useLetterTransforms(word, scrollYProgress);
+  // Use memoized transformations to avoid recalculations
+  const yTransforms = useMemo(() => getYTransform(scrollYProgress), [scrollYProgress]);
+  const letterTransforms = useMemo(() => useLetterTransforms(word, scrollYProgress), [
+    word,
+    scrollYProgress,
+  ]);
+
+  // Memoize hero title style
+  const heroTitleStyle = useMemo(
+    () => ({ bottom: "-65px" }),
+    []
+  );
 
   return (
     <div ref={container} className="container-bem portfolio__hero">
@@ -35,7 +44,7 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
           </div>
         ) : (
           <motion.div
-            style={{ bottom: "-65px" }}
+            style={heroTitleStyle}
             className="m--0 text-transform--uppercase position--absolute text-color--primary d--vw-100 overflow--hidden flex flex--a-center flex--j-center"
           >
             {word.split("").map((letter, index) => (
