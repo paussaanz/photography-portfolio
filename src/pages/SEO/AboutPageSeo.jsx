@@ -19,12 +19,12 @@ const AboutPageSeo = () => {
       />
 
       {/* Canonical URL para SEO */}
-      <link rel="canonical" href="https://www.sypcreative.com/about" />
+      <link rel="canonical" href="https://www.sypcreative.com/aboutsyp!" />
 
       {/* Open Graph para redes sociales */}
       <meta property="og:title" content="About SYP - Photographer & Web Developer" />
       <meta property="og:description" content="Explore SYP's journey as a photographer and web developer. Check out her portfolio to see her work." />
-      <meta property="og:url" content="https://www.sypcreative.com/about" />
+      <meta property="og:url" content="https://www.sypcreative.com/aboutsyp!" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://www.sypcreative.com/logo-black.svg" />
 

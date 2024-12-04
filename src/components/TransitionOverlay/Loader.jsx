@@ -7,36 +7,38 @@ import SypComponent from './SypComponent';
 const Loader = ({ onCompleteLoading }) => {
     const [isReadyToFade, setIsReadyToFade] = useState(false);
 
-    function SVGMorph({ paths, onComplete }) {
+    const SVGMorph = ({ paths, onComplete }) => {
         const [indexOfPath, setIndexOfPath] = useState(0);
         const progress = useMotionValue(0);
-        const getIndex = paths.map((_, i) => i);
-        const pathValue = useTransform(progress, getIndex, paths, {
-            mixer: (a, b) => interpolate(a, b, { maxSegmentLength: 8 })
+
+        // Create the transform to morph between paths
+        const pathValue = useTransform(progress, paths.map((_, i) => i), paths, {
+            mixer: (a, b) => interpolate(a, b, { maxSegmentLength: 8 }),
         });
 
         useEffect(() => {
-            animate(progress, indexOfPath, {
-                duration: 0.1,
-                ease: 'easeInOut',
-                delay: 0.5,
-                onComplete: () => {
-                    if (indexOfPath === paths.length - 1) {
-                        if (onComplete) onComplete(); // Notify that this SVGMorph animation is complete
-                        setIndexOfPath(1);
-                        progress.set(0);
-                    } else {
-                        setIndexOfPath(indexOfPath + 1);
-                    }
-                }
-            });
-        }, [indexOfPath]);
+            const startAnimation = () => {
+                animate(progress, indexOfPath, {
+                    duration: 0.1,
+                    ease: 'easeInOut',
+                    delay: 0.5,
+                    onComplete: () => {
+                        const nextIndex = (indexOfPath + 1) % paths.length;
+                        setIndexOfPath(nextIndex);
 
-        return <motion.path style={{ height: '100px' }} d={pathValue} />;
-    }
+                        if (indexOfPath === paths.length - 1 && onComplete) {
+                            onComplete(); // Notify when the sequence is complete
+                        }
+                    },
+                });
+            };
 
+            startAnimation();
+        }, [indexOfPath, progress, paths, onComplete]);
 
-    // Callback to trigger fade-out when all morph animations are done
+        return <motion.path d={pathValue} />;
+    };
+
     const handleAnimationComplete = () => {
         setIsReadyToFade(true);
         if (onCompleteLoading) onCompleteLoading();
@@ -53,20 +55,29 @@ const Loader = ({ onCompleteLoading }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                zIndex: 1000
+                zIndex: 1000,
             }}
             initial={{ opacity: 1 }}
-            // animate={isReadyToFade ? { opacity: 0 } : { opacity: 1 }}
+            animate={{ opacity: isReadyToFade ? 0 : 1 }}
             transition={{ opacity: { duration: 1 } }}
         >
             <SypComponent />
-            <svg style={{ height: '200px' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433.11 491.1">
-                <SVGMorph paths={[excl1, quest1, and, excl1]} onComplete={handleAnimationComplete} />
-                <SVGMorph paths={[ellipse1, ellipse2, noellipse, ellipse1]} onComplete={handleAnimationComplete} />
+            <svg
+                style={{ height: '200px' }}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 433.11 491.1"
+            >
+                <SVGMorph
+                    paths={[excl1, quest1, and, excl1]}
+                    onComplete={handleAnimationComplete}
+                />
+                <SVGMorph
+                    paths={[ellipse1, ellipse2, noellipse, ellipse1]}
+                    onComplete={handleAnimationComplete}
+                />
             </svg>
         </motion.div>
     );
 };
-
 
 export default Loader;

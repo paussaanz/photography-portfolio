@@ -4,29 +4,26 @@ import Loader from '../components/TransitionOverlay/Loader';
 const LoaderContext = createContext();
 
 export const LoaderContextProvider = ({ children }) => {
-
     const [isLoading, setIsLoading] = useState(true);
     const [showBg, setShowBg] = useState(false);
 
     useEffect(() => {
-        // Simulate loading time or replace with actual loading logic
-        const timer = setTimeout(() => setIsLoading(false), 5000); // Adjust time as needed
+        const loadingDuration = 4000; // Define loading duration
+        const bgDelay = 3000; // Delay before showing background
 
-        const timer2 = setTimeout(() => setShowBg(true), 3000);
+        const loadingTimer = setTimeout(() => setIsLoading(false), loadingDuration);
+        const bgTimer = setTimeout(() => setShowBg(true), bgDelay);
+
         return () => {
-            clearTimeout(timer);
-            clearTimeout(timer2);
-        }
+            clearTimeout(loadingTimer);
+            clearTimeout(bgTimer);
+        };
     }, []);
 
     return (
-
-        // <div className="background--light d--vh-100">
-            <LoaderContext.Provider value={{ isLoading, setIsLoading }}>
-                {isLoading && <Loader />}
-                {showBg && children}
-            </LoaderContext.Provider>
-        // </div>
+        <LoaderContext.Provider value={{ isLoading, setIsLoading }}>
+            {isLoading ? <Loader /> : showBg && children}
+        </LoaderContext.Provider>
     );
 };
 

@@ -1,63 +1,76 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ClipPathAnimation = ({ onImageChange, images }) => {
-    const ref = useRef(null);
+const ClipPathAnimation = React.memo(({ onImageChange, images }) => {
+  const containerRef = useRef(null);
 
-    
-    useEffect(() => {
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: ref.current,
-                start: "top top",
-                end: "bottom+=200vh top",
-                scrub: true,
-                onUpdate: (self) => {
-                    const progress = self.progress; // Progress from 0 to 1
-                    const index = Math.min(Math.floor(progress * images.length), images.length - 1); // Cap the index
-                    onImageChange(index); 
-                },
-            },
-        });
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-        images.forEach((img, index) => {
-            timeline.fromTo(
-                ref.current.children[index],
-                { clipPath: "circle(0% at 100% 0%)" }, // Start from a small point
-                { clipPath: "circle(150% at 100% 0%)", duration: 1 } // Expand to desired size
-            );
-        });
+    const container = containerRef.current;
+    const children = Array.from(container.children);
 
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: "bottom+=200vh top",
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const index = Math.min(Math.floor(progress * images.length), images.length - 1);
+          onImageChange(index);
+        },
+      },
+    });
 
-    }, [onImageChange]);
+    children.forEach((child, index) => {
+      timeline.fromTo(
+        child,
+        { clipPath: "circle(0% at 100% 0%)" },
+        { clipPath: "circle(150% at 100% 0%)", duration: 1 },
+        index * 1
+      );
+    });
 
-    return (
-        <>
-            <div className="favorites-about__clip-path">
-                <div ref={ref} className="overflow--hidden d--vh-100 d--w-100">
-                    {images.map((image, index) => (
-                        <div key={index} style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                        }}>
-                            <div className="flex flex--col d--h-100">
-                                <div className="favorites-about__clip-path-item">
-                                    <img src={image.src} loading="lazy" alt={`Favorite Image ${index}`} className="favorites-about__clip-path-item-image object-fit--cover" />
-                                </div>
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      timeline.kill();
+    };
+  }, [onImageChange, images]);
 
-                            </div>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <div className="favorites-about__clip-path">
+      <div ref={containerRef} className="overflow--hidden d--vh-100 d--w-100">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <div className="flex flex--col d--h-100">
+              <div className="favorites-about__clip-path-item">
+                <img
+                  src={image.src}
+                  loading="lazy"
+                  alt={`Favorite Image ${index}`}
+                  className="favorites-about__clip-path-item-image object-fit--cover"
+                />
+              </div>
             </div>
-        </>
-    );
-};
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+});
 
 export default ClipPathAnimation;

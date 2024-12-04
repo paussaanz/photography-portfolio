@@ -13,21 +13,22 @@ import './index.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(window.location.pathname)
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <LenisProvider>
         <MediaQueryProvider>
-          <ThemeProvider>
-            <TransitionProvider>
-              <LogoTransitionProvider>
-                <App />
-                <Footer />
-              </LogoTransitionProvider>
-            </TransitionProvider>
-          </ThemeProvider>
+          <LoaderContextProvider>
+            <ThemeProvider>
+              <TransitionProvider>
+                <LogoTransitionProvider>
+                  <App />
+                  <Footer />
+                </LogoTransitionProvider>
+              </TransitionProvider>
+            </ThemeProvider>
+          </LoaderContextProvider>
         </MediaQueryProvider>
       </LenisProvider>
     </BrowserRouter>

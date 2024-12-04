@@ -1,50 +1,102 @@
+import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/all";
+import SplitType from "split-type";
 
-const HeroAbout = () => {
-    const titleRef = useRef(null);
-    const imageRef = useRef(null);
-    const containerRef = useRef(null);
+const MarqueeAbout = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  const marqueeRef = useRef(null);
 
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    // Initialize SplitType for all lines
+    const splitInstances = [
+      new SplitType("#marqueeTop", { types: "chars", charClass: "about__marquee-char" }),
+      new SplitType("#marqueeMiddle", { types: "chars", charClass: "about__marquee-char" }),
+      new SplitType("#marqueeBottom", { types: "chars", charClass: "about__marquee-char" }),
+    ];
 
-        // Define a timeline with ScrollTrigger integration
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top", // When the top of the container reaches the top of the viewport
-                end: "center top", // When the bottom of the container reaches the top of the viewport
-                scrub: 1, // Smooth scrubbing
-            }
-        });
+    // Gather all characters for hover effects
+    const chars = marqueeRef.current.querySelectorAll(".about__marquee-char");
 
-        tl.fromTo(
-            titleRef.current,
-            { yPercent: 50, fontSize: '12vw' },
-            { yPercent: -45, fontSize: '9vw' }
-        );
+    // Hover effect with GSAP
+    const handleMouseEffects = (e, char) => {
+      const rect = char.getBoundingClientRect();
+      const charX = rect.left + rect.width / 2;
+      const charY = rect.top + rect.height / 2;
 
-        // Animate the image downwards proportionally
-        tl.fromTo(
-            imageRef.current,
-            { yPercent: 0, height: '400px' }, // Starting position
-            { yPercent: 110, width: '100vw', height: "70vh" }, // Final position in sync with title
-            0 // Synchronizes with title animation
-        );
-    }, []);
+      const distanceX = (e.clientX - charX) / 3;
+      const distanceY = (e.clientY - charY) / 4;
+      const rotationAngle = (e.clientX - charX) / 7;
 
-    return (
-        <div ref={containerRef} className="container-bem">
-            <div className="text-color--primary text-align--center flex flex--j-center flex--a-center flex--col d--vh-100">
-                <img ref={imageRef} loading="lazy" className="about__hero-image" src="/images/mid/photoshoots-32.webp" />
-                <h1 ref={titleRef} className="about__hero-title">
-                    ABOUT SYP!
-                </h1>
-            </div>
+      gsap.to(char, {
+        x: distanceX,
+        y: distanceY,
+        rotate: rotationAngle,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    };
+
+    const resetMouseEffects = (char) => {
+      gsap.to(char, {
+        x: 0,
+        y: 0,
+        rotate: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    };
+
+    chars.forEach((char) => {
+      char.addEventListener("mousemove", (e) => handleMouseEffects(e, char));
+      char.addEventListener("mouseleave", () => resetMouseEffects(char));
+    });
+
+    // Initialize marquee scroll animation
+    gsap.set("#marqueeTop, #marqueeMiddle, #marqueeBottom", { xPercent: 0 });
+
+    ScrollTrigger.create({
+      trigger: marqueeRef.current,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.to("#marqueeTop", { xPercent: -25 * progress, ease: "none" });
+        gsap.to("#marqueeMiddle", { xPercent: 25 * progress, ease: "none" });
+        gsap.to("#marqueeBottom", { xPercent: -7 * progress, ease: "none" });
+      },
+    });
+
+    // Cleanup on unmount
+    return () => {
+      chars.forEach((char) => {
+        char.removeEventListener("mousemove", handleMouseEffects);
+        char.removeEventListener("mouseleave", resetMouseEffects);
+      });
+      splitInstances.forEach((splitInstance) => splitInstance.revert());
+      ScrollTrigger.killAll();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={marqueeRef}
+      className="d--vh-100 d--h-100-mbl position--relative flex flex--j-center flex--a-center text-transform--uppercase overflow--hidden"
+    >
+      <div className="marquee-about__inner">
+        <div id="marqueeTop" className="about__marquee-part">
+          CREATIVE
         </div>
-    );
+        <div id="marqueeMiddle" className="about__marquee-part">
+          Freelance
+        </div>
+        <div id="marqueeBottom" className="about__marquee-part">
+          DEVELOPER
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default HeroAbout;
+export default MarqueeAbout;

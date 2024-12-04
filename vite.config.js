@@ -17,14 +17,13 @@ export default defineConfig({
     assetsInlineLimit: 8192,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "three", "gsap"],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
         },
-        entryFileNames: "assets/[name].[hash].js",
-        chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: "assets/[name].[hash].[ext]",
       },
-    },
+    }    
   },
   esbuild: {
     drop: ["console", "debugger"],

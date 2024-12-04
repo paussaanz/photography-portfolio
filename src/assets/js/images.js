@@ -165,6 +165,43 @@ import Sports16 from "/images/mid/sports-16.webp";
 import Sports17 from "/images/mid/sports-17.webp";
 import Sports18 from "/images/mid/sports-18.webp";
 
+export const homePageLoader = [
+  [
+    Nature1,
+    Nature2,
+    Nature3,
+    Nature4,
+    Nature5
+  ],
+  [
+    Nature6,
+    Nature7,
+    Nature8,
+    Nature9,
+    Nature10
+  ],
+  [
+    Nature11,
+    Nature12,
+    Nature30,
+    Nature14,
+    Nature15
+  ],
+  [
+    Nature16,
+    Nature17,
+    Nature18,
+    Nature19,
+    Nature20
+  ],
+  [
+    Nature21,
+    Nature22,
+    Nature23,
+    Nature24,
+    Nature25
+  ]
+]
 export const homeSwiperImages = [
   {
     src: NatureHome,
@@ -202,6 +239,7 @@ export const homeSwiperImages = [
     url: "/portfolio/lifestyle",
   },
 ];
+
 export const editorialSwiperImages = [
   {
     src: EditorialCover1,
@@ -1396,6 +1434,33 @@ export const textAboutImages = {
   },
 };
 
+export const favoritesAbout = [
+  {
+    src: Lifestyle1,
+    name: '"Echoes of Elegance"',
+  },
+  {
+    src: Nature,
+    name: '"Silent Watcher"',
+  },
+  {
+    src: Photoshoots31,
+    name: '"Gravity in Motion"',
+  },
+  {
+    src: Nature8,
+    name: '"Roadside Bond"',
+  },
+  {
+    src: Sports9,
+    name: '"Chasing Liquid Mountains"',
+  },
+  {
+    src: Lifestyle13,
+    name: '"Timeless Pause"',
+  },
+];
+
 //MOBILE
 
 export const mobilePortfolioCard = [
@@ -1430,3 +1495,4 @@ export const mobilePortfolioCard = [
     url: "/portfolio/photoshoots",
   },
 ]
+

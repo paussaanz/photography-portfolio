@@ -11,11 +11,7 @@ const AboutPage = ({ isVisited }) => {
             <AboutPageSeo />
 
             <section className="about__section-hero d--vh-150 overflow--y-hidden">
-                {isVisited ?
-                    <HeroAbout />
-                    :
-                    <LoaderAbout />
-                }
+                {isVisited ? <HeroAbout /> : <LoaderAbout />}
             </section>
 
             <section className="about__section-marquee">
@@ -27,7 +23,7 @@ const AboutPage = ({ isVisited }) => {
             </section>
 
             <section className="about__section-work">
-                <FavoritesAbout/>
+                <FavoritesAbout />
             </section>
         </div>
     );
