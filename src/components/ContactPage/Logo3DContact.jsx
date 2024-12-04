@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Color, Box3, Vector3 } from "three"; // Import only required classes
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Logo3D = ({ hovered, isMobile }) => {
