@@ -23,6 +23,9 @@ import PortfolioParallax3 from "/images/low/hero-portfolio-6.webp";
 //EDITORIALS
 import EditorialCover1 from "/images/editorial-cover-1.png";
 import EditorialCover2 from "/images/editorial-cover-2.png";
+//EDITORIALS MOBILE
+import EditorialCover1Mbl from "/images/cover-mbl-greece.jpg";
+import EditorialCover2Mbl from "/images/cover-mbl-tanzania.jpg";
 
 //PHOTOSHOOTS
 import Photoshoots1 from "/images/mid/photoshoots-1.webp";
@@ -370,27 +373,25 @@ export const editorialsCovers = [
   {
     src: EditorialCover1,
     name: "GREECE",
-    year: "2022",
+    date: "2022",
   },
   {
     src: EditorialCover2,
     name: "TANZANIA",
-    year: "2023",
+    date: "2023",
+  },
+];
+
+export const editorialsCoversMbl = [
+  {
+    src: EditorialCover1Mbl,
+    name: "GREECE",
+    date: "0723",
   },
   {
-    src: EditorialCover2,
+    src: EditorialCover2Mbl,
     name: "TANZANIA",
-    year: "2023",
-  },
-  {
-    src: EditorialCover1,
-    name: "GREECE",
-    year: "2022",
-  },
-  {
-    src: EditorialCover1,
-    name: "GREECE",
-    year: "2022",
+    date: "0423",
   },
 ];
 
