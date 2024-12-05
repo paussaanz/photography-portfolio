@@ -1,14 +1,55 @@
 import EditorialsDetailPageSeo from "./SEO/EditorialsDetailPageSeo";
 import HeroEditorialsDetail from "../components/EditorialsDetailPage/HeroEditorialsDetail";
 import './EditorialsDetail.scss';
+import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const EditorialsPage = () => {
-  const slides = [
-    { src: "/editorials/slide-1.webp", alt: "Slide 1", type: "image" },
-    { src: "/editorials/slide-2.webp", alt: "Slide 2", type: "text" },
-    { src: "/editorials/slide-3.webp", alt: "Slide 3", type: "custom" },
-    { src: "/editorials/slide-4.webp", alt: "Slide 4", type: "custom" },
-  ];
+  const containerRef = useRef(null);
+  const largeImageRef = useRef(null);
+  const targetImageRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Configura la animación
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current, // El contenedor principal
+        start: "top top", // Comienza cuando el contenedor entra al centro
+        end: "bottom center", // Termina cuando el contenedor sale del centro
+        scrub: 1, // Suaviza la animación sincronizada con el scroll
+      },
+    })
+      .fromTo(
+        largeImageRef.current,
+        {
+          x: 0,
+          y: 0,
+          scale: 1
+        },
+        {
+          x: () => {
+            const targetBounds = targetImageRef.current.getBoundingClientRect();
+            const largeImageBounds = largeImageRef.current.getBoundingClientRect();
+            return targetBounds.left - largeImageBounds.left;
+          },
+          y: () => {
+            const targetBounds = targetImageRef.current.getBoundingClientRect();
+            const largeImageBounds = largeImageRef.current.getBoundingClientRect();
+            return targetBounds.top - largeImageBounds.top;
+          },
+          scale: 0.5, // Escala final
+          ease: "power1.out",
+        }
+      );
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div data-barba="container" className="background--primary-greece">
@@ -17,14 +58,14 @@ const EditorialsPage = () => {
         <HeroEditorialsDetail />
       </section>
 
-      <section className="editorials-detail__main-section  p--5 text-color--secondary-greece">
+      <section ref={containerRef} className="editorials-detail__main-section  p--5 text-color--secondary-greece">
         <div className="editorials-detail__main-section__container flex">
           <div className="editorials-detail__main-section__container__text">
             <h2 className="text-color--secondary-greece">Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD</h2>
             <p className="text-color--secondary-greece">This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to offer.
               Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea, and create unforgettable memories against the backdrop of the stunning Greek landscape.</p>
           </div>
-          <div className="editorials-detail__main-section__container__img">
+          <div ref={largeImageRef} className="editorials-detail__main-section__container__img">
             <img src="/editorials/slide-5.webp" alt="Slide 5" />
           </div>
         </div>
@@ -35,7 +76,7 @@ const EditorialsPage = () => {
           </div>
           <div className="editorials-detail__main-section__thumbnails__images flex">
             <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
-            <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
+            <img ref={targetImageRef} src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
           </div>
         </div>
 
