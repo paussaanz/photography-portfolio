@@ -124,6 +124,7 @@
 .gallery-grid {
   display: grid;
   gap: 80px;
+  grid-template-columns: repeat(12, 1fr); /* Creates 12 columns each taking up 1 fraction of the available space */
 
   &__item {
     display: flex;
@@ -157,7 +158,7 @@
   }
 
   &__mbl {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 
     .gallery-grid__item {

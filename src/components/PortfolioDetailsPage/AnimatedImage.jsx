@@ -52,7 +52,8 @@ const AnimatedImage = ({
     const bottomCurve = actualHeight + direction * velocity * 2;
 
     setClipPath(
-      `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`);
+      `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`
+    );
     
       lastScrollYRef.current = scrollY; // Update the ref directly
   };

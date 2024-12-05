@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useTransition } from "../../contexts/transitionContext";
 import { useLocation } from "react-router-dom";
+import imgNav from '/images/dropdown.webp'
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const { handleLinkClick } = useTransition();
@@ -73,7 +74,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </motion.li>
       );
     });
-    
+
   return (
     <nav className="cus-navbar">
       <div className="cus-navbar__container p--y-4">
@@ -144,18 +145,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           variants={dropdownVariants}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <motion.div
-            className="cus-navbar__mbl--image-container"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 50 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <img
-              src="./images/dropdown.webp"
-              alt="Decorative"
-              className="cus-navbar__mbl--image"
-            />
-          </motion.div>
           <motion.ul
             className="cus-navbar__mbl--links-list"
             variants={linkListVariants}
@@ -186,8 +175,20 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               </AnimatePresence>
             </motion.li>
 
-            {renderLinks(["Editorials", "AboutSyp!", "Contact"])}
+            {renderLinks(["Editorials", "About Syp!", "Contact"])}
           </motion.ul>
+          <motion.div
+            className="cus-navbar__mbl--image-container"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 50 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <img
+              src={imgNav}
+              alt="Decorative"
+              className="cus-navbar__mbl--image"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </nav>

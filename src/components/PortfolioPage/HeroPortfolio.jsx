@@ -12,12 +12,10 @@ const HeroPortfolio = ({ images = [], word = "PORTFOLIO" }) => {
     offset: ["start end", "end center"],
   });
 
+
   // Use memoized transformations to avoid recalculations
-  const yTransforms = useMemo(() => getYTransform(scrollYProgress), [scrollYProgress]);
-  const letterTransforms = useMemo(() => useLetterTransforms(word, scrollYProgress), [
-    word,
-    scrollYProgress,
-  ]);
+  const yTransforms = getYTransform(scrollYProgress);
+  const letterTransforms = useLetterTransforms(word, scrollYProgress)
 
   // Memoize hero title style
   const heroTitleStyle = useMemo(
