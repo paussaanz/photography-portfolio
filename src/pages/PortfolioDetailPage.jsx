@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import HeroDetails from "../components/PortfolioDetailsPage/HeroDetails";
 import TextAnimation from "../components/General/TextAnimation";
 import Button from "../components/General/Buttons/Button";
@@ -102,13 +102,13 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         </div>
 
         <div
-          className={ordered ? "pdetails__images-gallery" : ""}
+          className={ordered ? "pdetails__images-gallery" : "pdetails__images"}
           onMouseEnter={handleMouseMove}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className={ordered ? "pdetails__images-gallery--ordered" : ""}
+            className={ordered ? "pdetails__images-gallery--ordered" : "pdetails__images-gallery-unordered"}
             ref={galleryRef}
           >
             <GalleryGrid
