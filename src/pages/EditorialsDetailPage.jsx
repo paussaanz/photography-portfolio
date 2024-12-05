@@ -49,16 +49,46 @@ const EditorialsPage = () => {
           </div>
         </div>
 
-      </section >
+      </section>
+
       <section className="p--5">
-
-
-
         <div className="editorials-detail__main-section__long-image" style={{ background: 'url("/editorials/slide-5.webp")', backgroundSize: "cover", backgroundPosition: "center", height: '410px' }} />
 
         <p className="editorials-detail__long-image-paragraph text-color--secondary-greece">
           Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines. Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.
         </p>
+      </section>
+
+      <section className="p--5">
+        <h1 className="editorials-detail__sub-section__title">Exploring the Breathtaking Landscapes of the Greek Islands</h1>
+
+        <div className="editorials-detail__sub-section__container flex">
+          <div className="editorials-detail__sub-section__container__image">
+            <img src="/editorials/slide-5.webp" alt="Slide 5" />
+          </div>
+          <div className="editorials-detail__sub-section__container__mixed">
+            <div className="editorials-detail__sub-section__container__mixed__image">
+              <img src="/editorials/slide-5.webp" alt="Slide 5" />
+            </div>
+            <div className="editorials-detail__sub-section__container__mixed__text">
+              <p className="text-color--secondary-greece">Each island in Greece possesses its own unique character and charm. From the volcanic wonders of Santorini, with its iconic blue-domed churches overlooking the caldera, to the lush greenery of Corfu, where olive trees sway in the gentle breeze, the Greek islands offer a tapestry of landscapes that capture the imagination and leave an indelible mark on the soul.</p>
+              <p className="text-color--secondary-greece">Picture-perfect villages adorned with whitewashed houses and vibrant bougainvillea cascading along narrow alleyways create a postcard-worthy backdrop. The tranquility of these idyllic settlements invite exploration, with each step revealing a new discovery, whether it's a hidden taverna serving delectable local cuisine or a centuries-old church steeped in history.</p>
+            </div>
+          </div>
+        </div>
+      </section >
+
+      <section className="p--5">
+        <div
+          style={{
+            background: 'url("/editorials/slide-5.webp")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="editorials-detail__end-section__container flex d--vh-150"
+        >
+          <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__end-section__container__image" />
+        </div>
       </section>
 
     </div >

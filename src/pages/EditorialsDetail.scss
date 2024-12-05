@@ -97,6 +97,80 @@
   }
 }
 
+.editorials-detail__sub-section {
+  &__title {
+    max-width: 1380px;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 47px;
+    color: #341116;
+    position: absolute;
+  }
+
+  &__container {
+    margin-top: 70px;
+
+    &__image,
+    &__mixed {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    &__image {
+      overflow: hidden;
+      padding-right: 1rem;
+    }
+
+    &__mixed {
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      &__image,
+      &__text {
+        flex: 1;
+        max-height: 50%;
+      }
+
+      &__text {
+        max-width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+
+        & p {
+          flex: 1;
+          max-width: 50%;
+
+          line-height: 24px;
+          font-family: "Darker Grotesque", sans-serif;
+          font-size: 1.3rem;
+          padding: 0.5rem;
+        }
+      }
+
+      &__image {
+        display: flex;
+
+        & img {
+          max-width: 50%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+.editorials-detail__end-section__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & img {
+    width: 50%;
+  }
+}
+
 .editorials-detail__main-section__long-image {
   width: 100%;
 }
