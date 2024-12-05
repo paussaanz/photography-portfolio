@@ -40,6 +40,8 @@ const AnimatedImage = ({
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
 
   const calculateClipPath = (scrollY) => {
+    if (isMobile) return; // Skip calculation on mobile
+
     const containerElement = container.current;
     if (!containerElement) return;
 
@@ -59,6 +61,12 @@ const AnimatedImage = ({
   };
 
   useEffect(() => {
+    if (isMobile) {
+      // Reset clipPath if on mobile
+      setClipPath("");
+      return;
+    }
+    
     const handleScroll = () => {
       const scrollY = window.scrollY;
       calculateClipPath(scrollY);
@@ -219,8 +227,8 @@ const AnimatedImage = ({
         style={{
           gridColumn: !isMobile && !ordered && `${colStart} / span ${colSpan}`,
           gridRow: !isMobile && !ordered && `${rowStart} / span ${rowSpan}`,
-          clipPath: !ordered && clipPath,
-          WebkitClipPath: !ordered && clipPath,
+          clipPath: !isMobile && !ordered && clipPath,
+          WebkitClipPath: !isMobile && !ordered && clipPath,
         }}
       >
         <motion.img
