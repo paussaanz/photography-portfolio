@@ -24,7 +24,7 @@ root.render(
               <TransitionProvider>
                 <LogoTransitionProvider>
                   <App />
-                  <Footer />
+                  {/* <Footer /> */}
                 </LogoTransitionProvider>
               </TransitionProvider>
             </ThemeProvider>
