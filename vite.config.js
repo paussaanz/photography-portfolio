@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import viteCompression from "vite-plugin-compression";
-import { visualizer } from "rollup-plugin-visualizer";
+// import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   base: "/", // Ajusta según tu entorno de despliegue
@@ -22,10 +22,10 @@ export default defineConfig({
       deleteOriginFile: false,
     }),
     // Visualizador de Bundle
-    visualizer({
-      filename: "./bundle-stats.html",
-      open: false, // Cambia a true si quieres abrir automáticamente el informe
-    }),
+    // visualizer({
+    //   filename: "./bundle-stats.html",
+    //   open: false, // Cambia a true si quieres abrir automáticamente el informe
+    // }),
   ],
   build: {
     target: "es2021", // Objetivo de compatibilidad
