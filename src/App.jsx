@@ -24,8 +24,8 @@ function App() {
   const [initialPath, setInitialPath] = useState(location.pathname); // Tracks the first path user visited
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isMobile } = useMediaQuery();
-
-  // Clear localStorage key on page load
+console.log('hola')
+  // Clear localStorage key on page loadc
   useEffect(() => {
     localStorage.removeItem("visitedWebsite");
     setInitialPath(location.pathname); // Ensure the initial path is set

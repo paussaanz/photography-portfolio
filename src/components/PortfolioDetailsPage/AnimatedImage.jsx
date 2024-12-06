@@ -56,8 +56,8 @@ const AnimatedImage = ({
     setClipPath(
       `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`
     );
-    
-      lastScrollYRef.current = scrollY; // Update the ref directly
+
+    lastScrollYRef.current = scrollY; // Update the ref directly
   };
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const AnimatedImage = ({
       setClipPath("");
       return;
     }
-    
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       calculateClipPath(scrollY);
@@ -128,6 +128,7 @@ const AnimatedImage = ({
       {(isZoomed || isExiting) && (
         <>
           <motion.div
+
             className="pdetails__container-background--overlay"
             initial={{ opacity: 0 }}
             animate={isExiting ? { opacity: 0 } : { opacity: 1 }}
@@ -175,9 +176,8 @@ const AnimatedImage = ({
               onClick={handleZoomOut}
               onAnimationComplete={handleAnimationComplete}
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence key={selectedImage} mode="wait">
                 <motion.img
-                  key={selectedImage}
                   src={selectedImage}
                   alt={`img-${index}`}
                   initial={{ opacity: 0 }}
@@ -310,7 +310,7 @@ export default AnimatedImage;
 
 //     setClipPath(
 //       `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`);
-    
+
 //       lastScrollYRef.current = scrollY; // Update the ref directly
 //   };
 
