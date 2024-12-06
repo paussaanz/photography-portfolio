@@ -41,7 +41,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ["three", "@react-three/fiber", "@react-three/drei"],
-    exclude: ["three/examples/jsm"], // Exclude unused parts
+    exclude: ["three/examples/jsm", "three-mesh-bvh"], // Exclude unused parts
   },
   esbuild: {
     drop: ["console", "debugger"],

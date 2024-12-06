@@ -1,10 +1,11 @@
 import { Canvas, useThree } from '@react-three/fiber';
-import { Text } from '@react-three/drei';
+
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
 import { useEffect, useMemo } from 'react';
 import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
 import { useTheme } from '../../contexts/ThemeContext';
+import { Text } from '../../assets/js/helper';
 
 const Scene3D = () => {
   const { theme } = useTheme();
