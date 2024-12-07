@@ -4,7 +4,7 @@ const CursorTrail = () => {
     const svgRef = useRef(null);
     const pathRef = useRef(null);
     const points = useRef([]);
-    const segments = 100;
+    const segments = 50;
     const mouse = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -77,7 +77,8 @@ const CursorTrail = () => {
     }, []);
 
     return (
-        <svg ref={svgRef} className="cursor__trail cursor__trail--inverted">
+        <svg ref={svgRef} className="cursor__trail cursor__trail--inverted"
+            style={{ willChange: 'transform' }}>
             <path ref={pathRef} className="cursor__path" d="" />
         </svg>
     );
