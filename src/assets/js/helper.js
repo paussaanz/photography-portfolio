@@ -3,10 +3,9 @@ import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader, DRACOLoader, MeshoptDecoder } from 'three-stdlib';
 import _extends from '@babel/runtime/helpers/esm/extends';
-import { extend, useFrame } from '@react-three/fiber';
+import { extend, useFrame, useThree } from '@react-three/fiber';
 import { useFBO, DiscardMaterial } from './fbo.js';
 import { Text as Text$1, preloadFont } from 'troika-three-text';
-import { useThree } from '@react-three/fiber';
 import { suspend } from 'suspend-react';
 
 
