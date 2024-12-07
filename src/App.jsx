@@ -40,6 +40,16 @@ function App() {
     }
   }, [location.pathname, initialPath]);
 
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data.type === 'PRECACHE_PROGRESS') {
+        console.log(event.data.message);
+        // Actualiza la interfaz con el progreso
+      }
+    });
+  }
+
+  
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">

@@ -25,6 +25,7 @@ export default defineConfig({
     sourcemap: false,
     minify: "esbuild",
     assetsInlineLimit: 4096,
+    manifest: true, // Ayuda a vincular los archivos generados
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -44,7 +45,7 @@ export default defineConfig({
     exclude: ["three/examples/jsm", "three-mesh-bvh"], // Exclude unused parts
   },
   esbuild: {
-    drop: ["console", "debugger"],
+    // drop: ["console", "debugger"],
     define: {
       "process.env.NODE_ENV": JSON.stringify("production"),
     },
