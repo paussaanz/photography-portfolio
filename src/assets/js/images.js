@@ -381,14 +381,14 @@ export const editorialSwiperImages = [
     name: "Greece",
     date: "2023",
     description: "Description Greece",
-    url: "/editorials",
+    url: "/editorials/greece",
   },
   {
     src: EditorialCover2,
     name: "Tanzania",
     date: "2022",
     description: "Description Greece",
-    url: "/editorials",
+    url: "/editorials/tanzania",
   },
   {
     src: EditorialCover1,
@@ -506,11 +506,13 @@ export const editorialsCovers = [
     src: EditorialCover1,
     name: "GREECE",
     date: "2022",
+    url: "/editorials/greece"
   },
   {
     src: EditorialCover2,
     name: "TANZANIA",
     date: "2023",
+    url: "editorials/tanzania"
   },
 ];
 
