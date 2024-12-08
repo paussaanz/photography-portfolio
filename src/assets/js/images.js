@@ -318,7 +318,7 @@ export const homePageLoader = [
   [
     Nature11M,
     Nature12M,
-    Nature30M,
+    Nature30H,
     Nature14M,
     Nature15M
   ],

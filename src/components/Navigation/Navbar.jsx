@@ -1,20 +1,22 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useTransition } from "../../contexts/transitionContext";
 import { useLocation } from "react-router-dom";
-import imgNav from '/images/dropdown.webp'
+import imgNav from "/images/dropdown.webp";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const { handleLinkClick } = useTransition();
   const location = useLocation();
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
 
-  const isPrimaryPage = ["/", "/editorials", "/portfolio"].includes(location.pathname);
+  const isPrimaryPage = useMemo(
+    () => ["/", "/editorials", "/portfolio"].includes(location.pathname),
+    [location.pathname]
+  );
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-  const togglePortfolioMenu = () => setIsPortfolioOpen((prev) => !prev);
+  const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), [setIsMenuOpen]);
+  const togglePortfolioMenu = useCallback(() => setIsPortfolioOpen((prev) => !prev), []);
 
-  // Framer Motion Variants
   const dropdownVariants = {
     hidden: { opacity: 0, x: "100%" },
     visible: { opacity: 1, x: 0 },
@@ -30,10 +32,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const linkListVariants = {
     hidden: {},
     visible: {
-      transition: { delayChildren: 0.9, staggerChildren: 0.3 },
+      transition: { delayChildren: 0.5, staggerChildren: 0.2 }, // Reduced delays for faster animations
     },
     exit: {
-      transition: { staggerChildren: 0.2, staggerDirection: -1 },
+      transition: { staggerChildren: 0.15, staggerDirection: -1 },
     },
   };
 
@@ -43,37 +45,40 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     exit: { opacity: 0, y: -10 },
   };
 
-  const renderLinks = (links, isSubmenu = false) =>
-    links.map((link, index) => {
-      const targetPath =
-        isSubmenu && link.toLowerCase() === "see all"
-          ? "/portfolio/" // Redirect to /portfolio/ for "See all"
-          : isSubmenu
+  const renderLinks = useCallback(
+    (links, isSubmenu = false) =>
+      links.map((link, index) => {
+        const targetPath =
+          isSubmenu && link.toLowerCase() === "see all"
+            ? "/portfolio/"
+            : isSubmenu
             ? `/portfolio/${link.toLowerCase()}`
             : `/${link.toLowerCase().replace(/\s+/g, "")}`;
 
-      return (
-        <motion.li
-          key={index}
-          className={isSubmenu ? "cus-navbar__mbl--submenu--item" : "cus-navbar__mbl--links-item"}
-          variants={linkVariants}
-        >
-          <a
-            onClick={() => {
-              handleLinkClick(targetPath);
-              setIsMenuOpen(false);
-            }}
-            className={
-              isSubmenu
-                ? "cus-navbar__mbl--submenu--link"
-                : "cus-navbar__links--item-link text-color--navbar-light glow-text"
-            }
+        return (
+          <motion.li
+            key={index}
+            className={isSubmenu ? "cus-navbar__mbl--submenu--item" : "cus-navbar__mbl--links-item"}
+            variants={linkVariants}
           >
-            {link}
-          </a>
-        </motion.li>
-      );
-    });
+            <a
+              onClick={() => {
+                handleLinkClick(targetPath);
+                setIsMenuOpen(false);
+              }}
+              className={
+                isSubmenu
+                  ? "cus-navbar__mbl--submenu--link"
+                  : "cus-navbar__links--item-link text-color--navbar-light glow-text"
+              }
+            >
+              {link}
+            </a>
+          </motion.li>
+        );
+      }),
+    [handleLinkClick, setIsMenuOpen]
+  );
 
   return (
     <nav className="cus-navbar">
@@ -85,8 +90,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <li key={index} className="cus-navbar__links--item">
                 <a
                   onClick={() => handleLinkClick(`/${link.toLowerCase().replace(/\s+/g, "")}`)}
-                  className={`cus-navbar__links--item-link ${isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
-                    }`}
+                  className="cus-navbar__links--item-link text-color--navbar-light"
                 >
                   {link}
                 </a>
@@ -96,10 +100,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
 
         {/* Logo */}
-        <a
-          onClick={() => handleLinkClick("/")}
-          className="cus-navbar__logo cus-navbar__logo--centered"
-        >
+        <a onClick={() => handleLinkClick("/")} className="cus-navbar__logo cus-navbar__logo--centered">
           <img
             src="/logo-white.svg"
             alt="Logo de Gunterz"
@@ -115,8 +116,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             <li className="cus-navbar__links--item">
               <a
                 onClick={() => handleLinkClick("/contact")}
-                className={`cus-navbar__links--item-link ${isPrimaryPage ? "text-color--navbar-light" : "text-color--navbar-light"
-                  }`}
+                className="cus-navbar__links--item-link text-color--navbar-light"
               >
                 Contact
               </a>
@@ -127,7 +127,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {/* Burger Menu */}
         <div className="cus-navbar__burger" aria-label="Toggle navigation">
           <img
-            className={`${isMenuOpen && "active"}`}
+            className={isMenuOpen ? "active" : ""}
             onClick={toggleMenu}
             src="/logo-white.svg"
             alt="Menu Toggle"
@@ -139,11 +139,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
         {/* Dropdown Menu */}
         <motion.div
-          className={`cus-navbar__mbl ${isMenuOpen && "cus-navbar__mbl--open"}`}
+          className={`cus-navbar__mbl ${isMenuOpen ? "cus-navbar__mbl--open" : ""}`}
           initial="hidden"
           animate={isMenuOpen ? "visible" : "exit"}
           variants={dropdownVariants}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <motion.ul
             className="cus-navbar__mbl--links-list"
@@ -169,7 +169,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     animate="visible"
                     exit="exit"
                   >
-                    {renderLinks(["See all", "Nature", "Photoshoots", "Lifestyle", "Sports", "Music"], true)}
+                    {renderLinks(
+                      ["See all", "Nature", "Photoshoots", "Lifestyle", "Sports", "Music"],
+                      true
+                    )}
                   </motion.ul>
                 )}
               </AnimatePresence>
@@ -181,7 +184,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             className="cus-navbar__mbl--image-container"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 50 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             <img
               src={imgNav}
