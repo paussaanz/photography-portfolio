@@ -13,36 +13,23 @@ import './index.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    console.log("Intentando registrar el Service Worker...");
     navigator.serviceWorker
-      .register('/service-worker.js')
+      .register("/service-worker.js")
       .then((registration) => {
-        console.log('Service Worker registrado:', registration);
+        console.log("Service Worker registrado con éxito:", registration);
 
-        // Escucha los eventos del ciclo de vida del SW
-        registration.addEventListener('updatefound', () => {
-          const installingWorker = registration.installing;
-          console.log('Nuevo Service Worker encontrado:', installingWorker);
-
-          installingWorker.addEventListener('statechange', () => {
-            console.log('Estado del SW:', installingWorker.state);
-
-            if (installingWorker.state === 'installed') {
-              if (navigator.serviceWorker.controller) {
-                // Nuevo contenido disponible
-                console.log('Nuevo contenido está disponible, recarga para actualizar.');
-              } else {
-                // Todo está precargado
-                console.log('El contenido está disponible para usar sin conexión.');
-              }
-            }
-          });
+        // Escuchar mensajes enviados desde el Service Worker
+        navigator.serviceWorker.addEventListener("message", (event) => {
+          if (event.data.type === "install-progress") {
+            console.log(`Progreso de instalación: ${event.data.progress}%`);
+          }
         });
       })
       .catch((error) => {
-        console.error('Error al registrar el Service Worker:', error);
+        console.error("Error al registrar el Service Worker:", error);
       });
   });
 }
@@ -58,7 +45,7 @@ root.render(
               <TransitionProvider>
                 <LogoTransitionProvider>
                   <App />
-                  <Footer />
+                  {/* <Footer /> */}
                 </LogoTransitionProvider>
               </TransitionProvider>
             </ThemeProvider>
@@ -68,4 +55,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>,
 )
-

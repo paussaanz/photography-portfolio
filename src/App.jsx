@@ -40,27 +40,35 @@ function App() {
     }
   }, [location.pathname, initialPath]);
 
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('message', (event) => {
-      if (event.data.type === 'PRECACHE_PROGRESS') {
-        console.log(event.data.message);
-        // Actualiza la interfaz con el progreso
-      }
-    });
-  }
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        console.log('hola?', event.data.type)
+        if (event.data.type === 'install-progress') {
+          console.log(`Progreso de instalación: ${event.data.progress}%`);
+          setProgress(event.data.progress);
+        }
+      });
+    }
+  }, []);
 
 
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
+        {progress < 100 && <p>Progreso de instalación: {progress.toFixed(0)}%</p>}
+
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}>
               <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            </Suspense>
+            </Suspense> */}
           </header>
 
-          {!isMobile && <CursorTrail />}
+          {/* {!isMobile && <CursorTrail />} */}
 
           <main>
             <Suspense fallback={<div className="d--vh-100">Loading...</div>}>
