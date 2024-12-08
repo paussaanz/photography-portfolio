@@ -50,6 +50,19 @@ function App() {
   }
 
 
+  useEffect(() => {
+    // Verificar si la API de Device Memory está disponible
+    if ("deviceMemory" in navigator) {
+      const deviceMemory = navigator.deviceMemory; // RAM estimada en GB
+      console.log(`Memoria RAM estimada: ${deviceMemory}GB`);
+      // Considerar dispositivos con <= 4GB como de baja capacidad
+    } else {
+      console.warn("Device Memory API no está soportada en este navegador.");
+      // Asumir baja capacidad como predeterminado si la API no está disponible
+    }
+  }, []);
+
+
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">

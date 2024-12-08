@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import InfiniteCarrusel from "./InfiniteCarrusel";
-import Scene3D from "./Scene3D";
+import { useLayoutEffect, useRef, useState } from 'react';
+import InfiniteCarrusel from './InfiniteCarrusel';
+import Scene3D from './Scene3D';
 
 const Footer = () => {
-    const [isVisible, setIsVisible] = useState(false);
     const triggerRef = useRef(null);
+    const [hasInteracted, setHasInteracted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setIsVisible(true);
+                    setHasInteracted(true); // Marca como visible
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0, rootMargin: "200px 0px" } // Activa antes de que entre en la vista
         );
 
         if (triggerRef.current) {
@@ -27,17 +27,12 @@ const Footer = () => {
         };
     }, []);
 
-    if (!isVisible) {
-        return <div ref={triggerRef} style={{ height: "1px" }} />
-    }
+    console.log('isVisible', hasInteracted);
 
     return (
         <>
-            {/* Elemento invisible para disparar la aparición del footer */}
-            <div ref={triggerRef} style={{ height: "1px" }} />
-
-            {/* Renderiza el footer solo cuando sea visible */}
-            {isVisible && (
+            {!hasInteracted && <div ref={triggerRef} style={{ height: "1px" }} />}
+            {hasInteracted && (
                 <div className="footer__section">
                     <section className="footer__section-carrusel">
                         <InfiniteCarrusel />
