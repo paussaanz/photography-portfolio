@@ -53,19 +53,17 @@ root.render(
     <BrowserRouter>
       <LenisProvider>
         <MediaQueryProvider>
-          <LoaderContextProvider>
-            <ThemeProvider>
-              <TransitionProvider>
-                <LogoTransitionProvider>
-                  <App />
-                  <Footer />
-                </LogoTransitionProvider>
-              </TransitionProvider>
-            </ThemeProvider>
-          </LoaderContextProvider>
+
+          <ThemeProvider>
+            <TransitionProvider>
+              <LogoTransitionProvider>
+                <App />
+                <Footer />
+              </LogoTransitionProvider>
+            </TransitionProvider>
+          </ThemeProvider>
         </MediaQueryProvider>
       </LenisProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
-

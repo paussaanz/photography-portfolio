@@ -44,9 +44,9 @@ const Scene3D = () => {
 
   return (
     <Canvas
-      // frameloop="demand"
+      frameloop="demand"
       style={{ background: 'transparent' }}
-      gl={{ alpha: true, antialias: true, powerPreference: "high-performance", precision: "mediump" }} // Optimizamos el canvas
+      gl={{ alpha: true, antialias: true, powerPreference: "high-performance", precision: "mediump" }}
       camera={{
         near: 0.1,
         far: 1000,
@@ -62,6 +62,7 @@ const Scene3D = () => {
         };
       }}
     >
+
       <SetBackground color={backgroundColor} />
 
       {/* <directionalLight intensity={1} position={[1, 2, 1]} color={color} />
@@ -76,6 +77,7 @@ const Scene3D = () => {
         font={fontFam}
         textAlign="center"
         material-toneMapped={false}
+        curveSegments={2}
       >
         {lines.map((line, index) => (
           <Text
@@ -88,6 +90,7 @@ const Scene3D = () => {
             anchorY="middle"
             font={fontFam}
             material-toneMapped={false}
+            curveSegments={2}
           >
             {line}
           </Text>
@@ -100,5 +103,3 @@ const Scene3D = () => {
 };
 
 export default Scene3D;
-
-

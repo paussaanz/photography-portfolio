@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from 'three';
 import { MeshTransmissionMaterial, useGLTF } from "../../assets/js/helper";
+import { invalidate } from '@react-three/fiber';
 
 const Logo3D = () => {
     const { nodes } = useGLTF("/3D/logo-web-3d-face-compression.gltf");
@@ -30,17 +31,24 @@ const Logo3D = () => {
                 groupRef.current.rotation.y = mouseX * Math.PI / 70; // Rotación en Y
                 groupRef.current.rotation.x = mouseY * Math.PI / 70; // Opcional: Rotación en X
             }
+
+            invalidate();
         };
 
-        window.addEventListener("mousemove", onMouseMove);
+        const throttledMouseMove = (event) => {
+            requestAnimationFrame(() => onMouseMove(event));
+        };
+
+        window.addEventListener("mousemove", throttledMouseMove);
+
         return () => {
-            window.removeEventListener("mousemove", onMouseMove);
-            if (groupRef.current) {
-                groupRef.current.scale.set(1, 1, 1); // Reset scale on unmount
-            }
+            window.removeEventListener("mousemove", throttledMouseMove);
         };
     }, [nodes]);
 
+
+
+    console.log
     return (
         <group ref={groupRef}>
             <mesh {...nodes.Curve001}>
