@@ -1,5 +1,4 @@
 import { Canvas, useThree } from '@react-three/fiber';
-
 import Logo3D from './Logo3D';
 import * as THREE from 'three';
 import { useEffect, useMemo } from 'react';
@@ -45,8 +44,9 @@ const Scene3D = () => {
 
   return (
     <Canvas
+      // frameloop="demand"
       style={{ background: 'transparent' }}
-      gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }} // Optimizamos el canvas
+      gl={{ alpha: true, antialias: true, powerPreference: "high-performance", precision: "mediump" }} // Optimizamos el canvas
       camera={{
         near: 0.1,
         far: 1000,
@@ -64,8 +64,8 @@ const Scene3D = () => {
     >
       <SetBackground color={backgroundColor} />
 
-      <directionalLight intensity={1} position={[1, 2, 1]} color={color} />
-      <ambientLight intensity={0.3} />
+      {/* <directionalLight intensity={1} position={[1, 2, 1]} color={color} />
+      <ambientLight intensity={0.3} /> */}
 
       <Text
         maxWidth={40}

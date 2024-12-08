@@ -49,7 +49,7 @@ function App() {
     });
   }
 
-  
+
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
@@ -63,7 +63,7 @@ function App() {
           {!isMobile && <CursorTrail />}
 
           <main>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="d--vh-100">Loading...</div>}>
               <Routes location={location}>
                 <Route path="/" element={<HomePage isVisited={isVisited} />} />
                 <Route
