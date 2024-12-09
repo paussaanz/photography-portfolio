@@ -44,7 +44,7 @@ export default defineConfig({
     exclude: ["three/examples/jsm"], // Exclude unused parts
   },
   esbuild: {
-    drop: ["console", "debugger"],
+    // drop: ["console", "debugger"],
     define: {
       "process.env.NODE_ENV": JSON.stringify("production"),
     },

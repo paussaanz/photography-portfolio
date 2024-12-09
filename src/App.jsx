@@ -5,6 +5,7 @@ import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
+import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/Navigation/Navbar"));
@@ -114,6 +115,7 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />
                 <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
+                <Route path="/editorials/swiper" element={<SwiperEditorialDetail />} />
               </Routes>
             </Suspense>
           </main>

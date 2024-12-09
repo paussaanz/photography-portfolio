@@ -1,8 +1,8 @@
 import EditorialsDetailPageSeo from "./SEO/EditorialsDetailPageSeo";
 import HeroEditorialsDetail from "../components/EditorialsDetailPage/HeroEditorialsDetail";
-import './EditorialsDetail.scss';
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
+import Flip from "gsap/Flip";
 import gsap from "gsap";
 
 const EditorialsPage = () => {
@@ -10,46 +10,35 @@ const EditorialsPage = () => {
   const largeImageRef = useRef(null);
   const targetImageRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger, Flip);
 
-    // Configura la animación
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current, // El contenedor principal
-        start: "top top", // Comienza cuando el contenedor entra al centro
-        end: "bottom center", // Termina cuando el contenedor sale del centro
-        scrub: 1, // Suaviza la animación sincronizada con el scroll
-      },
-    })
-      .fromTo(
-        largeImageRef.current,
-        {
-          x: 0,
-          y: 0,
-          scale: 1
-        },
-        {
-          x: () => {
-            const targetBounds = targetImageRef.current.getBoundingClientRect();
-            const largeImageBounds = largeImageRef.current.getBoundingClientRect();
-            return targetBounds.left - largeImageBounds.left;
-          },
-          y: () => {
-            const targetBounds = targetImageRef.current.getBoundingClientRect();
-            const largeImageBounds = largeImageRef.current.getBoundingClientRect();
-            return targetBounds.top - largeImageBounds.top;
-          },
-          scale: 0.5, // Escala final
-          ease: "power1.out",
-        }
-      );
+  //   // Set up the ScrollTrigger with Flip for scroll control
+  //   ScrollTrigger.create({
+  //     trigger: containerRef.current,
+  //     start: "top center",
+  //     end: "bottom center",
+  //     scrub: true, // Ties animation progress to scroll progress
+  //     onEnter: () => {
+  //       const state = Flip.getState(largeImageRef.current);
 
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  //       // Move LargeImage inside the TargetImage container
+  //       targetImageRef.current.appendChild(largeImageRef.current);
+
+  //       // Animate using Flip with scroll control
+  //       Flip.from(state, {
+  //         ease: "power1.inOut",
+  //         scale: true,
+  //         absolute: true, // Ensures positions are calculated in absolute space
+  //         duration: 1, // Optional for smoothness if you need transition on scrub
+  //       });
+  //     },
+  //   });
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
 
   return (
     <div data-barba="container" className="background--primary-greece">
@@ -58,25 +47,43 @@ const EditorialsPage = () => {
         <HeroEditorialsDetail />
       </section>
 
-      <section ref={containerRef} className="editorials-detail__main-section  p--5 text-color--secondary-greece">
-        <div className="editorials-detail__main-section__container flex">
+      <section ref={containerRef} className="editorials-detail__main-section p--y-5 text-color--secondary-greece container-bem">
+        <div className="editorials-detail__main-section__container flex d--w-100">
           <div className="editorials-detail__main-section__container__text">
-            <h2 className="text-color--secondary-greece">Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD</h2>
-            <p className="text-color--secondary-greece">This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to offer.
-              Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea, and create unforgettable memories against the backdrop of the stunning Greek landscape.</p>
+            <h2 className="text-color--secondary-greece">
+              Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD
+            </h2>
+            <p className="text-color--secondary-greece">
+              This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing
+              on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create
+              delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm
+              golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island
+              to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to
+              offer. Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation
+              for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea,
+              and create unforgettable memories against the backdrop of the stunning Greek landscape.
+            </p>
           </div>
-          <div ref={largeImageRef} className="editorials-detail__main-section__container__img">
-            <img src="/editorials/slide-5.webp" alt="Slide 5" />
+          <div className="editorials-detail__main-section__container__img">
+            <img ref={largeImageRef} src="/editorials/slide-3.webp" alt="Slide 5" />
           </div>
         </div>
 
         <div className="editorials-detail__main-section__thumbnails flex">
           <div className="editorials-detail__main-section__thumbnails__text flex">
-            <p className="editorials-detail__main-section__thumbnails__text--content">Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials.</p>
+            <p className="editorials-detail__main-section__thumbnails__text--content">
+              Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking
+              beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and
+              the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the
+              simplicity of living with the essentials.
+            </p>
           </div>
           <div className="editorials-detail__main-section__thumbnails__images flex">
             <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
-            <img ref={targetImageRef} src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
+            <div
+              ref={targetImageRef}
+              className="editorials-detail__main-section__thumbnails__image"
+            />
           </div>
         </div>
 
@@ -86,13 +93,12 @@ const EditorialsPage = () => {
           </div>
           <div className="editorials-detail__main-section__thumbnails__images flex">
             <div className="editorials-detail__main-section__thumbnails__images--content"><p>PHOTOGRAPHY AND<br /> DESIGN BY .SYP!</p></div>
-            <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
+            <img src="/images/mid/greece-6.webp" alt="Slide 5" className="editorials-detail__main-section__thumbnails__image" />
           </div>
         </div>
-
       </section>
 
-      <section className="p--5">
+      <section className="p--y-5 container-bem">
         <div className="editorials-detail__main-section__long-image" style={{ background: 'url("/editorials/slide-5.webp")', backgroundSize: "cover", backgroundPosition: "center", height: '410px' }} />
 
         <p className="editorials-detail__long-image-paragraph text-color--secondary-greece">
@@ -100,7 +106,7 @@ const EditorialsPage = () => {
         </p>
       </section>
 
-      <section className="p--5">
+      <section className="p--y-5 container-bem">
         <h1 className="editorials-detail__sub-section__title">Exploring the Breathtaking Landscapes of the Greek Islands</h1>
 
         <div className="editorials-detail__sub-section__container flex">
@@ -119,7 +125,7 @@ const EditorialsPage = () => {
         </div>
       </section >
 
-      <section className="p--5">
+      <section className="p--y-5 container-bem">
         <div
           style={{
             background: 'url("/editorials/slide-5.webp")',
@@ -131,8 +137,7 @@ const EditorialsPage = () => {
           <img src="/editorials/slide-5.webp" alt="Slide 5" className="editorials-detail__end-section__container__image" />
         </div>
       </section>
-
-    </div >
+    </div>
   );
 };
 
