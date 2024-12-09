@@ -5,6 +5,7 @@ import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
+import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/Navigation/Navbar"));
@@ -123,6 +124,7 @@ function App() {
                 <Route path="/aboutsyp!" element={<AboutPage isVisited={isVisited} />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />
+                <Route path="/warzone" element={<WarZone />} />
               </Routes>
             </Suspense>
           </main>
