@@ -12,7 +12,7 @@ const WarZone = () => {
             link="https://www.google.com"
           >
             asdasd
-          </SuperButton>
+          </SuperButton >
         </section>
       </div>
     </div>
