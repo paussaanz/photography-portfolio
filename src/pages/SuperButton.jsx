@@ -106,8 +106,8 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
-            width: '120%',
-            height: '120%',
+            width: '100%',
+            height: '100%',
             zIndex: 0,
           }}
         />
