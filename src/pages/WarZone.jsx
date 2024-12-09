@@ -1,5 +1,4 @@
 import React from 'react';
-import './WarZone.scss';
 import SuperButton from './SuperButton';
 
 const WarZone = () => {

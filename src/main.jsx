@@ -53,14 +53,16 @@ root.render(
     <BrowserRouter>
       <LenisProvider>
         <MediaQueryProvider>
-          <ThemeProvider>
-            <TransitionProvider>
-              <LogoTransitionProvider>
-                <App />
-                <Footer />
-              </LogoTransitionProvider>
-            </TransitionProvider>
-          </ThemeProvider>
+          <LoaderContextProvider>
+            <ThemeProvider>
+              <TransitionProvider>
+                <LogoTransitionProvider>
+                  <App />
+                  <Footer />
+                </LogoTransitionProvider>
+              </TransitionProvider>
+            </ThemeProvider>
+          </LoaderContextProvider>
         </MediaQueryProvider>
       </LenisProvider>
     </BrowserRouter>
