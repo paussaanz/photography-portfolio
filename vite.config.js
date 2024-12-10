@@ -2,10 +2,19 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
 
+import { VitePWA } from "vite-plugin-pwa";
+
 export default defineConfig({
   base: "/",
   plugins: [
     react(),
+    VitePWA({
+      registerType: "autoUpdate",
+      strategies: "injectManifest", // Para usar tu propio `service-worker.js`
+      injectManifest: {
+        swSrc: "./public/service-worker.js", // Tu SW personalizado
+      },
+    }),
     viteCompression({
       algorithm: "brotliCompress",
       ext: ".br",
@@ -38,7 +47,7 @@ export default defineConfig({
           }
         },
       },
-    }
+    },
   },
   optimizeDeps: {
     include: ["three", "@react-three/fiber", "@react-three/drei"],
