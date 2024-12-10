@@ -1,10 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useContext, useEffect, useState } from "react";
 import ThemeButton from "./components/General/Buttons/ThemeButton";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
+import LenisContext from "./contexts/LenisContext";
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 import WarZone from "./pages/WarZone";
 
@@ -27,7 +28,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isMobile } = useMediaQuery();
 
-  // Clear localStorage key on page load
+  // Clear localStorage key on page loadc
   useEffect(() => {
     localStorage.removeItem("visitedWebsite");
     setInitialPath(location.pathname); // Ensure the initial path is set

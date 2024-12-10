@@ -1,6 +1,5 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import viteCompression from "vite-plugin-compression";
 
 import { VitePWA } from "vite-plugin-pwa";
 
