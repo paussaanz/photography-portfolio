@@ -1,5 +1,6 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import viteCompression from "vite-plugin-compression";
 
 import { VitePWA } from "vite-plugin-pwa";
 
@@ -8,12 +9,13 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate",
-      strategies: "injectManifest", // Para usar tu propio `service-worker.js`
+      strategies: "injectManifest", // Usa tu propio ⁠ service-worker.js ⁠
       injectManifest: {
-        swSrc: "./public/service-worker.js", // Tu SW personalizado
+        swSrc: "./public/service-worker.js", // Tu archivo SW personalizado
       },
+      selfDestroying: true, // Deshabilita el auto-registro de VitePWA
     }),
+
     viteCompression({
       algorithm: "brotliCompress",
       ext: ".br",

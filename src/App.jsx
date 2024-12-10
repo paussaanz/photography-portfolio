@@ -62,7 +62,6 @@ function App() {
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
-        {progress < 100 && <p>Progreso de instalación: {progress.toFixed(0)}%</p>}
 
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
