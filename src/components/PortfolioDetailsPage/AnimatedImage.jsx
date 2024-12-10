@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
-import LenisContext from "../../contexts/LenisContext";
-import AnimatedImageThumbnails from "./AnimatedImageThumbnails";
 import AnimatedThumbnailList from "./AnimatedImageThumbnails";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 const AnimatedImage = ({
   images,
@@ -11,8 +10,6 @@ const AnimatedImage = ({
   colSpan,
   rowSpan,
   rowStart,
-  width = "100%",
-  height = "100%",
   ordered,
   parallaxSpeed = -40,
   index,
@@ -23,24 +20,25 @@ const AnimatedImage = ({
     target: container,
     offset: ["start center", "center start"],
   });
-  const { stop, start } = useContext(LenisContext);
   const [isVertical, setIsVertical] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const { isMobile } = useMediaQuery();
   const [initialPosition, setInitialPosition] = useState({
     top: 0,
     left: 0,
     width: "100%",
     height: "100%",
   });
-  const [selectedImage, setSelectedImage] = useState(images[0].src);
-  const [imageSize, setImageSize] = useState({ width: "auto", height: "auto" });
+  const [selectedImage, setSelectedImage] = useState(images[0].srcH);
   const [clipPath, setClipPath] = useState("");
   const lastScrollYRef = useRef(0); // Use a ref to track scroll position
 
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, parallaxSpeed]);
 
   const calculateClipPath = (scrollY) => {
+    if (isMobile) return; // Skip calculation on mobile
+
     const containerElement = container.current;
     if (!containerElement) return;
 
@@ -53,12 +51,19 @@ const AnimatedImage = ({
     const bottomCurve = actualHeight + direction * velocity * 2;
 
     setClipPath(
-      `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`);
+      `path("M0 10 Q${actualWidth / 2} ${topCurve}, ${actualWidth} 10 L${actualWidth} ${actualHeight} Q${actualWidth / 2} ${bottomCurve}, 0 ${actualHeight} Z")`
+    );
     
       lastScrollYRef.current = scrollY; // Update the ref directly
   };
 
   useEffect(() => {
+    if (isMobile) {
+      // Reset clipPath if on mobile
+      setClipPath("");
+      return;
+    }
+    
     const handleScroll = () => {
       const scrollY = window.scrollY;
       calculateClipPath(scrollY);
@@ -82,8 +87,8 @@ const AnimatedImage = ({
         height: rect.height,
       });
     }
-    getImageAspectRatio(img.src)
-    setSelectedImage(img.src);
+    getImageAspectRatio(img.srcH)
+    setSelectedImage(img.srcH);
     setIsZoomed(true);
 
   };
@@ -172,6 +177,7 @@ const AnimatedImage = ({
                   key={selectedImage}
                   src={selectedImage}
                   alt={`img-${index}`}
+                  loading="lazy" 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -217,17 +223,16 @@ const AnimatedImage = ({
           stiffness: 100,
         }}
         style={{
-          gridColumn: !ordered && `${colStart} / span ${colSpan}`,
-          gridRow: !ordered && `${rowStart} / span ${rowSpan}`,
-          width: `${width}`,
-          height: `auto`,
-          clipPath: !ordered && clipPath,
-          WebkitClipPath: !ordered && clipPath,
+          gridColumn: !isMobile && !ordered && `${colStart} / span ${colSpan}`,
+          gridRow: !isMobile && !ordered && `${rowStart} / span ${rowSpan}`,
+          clipPath: !isMobile && !ordered && clipPath,
+          WebkitClipPath: !isMobile && !ordered && clipPath,
         }}
       >
         <motion.img
-          src={img.src}
+          src={img.srcM}
           alt={`img-${index}`}
+          loading="lazy"
           initial={{ scale: 1 }}
           transition={{
             type: "tween",

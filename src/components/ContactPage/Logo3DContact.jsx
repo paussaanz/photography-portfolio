@@ -1,12 +1,13 @@
-import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { Color, Box3, Vector3 } from "three"; // Import only required classes
+import { Color, Box3, Vector3 } from "three";
 import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { useGLTF } from "../../assets/js/helper";
 
 const Logo3D = ({ hovered, isMobile }) => {
   const { theme } = useContext(ThemeContext);
-  const { nodes } = useGLTF("/3D/syp-3.gltf");
+  const { nodes } = useGLTF("/3D/syp-3.gltf", true, false); // Draco compression enabled
+
   const groupRef = useRef(null);
   const materialRef = useRef(null);
 
@@ -28,11 +29,11 @@ const Logo3D = ({ hovered, isMobile }) => {
 
     const handleMouseMove = (event) => {
       const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      const mouseY = (event.clientY / window.innerHeight) * 2 - 1; // Adjust Y direction
+      const mouseY = (event.clientY / window.innerHeight) * 2 - 1;
 
       if (groupRef.current) {
-        groupRef.current.rotation.y = mouseX * Math.PI / 15; // Smooth Y rotation
-        groupRef.current.rotation.x = mouseY * Math.PI / 15; // Smooth X rotation
+        groupRef.current.rotation.y = (mouseX * Math.PI) / 15; // Smooth Y rotation
+        groupRef.current.rotation.x = (mouseY * Math.PI) / 15; // Smooth X rotation
       }
     };
 

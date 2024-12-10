@@ -65,15 +65,15 @@ const AnimatedThumbnailList = ({ getImageAspectRatio, imageList, setSelectedImag
                 ease: "linear",
             }}>
             {loopedImageList.map((img, idx) => {
-                const isSelected = selectedImage === img.src;
+                const isSelected = selectedImage === img.srcH;
 
                 return (
                     <motion.div
                         key={idx}
                         className={`pdetails__card-thumbnail ${isSelected ? "pdetails__card-thumbnail--selected" : ""}`}
                         onMouseEnter={() => {
-                            setSelectedImage(img.src)
-                            getImageAspectRatio(img.src)
+                            setSelectedImage(img.srcH)
+                            getImageAspectRatio(img.srcM)
                         }}
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const AnimatedThumbnailList = ({ getImageAspectRatio, imageList, setSelectedImag
                         style={{
                             width: "130px",
                             height: "150px",
-                            backgroundImage: `url(${img.src})`,
+                            backgroundImage: `url(${img.srcM})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             cursor: "pointer",

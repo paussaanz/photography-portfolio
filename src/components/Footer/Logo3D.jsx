@@ -1,6 +1,6 @@
-import { useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import * as THREE from 'three';
+import { MeshTransmissionMaterial, useGLTF } from "../../assets/js/helper";
 
 const Logo3D = () => {
     const { nodes } = useGLTF("/3D/logo-web-3d-face-compression.gltf");

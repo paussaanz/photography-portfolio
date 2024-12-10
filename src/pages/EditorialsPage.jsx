@@ -1,4 +1,4 @@
-import { editorialsCovers, editorialsParallaxHero } from "../assets/js/images";
+import { editorialsCovers, editorialsCoversMbl, editorialsParallaxHero } from "../assets/js/images";
 import HeroEditorials from "../components/EditorialsPage/HeroEditorials";
 import SwiperEditorialCard from "../components/EditorialsPage/SwiperEditorialCard";
 import EditorialsPageSeo from "./SEO/EditorialsPageSeo";
@@ -37,7 +37,7 @@ const EditorialsPage = ({ isVisited }) => {
 
       <section className="editorials__section-cards">
         <div className="p--y-5 overflow--clip">
-          <SwiperEditorialCard images={editorialsCovers} />
+          <SwiperEditorialCard images={isMobile ? editorialsCoversMbl : editorialsCovers} />
         </div>
       </section>
     </div>

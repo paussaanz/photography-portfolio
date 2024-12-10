@@ -1,0 +1,45 @@
+.super-button-wrapper {
+  display: inline-block; // Permite ajustar el tamaño según el contenido
+}
+
+.super-button {
+  box-sizing: border-box;
+  border: 1px solid black;
+  position: relative;
+  border-radius: 100px;
+  padding: 5px 35px;
+  font-family: "gunterz", sans-serif;
+  font-size: 16px;
+
+  text-align: center;
+  display: inline-block;
+
+  overflow: hidden;
+  a {
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.95); // Disminución leve al hacer clic
+  }
+
+  &:focus {
+    outline: 2px solid #0056b3; // Indicador de enfoque accesible
+    outline-offset: 2px;
+  }
+}
+
+.hover-element {
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(255, 0, 0, 0.818);
+  pointer-events: none;
+}
+
+.animate-in {
+  transition: all 0.3s ease-in;
+}
+
+.animate-out {
+  transition: all 0.3s ease-out;
+}

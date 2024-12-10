@@ -4,11 +4,14 @@
     width: 100%;
     z-index: 1000;
     background: transparent;
-    transition: all 0.3s ease-in-out; // Transición suave
+    transition: mix-blend-mode 0.3s ease-in-out;
 
     &--inverted {
-        mix-blend-mode: difference; // Aplicar mezcla para invertir colores
+        @supports (mix-blend-mode: difference) {
+            mix-blend-mode: difference;
+        }
     }
+
 
     &--fixed-top {
         position: fixed;
