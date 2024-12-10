@@ -8,6 +8,15 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
   const [buttonSize, setButtonSize] = useState({ width: 0, height: 0 });
   const [hoverStyle, setHoverStyle] = useState({});
   const [isHovered, setIsHovered] = useState(false);
+  const [hoverDirection, setHoverDirection] = useState('');
+
+
+  const getBackgroundImage = () => {
+    const state = isHovered ? 'entering' : 'exiting';
+    const imageName = `superbutton-${hoverDirection}-${state}.png`;
+    return `/superbuttons/${imageName}`;
+  };
+
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -27,6 +36,7 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
       const y = e.clientY - rect.top;
 
       const direction = getHoverDirection(x, y, rect.width, rect.height);
+      setHoverDirection(direction);
       setHoverStyle(getHoverStartPosition(direction, rect));
     }
   };
@@ -39,6 +49,7 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
       const y = e.clientY - rect.top;
 
       const direction = getHoverDirection(x, y, rect.width, rect.height);
+      setHoverDirection(direction);
       setHoverStyle(getHoverEndPosition(direction, rect));
     }
   };
@@ -126,6 +137,9 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
             width: '120%',
             height: '160%',
             zIndex: 0,
+            backgroundImage: `url(${getBackgroundImage()})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         />
         {text || children}
