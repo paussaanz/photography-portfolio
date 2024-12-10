@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import './SuperButton.scss';
 import { motion } from 'framer-motion';
 
-const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
+const SuperButton = ({ width , text, height , link, children }) => {
   const buttonRef = useRef(null);
   const [buttonSize, setButtonSize] = useState({ width: 0, height: 0 });
   const [hoverStyle, setHoverStyle] = useState({});
