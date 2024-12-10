@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
   const buttonRef = useRef(null);
+  const hoverRef = useRef(null);
   const [buttonSize, setButtonSize] = useState({ width: 0, height: 0 });
   const [hoverStyle, setHoverStyle] = useState({});
   const [isHovered, setIsHovered] = useState(false);
@@ -57,30 +58,36 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
   };
 
   const getHoverStartPosition = (direction, rect) => {
+    const hoverRefWidth = hoverRef.current.clientWidth;
+    const hoverRefHeight = hoverRef.current.clientHeight;
+
     switch (direction) {
       case 'top':
-        return { top: `-${rect.height}px`, left: '0' };
+        return { top: `-${hoverRefHeight}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
       case 'bottom':
-        return { top: `${rect.height}px`, left: '0' };
+        return { top: `${hoverRefHeight}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
       case 'left':
-        return { top: '0', left: `-${rect.width}px` };
+        return { top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`, left: `-${hoverRefWidth}px` };
       case 'right':
-        return { top: '0', left: `${rect.width}px` };
+        return { top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`, left: `${hoverRefWidth}px` };
       default:
         return {};
     }
   };
 
   const getHoverEndPosition = (direction, rect) => {
+    const hoverRefWidth = hoverRef.current.clientWidth;
+    const hoverRefHeight = hoverRef.current.clientHeight;
+
     switch (direction) {
       case 'top':
-        return { top: `-${rect.height}px`, left: '0' };
+        return { top: `-${hoverRefHeight}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
       case 'bottom':
-        return { top: `${rect.height}px`, left: '0' };
+        return { top: `${rect.height}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
       case 'left':
-        return { top: '0', left: `-${rect.width}px` };
+        return { top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`, left: `-${hoverRefWidth}px` };
       case 'right':
-        return { top: '0', left: `${rect.width}px` };
+        return { top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`, left: `${rect.width}px` };
       default:
         return {};
     }
@@ -99,15 +106,25 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
     >
       <a href={link || '#'}>
         <motion.div
+          ref={hoverRef}
           key={isHovered}
           className="hover-element"
-          initial={isHovered ? hoverStyle : { top: '0', left: '0' }}
-          animate={isHovered ? { top: '0', left: '0' } : hoverStyle}
+          initial={isHovered ? hoverStyle :
+            {
+              top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`,
+              left: `-${(hoverRef.current?.clientWidth - buttonSize.width) / 2}px`
+            }}
+          animate={isHovered ?
+            {
+              top: `-${(hoverRef.current?.clientHeight - buttonSize.height) / 2}px`,
+              left: `-${(hoverRef.current?.clientWidth - buttonSize.width) / 2}px`
+            }
+            : hoverStyle}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
-            width: '100%',
-            height: '100%',
+            width: '120%',
+            height: '160%',
             zIndex: 0,
           }}
         />

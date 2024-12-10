@@ -6,7 +6,13 @@ const WarZone = () => {
     <div>
       <div>
         <h1>WarZone</h1>
-        <section>
+        <section style={{
+          width: '100%',
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
           <SuperButton
             link="https://www.google.com"
           >
