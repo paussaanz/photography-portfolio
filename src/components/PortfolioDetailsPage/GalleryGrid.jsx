@@ -12,7 +12,7 @@ const GalleryGrid = ({ images, ordered, handleImageClick, closeOverlay }) => {
           {images.map((img, index) => (
             <AnimatedImage
               key={index}
-              src={img.src}
+              src={img.srcM}
               colStart={img.colStart}
               colSpan={img.colSpan}
               rowSpan={img.rowSpan}

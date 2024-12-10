@@ -13,6 +13,27 @@ import './index.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    console.log("Intentando registrar el Service Worker...");
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("Service Worker registrado con éxito:", registration);
+
+        // Escuchar mensajes enviados desde el Service Worker
+        navigator.serviceWorker.addEventListener("message", (event) => {
+          if (event.data.type === "install-progress") {
+            console.log(`Progreso de instalación: ${event.data.progress}%`);
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Error al registrar el Service Worker:", error);
+      });
+  });
+}
+
 
 root.render(
   <React.StrictMode>

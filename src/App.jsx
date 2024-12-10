@@ -6,6 +6,8 @@ import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
 import LenisContext from "./contexts/LenisContext";
+import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
+import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/Navigation/Navbar"));
@@ -41,20 +43,38 @@ function App() {
     }
   }, [location.pathname, initialPath]);
 
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        console.log('hola?', event.data.type)
+        if (event.data.type === 'install-progress') {
+          console.log(`Progreso de instalación: ${event.data.progress}%`);
+          setProgress(event.data.progress);
+        }
+      });
+    }
+  }, []);
+
+
   return (
     <>
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
+        {progress < 100 && <p>Progreso de instalación: {progress.toFixed(0)}%</p>}
+
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}>
               <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            </Suspense>
+            </Suspense> */}
           </header>
 
-          {!isMobile && <CursorTrail />}
+          {/* {!isMobile && <CursorTrail />} */}
 
           <main>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="d--vh-100">Loading...</div>}>
               <Routes location={location}>
                 <Route path="/" element={<HomePage isVisited={isVisited} />} />
                 <Route
@@ -107,13 +127,17 @@ function App() {
                     />
                   }
                 />
+
                 <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} isMobile={isMobile} />} />
                 <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
-                <Route path="/editorials/detail" element={<EditorialsDetailPage />} />
+                <Route path="/editorials/greece" element={<EditorialsDetailPage />} />
+                <Route path="/editorials/tanzania" element={<EditorialsDetailPage />} />
                 <Route path="/aboutsyp!" element={<AboutPage isVisited={isVisited} />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />
                 <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
+                <Route path="/editorials/swiper" element={<SwiperEditorialDetail />} />
+                <Route path="/warzone" element={<WarZone />} />
               </Routes>
             </Suspense>
           </main>

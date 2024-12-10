@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
+import { Link } from "react-router-dom";
 
 const SwiperEditorialCard = ({ images }) => {
   const { isMobile } = useMediaQuery();
@@ -44,32 +45,34 @@ const SwiperEditorialCard = ({ images }) => {
       >
         {images.map((image, i) => {
 
-//CUANDO HAYA MAS SLIDES HABRA QUE CAMBIAR EL START THRESHOLD!!!
+          //CUANDO HAYA MAS SLIDES HABRA QUE CAMBIAR EL START THRESHOLD!!!
           const startThreshold = 1 * i;
           const endThreshold = startThreshold + 0.2;
           const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
 
           return (
-            <motion.div
-              key={i}
-              className="editorials__cards-slide"
-              style={{
-                scale: scaleTransform,
-                width: `${imageWidths.start}px`,
-                marginRight: `${gap}px`,
-              }}
-            >
-              <img
-                className="editorials__cards-slide-image"
-                src={image.src}
-                alt={image.alt || `Editorial Slide ${i + 1}`}
-                loading="lazy"
-              />
-              <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--primary m--t-3">
-                <p className="m--0 h4">{image.name}</p>
-                <p className="m--0 h6">({image.date})</p>
-              </div>
-            </motion.div>
+            <Link to={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
+              <motion.div
+                key={i}
+                className="editorials__cards-slide"
+                style={{
+                  scale: scaleTransform,
+                  width: `${imageWidths.start}px`,
+                  marginRight: `${gap}px`,
+                }}
+              >
+                <img
+                  className="editorials__cards-slide-image"
+                  src={image.src}
+                  alt={image.alt || `Editorial Slide ${i + 1}`}
+                  loading="lazy"
+                />
+                <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--primary m--t-3">
+                  <p className="m--0 h4">{image.name}</p>
+                  <p className="m--0 h6">({image.date})</p>
+                </div>
+              </motion.div>
+            </Link>
           );
         })}
       </motion.div>

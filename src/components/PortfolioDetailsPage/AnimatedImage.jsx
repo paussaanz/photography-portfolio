@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
-import LenisContext from "../../contexts/LenisContext";
-import AnimatedImageThumbnails from "./AnimatedImageThumbnails";
 import AnimatedThumbnailList from "./AnimatedImageThumbnails";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
@@ -12,7 +10,6 @@ const AnimatedImage = ({
   colSpan,
   rowSpan,
   rowStart,
-  width = "100%",
   ordered,
   parallaxSpeed = -40,
   index,
@@ -33,7 +30,7 @@ const AnimatedImage = ({
     width: "100%",
     height: "100%",
   });
-  const [selectedImage, setSelectedImage] = useState(images[0].src);
+  const [selectedImage, setSelectedImage] = useState(images[0].srcH);
   const [clipPath, setClipPath] = useState("");
   const lastScrollYRef = useRef(0); // Use a ref to track scroll position
 
@@ -90,8 +87,8 @@ const AnimatedImage = ({
         height: rect.height,
       });
     }
-    getImageAspectRatio(img.src)
-    setSelectedImage(img.src);
+    getImageAspectRatio(img.srcH)
+    setSelectedImage(img.srcH);
     setIsZoomed(true);
 
   };
@@ -180,6 +177,7 @@ const AnimatedImage = ({
                 <motion.img
                   src={selectedImage}
                   alt={`img-${index}`}
+                  loading="lazy" 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -232,8 +230,9 @@ const AnimatedImage = ({
         }}
       >
         <motion.img
-          src={img.src}
+          src={img.srcM}
           alt={`img-${index}`}
+          loading="lazy"
           initial={{ scale: 1 }}
           transition={{
             type: "tween",
@@ -250,8 +249,6 @@ const AnimatedImage = ({
 };
 
 export default AnimatedImage;
-
-
 
 // import React, { useRef, useState, useEffect, useContext } from "react";
 // import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
