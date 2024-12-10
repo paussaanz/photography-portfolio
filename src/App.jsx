@@ -65,12 +65,12 @@ function App() {
 
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
-            {/* <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
               <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            </Suspense> */}
+            </Suspense>
           </header>
 
-          {/* {!isMobile && <CursorTrail />} */}
+          {!isMobile && <CursorTrail />}
 
           <main>
             <Suspense fallback={<div className="d--vh-100">Loading...</div>}>
