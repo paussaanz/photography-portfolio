@@ -73,7 +73,7 @@ const SuperButton = ({ width, text, height, link, children }) => {
   const getHoverStartPosition = (direction, rect) => {
     const hoverRefWidth = hoverRef.current.clientWidth;
     const hoverRefHeight = hoverRef.current.clientHeight;
-
+    console.log(hoverRefWidth, hoverRefHeight, rect.width, rect.height);
     switch (direction) {
       case 'top':
         return { top: `-${hoverRefHeight}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
@@ -91,7 +91,7 @@ const SuperButton = ({ width, text, height, link, children }) => {
   const getHoverEndPosition = (direction, rect) => {
     const hoverRefWidth = hoverRef.current.clientWidth;
     const hoverRefHeight = hoverRef.current.clientHeight;
-
+    console.log(hoverRefWidth, hoverRefHeight);
     switch (direction) {
       case 'top':
         return { top: `-${hoverRefHeight}px`, left: `-${(hoverRefWidth - rect.width) / 2}px` };
