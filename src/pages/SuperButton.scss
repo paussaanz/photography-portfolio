@@ -16,6 +16,8 @@
   align-items: center;
   justify-content: center;
 
+  overflow: hidden;
+
   a {
     text-decoration: none;
   }
@@ -33,7 +35,6 @@
 .hover-element {
   position: absolute;
   pointer-events: none;
-  background-color: rgba(255, 0, 0, 0.818);
   pointer-events: none;
 }
 

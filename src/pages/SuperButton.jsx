@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import './SuperButton.scss';
 import { motion } from 'framer-motion';
+import { image } from 'framer-motion/client';
 
-const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
+const SuperButton = ({ width, text, height, link, children }) => {
   const buttonRef = useRef(null);
   const hoverRef = useRef(null);
   const [buttonSize, setButtonSize] = useState({ width: 0, height: 0 });
@@ -14,7 +15,8 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
   const getBackgroundImage = () => {
     const state = isHovered ? 'entering' : 'exiting';
     const imageName = `superbutton-${hoverDirection}-${state}.png`;
-    return `/superbuttons/${imageName}`;
+    console.log(imageName);
+    return `/images/${imageName}`;
   };
 
 
@@ -131,15 +133,16 @@ const SuperButton = ({ width = 400, text, height = 100, link, children }) => {
               left: `-${(hoverRef.current?.clientWidth - buttonSize.width) / 2}px`
             }
             : hoverStyle}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
             width: '120%',
             height: '160%',
             zIndex: 0,
             backgroundImage: `url(${getBackgroundImage()})`,
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         />
         {text || children}
