@@ -71,7 +71,7 @@ const ImageList = ({
 
     const lenis = lenisRef.current;
     const middleSectionStart = imageList.length;
-    const selectedIdx = imageList.findIndex((img) => img.src === selectedImage);
+    const selectedIdx = imageList.findIndex((img) => img.srcH === selectedImage);
     const scrollToIdx = middleSectionStart + (selectedIdx >= 0 ? selectedIdx : 0);
 
     setTimeout(() => {
@@ -100,7 +100,7 @@ const ImageList = ({
       }}
     >
       {extendedList.map((img, idx) => {
-        const isSelected = selectedImage === img.src;
+        const isSelected = selectedImage === img.srcH;
 
         return (
           <motion.div
@@ -108,13 +108,13 @@ const ImageList = ({
             className={`pdetails__card-thumbnail ${isSelected ? "pdetails__card-thumbnail--selected" : ""
               }`}
             onMouseEnter={() => {
-              setSelectedImage(img.src);
-              getImageAspectRatio(img.src);
+              setSelectedImage(img.srcH);
+              getImageAspectRatio(img.srcM);
             }}
             style={{
               width: "130px",
               height: `${itemHeight}px`,
-              backgroundImage: `url(${img.src})`,
+              backgroundImage: `url(${img.srcM})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               cursor: "pointer",

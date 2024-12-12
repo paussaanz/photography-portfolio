@@ -4,10 +4,9 @@ import ThemeButton from "./components/General/Buttons/ThemeButton";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
-import { portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
-import LenisContext from "./contexts/LenisContext";
+import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
-import WarZone from "./pages/WarZone";
+// import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/Navigation/Navbar"));
@@ -129,14 +128,14 @@ function App() {
 
                 <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} isMobile={isMobile} />} />
                 <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
-                <Route path="/editorials/greece" element={<EditorialsDetailPage />} />
-                <Route path="/editorials/tanzania" element={<EditorialsDetailPage />} />
+                <Route path="/editorials/greece" element={<EditorialsDetailPage images={editorialsDetails.greece} /> } />
+                <Route path="/editorials/tanzania" element={<EditorialsDetailPage images={editorialsDetails.tanzania}/>} />
                 <Route path="/aboutsyp!" element={<AboutPage isVisited={isVisited} />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />
                 <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
                 <Route path="/editorials/swiper" element={<SwiperEditorialDetail />} />
-                <Route path="/warzone" element={<WarZone />} />
+                {/* <Route path="/warzone" element={<WarZone />} /> */}
               </Routes>
             </Suspense>
           </main>

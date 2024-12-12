@@ -53,6 +53,15 @@ $font-sizes-md: (
   6: $b6-font-size-md,
 );
 
+$tag-sizes: (
+  1: $tag1-font-size,
+  2: $tag2-font-size,
+);
+$tag-sizes-md: (
+  1: $tag1-font-size-md,
+  2: $tag2-font-size-md,
+);
+
 
 /** ESTILOS PARA DISPLAY -- Font Gunterz
 Usa .d1, .d2, .d3, etc., para aplicar tamaños de fuente predefinidos para los títulos grandes, 
@@ -76,6 +85,28 @@ de la pantalla alcance el breakpoint `md`, definido en el mapa $display-sizes-md
   .d#{$size}-mbl {
     @include media-breakpoint-down(md) {
       font-size: $value !important;
+    }
+  }
+}
+
+
+//EDITORIALES
+@each $size, $value in $tag-sizes {
+  .tag-#{$size} {
+    font-family: $cor-font-family-tag;
+
+    @include media-breakpoint-up(md) {
+      font-size: $value !important;
+      line-height: 24px;
+    }
+  }
+}
+
+@each $size, $value in $tag-sizes-md {
+  .tag-#{$size}-mbl {
+    @include media-breakpoint-down(md) {
+      font-size: $value !important;
+      line-height: 22px;
     }
   }
 }
@@ -160,6 +191,14 @@ Ejemplo: <p class="b1 b1-md">Este texto ajustará su tamaño en pantallas median
 
     &--secondary-greece {
       color: var(--cor-secondary-greece);
+    }
+
+    &--primary-tanzania {
+      color: var(--cor-primary-tanzania);
+    }
+
+    &--secondary-tanzania {
+      color: var(--cor-secondary-tanzania);
     }
   }
 

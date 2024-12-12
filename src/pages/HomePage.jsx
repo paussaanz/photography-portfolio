@@ -43,7 +43,7 @@ const HomePage = ({ isVisited }) => {
         {isVisited ? (
           <>
             <VideoBackground
-              videoSrc="/images/mid/nature-30.webp"
+              videoSrc="/images/hi/nature-30.webp"
               height="d--vh-100"
             />
             <TextOverlay

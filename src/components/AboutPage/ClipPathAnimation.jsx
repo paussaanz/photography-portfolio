@@ -16,8 +16,8 @@ const ClipPathAnimation = React.memo(({ onImageChange, images }) => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: container,
-        start: "top top",
-        end: "bottom+=200vh top",
+        start: "center top",
+        end: "bottom+=100vh top",
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
@@ -30,8 +30,10 @@ const ClipPathAnimation = React.memo(({ onImageChange, images }) => {
     children.forEach((child, index) => {
       timeline.fromTo(
         child,
-        { clipPath: "circle(0% at 100% 0%)" },
-        { clipPath: "circle(150% at 100% 0%)", duration: 1 },
+        { clipPath: "polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%)" },
+        { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 },
+        // { clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" },
+        // { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 },
         index * 1
       );
     });

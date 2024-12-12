@@ -21,11 +21,38 @@ import PortfolioParallax6 from "/images/low/hero-portfolio-5.webp";
 import PortfolioParallax3 from "/images/low/hero-portfolio-6.webp";
 
 //EDITORIALS
-import EditorialCover1 from "/images/editorial-cover-1.png";
-import EditorialCover2 from "/images/editorial-cover-2.png";
+import EditorialCover1 from "/images/hi/greece-cover.webp";
+import EditorialCover2 from "/images/hi/tanzania-cover.webp";
 //EDITORIALS MOBILE
 import EditorialCover1Mbl from "/images/cover-mbl-greece.jpg";
 import EditorialCover2Mbl from "/images/cover-mbl-tanzania.jpg";
+//EDITORIALS DETAILS
+import GreeceCover from "/images/hi/greece-cover.webp"
+import Greece1 from "/images/hi/greece-1.webp"
+import Greece2 from "/images/hi/greece-2.webp"
+import Greece3 from "/images/hi/greece-3.webp"
+import Greece4 from "/images/hi/greece-4.webp"
+import Greece5 from "/images/hi/greece-5.webp"
+import Greece6 from "/images/hi/greece-6.webp"
+import Greece7 from "/images/hi/greece-7.webp"
+import Greece8 from "/images/hi/greece-8.webp"
+import Greece9 from "/images/hi/greece-9.webp"
+import Greece10 from "/images/hi/greece-10.webp"
+import Greece11 from "/images/hi/greece-11.webp"
+import Greece12 from "/images/hi/greece-12.webp"
+
+import TanzaniaCover from "/images/hi/tanzania-cover.webp"
+import Tanzania1 from "/images/hi/tanzania-1.webp"
+import Tanzania2 from "/images/hi/tanzania-2.webp"
+import Tanzania3 from "/images/hi/tanzania-3.webp"
+import Tanzania4 from "/images/hi/tanzania-4.webp"
+import Tanzania5 from "/images/hi/tanzania-5.webp"
+import Tanzania6 from "/images/hi/tanzania-6.webp"
+import Tanzania7 from "/images/hi/tanzania-7.webp"
+import Tanzania8 from "/images/hi/tanzania-8.webp"
+import Tanzania9 from "/images/hi/tanzania-9.webp"
+import Tanzania10 from "/images/hi/tanzania-10.webp"
+import Tanzania11 from "/images/hi/tanzania-11.webp"
 
 //PHOTOSHOOTS
 import Photoshoots1M from "/images/mid/photoshoots-1.webp";
@@ -440,6 +467,29 @@ export const portfolioParallaxHero = [
   },
 ];
 
+export const editorialsParallaxHero = [
+  {
+    src: Music7M,
+    y: " md",
+  },
+  {
+    src: Music6M,
+    y: "md",
+  },
+  {
+    src: Music2M,
+    y: "lg",
+  },
+  {
+    src: Music3M,
+    y: "sm",
+  },
+  {
+    src: Music4M,
+    y: "sm",
+  },
+];
+
 export const portfolioCardAnimation = [
   {
     src: PhotoshootsPortfolio,
@@ -478,41 +528,19 @@ export const portfolioCardAnimation = [
   },
 ];
 
-export const editorialsParallaxHero = [
-  {
-    src: Music7M,
-    y: " md",
-  },
-  {
-    src: Music6M,
-    y: "md",
-  },
-  {
-    src: Music2M,
-    y: "lg",
-  },
-  {
-    src: Music3M,
-    y: "sm",
-  },
-  {
-    src: Music4M,
-    y: "sm",
-  },
-];
 
 export const editorialsCovers = [
   {
     src: EditorialCover1,
     name: "GREECE",
-    date: "2022",
+    date: "0723",
     url: "/editorials/greece"
   },
   {
     src: EditorialCover2,
     name: "TANZANIA",
-    date: "2023",
-    url: "editorials/tanzania"
+    date: "0423",
+    url: "/editorials/tanzania"
   },
 ];
 
@@ -528,6 +556,74 @@ export const editorialsCoversMbl = [
     date: "0423",
   },
 ];
+
+export const editorialsDetails = {
+  greece: {
+    heroImage: { src: Greece7 },
+    title: "Seafaring Greece",
+    subtitles: ["blue horizons", "Sail style", "wave makers"],
+    heroText: "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.",
+    firstSection: [
+      { src: Greece1 },
+      { src: Greece2 },
+      { src: Greece3 },
+    ],
+    firstSectionTitle: "Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD",
+    firstSectionText: "This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to offer. Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea, and create unforgettable memories against the backdrop of the stunning Greek landscape.",
+    firstSectionText2: "Every corner of the Aegean Sea offers moments that beg to be captured through the lens. The tranquil mornings, with soft sunlight illuminating the water's surface, create a perfect setting for serene and atmospheric shots. Imagine the golden glow reflecting off the hull of the boat or the quiet elegance of the sails catching the first breeze of the day. These quiet beginnings, framed by the infinite blue of the sky and sea, set the stage for a photographer's dream.",
+    secondSection: [
+      { src: Greece4 },
+      { src: Greece5 },
+      { src: Greece6 },
+    ],
+    secondSectionText: "As you sail through the islands, the changing landscapes provide an endless array of compositions, each offering its own unique character and visual allure. The vibrant greens of Skiathos’ pine forests stretch toward the sky, their dense canopies creating a rich, verdant frame for the coastline, where the sparkling turquoise waters shimmer with an almost otherworldly clarity. The interplay of light and shadow on the waves creates an ever-changing mosaic, perfect for capturing dynamic seascapes that seem to breathe with life. Nearby coves reveal secluded beaches with golden sands, offering intimate vignettes of untouched beauty, while rocky headlands extend into the sea, their jagged forms providing a dramatic contrast to the soft fluidity of the water. As the journey continues to Alonissos, the scenery shifts to a rugged, untamed charm. The towering cliffs, sculpted over centuries by the relentless forces of wind and water, rise majestically above the sea, their textured faces catching the warm glow of the sun. In the golden hours of dusk, these cliffs stand silhouetted against a sky painted in pastel hues of lavender, peach, and amber, creating a breathtaking juxtaposition that captures the timeless solitude of this island. Each island reveals a new story, a fresh palette of colors and textures, from the pristine waters and lush landscapes to the interplay of light and shadow that defines the ever-changing beauty of the Aegean. These natural wonders invite the viewer not only to admire but to feel the soul of the Greek islands, where the land, sea, and sky come together in perfect harmony.",
+    thirdSection: [
+      { src: Greece8 },
+      { src: Greece9 },
+    ],
+    thirdSectionTitle: "Discovering the Diverse Beauty of Greece's Islands",
+    thirdSectionText: [
+      "Each island in Greece unfolds its own story through its unique landscapes and enchanting charm. In Skiathos, lush pine forests cascade toward pristine shores, their vibrant greens contrasting with the crystalline turquoise waters that lap gently at the beaches. Alonissos captivates with its rugged cliffs and hidden coves, offering breathtaking views and a sense of untouched wilderness, while Skopelos showcases its iconic whitewashed chapels nestled among olive groves, blending human artistry with natural beauty.",
+      "Wandering through these islands feels like stepping into a living painting. Narrow, winding paths lead to picturesque villages where the simplicity of whitewashed houses is offset by bursts of vivid bougainvillea spilling from balconies. These serene settlements invite exploration, with unexpected delights around every corner—hidden tavernas serving freshly caught seafood, cozy cafes shaded by ancient trees, and historic churches that echo with centuries of tradition. Each moment on the islands offers a new perspective on their timeless allure."
+    ],
+    fourthSection: [
+      { src: Greece10 },
+      { src: Greece11 },
+    ],
+  },
+  tanzania: {
+    heroImage: { src: Tanzania6 },
+    title: "Tanzania Treasures",
+    subtitles: ["blue horizons", "Sail style", "wave makers"],
+    heroText: "Tanzania's landscapes serve as an endless muse, inspiring both awe and introspection. From the expansive plains of the Serengeti, where the golden grasslands seemingly stretch to infinity, to the ethereal Ngorongoro Crater, a world within itself, every frame tells a story of timeless beauty. Through my photographs, I aim to transport viewers to these remarkable places, allowing them to witness the serenity of a sunrise painting the savannah in hues of gold or the majesty of an elephant gracefully roaming across the horizon. Tanzania's landscapes are a testament to the power and magnificence of nature, and it is my privilege to share these moments frozen in time.",
+    firstSection: [
+      { src: Tanzania1 },
+      { src: Tanzania2 },
+      { src: Tanzania3 },
+    ],
+    firstSectionTitle: "Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD",
+    firstSectionText: "This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to offer. Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea, and create unforgettable memories against the backdrop of the stunning Greek landscape.",
+    firstSectionText2: "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials.",
+    secondSection: [
+      { src: Tanzania4 },
+      { src: Tanzania5 },
+      { src: Tanzania6 },
+    ],
+    secondSectionText: "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines. Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.",
+    thirdSection: [
+      { src: Tanzania7 },
+      { src: Tanzania8 },
+    ],
+    thirdSectionTitle: "Exploring the Breathtaking Landscapes of the Greek Islands",
+    thirdSectionText: ["Each island in Greece possesses its own unique character and charm. From the volcanic wonders of Santorini, with its iconic blue-domed churches overlooking the caldera, to the lush greenery of Corfu, where olive trees sway in the gentle breeze, the Greek islands offer a tapestry of landscapes that capture the imagination and leave an indelible mark on the soul.",
+      "Picture-perfect villages adorned with whitewashed houses and vibrant bougainvillea cascading along narrow alleyways create a postcard-worthy backdrop. The tranquility of these idyllic settlements invite exploration, with each step revealing a new discovery, whether it's a hidden taverna serving delectable local cuisine or a centuries-old church steeped in history."
+    ],
+    fourthSection: [
+      { src: Tanzania9 },
+      { src: Tanzania10 },
+    ],
+  },
+};
 
 export const portfolioDetails = {
   photoshoots: {

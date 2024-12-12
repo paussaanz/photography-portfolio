@@ -25,6 +25,7 @@ Uso de clases de flex:
 
     &--row {
         flex-direction: row;
+
         &-mbl {
             @include media-breakpoint-down(md) {
                 flex-direction: row;
@@ -58,6 +59,12 @@ Uso de clases de flex:
     // Justify content modifiers
     &--j-start {
         justify-content: flex-start;
+
+        &-mbl {
+            @include media-breakpoint-down(md) {
+                justify-content: flex-start !important;
+            }
+        }
     }
 
     &--j-center {
@@ -126,6 +133,9 @@ Uso de clases de flex:
         align-content: stretch;
     }
 
+    &--1{
+        flex:1;
+    }
     // Flex auto
     &--auto {
         flex: auto;

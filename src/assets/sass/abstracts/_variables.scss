@@ -23,6 +23,9 @@ $cor-font-family-body: "Gamilia" !default;
 // Configuración fuentes Headings añadidas en _mixins.scss
 $cor-font-family-headings: "Gunterz" !default;
 
+//Configuración Editorials body 
+$cor-font-family-tag: "Darker Grotesque", sans-serif !default;
+
 // Espacio para los bloques
 $cor-spacer: 1rem !default;
 
@@ -114,12 +117,19 @@ $b5-font-size: $cor-font-size-base-text * toRem(20); // ejemplo 14px
 $b6-font-size: $cor-font-size-base-text * toRem(16); // ejemplo 13px
 
 // Configuración cuerpo de texto a partir de md 
-$b1-font-size-md: $cor-font-size-base * toRem(49); // ejemplo 18px
-$b2-font-size-md: $cor-font-size-base * toRem(39); // ejemplo 17px
-$b3-font-size-md: $cor-font-size-base * toRem(31); // 16px
-$b4-font-size-md: $cor-font-size-base * toRem(25); // ejemplo 15px
-$b5-font-size-md: $cor-font-size-base * toRem(20); // ejemplo 14px
-$b6-font-size-md: $cor-font-size-base * toRem(16); // ejemplo 13px
+$b1-font-size-md: $cor-font-size-base-text * toRem(49); // ejemplo 18px
+$b3-font-size-md: $cor-font-size-base-text * toRem(31); // 16px
+$b4-font-size-md: $cor-font-size-base-text * toRem(25); // ejemplo 15px
+$b2-font-size-md: $cor-font-size-base-text * toRem(39); // ejemplo 17px
+$b5-font-size-md: $cor-font-size-base-text * toRem(20); // ejemplo 14px
+$b6-font-size-md: $cor-font-size-base-text * toRem(16); // ejemplo 13px
+
+
+//TAG
+$tag1-font-size: $cor-font-size-base-text * toRem(33); // ejemplo 13px
+$tag2-font-size: $cor-font-size-base-text * toRem(20); // ejemplo 13px
+$tag1-font-size-md: $cor-font-size-base-text * toRem(28); // ejemplo 13px
+$tag2-font-size-md: $cor-font-size-base-text * toRem(18); // ejemplo 13px
 
 // Configuración fuentes a partir de md .fs-1 .fs-2 y fs-md-1 que corresponde a los tamaños de los encabezados pero para textos añadidas en _utils.css
 // $cor-font-size-base-1-md: $cor-h1-font-size-md;
