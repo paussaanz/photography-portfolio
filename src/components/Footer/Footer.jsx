@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import InfiniteCarrusel from "./InfiniteCarrusel";
 import Scene3D from "./Scene3D";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+    const HIDDEN_ROUTES = ["/contact", "/contact/form"];
     const [isVisible, setIsVisible] = useState(false);
     const triggerRef = useRef(null);
+    const { pathname } = useLocation();
+
+    const isHidden = HIDDEN_ROUTES.includes(pathname);
+
+    if (isHidden) {
+        return null;
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(

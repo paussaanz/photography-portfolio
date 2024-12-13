@@ -549,11 +549,13 @@ export const editorialsCoversMbl = [
     src: EditorialCover1Mbl,
     name: "GREECE",
     date: "0723",
+    url: "/editorials/greece"
   },
   {
     src: EditorialCover2Mbl,
     name: "TANZANIA",
     date: "0423",
+    url: "/editorials/tanzania"
   },
 ];
 

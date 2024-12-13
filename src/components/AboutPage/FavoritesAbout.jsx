@@ -14,7 +14,7 @@ const FavoritesAbout = () => {
       scrollTrigger: {
         trigger: ".favorites-about__text",
         start: "top 30%",
-        end: "bottom center",
+        end: "bottom+=300vh center",
         scrub: true,
       },
     });

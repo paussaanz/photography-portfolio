@@ -88,7 +88,9 @@
 
 .editorials-detail__end-section__container {
   & img {
-    width: 50%;
+    width: 35%;
+    height: 70%;
+    object-fit: cover;
   }
 }
 

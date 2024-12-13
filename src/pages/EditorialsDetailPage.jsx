@@ -29,7 +29,7 @@ const EditorialsPage = ({ images }) => {
           <ThirdSectionEditorials images={images} />
         </section >
 
-        <section className="p--y-5 container-bem">
+        <section className="p--y-5">
           <FourthSectionEditorials images={images.fourthSection} />
         </section>
     </div>

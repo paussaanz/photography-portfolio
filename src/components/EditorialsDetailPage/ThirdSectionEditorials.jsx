@@ -7,7 +7,7 @@ const ThirdSectionEditorials = ({ images }) => {
 
             <div className="editorials-detail__sub-section__container flex flex--col-mbl d--h-100">
                 <div className="editorials-detail__sub-section__container__image flex p--l-3 overflow--hidden flex--1 d--w-max-50 d--w-max-100-mbl">
-                    <img src={thirdSection[0].src} alt="Slide 5" />
+                    <img className="d--vh-50-mbl" src={thirdSection[0].src} alt="Slide 5" />
                 </div>
                 <div className="editorials-detail__sub-section__container__mixed p--l-3 flex flex--col flex--1 d--w-max-50 d--w-max-100-mbl">
                     <div className="editorials-detail__sub-section__container__mixed__image flex">

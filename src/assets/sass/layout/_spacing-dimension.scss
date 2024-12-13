@@ -42,6 +42,12 @@ Uso de clases de gap (`.g`):
         &--vh-#{$size} {
             height: $value;
         }
+
+        @include media-breakpoint-down(md) {
+            &--vh-#{$size}-mbl {
+                height: $value !important;
+            }
+        }
     }
 
     // Viewport Widths -- ONLY ON DESKTOP
