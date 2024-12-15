@@ -494,35 +494,35 @@ export const portfolioCardAnimation = [
   {
     src: PhotoshootsPortfolio,
     name: "Photoshoots",
-    date: "2022 - 2023",
+    date: "2023",
     description: "SYP's photoshoots blend vivid colors and dynamic lighting in studio and outdoor settings, showcasing creative posing and keen visual flair.",
     url: "/portfolio/photoshoots",
   },
   {
     src: NaturePortfolio,
     name: "Nature",
-    date: "2021-2024",
+    date: "2024",
     description: "Capturing the essence of the natural world, these photos focus on intricate details and vibrant landscapes in both familiar and remote settings.",
     url: "/portfolio/nature",
   },
   {
     src: SportsPortfolio,
     name: "Sports",
-    date: 2023,
+    date: "2023",
     description: "Description 3",
     url: "/portfolio/sports",
   },
   {
     src: MusicPortfolio,
     name: "Music",
-    date: 2023,
+    date: "2023",
     description: "Description 3",
     url: "/portfolio/music",
   },
   {
     src: LifestylePortfolio,
     name: "Lifestyle",
-    date: 2023,
+    date: "2024",
     description: "Description 3",
     url: "/portfolio/lifestyle",
   },
@@ -538,21 +538,6 @@ export const editorialsCovers = [
   },
   {
     src: EditorialCover2,
-    name: "TANZANIA",
-    date: "0423",
-    url: "/editorials/tanzania"
-  },
-];
-
-export const editorialsCoversMbl = [
-  {
-    src: EditorialCover1Mbl,
-    name: "GREECE",
-    date: "0723",
-    url: "/editorials/greece"
-  },
-  {
-    src: EditorialCover2Mbl,
     name: "TANZANIA",
     date: "0423",
     url: "/editorials/tanzania"
@@ -1886,13 +1871,13 @@ export const mobilePortfolioCard = [
   {
     src: Nature15M,
     title: "Nature",
-    subtitle: "2022",
+    subtitle: "2024",
     url: "/portfolio/nature",
   },
   {
     src: Sports4M,
     title: "Sports",
-    subtitle: "2024",
+    subtitle: "2023",
     url: "/portfolio/photoshoots",
   },
   {
@@ -1909,3 +1894,17 @@ export const mobilePortfolioCard = [
   },
 ]
 
+export const editorialsCoversMbl = [
+  {
+    src: EditorialCover1Mbl,
+    name: "GREECE",
+    date: "0723",
+    url: "/editorials/greece"
+  },
+  {
+    src: EditorialCover2Mbl,
+    name: "TANZANIA",
+    date: "0423",
+    url: "/editorials/tanzania"
+  },
+];

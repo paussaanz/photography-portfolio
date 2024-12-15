@@ -46,11 +46,12 @@ const FirstSectionEditorials = ({ images }) => {
                     <h2 className="h4 text-align--right ">
                         {firstSectionTitle}
                     </h2>
+                    {/* <TextShuffleScroll text={firstSectionText}/> */}
                     <p className="tag-2 tag-2-mbl">
                         {firstSectionText}
                     </p>
                 </div>
-                <div className="editorials-detail__first-section__container__img flex--1 d--w-max-50 d--w-max-100-mbl p--y-5 d--h-100 overflow--hidden">
+                <div className="editorials-detail__first-section__container__img flex--1 d--w-max-50 d--w-max-100-mbl p--y-5 d--h-100 overflow--hidden p--0-mbl">
                     <img ref={largeImageRef} src={firstSection[0].src} alt="Slide 5" className="d--w-100 d--h-100 object-fit--cover"/>
                 </div>
             </div>

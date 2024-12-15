@@ -1,6 +1,7 @@
 import { useRef, useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 const ImageList = ({
   extendedList,
@@ -12,6 +13,7 @@ const ImageList = ({
   const containerRef = useRef(null);
   const lenisRef = useRef(null);
   const itemHeight = 150; // Altura fija de cada elemento
+  const { isMobile } = useMediaQuery();
 
   // Inicializar Lenis
   useEffect(() => {
@@ -92,11 +94,12 @@ const ImageList = ({
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{
+      className="pdetails__thumbnails-scrollbar"
+      style={{ 
         display: "flex",
-        flexDirection: "column",
+        flexDirection:  isMobile ? "row" : "column",
         overflowY: "auto",
-        height: "100vh",
+        height: isMobile ? "auto" : "100vh",
       }}
     >
       {extendedList.map((img, idx) => {

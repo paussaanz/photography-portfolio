@@ -31,6 +31,3 @@ export const useLetterTransforms = (word, scrollYProgress) => {
     });
 };
 
-export const useTimelineAnimations = (isMobile) => {
-     // Only `isMobile` should trigger this effect.
-};

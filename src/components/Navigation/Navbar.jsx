@@ -49,11 +49,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     (links, isSubmenu = false) =>
       links.map((link, index) => {
         const targetPath =
-          isSubmenu && link.toLowerCase() === "see all"
-            ? "/portfolio/"
-            : isSubmenu
-            ? `/portfolio/${link.toLowerCase()}`
-            : `/${link.toLowerCase().replace(/\s+/g, "")}`;
+          link.toLowerCase() === "home"
+            ? "/"
+            : isSubmenu && link.toLowerCase() === "see all"
+              ? "/portfolio/"
+              : isSubmenu
+                ? `/portfolio/${link.toLowerCase()}`
+                : `/${link.toLowerCase().replace(/\s+/g, "")}`;
+
 
         return (
           <motion.li
@@ -151,7 +154,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             initial="hidden"
             animate={isMenuOpen ? "visible" : "exit"}
           >
-            {renderLinks([""])}
+            {renderLinks(["Home"])}
 
             <motion.li className="cus-navbar__mbl--links-item" variants={linkVariants}>
               <span

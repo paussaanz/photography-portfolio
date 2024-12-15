@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import ParallaxImages from "../General/ParallaxImages";
 import gsap from "gsap";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
-import { getYTransform, useLetterTransforms, useTimelineAnimations } from "../../assets/js/animations";
+import { getYTransform, useLetterTransforms } from "../../assets/js/animations";
 
 const LoaderEditorials = ({ images = [], word = "EDITORIALS" }) => {
     const container = useRef(null);

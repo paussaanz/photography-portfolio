@@ -135,7 +135,6 @@ function App() {
                 <Route path="/contact/form" element={<ContactForm />} />
                 <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
                 <Route path="/editorials/swiper" element={<SwiperEditorialDetail />} />
-                {/* <Route path="/warzone" element={<WarZone />} /> */}
               </Routes>
             </Suspense>
           </main>

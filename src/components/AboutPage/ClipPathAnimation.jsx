@@ -32,8 +32,6 @@ const ClipPathAnimation = React.memo(({ onImageChange, images }) => {
         child,
         { clipPath: "polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%)" },
         { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 },
-        // { clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" },
-        // { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 },
         index * 1
       );
     });

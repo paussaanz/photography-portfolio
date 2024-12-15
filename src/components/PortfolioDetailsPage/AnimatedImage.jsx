@@ -156,10 +156,12 @@ const AnimatedImage = ({
                 isExiting
                   ? { opacity: 0, y: 100 }
                   : {
-                    top: "50%",
-                    left: "45%",
+                    top: isMobile ? "45%" : "50%",
+                    left: isMobile ? "50%" : "45%",
                     width: isVertical ? 500 : 1000,
                     height: isVertical ? 800 : 700,
+                    width: isMobile ? '90%' : (isVertical ? 500 : 1000),
+                    height: isMobile ? (isVertical ? '60%' : '30%') : (isVertical ? 800 : 700),
                     x: "-50%",
                     y: "-50%",
                     opacity: 1,
@@ -168,7 +170,7 @@ const AnimatedImage = ({
               transition={{ duration: 0.5, ease: "easeInOut" }}
               style={{
                 position: "fixed",
-                zIndex: 20,
+                zIndex: 2000,
               }}
               onClick={handleZoomOut}
               onAnimationComplete={handleAnimationComplete}
@@ -177,7 +179,7 @@ const AnimatedImage = ({
                 <motion.img
                   src={selectedImage}
                   alt={`img-${index}`}
-                  loading="lazy" 
+                  loading="lazy"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
