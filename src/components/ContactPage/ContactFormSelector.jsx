@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
 
-const ContactFormSelector = ({ question, answers, reset }) => {
+const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => {
     const [selectedButtons, setSelectedButtons] = useState([]);
-
     useEffect(() => {
         if (reset) {
             setSelectedButtons([]); // Limpia la selección cuando `reset` cambia
@@ -11,13 +10,27 @@ const ContactFormSelector = ({ question, answers, reset }) => {
     }, [reset]);
 
     const handleButtonClick = (button) => {
-        setSelectedButtons((prev) => {
-            if (prev.includes(button)) {
-                return prev.filter((b) => b !== button);
-            } else {
-                return [...prev, button];
-            }
-        });
+        if (unique) {
+            setSelectedButtons((prev) => {
+                if (prev.includes(button)) {
+                    onChange("");
+                    return [];
+                } else {
+                    onChange(button);
+                    return [button];
+                }
+            });
+        } else {
+            setSelectedButtons((prev) => {
+                if (prev.includes(button)) {
+                    onChange(prev.filter((b) => b !== button));
+                    return prev.filter((b) => b !== button);
+                } else {
+                    onChange([...prev, button]);
+                    return [...prev, button];
+                }
+            });
+        }
     };
 
     return (

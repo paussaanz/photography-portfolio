@@ -4,6 +4,7 @@ import ThemeButton from "../General/Buttons/ThemeButton";
 import ContactFormInput from "./ContactFormInput";
 import ContactFormSelector from "./ContactFormSelector";
 import ContactFormSvg from "./ContactFormSvg";
+import axios from "axios";
 
 const ContactForm = () => {
   const initialFormData = {
@@ -22,13 +23,16 @@ const ContactForm = () => {
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
-
+  console.log(formData)
   const handleFocus = (field) => setFocusedField(field);
   const handleBlur = () => setFocusedField(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form data submitted:", formData);
+
+    axios.post("https://photography-api-jkt7.onrender.com/api/send-email", formData)
+      .then((res) => console.log("Email sent:", res))
+      .catch((err) => console.error("Error sending email:", err));
 
     // Reset form
     setFormData(initialFormData);
@@ -58,18 +62,24 @@ const ContactForm = () => {
   const selectors = [
     {
       question: "What services are you interested in?",
+      key: "services",
       answers: ["WebDesign", "WebDevelopment", "E-commerce", "Maintenance"],
     },
     {
       question: "Is it a new website or a rebuild?",
+      key: "newOrRedesign",
       answers: ["New", "Redesign", "Partial", "Updates"],
     },
     {
+      unique: true,
       question: "When should it be ready?",
+      key: "deadline",
       answers: ["ASAP", "1-2 months", "3–6 months", "Flexible"],
     },
     {
+      unique: true,
       question: "What's your budget?",
+      key: "budget",
       answers: ["<$1K", "$1K–$5K", "$5K–$10K", "$10K+"],
     },
   ];
@@ -120,6 +130,8 @@ const ContactForm = () => {
                 question={selector.question}
                 answers={selector.answers}
                 reset={reset}
+                unique={selector.unique}
+                onChange={(value) => handleInputChange(selector.key, value)}
               />
             ))}
           </div>
