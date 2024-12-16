@@ -50,7 +50,7 @@ const PortfolioPage = ({ isVisited }) => {
             <section className="portfolio__text-animation-section" ref={sectionRef}>
                 <div className={textAnimationClass}>
                     <TextAnimation
-                        text="Photography transforms ordinary moments into lasting memories, capturing the beauty and uniqueness of every scene. My portfolio is a journey through the lens, showcasing diverse perspectives and intimate glimpses of life. Each image is a story, a testament to the power of visual storytelling. This collection celebrates the art of seeing, from serene landscapes to vibrant street scenes."
+                        text="Photography transforms moments into lasting memories, showcasing beauty and uniqueness. My portfolio shares diverse perspectives and stories, from serene landscapes to vibrant street scenes."
                         textColor='text-color--primary'
                         maskColor="background--light"
                     />
