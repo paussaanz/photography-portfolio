@@ -5,12 +5,14 @@ import Button from "../components/General/Buttons/Button";
 import GalleryGrid from "../components/PortfolioDetailsPage/GalleryGrid";
 import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
 import LenisContext from "../contexts/LenisContext";
+import { useMediaQuery } from "../contexts/MediaQueryContext";
 
 const PortfolioDetailPage = ({ images, title, textAnimation }) => {
   const { heroImage, projectImages } = images;
   const [ordered, setOrdered] = useState(false);
   const [disabledButtons, setDisabledButtons] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const { isMobile } = useMediaQuery();
 
   const imagesSectionRef = useRef(null);
   const galleryRef = useRef(null);
@@ -64,7 +66,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
       {/* Hero Section */}
       <section className="pdetails__hero-section position--relative">
-        <HeroDetails slug={title} src={heroImage.src} />
+        <HeroDetails slug={title} src={isMobile ? heroImage.mobileSrc : heroImage.src} />
       </section>
 
       {/* Text Animation Section */}
@@ -84,9 +86,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         className="pdetails__images-gallery-section"
       >
         <div
-          className={`pdetails__button--fixed-bottom ${
-            disabledButtons ? "pointer-events-none" : ""
-          }`}
+          className={`pdetails__button--fixed-bottom ${disabledButtons ? "pointer-events-none" : ""
+            }`}
         >
           <Button
             className="text-color--primary"

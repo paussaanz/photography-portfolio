@@ -25,6 +25,7 @@ const ImageList = ({
       smoothTouch: false,
       lerp: 0.1,
       duration: 1.2,
+      direction: isMobile ? 'horizontal' : 'vertical'
     });
 
     lenisRef.current = lenis;
@@ -49,15 +50,29 @@ const ImageList = ({
     const container = containerRef.current;
 
     const handleInfiniteScroll = () => {
+
+      const itemWidth = 130; // Ancho de cada elemento
       const scrollPos = lenis.scroll || 0;
       const totalHeight = extendedList.length * itemHeight;
-      const threshold = imageList.length * itemHeight;
+      const threshold = imageList.length * (isMobile ? itemWidth : itemHeight);
+      const totalWidth = extendedList.length * itemWidth; // Ancho total del contenido
 
-      if (scrollPos < threshold) {
-        lenis.scrollTo(scrollPos + imageList.length * itemHeight, { immediate: true });
-      } else if (scrollPos > totalHeight - threshold) {
-        lenis.scrollTo(scrollPos - imageList.length * itemHeight, { immediate: true });
+      if (isMobile) {
+        const scrollPos = container.scrollLeft;
+
+        if (scrollPos < threshold) {
+          container.scrollLeft = scrollPos + imageList.length * itemWidth;
+        } else if (scrollPos > totalWidth - threshold) {
+          container.scrollLeft = scrollPos - imageList.length * itemWidth;
+        }
+      } else {
+        if (scrollPos < threshold) {
+          lenis.scrollTo(scrollPos + imageList.length * itemHeight, { immediate: true });
+        } else if (scrollPos > totalHeight - threshold) {
+          lenis.scrollTo(scrollPos - imageList.length * itemHeight, { immediate: true });
+        }
       }
+
     };
 
     container.addEventListener("scroll", handleInfiniteScroll);
@@ -72,14 +87,26 @@ const ImageList = ({
     if (!lenisRef.current || extendedList.length === 0) return;
 
     const lenis = lenisRef.current;
-    const middleSectionStart = imageList.length;
-    const selectedIdx = imageList.findIndex((img) => img.srcH === selectedImage);
-    const scrollToIdx = middleSectionStart + (selectedIdx >= 0 ? selectedIdx : 0);
 
-    setTimeout(() => {
-      lenis.scrollTo(scrollToIdx * itemHeight, { immediate: true });
-    }, 300);
-  }, [extendedList, itemHeight]);
+    // Encuentra la posición de la imagen seleccionada
+    const selectedIdx = imageList.findIndex((img) => img.srcH === selectedImage);
+    const scrollToIdx = selectedIdx >= 0 ? selectedIdx : 0; // Si no encuentra, va al índice 0
+
+    if (isMobile) {
+      const position = scrollToIdx * 130; // 130px es el ancho de cada imagen
+
+      setTimeout(() => {
+        containerRef.current.scrollTo({
+          left: position,
+        });
+      }, 300);
+    } else {
+
+      setTimeout(() => {
+        lenis.scrollTo(scrollToIdx * itemHeight, { immediate: true });
+      }, 300);
+    }
+  }, [extendedList]);
 
 
   const containerVariants = {
@@ -95,11 +122,13 @@ const ImageList = ({
       animate="visible"
       variants={containerVariants}
       className="pdetails__thumbnails-scrollbar"
-      style={{ 
+      style={{
         display: "flex",
-        flexDirection:  isMobile ? "row" : "column",
-        overflowY: "auto",
+        flexDirection: isMobile ? "row" : "column",
+        overflowY: 'auto',
+        overflowX: 'auto',
         height: isMobile ? "auto" : "100vh",
+        width: isMobile ? "100vw" : "auto"
       }}
     >
       {extendedList.map((img, idx) => {
