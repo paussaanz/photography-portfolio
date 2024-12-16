@@ -130,6 +130,7 @@ function App() {
                 <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
                 <Route path="/editorials/greece" element={<EditorialsDetailPage images={editorialsDetails.greece} /> } />
                 <Route path="/editorials/tanzania" element={<EditorialsDetailPage images={editorialsDetails.tanzania}/>} />
+                <Route path="/editorials/dolomites" element={<EditorialsDetailPage images={editorialsDetails.dolomites}/>} />
                 <Route path="/aboutsyp!" element={<AboutPage isVisited={isVisited} />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />

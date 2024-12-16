@@ -125,7 +125,7 @@ const TextAbout = () => {
             <div ref={containerRef} className="about__text-gallery--hover">
                 {hoverState.currentImages.map((src, index) => (
                     <div ref={(el) => (itemRefs.current[index] = el)} className="about__text-gallery-item" key={index}>
-                        <img src={src} loading="lazy" alt="Gallery hover item" />
+                        <img src={src} loading="lazy" alt="Gallery hover item" className="pointer-events--none" />
                     </div>
                 ))}
             </div>
