@@ -1,5 +1,5 @@
 const HeroEditorialsDetail = ({ images }) => {
-  const { heroImage, title, subtitles, heroText } = images; // Destructure properties from `images`
+  const { heroImage, title, subtitles, heroText, fontSize } = images; // Destructure properties from `images`
 
   return (
     <>
@@ -12,7 +12,7 @@ const HeroEditorialsDetail = ({ images }) => {
             <h2 key={i} className="editorials-detail__hero--title-h2">{subtitle}</h2>
           ))}
         </div>
-        <h1 className="editorials-detail__hero--title-h1 ">{title}</h1>
+        <h1 className="editorials-detail__hero--title-h1" style={{fontSize: fontSize}}>{title}</h1>
       </div>
 
       <div className="editorials-detail__hero--text">

@@ -28,6 +28,7 @@ import EditorialCover3 from "/images/hi/dolomites-cover.webp";
 //EDITORIALS MOBILE
 import EditorialCover1Mbl from "/images/cover-mbl-greece.jpg";
 import EditorialCover2Mbl from "/images/cover-mbl-tanzania.jpg";
+import EditorialCover3Mbl from "/images/cover-mbl-dolomites.jpg";
 //EDITORIALS DETAILS
 import Greece1 from "/images/hi/greece-1.webp";
 import Greece10 from "/images/hi/greece-10.webp";
@@ -384,37 +385,24 @@ export const editorialSwiperImages = [
     src: EditorialCover1,
     name: "Greece",
     date: "2023",
-    description: "Description Greece",
+    description: `"Salt & Stone"`,
     url: "/editorials/greece",
   },
   {
     src: EditorialCover2,
     name: "Tanzania",
     date: "2022",
-    description: "Description Greece",
+    description: `"Raw Earth"`,
     url: "/editorials/tanzania",
-  },
-  {
-    src: EditorialCover1,
-    name: "Tanzania",
-    date: "2022",
-    description: "Description Greece",
-    url: "/editorials",
   },
   {
     src: EditorialCover3,
     name: "Dolomites",
     date: "2022",
-    description: "Description Greece",
+    description: `"Jagged Dreams"`,
     url: "/editorials",
   },
-  {
-    src: EditorialCover1,
-    name: "Tanzania",
-    date: "2022",
-    description: "Description Greece",
-    url: "/editorials",
-  },
+
 ];
 
 export const portfolioParallaxHero = [
@@ -534,6 +522,7 @@ export const editorialsDetails = {
     title: "Seafaring Greece",
     subtitles: ["blue horizons", "Sail style", "wave makers"],
     heroText: "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.",
+    fontSize: "8vw",
     firstSection: [
       { src: Greece1 },
       { src: Greece2 },
@@ -564,6 +553,7 @@ export const editorialsDetails = {
     title: "Tanzania Treasures",
     subtitles: ["Endless Plains", "Wild Majesty", "Nature's Pulse"],
     heroText: "Tanzania's landscapes serve as an endless muse, inspiring both awe and introspection. From the expansive plains of the Serengeti, where the golden grasslands seemingly stretch to infinity, to the ethereal Ngorongoro Crater, a world within itself, every frame tells a story of timeless beauty. Through my photographs, I aim to transport viewers to these remarkable places, allowing them to witness the serenity of a sunrise painting the savannah in hues of gold or the majesty of an elephant gracefully roaming across the horizon. Tanzania's landscapes are a testament to the power and magnificence of nature, and it is my privilege to share these moments frozen in time.",
+    fontSize: "7vw",
     firstSection: [
       { src: Tanzania1 },
       { src: Tanzania2 },
@@ -598,6 +588,7 @@ export const editorialsDetails = {
     title: "Stone horizons",
     subtitles: ["towering peaks", "wild beauty", "timeless charm"],
     heroText: "Nestled in the heart of the Alps, the Dolomites offer an unparalleled escape into a world of rugged beauty and serene landscapes. Imagine waking to the golden glow of sunrise casting its warmth on jagged limestone peaks or wandering through lush meadows filled with wildflowers. Every day in this majestic region is an invitation to explore the harmonious blend of untamed wilderness and timeless alpine charm. From peaceful mountain lakes to dramatic cliffs, the Dolomites are a playground for adventurers and nature lovers alike.",
+    fontSize: "9vw",
     firstSection: [
       { src: Dolomites2M },
       { src: Dolomites3M },
@@ -1927,5 +1918,11 @@ export const editorialsCoversMbl = [
     name: "TANZANIA",
     date: "0423",
     url: "/editorials/tanzania",
+  },
+  {
+    src: EditorialCover3Mbl,
+    name: "DOLOMITES",
+    date: "0624",
+    url: "/editorials/dolomites",
   },
 ];

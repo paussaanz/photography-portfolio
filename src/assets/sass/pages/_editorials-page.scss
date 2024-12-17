@@ -17,7 +17,7 @@
                 position: absolute;
 
                 &:nth-of-type(1) {
-                    top: 44vh;
+                    top: 32vh;
                     left: 25vw;
                     height: 38vh;
                     width: 27vh;
@@ -29,44 +29,44 @@
                 }
 
                 &:nth-of-type(2) {
-                    right: -5vw;
+                    right: -2vw;
                     top: 61vh;
                     height: 28vh;
-                    width: 18vh;
+                    width: 35vh;
                     z-index: 2;
 
                     @include media-breakpoint-down(md) {
                         right: -8vw;
-                        top: 104vh;
+                        top: 91vh;
                         height: 24vh;
                         width: 41vh;
                     }
                 }
 
                 &:nth-of-type(3) {
-                    right: 13vw;
-                    top: 60vh;
+                    right: 20vw;
+                    top: 50vh;
                     height: 30vh;
                     width: 22vh;
                     z-index: 3;
 
                     @include media-breakpoint-down(md) {
                         right: 13vw;
-                        top: 55vh;
+                        top: 40vh;
                         height: 31vh;
                         width: 24vh;
                     }
                 }
 
                 &:nth-of-type(4) {
-                    left: 56vw;
-                    top: 60vh;
+                    left: 47vw;
+                    top: 52vh;
                     height: 22vh;
                     width: 15vh;
                     z-index: 3;
 
                     @include media-breakpoint-down(md) {
-                        left: 49vw;
+                        // left: 49vw;
                         top: 58vh;
                         height: 33vh;
                         width: 27vh;
@@ -77,7 +77,7 @@
 
                 &:nth-of-type(5) {
                     left: 3vw;
-                    top: 46vh;
+                    top: 40vh;
                     height: 28vh;
                     width: 20vh;
                     z-index: 3;
