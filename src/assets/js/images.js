@@ -1899,19 +1899,19 @@ export const mobilePortfolioCard = [
     src: Sports4M,
     title: "Sports",
     subtitle: "2023",
-    url: "/portfolio/photoshoots",
+    url: "/portfolio/sports",
   },
   {
     src: Music3M,
     title: "Music",
     subtitle: "2023",
-    url: "/portfolio/photoshoots",
+    url: "/portfolio/music",
   },
   {
     src: Lifestyle18M,
     title: "Lifestyle",
     subtitle: "2024",
-    url: "/portfolio/photoshoots",
+    url: "/portfolio/lifestyle",
   },
 ];
 
