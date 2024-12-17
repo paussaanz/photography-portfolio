@@ -43,6 +43,7 @@ const SwiperEditorialCard = ({ images }) => {
   return (
     <motion.div className="d--vh-300 position--sticky" ref={sectionRef}>
       <motion.div
+        key={viewportWidth}
         className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start g--5 g--3-mbl"
         style={{ x: xTransform }}
       >
@@ -51,7 +52,7 @@ const SwiperEditorialCard = ({ images }) => {
           //CUANDO HAYA MAS SLIDES HABRA QUE CAMBIAR EL START THRESHOLD!!!
           const startThreshold = 0.5 * i;
           const endThreshold = startThreshold + 0.45; // Adjust this value for when scaling should stop
-          const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
+          const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]); // this shouldn't been called inside map, should be moved outside, or removed and calculated by other methods
 
           return (
             <div key={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
