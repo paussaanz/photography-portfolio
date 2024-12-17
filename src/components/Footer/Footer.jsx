@@ -171,7 +171,7 @@ const Footer = () => {
                         <InfiniteCarrusel />
                     </section>
                     <section className="footer__section-3d-logo">
-                        <Scene3D />
+                        {isMobile ? <img src="/logo-outline.svg"/> : <Scene3D />}
                     </section>
                     <section className="footer__section-links">
                         <div className="flex flex--j-between p--4 text-color--secondary text-transform--uppercase">
