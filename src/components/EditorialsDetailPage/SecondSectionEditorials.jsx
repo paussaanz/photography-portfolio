@@ -14,9 +14,9 @@ const SecondSectionEditorials = ({ images }) => {
                     <img src={secondSection[1].src} alt="Slide 5" className="editorials-detail__first-section__thumbnails__image flex--1 object-fit--cover" />
                 </div>
             </div>
-            <div className="editorials-detail__first-section__long-image d--w-100" style={{ background: `url(${secondSection[0].src})`, backgroundSize: "cover", backgroundRepeat: 'no-repeat', backgroundPosition: "center", height: '410px' }} />
+            <div className="editorials-detail__first-section__long-image d--w-100" style={{ background: `url(${secondSection[2].src})`, backgroundSize: "cover", backgroundRepeat: 'no-repeat', backgroundPosition: "bottom", height: '410px' }} />
 
-            <p className="editorials-detail__long-image-paragraph tag-2 p--0-mbl">
+            <p className="editorials-detail__long-image-paragraph tag-2 tag-2-mbl p--0-mbl">
                 {secondSectionText}
             </p>
         </>

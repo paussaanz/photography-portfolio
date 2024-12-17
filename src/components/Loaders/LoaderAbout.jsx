@@ -69,7 +69,7 @@ const LoaderAbout = () => {
         <img
           ref={imageRef}
           className="about__hero-image about__hero-image-loader"
-          src="/images/hi/photoshoots-32.webp"
+          src="/images/hi/about.webp"
           alt="Hero image"
           loading="lazy"
         />

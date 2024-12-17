@@ -47,7 +47,7 @@ const HeroAbout = () => {
           ref={imageRef}
           loading="lazy"
           className="about__hero-image"
-          src="/images/hi/photoshoots-32.webp"
+          src="/images/hi/about.webp"
           alt="Hero about"
         />
         <h1 ref={titleRef} className="about__hero-title">

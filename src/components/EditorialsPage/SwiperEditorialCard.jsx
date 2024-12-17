@@ -46,8 +46,8 @@ const SwiperEditorialCard = ({ images }) => {
         {images.map((image, i) => {
 
           //CUANDO HAYA MAS SLIDES HABRA QUE CAMBIAR EL START THRESHOLD!!!
-          const startThreshold = 1 * i;
-          const endThreshold = startThreshold + 1;
+          const startThreshold = 0.5 * i;
+          const endThreshold = startThreshold + 0.45; // Adjust this value for when scaling should stop
           const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
 
           return (

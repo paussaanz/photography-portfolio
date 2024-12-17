@@ -58,7 +58,7 @@ const FirstSectionEditorials = ({ images }) => {
 
             <div className="editorials-detail__first-section__thumbnails d--w-100 m--t-5 d--h-100-mbl flex flex--col-mbl">
                 <div className="editorials-detail__first-section__thumbnails__text flex flex--j-end flex--j-start-mbl flex--1 d--w-max-50 d--w-max-100-mbl">
-                    <p className="editorials-detail__first-section__thumbnails__text--content p--4 tag-2 tag-2-mbl flex--1 d--w-max-50 d--w-max-100-mbl">
+                    <p className="editorials-detail__first-section__thumbnails__text--content p--4 tag-2 tag-2-mbl flex--1 d--w-max-50 d--w-max-100-mbl text-align--right">
                         {firstSectionText2}
                     </p>
                 </div>
