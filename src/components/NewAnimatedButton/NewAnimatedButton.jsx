@@ -5,7 +5,7 @@ const NewAnimatedButton = ({ text, onClick, isSelected, extraClassNames }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     // Aplicar clase temporal de "clicked"
     setIsClicked(true);
 
@@ -15,11 +15,11 @@ const NewAnimatedButton = ({ text, onClick, isSelected, extraClassNames }) => {
     }, 300);
 
     // Ejecutar la función onClick si se proporciona
-    if (onClick) onClick();
+    if (onClick) onClick(e);
   };
 
   return (
-    <button
+    <div
       data-hover="a"
       onClick={handleClick}
       className={`new-animated-button ${extraClassNames || ""} ${isSelected ? "selected" : ""}`}
@@ -33,7 +33,7 @@ const NewAnimatedButton = ({ text, onClick, isSelected, extraClassNames }) => {
       <span
         className={`hover-circle ${isHovered || isSelected ? "expanded" : ""} ${isClicked ? "clicked" : ""} ${isSelected ? "selected" : ""}`}
       ></span>
-    </button>
+    </div>
   );
 };
 
