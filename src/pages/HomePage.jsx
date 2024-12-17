@@ -9,10 +9,14 @@ import SwiperPortfolio from "../components/HomePage/SwiperPortfolio";
 import TextAnimation from "../components/General/TextAnimation";
 import HomeSeo from "./SEO/HomeSeo";
 import LoaderHomePage from "../components/Loaders/LoaderHomePage";
+import { useTransition } from "../contexts/transitionContext";
+
 
 const HomePage = ({ isVisited }) => {
   const homepageRef = useRef(null);
   const location = useLocation();
+  const { handleLinkClick } = useTransition();
+
 
   const { scrollYProgress } = useScroll({
     target: homepageRef,
@@ -56,7 +60,7 @@ const HomePage = ({ isVisited }) => {
                 <span className="h2 block--display">Brilliance</span>
               </h1>
               <Button
-                href="/portfolio"
+                onClick={() => handleLinkClick("/portfolio")}
                 text="See my work"
                 className="text-color--light"
               />

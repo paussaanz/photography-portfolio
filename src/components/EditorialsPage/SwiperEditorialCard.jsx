@@ -2,10 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
 import { Link } from "react-router-dom";
+import { useTransition } from "../../contexts/transitionContext";
 
 const SwiperEditorialCard = ({ images }) => {
   const { isMobile } = useMediaQuery();
   const sectionRef = useRef(null);
+
+  const { handleLinkClick } = useTransition()
 
   // Dynamic viewport width for responsiveness
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -51,7 +54,7 @@ const SwiperEditorialCard = ({ images }) => {
           const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
 
           return (
-            <Link to={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
+            <div key={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
               <motion.div
                 key={i}
                 className="editorials__cards-slide"
@@ -62,6 +65,8 @@ const SwiperEditorialCard = ({ images }) => {
                 }}
               >
                 <img
+                  data-hover="a"
+                  onClick={() => handleLinkClick(image.url)}
                   className="editorials__cards-slide-image"
                   src={image.src}
                   alt={image.alt || `Editorial Slide ${i + 1}`}
@@ -72,7 +77,7 @@ const SwiperEditorialCard = ({ images }) => {
                   <p className="m--0 h6">({image.date})</p>
                 </div>
               </motion.div>
-            </Link>
+            </div>
           );
         })}
       </motion.div>
@@ -81,4 +86,3 @@ const SwiperEditorialCard = ({ images }) => {
 };
 
 export default SwiperEditorialCard;
-

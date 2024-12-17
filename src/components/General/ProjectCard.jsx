@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = ({ src, name, date, description }) => {
     return (
-        <div className="flex flex--a-center flex--j-center flex--col">
+        <div className="flex flex--a-center flex--j-center flex--col pointer-events--none">
             <div className="p--y-3 d--vh-50 d--vw-50">
                 <img
                     className="d--h-100 d--w-100 object-fit--cover"

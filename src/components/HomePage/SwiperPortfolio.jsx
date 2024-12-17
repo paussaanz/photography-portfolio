@@ -48,6 +48,9 @@ const SwiperPortfolio = () => {
       style={{ rotate, scale }}
     >
       <div className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start overflow--clip">
+        <motion.div className="home__swiper-animation-images" style={{ x: xTransform }}>
+          {renderActiveImages()}
+        </motion.div>
         <div className="home__swiper-animation-button--centered">
           <Button
             className="text-color--light"
@@ -61,9 +64,6 @@ const SwiperPortfolio = () => {
             onClick={() => toggleContent("Editorials")}
           />
         </div>
-        <motion.div className="home__swiper-animation-images" style={{ x: xTransform }}>
-          {renderActiveImages()}
-        </motion.div>
       </div>
     </motion.div>
   );

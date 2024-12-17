@@ -11,10 +11,6 @@ const Footer = () => {
 
     const isHidden = HIDDEN_ROUTES.includes(pathname);
 
-    if (isHidden) {
-        return null;
-    };
-
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -36,6 +32,11 @@ const Footer = () => {
         };
     }, []);
 
+    if (isHidden) {
+        return null;
+    };
+
+
     console.log('isvisible', isVisible)
     if (!isVisible) {
         return <div ref={triggerRef} style={{ height: "1px" }} />
@@ -48,7 +49,7 @@ const Footer = () => {
 
             {/* Renderiza el footer solo cuando sea visible */}
             {isVisible && (
-                <div className="footer__section">
+                <div data-hover="a" className="footer__section">
                     <section className="footer__section-carrusel">
                         <InfiniteCarrusel />
                     </section>

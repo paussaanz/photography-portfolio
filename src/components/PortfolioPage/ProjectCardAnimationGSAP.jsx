@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { portfolioCardAnimation } from "../../assets/js/images";
 import { Link } from "react-router-dom";
+import { useTransition } from "../../contexts/transitionContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ const mapRange = (value, inMin, inMax, outMin, outMax) =>
 
 const ProjectCardAnimation = () => {
   const containerRef = useRef(null);
+  const { handleLinkClick } = useTransition()
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -97,10 +99,10 @@ const ProjectCardAnimation = () => {
       <div className="card-3d__animation-slider">
         {portfolioCardAnimation.map((image, index) => (
           <div key={index} className="card-3d__animation-slide" id={`slide-${index + 1}`}>
-            <Link to={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
-              <div className="slide-img">
+            <a onClick={() => handleLinkClick(image.url)} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
+              <div className="slide-img pointer-events--none">
                 <img
-                  className="d--vh-50 d--w-100 object-fit--cover"
+                  className="d--vh-50 d--w-100 object-fit--cover pointer-events--none"
                   src={image.src}
                   alt={image.name || `Image ${index + 1}`}
                   loading="lazy"
@@ -110,7 +112,7 @@ const ProjectCardAnimation = () => {
                 <p className="m--0 h4">{image.name}</p>
                 <p className="m--0 h6">({image.date})</p>
               </div>
-            </Link>
+            </a>
           </div>
         ))}
       </div>
