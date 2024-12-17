@@ -1,5 +1,4 @@
 .contact {
-
   &__intro-mbl {
     z-index: 2;
   }
@@ -41,7 +40,7 @@
     padding: 20px 5vw;
     text-decoration: none;
 
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       flex-direction: column;
       padding: 30px 0px 60px;
       align-items: flex-start;
@@ -56,10 +55,9 @@
     gap: 10px;
     text-decoration: none;
 
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       align-items: baseline;
-      justify-content:flex-start;
-
+      justify-content: flex-start;
     }
   }
 
@@ -111,7 +109,6 @@
       }
     }
 
-
     &.icon-mail {
       background: transparent;
     }
@@ -120,7 +117,6 @@
       content: "\e905";
       color: #da6a2d;
     }
-
   }
 
   /*FORM*/
@@ -161,14 +157,14 @@
       height: 100%;
       width: 100%;
       border: none;
-      font-family: 'gunterz';
+      font-family: "gunterz";
       padding: 0;
       border-bottom: 2px solid var(--cor-primary);
       background-color: transparent;
       outline: none; // Quita el recuadro de focus
 
-      &:focus+label,
-      &:not(:placeholder-shown)+label {
+      &:focus + label,
+      &:not(:placeholder-shown) + label {
         bottom: 35px;
         color: var(--cor-primary);
       }
@@ -181,11 +177,11 @@
       pointer-events: none;
       transition: bottom 0.3s ease, color 0.3s ease;
       color: var(--cor-primary);
-      font-family: 'gamilia';
+      font-family: "gamilia";
       text-transform: uppercase;
     }
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       margin-bottom: 2rem;
     }
 
@@ -199,7 +195,7 @@
         pointer-events: none;
         transition: bottom 0.3s ease, color 0.3s ease;
         color: var(--cor-primary);
-        font-family: 'gamilia';
+        font-family: "gamilia";
         text-transform: uppercase;
       }
 
@@ -225,13 +221,25 @@
         color: transparent;
       }
 
-      textarea#message:focus+label,
-      textarea#message:not(:placeholder-shown)+label {
+      textarea#message:focus + label,
+      textarea#message:not(:placeholder-shown) + label {
         bottom: 110px;
         /* Adjust based on textarea height */
         color: var(--cor-primary);
       }
     }
+  }
+}
 
+.selector-area {
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 2rem;
+  }
+}
+
+.submit-button {
+  & .button-text {
+    font-size: 20px !important;
+    padding: 0.4rem 3rem;
   }
 }

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import AnimatedButton from "../AnimatedButton/AnimatedButton";
+import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
 
 const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => {
     const [selectedButtons, setSelectedButtons] = useState([]);
+
     useEffect(() => {
         if (reset) {
             setSelectedButtons([]); // Limpia la selección cuando `reset` cambia
@@ -33,18 +34,31 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => 
         }
     };
 
+    const groupByPairs = (array) => {
+        const grouped = [];
+        for (let i = 0; i < array.length; i += 2) {
+            grouped.push(array.slice(i, i + 2));
+        }
+        return grouped;
+    };
+
+    const groupedAnswers = groupByPairs(answers); // Agrupamos respuestas en pares
+
     return (
-        <div className="flex flex--col">
+        <div className="flex flex--col selector-area">
             <h3 className="text-transform--uppercase b6 m--b-4">{question}</h3>
             <div className="flex flex--wrap g--2">
-                {answers.map((answer) => (
-                    <AnimatedButton
-                        key={answer} // Use a unique key for each button
-                        width={210}
-                        text={answer} // Use the current answer as the button text
-                        onClick={() => handleButtonClick(answer)} // Pass the answer to handleButtonClick
-                        isSelected={selectedButtons.includes(answer)} // Check if the answer is selected
-                    />
+                {groupedAnswers.map((group, index) => (
+                    <div className="flex g--2" key={index}>
+                        {group.map((answer) => (
+                            <NewAnimatedButton
+                                key={answer}
+                                text={answer}
+                                onClick={() => handleButtonClick(answer)}
+                                isSelected={selectedButtons.includes(answer)}
+                            />
+                        ))}
+                    </div>
                 ))}
             </div>
         </div>

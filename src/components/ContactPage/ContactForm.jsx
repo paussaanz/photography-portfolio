@@ -5,6 +5,7 @@ import ContactFormInput from "./ContactFormInput";
 import ContactFormSelector from "./ContactFormSelector";
 import ContactFormSvg from "./ContactFormSvg";
 import axios from "axios";
+import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
 
 const ContactForm = () => {
   const initialFormData = {
@@ -90,7 +91,7 @@ const ContactForm = () => {
       className="contact__form-container"
       onSubmit={handleSubmit}
     >
-      <div className="flex flex--row flex--col-mbl flex--j-between d--h-100 g--5">
+      <div className="flex flex--row flex--col-lg flex--j-between d--h-100 g--5">
         {/* About You Section */}
         <div className="contact__form-flex--column g--5">
           <h2 className="text-transform--uppercase text-color--primary h6">About You</h2>
@@ -143,7 +144,10 @@ const ContactForm = () => {
             <div className="contact__form-svg-animation">
               <ContactFormSvg focusedField={focusedField} />
             </div>
-            <AnimatedButton text="Submit" onClick={handleSubmit} />
+            <div>
+              <NewAnimatedButton extraClassNames="submit-button" text="Submit" onClick={handleSubmit} />
+            </div>
+
           </div>
         </div>
 

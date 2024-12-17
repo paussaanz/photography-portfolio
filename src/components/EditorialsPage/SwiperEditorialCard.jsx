@@ -81,4 +81,3 @@ const SwiperEditorialCard = ({ images }) => {
 };
 
 export default SwiperEditorialCard;
-
