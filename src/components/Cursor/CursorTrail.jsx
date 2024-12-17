@@ -82,14 +82,26 @@ const CursorTrail = () => {
 
     useEffect(() => {
         const handleMouseOver = (event) => {
-            if (event.target.tagName.toLowerCase() === 'a') {
+            console.log(event.target)
+            console.log(event.target.dataset)
+            const hoverableItem =
+                event.target.tagName.toLowerCase() === 'a'
+                || event.target.tagName.toLowerCase() === 'button'
+                || event.target.dataset.hover === 'a'
+
+            if (hoverableItem) {
                 setIsExiting(false)
                 setHoveredLink(true);
             }
         };
 
         const handleMouseOut = (event) => {
-            if (event.target.tagName.toLowerCase() === 'a') {
+            const hoverableItem =
+                event.target.tagName.toLowerCase() === 'a'
+                || event.target.tagName.toLowerCase() === 'button'
+                || event.target.dataset.hover === 'a'
+
+            if (hoverableItem) {
                 setHoveredLink(false);
                 setIsExiting(true)
             }

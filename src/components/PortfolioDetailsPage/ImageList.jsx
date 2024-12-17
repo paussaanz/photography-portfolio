@@ -136,6 +136,7 @@ const ImageList = ({
 
         return (
           <motion.div
+            data-hover="a"
             key={idx}
             className={`pdetails__card-thumbnail ${isSelected ? "pdetails__card-thumbnail--selected" : ""
               }`}

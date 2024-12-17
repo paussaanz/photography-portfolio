@@ -24,6 +24,7 @@ const AnimatedThumbnailList = ({
 
     return (
         <motion.div
+
             style={{
                 display: "flex",
                 flexDirection: "column",

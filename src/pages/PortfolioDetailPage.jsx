@@ -84,9 +84,8 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
         className="pdetails__images-gallery-section"
       >
         <div
-          className={`pdetails__button--fixed-bottom ${
-            disabledButtons ? "pointer-events-none" : ""
-          }`}
+          className={`pdetails__button--fixed-bottom ${disabledButtons ? "pointer-events-none" : ""
+            }`}
         >
           <Button
             className="text-color--primary"

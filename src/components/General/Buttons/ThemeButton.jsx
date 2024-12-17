@@ -32,7 +32,7 @@ const ThemeButton = () => {
     };
 
     return (
-        <div className="theme__button-container">
+        <a onClick={() => toggleTheme((prev) => !prev)} className="theme__button-container">
             <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -50,7 +50,7 @@ const ThemeButton = () => {
                     ease: [0.42, 0, 0.58, 1],
                 }}
                 style={{ cursor: "pointer" }}
-                onClick={() => toggleTheme((prev) => !prev)}
+                className="pointer-events--none"
             >
                 <mask id="mask">
                     <rect x="0" y="0" width="100%" height="100%" fill="white" />
@@ -104,7 +104,7 @@ const ThemeButton = () => {
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                 </motion.g>
             </motion.svg>
-        </div>
+        </a>
     );
 };
 
