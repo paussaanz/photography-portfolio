@@ -2,12 +2,66 @@ import React, { useState, useEffect, useRef } from "react";
 import InfiniteCarrusel from "./InfiniteCarrusel";
 import Scene3D from "./Scene3D";
 import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
+import { motion } from "framer-motion";
+
+const DraggableFooter = () => {
+    const footerRef = useRef(null); // Referencia al footer para definir los límites del drag
+
+    const images = [
+        "https://via.placeholder.com/100",
+        "https://via.placeholder.com/100",
+        "https://via.placeholder.com/100",
+        "https://via.placeholder.com/100",
+        "https://via.placeholder.com/100",
+    ];
+
+    return (
+        <footer
+            ref={footerRef}
+            style={{
+                height: "100vh",
+                width: "100%",
+                position: "relative",
+                overflow: "hidden",
+                backgroundColor: "#f0f0f0",
+            }}
+        >
+            {images.map((src, index) => (
+                <motion.div
+                    key={index}
+                    drag
+                    dragConstraints={footerRef} // Define los límites del footer
+                    dragMomentum={false} // Evita que la imagen siga moviéndose tras soltarla
+                    whileDrag={{ scale: 1.1 }} // Efecto visual al arrastrar
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        position: "absolute",
+                        top: `${150 + index * 50}px`, // Posición inicial diferente para cada imagen
+                        left: `${50 + index * 60}px`,
+                        cursor: "grab",
+                    }}
+                >
+                    <img
+                        src={src}
+                        alt={`drag-img-${index}`}
+                        style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                    />
+                </motion.div>
+            ))}
+        </footer>
+    );
+};
+
+
 
 const Footer = () => {
     const HIDDEN_ROUTES = ["/contact", "/contact/form"];
     const [isVisible, setIsVisible] = useState(false);
     const triggerRef = useRef(null);
     const { pathname } = useLocation();
+    const { isMobile } = useMediaQuery()
 
     const isHidden = HIDDEN_ROUTES.includes(pathname);
 
@@ -36,8 +90,15 @@ const Footer = () => {
         return null;
     };
 
+    if (isMobile) {
+        return (
+            <div className="d--vh-100 background--primary">
+                <DraggableFooter />
+            </div>
+        )
+    }
 
-    console.log('isvisible', isVisible)
+
     if (!isVisible) {
         return <div ref={triggerRef} style={{ height: "1px" }} />
     }
