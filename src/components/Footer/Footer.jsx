@@ -4,57 +4,113 @@ import Scene3D from "./Scene3D";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
 import { motion } from "framer-motion";
+import { useTransition } from "../../contexts/transitionContext";
 
 const DraggableFooter = () => {
     const footerRef = useRef(null); // Referencia al footer para definir los límites del drag
+    const { handleLinkClick } = useTransition()
 
+    // Array de imágenes con URL y rotación máxima aleatoria
     const images = [
-        "https://via.placeholder.com/100",
-        "https://via.placeholder.com/100",
-        "https://via.placeholder.com/100",
-        "https://via.placeholder.com/100",
-        "https://via.placeholder.com/100",
+        { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: '0px', scale: 1.2 },
+        { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: '400px', left: '0px', scale: 1.2 },
+        { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: '300px', left: '100px', scale: 1.2 },
+        { url: "/images/stickers/face-sticker.svg", rotation: "-50deg", top: '400px', left: '0px', scale: 0.8 },
+        { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: '350px', left: '100px', scale: 1.25 },
     ];
+
+
+    const contactLinks = [
+        {
+            text: "LINKEDIN",
+            logoClass: "icon-linkedin",
+            href: "https://www.linkedin.com/in/paula-sanz-perez/",
+        },
+        {
+            text: "GITHUB",
+            logoClass: "icon-github",
+            href: "https://github.com/paussaanz",
+        },
+        {
+            text: "INSTAGRAM",
+            logoClass: "icon-instagram",
+            href: "https://www.instagram.com/sypcreative/",
+        },
+        {
+            text: "BEHANCE",
+            logoClass: "icon-behance",
+            href: "https://www.behance.net/paulasanz1",
+            logoSize: "h6",
+        },
+    ];
+
+
 
     return (
         <footer
+            className="footer__section-mobile d--vh-100 background-primary"
             ref={footerRef}
             style={{
                 height: "100vh",
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
-                backgroundColor: "#f0f0f0",
+                padding: '20px'
             }}
         >
-            {images.map((src, index) => (
+            <h1
+                onClick={() => handleLinkClick('/contact')}
+                className="text-color--secondary"
+                style={{
+                    marginTop: "30px",
+                    fontWeight: 400,
+                    fontSize: '50px',
+                    lineHeight: '70px'
+                }}>LET’s HAVE A CHAT
+                <span data-hover="a" className="contact__logo-circle icon-arrow b6 text-color--secondary" />
+            </h1>
+
+            {images.map((image, index) => (
                 <motion.div
                     key={index}
                     drag
-                    dragConstraints={footerRef} // Define los límites del footer
                     dragMomentum={false} // Evita que la imagen siga moviéndose tras soltarla
-                    whileDrag={{ scale: 1.1 }} // Efecto visual al arrastrar
+                    whileDrag={{ scale: image.scale + 0.1 }} // Efecto visual al arrastrar
                     style={{
-                        width: "100px",
-                        height: "100px",
+                        rotate: `${image.rotation}`, // Usa la rotación del objeto
                         position: "absolute",
-                        top: `${150 + index * 50}px`, // Posición inicial diferente para cada imagen
-                        left: `${50 + index * 60}px`,
+                        minWidth: 200,
+                        scale: `${image.scale}`,
+                        top: `${image.top}`, // Posición inicial diferente para cada imagen
+                        left: `${image.left}`,
                         cursor: "grab",
                     }}
                 >
                     <img
-                        src={src}
+                        src={image.url}
                         alt={`drag-img-${index}`}
                         style={{ width: "100%", height: "100%", borderRadius: "8px" }}
                     />
                 </motion.div>
             ))}
+
+            <div className="footer__section-mobile__social">
+                <div className="footer__section-mobile__social--links">
+                    {contactLinks.map((contact) => {
+                        return (
+                            <a className="text-decoration--none" key={contact.href} href={contact.href} target="_blank" rel="noreferrer">
+                                <span data-hover="a" className={`contact__logo-circle ${contact.logoClass} h5`}></span>
+                            </a>
+                        )
+                    })}
+                </div>
+            </div>
+            <div className="footer__section-mobile__site-by-syp text-color--secondary">
+                SITE BY SYP
+            </div>
         </footer>
     );
 };
-
-
 
 const Footer = () => {
     const HIDDEN_ROUTES = ["/contact", "/contact/form"];
