@@ -177,6 +177,7 @@ const AnimatedImage = ({
             >
               <AnimatePresence key={selectedImage} mode="wait">
                 <motion.img
+                  data-hover="a"
                   src={selectedImage}
                   alt={`img-${index}`}
                   loading="lazy"
@@ -240,6 +241,7 @@ const AnimatedImage = ({
             type: "tween",
             stiffness: 30,
           }}
+          data-hover="a"
           className="gallery-grid__item-image"
           style={{
             translateY: !ordered && yTransform,

@@ -146,9 +146,9 @@ function App() {
 
                 <Route path="/portfolio" element={<PortfolioPage isVisited={isVisited} isMobile={isMobile} />} />
                 <Route path="/editorials" element={<EditorialsPage isVisited={isVisited} />} />
-                <Route path="/editorials/greece" element={<EditorialsDetailPage images={editorialsDetails.greece} /> } />
-                <Route path="/editorials/tanzania" element={<EditorialsDetailPage images={editorialsDetails.tanzania}/>} />
-                <Route path="/editorials/dolomites" element={<EditorialsDetailPage images={editorialsDetails.dolomites}/>} />
+                <Route path="/editorials/greece" element={<EditorialsDetailPage images={editorialsDetails.greece} />} />
+                <Route path="/editorials/tanzania" element={<EditorialsDetailPage images={editorialsDetails.tanzania} />} />
+                <Route path="/editorials/dolomites" element={<EditorialsDetailPage images={editorialsDetails.dolomites} />} />
                 <Route path="/aboutsyp!" element={<AboutPage isVisited={isVisited} />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/contact/form" element={<ContactForm />} />

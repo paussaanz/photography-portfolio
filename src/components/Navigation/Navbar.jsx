@@ -105,6 +105,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {/* Logo */}
         <a onClick={() => handleLinkClick("/")} className="cus-navbar__logo cus-navbar__logo--centered">
           <img
+            data-hover="a"
             src="/logo-white.svg"
             alt="Logo de Gunterz"
             width="39"
@@ -130,6 +131,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {/* Burger Menu */}
         <div className="cus-navbar__burger" aria-label="Toggle navigation">
           <img
+            data-hover="a"
             className={isMenuOpen ? "active" : ""}
             onClick={toggleMenu}
             src="/logo-white.svg"

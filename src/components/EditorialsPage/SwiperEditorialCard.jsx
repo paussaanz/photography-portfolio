@@ -2,10 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
 import { Link } from "react-router-dom";
+import { useTransition } from "../../contexts/transitionContext";
 
 const SwiperEditorialCard = ({ images }) => {
   const { isMobile } = useMediaQuery();
   const sectionRef = useRef(null);
+
+  const { handleLinkClick } = useTransition()
 
   // Dynamic viewport width for responsiveness
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -40,6 +43,7 @@ const SwiperEditorialCard = ({ images }) => {
   return (
     <motion.div className="d--vh-300 position--sticky" ref={sectionRef}>
       <motion.div
+        key={viewportWidth}
         className="position--sticky position--top-0 flex d--vh-100 flex--a-center flex--j-start g--5 g--3-mbl"
         style={{ x: xTransform }}
       >
@@ -48,10 +52,10 @@ const SwiperEditorialCard = ({ images }) => {
           //CUANDO HAYA MAS SLIDES HABRA QUE CAMBIAR EL START THRESHOLD!!!
           const startThreshold = 0.5 * i;
           const endThreshold = startThreshold + 0.45; // Adjust this value for when scaling should stop
-          const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]);
+          const scaleTransform = useTransform(scrollYProgress, [startThreshold, endThreshold], [1, 0.2]); // this shouldn't been called inside map, should be moved outside, or removed and calculated by other methods
 
           return (
-            <Link to={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
+            <div key={image.url} className="text-decoration--none" aria-label={`View details for ${image.name}`}>
               <motion.div
                 key={i}
                 className="editorials__cards-slide"
@@ -62,6 +66,8 @@ const SwiperEditorialCard = ({ images }) => {
                 }}
               >
                 <img
+                  data-hover="a"
+                  onClick={() => handleLinkClick(image.url)}
                   className="editorials__cards-slide-image"
                   src={image.src}
                   alt={image.alt || `Editorial Slide ${i + 1}`}
@@ -72,7 +78,7 @@ const SwiperEditorialCard = ({ images }) => {
                   <p className="m--0 h6">({image.date})</p>
                 </div>
               </motion.div>
-            </Link>
+            </div>
           );
         })}
       </motion.div>
@@ -81,4 +87,3 @@ const SwiperEditorialCard = ({ images }) => {
 };
 
 export default SwiperEditorialCard;
-

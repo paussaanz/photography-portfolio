@@ -23,7 +23,7 @@ const ContactForm = () => {
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
-  console.log(formData)
+
   const handleFocus = (field) => setFocusedField(field);
   const handleBlur = () => setFocusedField(null);
 
