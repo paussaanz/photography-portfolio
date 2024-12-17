@@ -55,8 +55,8 @@ $cor-container-max-widths-xl: 1140px;
 $cor-container-max-widths-xxl: 1320px;
  */
 $cor-container-max-widths-sm: 540px;
-$cor-container-max-widths-md: 720px;
-$cor-container-max-widths-lg: 1400px;
+$cor-container-max-widths-md: 720px; //PHONE
+$cor-container-max-widths-lg: 1000px; //IPAD
 $cor-container-max-widths-xl: 1440px;
 $cor-container-max-widths-xxl: 1480px;
 
@@ -156,115 +156,7 @@ $cor-display-font-sizes-4-md: $cor-font-size-base-text * 3.5 !default;
 $cor-display-font-sizes-5-md: $cor-font-size-base-text * 3 !default;
 $cor-display-font-sizes-6-md: $cor-font-size-base-text * 2.5 !default;
 
-// Configuración cards
-$cor-card-title: $cor-font-size-base-text * 1.125 !default; //18px
-$cor-card-title-md: $cor-font-size-base-text * 1.125 !default;
-$cor-card-title-font-weight: 400 !default;
-$card-spacer-y: $cor-spacer;
-$card-spacer-x: $cor-spacer;
-$card-spacer-y-md: $cor-spacer * 1.5;
-$card-spacer-x-md: $cor-spacer * 1.5;
-$cor-card-border-width: 0px !default;
-$cor-card-border-radius: 1.875rem !default; // 30px
-$cor-card-border-radius-md: 1.875rem !default;
-$cor-card-bg: var(--cor-gray);
-$cor-card-img-overlay-padding: $cor-spacer * 1.5;
-
-// Configuración botones
-$cor-btn-padding-y: 0.625rem !default;
-$cor-btn-padding-x: 1rem * toRem(20) !default;
-$cor-btn-md-padding-y: 0.625rem !default; // 10px
-$cor-btn-md-padding-x: 1rem * toRem(20) !default;
-//$cor-btn-padding-top:            .8rem !default;
-$cor-btn-line-height: 1 !default;
-
-$cor-input-btn-padding-y-lg: .5rem !default;
-$cor-input-btn-padding-top-lg: .6rem !default;
-$cor-input-btn-padding-x-lg: .7rem !default;
-$cor-btn-font-size: $cor-font-size-base-text * toRem(16) !default;
-$cor-btn-font-size-md: $cor-font-size-base-text * toRem(14) !default;
-$cor-input-btn-font-size-lg: $cor-font-size-base-text * .75 !default;
-$cor-btn-font-weight: 500;
-
-$cor-btn-border-radius: 0.75rem !default; // 50px
-$cor-btn-border-radius-lg: $cor-btn-border-radius !default;
-
-// Configuración Bordes
-$cor-border-radius: 1.875rem !default; // 30px
-$cor-border-radius-md: 1.875rem !default; // 30px
-
-// Configuración formularios
-$cor-input-padding-y: .88rem !default;
-$cor-input-padding-x: 1.5rem !default;
-$cor-input-bg: $cor-white;
-$cor-input-color: $cor-black;
-$cor-input-font-size: $cor-font-size-base-text * toRem(14) !default;
-$cor-input-border-width: 2px !default;
-$cor-input-border-color: $cor-white;
-$cor-input-border-radius: 1rem*toRem(20);
-$cor-input-focus-color: rgba($cor-black, 0.8);
-$cor-input-placeholder-color: $cor-black;
-$cor-input-focus-border-color: var(--cor-primary);
-
-// Configuración dropdown
-$cor-dropdown-min-width: 7.0rem !default;
-$cor-dropdown-padding-x: 1rem*toRem(16) !default;
-$cor-dropdown-padding-y: 1rem*toRem(16) !default;
-$cor-dropdown-spacer: 1.5rem !default;
-$cor-dropdown-font-size: $cor-btn-font-size;
-$cor-dropdown-color: $cor-black !default;
-$cor-dropdown-bg: $cor-white !default;
-$cor-dropdown-border-color: none !default;
-$cor-dropdown-border-radius: 1.5rem !default;
-$cor-dropdown-border-width: 0 !default;
-$cor-dropdown-inner-border-radius: 5rem !default; // stylelint-disable-line function-disallowed-list
-$cor-dropdown-link-color: $cor-black !default;
-$cor-dropdown-link-hover-bg: rgba($cor-black, .08) !default;
-$cor-dropdown-link-active-color: $cor-black !default;
-$cor-dropdown-link-active-bg: var(--cor-primary);
-$cor-dropdown-item-padding-y: $cor-spacer * .8 !default;
-$cor-dropdown-item-padding-x: $cor-spacer * 1 !default;
-
-// Configuración Navs nav-variables
-// Configuración nav-variables
-$cor-nav-link-font-weight: 400 !default;
-$cor-nav-link-padding-y: .5rem !default;
-$cor-nav-link-padding-x: 1rem !default;
-$cor-nav-link-font-size: $cor-font-size-base-text * toRem(16) !default;
-$cor-nav-link-color: $cor-black !default;
-$cor-nav-link-hover-color: rgba($cor-black, .5) !default;
-
 // Configuración Navbar nav-variables
-$cor-navbar-light-color: $cor-black !default;
-$cor-navbar-light-hover-color: rgba($cor-black, .5) !default;
-$cor-navbar-light-active-color: rgba($cor-black, .5) !default;
 $cor-navbar-padding-x: 0 !default;
 $cor-navbar-padding-y: 0.5rem !default;
-$cor-navbar-color: #000000 !default;
-$cor-navbar-hover-color: rgba(0, 0, 0, 0.5) !default;
-$cor-navbar-disabled-color: rgba($cor-black, 0.3) !default; // Usando $cor-black para consistencia
-$cor-navbar-active-color: rgba(0, 0, 0, 0.5) !default;
-$cor-navbar-brand-padding-y: 0.35rem !default;
-$cor-navbar-brand-margin-end: 1rem !default;
-$cor-navbar-brand-font-size: 1.25rem !default;
-$cor-navbar-brand-color: rgba(0, 0, 0, 0.5) !default;
-$cor-navbar-brand-hover-color: rgba(0, 0, 0, 0.5) !default;
-$cor-navbar-nav-link-padding-x: 0.94rem !default;
-$cor-navbar-toggler-padding-y: 0.25rem !default;
-$cor-navbar-toggler-padding-x: 0.75rem !default;
-$cor-navbar-toggler-font-size: 1.25rem !default;
-$cor-navbar-toggler-icon-bg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path stroke="red" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>') !default;
-$cor-navbar-toggler-border-color: rgba($cor-black, 0.15) !default;
-$cor-navbar-toggler-border-radius: 0.75rem !default;
-$cor-navbar-toggler-focus-width: 0.25rem !default;
-$cor-navbar-toggler-transition: box-shadow 0.15s ease-in-out !default;
-
-// Configuración Close
-$cor-btn-close-color: $cor-black !default;
-$cor-btn-close-bg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M13.0675 12.1832C13.1256 12.2412 13.1717 12.3102 13.2031 12.386C13.2345 12.4619 13.2507 12.5432 13.2507 12.6253C13.2507 12.7075 13.2345 12.7888 13.2031 12.8647C13.1717 12.9405 13.1256 13.0095 13.0675 13.0675C13.0095 13.1256 12.9405 13.1717 12.8647 13.2031C12.7888 13.2345 12.7075 13.2507 12.6253 13.2507C12.5432 13.2507 12.4619 13.2345 12.386 13.2031C12.3102 13.1717 12.2412 13.1256 12.1832 13.0675L7.00035 7.88394L1.81753 13.0675C1.70026 13.1848 1.5412 13.2507 1.37535 13.2507C1.2095 13.2507 1.05044 13.1848 0.93316 13.0675C0.815885 12.9503 0.75 12.7912 0.75 12.6253C0.75 12.4595 0.815885 12.3004 0.93316 12.1832L6.11675 7.00035L0.93316 1.81753C0.815885 1.70026 0.75 1.5412 0.75 1.37535C0.75 1.2095 0.815885 1.05044 0.93316 0.93316C1.05044 0.815885 1.2095 0.75 1.37535 0.75C1.5412 0.75 1.70026 0.815885 1.81753 0.93316L7.00035 6.11675L12.1832 0.93316C12.3004 0.815885 12.4595 0.75 12.6253 0.75C12.7912 0.75 12.9503 0.815885 13.0675 0.93316C13.1848 1.05044 13.2507 1.2095 13.2507 1.37535C13.2507 1.5412 13.1848 1.70026 13.0675 1.81753L7.88394 7.00035L13.0675 12.1832Z" fill="#00382E"/></svg>') !default;
-$cor-btn-close-focus-shadow: 0 !default;
-$cor-btn-close-opacity: 1 !default;
-$cor-btn-close-hover-opacity: .75 !default;
-
-
 // -------------- FIN Sistema de diseño --------------

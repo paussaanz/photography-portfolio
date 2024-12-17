@@ -39,7 +39,7 @@ const ThemeButton = () => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke={isDarkMode ? "white" : "black"}
+                stroke={isDarkMode ? "var(--cor-secondary)" : "var(--cor-secondary)"}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -81,7 +81,7 @@ const ThemeButton = () => {
                         cy: 12, // Valor inicial seguro
                         r: 9,  // Valor inicial seguro
                     }}
-                    fill={isDarkMode ? "white" : "black"}
+                    fill={isDarkMode ? "var(--cor-secondary)" : "var(--cor-secondary)"}
                     cx="12" // Respaldo de seguridad
                     cy="12" // Respaldo de seguridad
                     r="9" // Respaldo de seguridad

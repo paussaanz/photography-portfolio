@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 import * as THREE from 'three';
 import { MeshTransmissionMaterial, useGLTF } from "../../assets/js/helper";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 const Logo3D = () => {
     const { nodes } = useGLTF("/3D/logo-web-3d-face-compression.gltf");
     const groupRef = useRef(null);
-
+    const { isMobile } = useMediaQuery();
     useEffect(() => {
         const model = nodes.Curve001;
         const box = new THREE.Box3().setFromObject(model);
@@ -17,12 +18,9 @@ const Logo3D = () => {
         }
 
         const size = box.getSize(new THREE.Vector3()).length();
-        const scaleFactor = 12 / size;
+        const scaleFactor = isMobile ? 20 / size : 12 / size;
         groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
-        console.log(scaleFactor, "SCALE")
-
-        console.log(size, "SIZE")
         const onMouseMove = (event) => {
             const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
             const mouseY = (event.clientY / window.innerHeight) * 2 + 1; // Invertir Y para que sea correcto

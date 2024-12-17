@@ -5,10 +5,12 @@ import { useEffect, useMemo } from 'react';
 import fontFam from './../../assets/fonts/Gamilia-Regular.ttf';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Text } from '../../assets/js/helper';
+import { useMediaQuery } from '../../contexts/MediaQueryContext';
 
 const Scene3D = () => {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark-theme';
+  const { isMobile } = useMediaQuery();
 
   const backgroundColor = useMemo(
     () =>
@@ -32,6 +34,8 @@ const Scene3D = () => {
 
   const text = "LIFE IS TOO\nSHORT FOR\nBORING WEBSITES";
   const lines = text.split('\n');
+  const textMbl = "NO TIME\nFOR BORING\nWEBSITES";
+  const linesMbl = textMbl.split('\n');
 
   const SetBackground = ({ color }) => {
     const { gl } = useThree();
@@ -77,12 +81,12 @@ const Scene3D = () => {
         textAlign="center"
         material-toneMapped={false}
       >
-        {lines.map((line, index) => (
+        {(isMobile ? linesMbl : lines).map((line, index) => (
           <Text
             key={index}
             position={[0, index * -5, 0]}
             lineHeight={1}
-            fontSize={6}
+            fontSize={isMobile ? 3.5 : 6}
             color={color}
             anchorX="center"
             anchorY="middle"

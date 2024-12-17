@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import InfiniteCarrusel from "./InfiniteCarrusel";
 import Scene3D from "./Scene3D";
 import { useLocation } from "react-router-dom";
@@ -10,6 +10,10 @@ const Footer = () => {
     const { pathname } = useLocation();
 
     const isHidden = HIDDEN_ROUTES.includes(pathname);
+
+    if (isHidden) {
+        return null;
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -32,10 +36,6 @@ const Footer = () => {
         };
     }, []);
 
-    if (isHidden) {
-        return null;
-    };
-
     console.log('isvisible', isVisible)
     if (!isVisible) {
         return <div ref={triggerRef} style={{ height: "1px" }} />
@@ -51,14 +51,13 @@ const Footer = () => {
                 <div className="footer__section">
                     <section className="footer__section-carrusel">
                         <InfiniteCarrusel />
-                        <InfiniteCarrusel />
                     </section>
                     <section className="footer__section-3d-logo">
                         <Scene3D />
                     </section>
                     <section className="footer__section-links">
                         <div className="flex flex--j-between p--4 text-color--secondary text-transform--uppercase">
-                            <p>Privacy policy</p>
+                            <p></p>
                             <p>Social Media Links</p>
                             <p>Site by SYP</p>
                         </div>
