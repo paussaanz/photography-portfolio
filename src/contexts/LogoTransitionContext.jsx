@@ -77,7 +77,7 @@ export const LogoTransitionProvider = ({ children }) => {
           initial={{
             width: "0px",
             height: "0px",
-            borderRadius: "50%",
+            borderRadius: "100%",
             borderWidth: viewportBorderWidth,
             borderColor: "var(--cor-primary)",
             borderStyle: "solid",
@@ -88,7 +88,7 @@ export const LogoTransitionProvider = ({ children }) => {
           }}
           animate={{
             width: `200vw`,
-            height: `200vh`,
+            height: `350vh`,
             borderWidth: 0,
           }}
           transition={{ duration: 0.7, ease: "easeInOut" }}

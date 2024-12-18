@@ -8,7 +8,7 @@ import { useMediaQuery } from "../contexts/MediaQueryContext";
 
 const ContactPage = () => {
   const [hovered, setHovered] = useState(false);
-  const [cursorVisible, setCursorVisible] = useState(true);
+  const [cursorVisible, setCursorVisible] = useState(false);
   const { isMobile } = useMediaQuery();
   const text = "Click, design, develop";
   const [activeIndex, setActiveIndex] = useState(-1);

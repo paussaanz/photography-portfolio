@@ -11,15 +11,33 @@ const DraggableFooter = () => {
     const { handleLinkClick } = useTransition()
 
     // Array de imágenes con URL y rotación máxima aleatoria
-    const images = [
-        { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: '0px', scale: 1.2 },
-        { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: '400px', left: '0px', scale: 1.2 },
-        { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: '300px', left: '100px', scale: 1.2 },
-        { url: "/images/stickers/face-sticker.svg", rotation: "-50deg", top: '400px', left: '0px', scale: 0.8 },
-        { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: '350px', left: '100px', scale: 1.25 },
+    const initialImages = [
+        { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: '0px', scale: 0.8, zIndex: 1 },
+        { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: '400px', left: '0px', scale: 0.8, zIndex: 2 },
+        { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: '300px', left: '100px', scale: 0.8, zIndex: 3 },
+        { url: "/images/stickers/face-sticker.svg", rotation: "-50deg", top: '400px', left: '0px', scale: 0.6, zIndex: 4 },
+        { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: '350px', left: '100px', scale: 0.9, zIndex: 5 },
     ];
 
+    const [images, setImages] = useState(initialImages);
 
+
+    const bringToFront = (index) => {
+        const maxZIndex = Math.max(...images.map((img) => img.zIndex)); // Get the highest zIndex
+    
+        // If maxZIndex exceeds 10, reset all zIndexes to their initial state
+        const shouldResetZIndex = maxZIndex >= 10;
+        const updatedImages = images.map((img, i) => ({
+            ...img,
+            zIndex: shouldResetZIndex
+                ? i + 1 // Reset zIndex based on original order
+                : i === index
+                ? maxZIndex + 1 // Increase zIndex for the dragged image
+                : img.zIndex,
+        }));
+    
+        setImages(updatedImages);
+    };
     const contactLinks = [
         {
             text: "LINKEDIN",
@@ -76,6 +94,7 @@ const DraggableFooter = () => {
                     drag
                     dragMomentum={false} // Evita que la imagen siga moviéndose tras soltarla
                     whileDrag={{ scale: image.scale + 0.1 }} // Efecto visual al arrastrar
+                    onDragStart={() => bringToFront(index)} // Bring the image to the front when dragged
                     style={{
                         rotate: `${image.rotation}`, // Usa la rotación del objeto
                         position: "absolute",
@@ -84,6 +103,7 @@ const DraggableFooter = () => {
                         top: `${image.top}`, // Posición inicial diferente para cada imagen
                         left: `${image.left}`,
                         cursor: "grab",
+                        zIndex: image.zIndex, // Dynamically update zIndex
                     }}
                 >
                     <img
