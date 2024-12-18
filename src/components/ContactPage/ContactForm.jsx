@@ -5,6 +5,7 @@ import ContactFormInput from "./ContactFormInput";
 import ContactFormSelector from "./ContactFormSelector";
 import ContactFormSvg from "./ContactFormSvg";
 import axios from "axios";
+import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
 
 const ContactForm = () => {
   const initialFormData = {
@@ -19,6 +20,8 @@ const ContactForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [reset, setReset] = useState(false); // Resets selectors
   const [focusedField, setFocusedField] = useState(null); // Tracks focused input field
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -29,10 +32,19 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     axios.post("https://photography-api-jkt7.onrender.com/api/send-email", formData)
-      .then((res) => console.log("Email sent:", res))
-      .catch((err) => console.error("Error sending email:", err));
+      .then((res) => {
+        setSuccess(true);
+        setLoading(false)
+
+        setTimeout(() => {
+          setSuccess(false);
+        }, 2000);
+      })
+      .catch((err) => console.error("Error sending email:", err))
+      .finally(() => setLoading(false))
 
     // Reset form
     setFormData(initialFormData);
@@ -90,7 +102,7 @@ const ContactForm = () => {
       className="contact__form-container"
       onSubmit={handleSubmit}
     >
-      <div className="flex flex--row flex--col-mbl flex--j-between d--h-100 g--5">
+      <div className="flex flex--row flex--col-lg flex--j-between d--h-100 g--5">
         {/* About You Section */}
         <div className="contact__form-flex--column g--5">
           <h2 className="text-transform--uppercase text-color--primary h6">About You</h2>
@@ -141,9 +153,11 @@ const ContactForm = () => {
         <div className="contact__form-flex--column">
           <div className="flex flex--col flex--a-center flex--j-between d--w-100 d--h-100">
             <div className="contact__form-svg-animation">
-              <ContactFormSvg focusedField={focusedField} />
+              <ContactFormSvg success={success} loading={loading} focusedField={focusedField} />
             </div>
-            <AnimatedButton text="Submit" onClick={handleSubmit} />
+            <div>
+              <NewAnimatedButton extraClassNames="submit-button" text="Submit" onClick={handleSubmit} />
+            </div>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-/*Este archivo contiene clases de utilidad para aplicar estilos de flexbox. 
+/*Este archivo contiene clases de utilidad para aplicar estilos de flexbox.
 
 Uso de clases de flex:
    - `.flex`: Activa `display: flex` en el contenedor.
@@ -21,144 +21,152 @@ Uso de clases de flex:
 
 // Flex container
 .flex {
-    display: flex;
+  display: flex;
 
-    &--row {
+  &--row {
+    flex-direction: row;
+
+    &-mbl {
+      @include media-breakpoint-down(md) {
         flex-direction: row;
-
-        &-mbl {
-            @include media-breakpoint-down(md) {
-                flex-direction: row;
-            }
-        }
+      }
     }
+  }
 
-    &--col {
+  &--col {
+    flex-direction: column;
+
+    &-mbl {
+      @include media-breakpoint-down(md) {
         flex-direction: column;
-
-        &-mbl {
-            @include media-breakpoint-down(md) {
-                flex-direction: column;
-            }
-        }
+      }
     }
 
-    // Flex wrap modifiers
-    &--nowrap {
-        flex-wrap: nowrap;
+    &-lg {
+      @include media-breakpoint-down(lg) {
+        flex-direction: column;
+      }
     }
+  }
 
-    &--wrap {
-        flex-wrap: wrap;
-    }
+  // Flex wrap modifiers
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
 
-    &--wrap-rev {
-        flex-wrap: wrap-reverse;
-    }
+  &--wrap {
+    flex-wrap: wrap;
+  }
 
-    // Justify content modifiers
-    &--j-start {
-        justify-content: flex-start;
+  &--wrap-rev {
+    flex-wrap: wrap-reverse;
+  }
 
-        &-mbl {
-            @include media-breakpoint-down(md) {
-                justify-content: flex-start !important;
-            }
-        }
-    }
+  // Justify content modifiers
+  &--j-start {
+    justify-content: flex-start;
 
-    &--j-center {
-        justify-content: center;
+    &-mbl {
+      @include media-breakpoint-down(md) {
+        justify-content: flex-start !important;
+      }
     }
+  }
 
-    &--j-end {
-        justify-content: flex-end;
-    }
+  &--j-center {
+    justify-content: center;
+  }
 
-    &--j-between {
-        justify-content: space-between;
-    }
+  &--j-end {
+    justify-content: flex-end;
+  }
 
-    &--j-around {
-        justify-content: space-around;
-    }
+  &--j-between {
+    justify-content: space-between;
+  }
 
-    &--j-evenly {
-        justify-content: space-evenly;
-    }
+  &--j-around {
+    justify-content: space-around;
+  }
 
-    // Align items modifiers
-    &--a-start {
-        align-items: flex-start;
-    }
+  &--j-evenly {
+    justify-content: space-evenly;
+  }
 
-    &--a-center {
-        align-items: center;
-    }
+  // Align items modifiers
+  &--a-start {
+    align-items: flex-start;
+  }
 
-    &--a-end {
-        align-items: flex-end;
-    }
+  &--a-center {
+    align-items: center;
+  }
 
-    &--a-stretch {
-        align-items: stretch;
-    }
+  &--a-end {
+    align-items: flex-end;
+  }
 
-    &--a-baseline {
-        align-items: baseline;
-    }
+  &--a-stretch {
+    align-items: stretch;
+  }
 
-    // Align content modifiers (for multi-line flex containers)
-    &--a-c-start {
-        align-content: flex-start;
-    }
+  &--a-baseline {
+    align-items: baseline;
+  }
 
-    &--a-c-center {
-        align-content: center;
-    }
+  // Align content modifiers (for multi-line flex containers)
+  &--a-c-start {
+    align-content: flex-start;
+  }
 
-    &--a-c-end {
-        align-content: flex-end;
-    }
+  &--a-c-center {
+    align-content: center;
+  }
 
-    &--a-c-between {
-        align-content: space-between;
-    }
+  &--a-c-end {
+    align-content: flex-end;
+  }
 
-    &--a-c-around {
-        align-content: space-around;
-    }
+  &--a-c-between {
+    align-content: space-between;
+  }
 
-    &--a-c-stretch {
-        align-content: stretch;
-    }
+  &--a-c-around {
+    align-content: space-around;
+  }
 
-    &--1{
-        flex:1;
-    }
-    // Flex auto
-    &--auto {
-        flex: auto;
-    }
+  &--a-c-stretch {
+    align-content: stretch;
+  }
 
-    // Flex-grow
-    @for $i from 0 through 5 {
-        &--g-#{$i} {
-            flex-grow: $i !important;
-        }
-    }
+  &--1 {
+    flex: 1;
+  }
+  // Flex auto
+  &--auto {
+    flex: auto;
+  }
 
-    // Flex-shrink
-    @for $i from 0 through 5 {
-        &--s-#{$i} {
-            flex-shrink: $i !important;
-        }
+  // Flex-grow
+  @for $i from 0 through 5 {
+    &--g-#{$i} {
+      flex-grow: $i !important;
     }
+  }
 
-    // Flex-basis
-    @each $basis, $value in (auto: auto, 0: 0%, 25: 25%, 50: 50%, 75: 75%, 100: 100%) {
-        &--b-#{$basis} {
-            flex-basis: $value !important;
-        }
+  // Flex-shrink
+  @for $i from 0 through 5 {
+    &--s-#{$i} {
+      flex-shrink: $i !important;
     }
+  }
+
+  // Flex-basis
+  @each $basis,
+    $value in (auto: auto, 0: 0%, 25: 25%, 50: 50%, 75: 75%, 100: 100%)
+  {
+    &--b-#{$basis} {
+      flex-basis: $value !important;
+    }
+  }
 }

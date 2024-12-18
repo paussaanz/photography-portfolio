@@ -1,0 +1,64 @@
+.new-animated-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 2rem;
+  font-family: "Gamilia", sans-serif;
+  font-size: 1rem;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50px;
+  background-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+
+  &.selected {
+    border-color: var(--cor-secondary);
+  }
+
+  // Texto dentro del botón
+  .button-text {
+    font-family: "gunterz", sans-serif;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease-in-out;
+
+    &.hovered {
+      color: white;
+    }
+  }
+
+  // Círculo negro que crece (hover)
+  .hover-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out,
+      background-color 0.3s ease;
+    z-index: 1;
+
+    &.expanded {
+      width: 400px;
+      height: 400px;
+    }
+
+    // Clase temporal para cambiar de color en el clic
+    &.clicked {
+      background-color: var(
+        --cor-secondary
+      ); // El color temporal durante la animación
+    }
+
+    &.selected {
+      background-color: var(--cor-secondary);
+    }
+  }
+}
