@@ -43,8 +43,8 @@ const ClipPathAnimation = React.memo(({ onImageChange, images }) => {
   }, [onImageChange, images]);
 
   return (
-    <div className="favorites-about__clip-path">
-      <div ref={containerRef} className="overflow--hidden d--vh-100 d--w-100">
+    <div className="favorites-about__clip-path overflow--hidden ">
+      <div ref={containerRef} className="d--vh-100 d--w-100">
         {images.map((image, index) => (
           <div
             key={index}
