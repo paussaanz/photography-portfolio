@@ -61,7 +61,7 @@ export const TransitionProvider = ({ children }) => {
             width: '150%',
             height: '150%',
             backgroundColor: 'var(--cor-primary)', 
-            filter: 'blur(10px)',
+            // filter: 'blur(10px)',
           }}
         />
           {/* Aqui puedometer texto o algo */}
