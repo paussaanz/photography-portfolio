@@ -47,8 +47,8 @@ export const TransitionProvider = ({ children }) => {
           position: 'fixed',
           top: -15,
           left: -15,
-          width: '120%',
-          height: '120%',
+          width: '150%',
+          height: '150%',
           zIndex: 100000,
         }}
       >
@@ -58,8 +58,8 @@ export const TransitionProvider = ({ children }) => {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           style={{
             position: 'fixed',
-            width: '110%',
-            height: '110%',
+            width: '150%',
+            height: '150%',
             backgroundColor: 'var(--cor-primary)', 
             filter: 'blur(10px)',
           }}

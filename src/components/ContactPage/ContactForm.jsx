@@ -75,7 +75,7 @@ const ContactForm = () => {
     {
       question: "What services are you interested in?",
       key: "services",
-      answers: ["WebDesign", "WebDevelopment", "E-commerce", "Maintenance"],
+      answers: ["Web Design", "Web Development", "E-commerce", "Maintenance"],
     },
     {
       question: "Is it a new website or a rebuild?",

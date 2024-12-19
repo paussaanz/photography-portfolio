@@ -78,12 +78,12 @@ const ContactPage = () => {
                 <h1 className="contact__title-mbl p--b-3">
                   {renderTextWithAnimation(text)}
                 </h1>
-                <p className="contact__text-mbl text-transform--uppercase b6 text-align--right">
+                <p className="contact__text-mbl text-transform--uppercase b6 text-align--right text-color--primary">
                   <span className="block--display">
                     If you have a project in mind,
                   </span>
                   <span className="block--display">
-                    reach out today and let's create
+                    <a href="/contact/form" className="text-color--primary "><u>reach out</u></a> today and let's create
                   </span>
                   <span className="block--display">
                     something amazing together!
@@ -91,7 +91,7 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="contact__logo-mbl d--h-100">
-                <Scene3DContact />
+                <a href="/contact/form" className="text-color--primary "><Scene3DContact /></a>
               </div>
             </>
           ) : (

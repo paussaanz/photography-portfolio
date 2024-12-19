@@ -3,12 +3,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ClipPathAnimation from "./ClipPathAnimation";
 import { favoritesAbout } from "../../assets/js/images";
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FavoritesAbout = () => {
   const listItemsRef = useRef([]); // Store references to <li> elements
-
+  const { isMobile } = useMediaQuery();
   useEffect(() => {
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -39,7 +40,7 @@ const FavoritesAbout = () => {
       if (li) {
         gsap.to(li, {
           color: liIndex === index ? "#DA6A2D" : "#341116",
-          scale: liIndex === index ? 1.2 : 1,
+          scale: liIndex === index ? (isMobile ? 1.1 : 1.2) : 1,
           duration: 0.2,
           ease: "power2.out",
         });
