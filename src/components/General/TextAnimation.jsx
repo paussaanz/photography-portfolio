@@ -77,7 +77,7 @@ const TextAnimation = ({
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: textRef.current,
-        start: "top center",
+        start: "top 50%",
         end: isMobile ? "bottom bottom" : "+=100vh",
         scrub: 1,
       },
@@ -103,7 +103,7 @@ const TextAnimation = ({
     <div className={`text-container ${className} ${pathname === "/" ? "" : "container-bem-mbl"}`}>
       <div
         ref={textRef}
-        className={`b1 b2-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}
+        className={`h2 b3-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}
       >
         {text}
       </div>

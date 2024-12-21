@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
-import { useScroll, motion, useMotionValue, useTransform } from "framer-motion";
+import { useScroll, motion, useMotionValue } from "framer-motion";
 import { useLocation } from "react-router-dom";
-
-import VideoBackground from "../components/HomePage/VideoBackground";
 import TextOverlay from "../components/General/TextOverlay";
 import Button from "../components/General/Buttons/Button";
 import SwiperPortfolio from "../components/HomePage/SwiperPortfolio";
@@ -10,13 +8,13 @@ import TextAnimation from "../components/General/TextAnimation";
 import HomeSeo from "./SEO/HomeSeo";
 import LoaderHomePage from "../components/Loaders/LoaderHomePage";
 import { useTransition } from "../contexts/transitionContext";
+import ImageBackground from "../components/HomePage/VideoBackground";
 
 
 const HomePage = ({ isVisited }) => {
   const homepageRef = useRef(null);
   const location = useLocation();
   const { handleLinkClick } = useTransition();
-
 
   const { scrollYProgress } = useScroll({
     target: homepageRef,
@@ -29,7 +27,7 @@ const HomePage = ({ isVisited }) => {
   useEffect(() => {
     const updateTransforms = (value) => {
       scale.set(1 - 0.2 * value);
-      rotate.set(0 + 0.5 * value);
+      rotate.set(0 + 0.7 * value);
     };
 
     const unsubscribe = scrollYProgress.onChange(updateTransforms);
@@ -43,11 +41,18 @@ const HomePage = ({ isVisited }) => {
     <div ref={homepageRef} data-barba="container">
       <HomeSeo />
 
-      <section className="home__section-hero position--relative d--vh-100 overflow--hidden">
+      <section
+        className="home__section-hero position--fixed d--vh-100 overflow--hidden"
+        style={{
+          top: 0, // Sticks the hero to the top of the viewport
+          left: 0, // Ensures it covers the full width
+          width: "100%",
+          zIndex: 1, // Base layer, so the next section can scroll over
+        }}
+      >
         {isVisited ? (
           <>
-            <VideoBackground
-              videoSrc="/images/hi/nature-30.webp"
+            <ImageBackground
               height="d--vh-100"
             />
             <TextOverlay
@@ -71,7 +76,14 @@ const HomePage = ({ isVisited }) => {
         )}
       </section>
 
-      <section className="home__section-swiper-animation">
+      <section
+        className="home__section-swiper-animation background--light"
+        style={{
+          zIndex: 2, // Layer above the hero section
+          position: "relative", // Allows it to scroll normally
+          marginTop: "100vh", // Starts below the hero
+        }}
+      >
         <motion.div
           key={location.pathname}
           style={{ scale, rotate }}
@@ -84,6 +96,7 @@ const HomePage = ({ isVisited }) => {
         <SwiperPortfolio />
       </section>
     </div>
+
   );
 };
 
