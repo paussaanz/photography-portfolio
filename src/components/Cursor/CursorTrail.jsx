@@ -82,8 +82,6 @@ const CursorTrail = () => {
 
     useEffect(() => {
         const handleMouseOver = (event) => {
-            console.log(event.target)
-            console.log(event.target.dataset)
             const hoverableItem =
                 event.target.tagName.toLowerCase() === 'a'
                 || event.target.tagName.toLowerCase() === 'button'
