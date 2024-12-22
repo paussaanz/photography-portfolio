@@ -1,18 +1,33 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useContext, use, useEffect } from "react";
 import { useTransition } from "../../contexts/transitionContext";
 import { useLocation } from "react-router-dom";
 import imgNav from "/images/dropdown.webp";
+import LenisContext from "../../contexts/LenisContext";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const { handleLinkClick } = useTransition();
   const location = useLocation();
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
+  const { stop, start } = useContext(LenisContext);
 
   const isPrimaryPage = useMemo(
     () => ["/", "/editorials", "/portfolio"].includes(location.pathname),
     [location.pathname]
   );
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      stop();
+    } else {
+      start();
+    }
+
+    return () => {
+      start();
+    };
+  }, [isMenuOpen, start, stop]);
+
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), [setIsMenuOpen]);
   const togglePortfolioMenu = useCallback(() => setIsPortfolioOpen((prev) => !prev), []);
@@ -191,11 +206,13 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            <img
-              src={imgNav}
-              alt="Decorative"
-              className="cus-navbar__mbl--image"
-            />
+            <div className="flex flex--j-center">
+              <img
+                src={imgNav}
+                alt="Decorative"
+                className="cus-navbar__mbl--image"
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>
