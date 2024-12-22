@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import './FloatingButton.scss';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const FloatingButton = () => {
-  const { theme } = useTheme();
+  const { theme, setThemeMode } = useTheme();
   const isDarkMode = theme === 'dark-theme';
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [paletteImage, setPaletteImage] = useState('palette.svg');
+
+  const availableThemes = [
+    { id: 'light-theme', color: 'var(--cor-button-light)' },
+    { id: 'dark-theme', color: 'var(--cor-button-dark)' },
+    { id: 'green-theme', color: 'var(--cor-button-green)' },
+    { id: 'purple-theme', color: 'var(--cor-button-purple)' },
+  ];
+  const filteredThemes = availableThemes.filter((t) => t.id !== theme);
 
   useEffect(() => {
     let timeouts = [];
@@ -41,7 +48,7 @@ const FloatingButton = () => {
 
   return (
     <>
-      <div className="floatingButton" style={{ filter: 'url(#goo)' }} >
+      <div className="floatingButton theme__button-container" style={{ filter: 'url(#goo)' }} >
         <input
           type="checkbox"
           className="floatingButton-open"
@@ -54,15 +61,14 @@ const FloatingButton = () => {
           <img src={paletteImage} />
         </label>
 
-        <a style={{ background: isDarkMode ? "var(--cor-secondary)" : "var(--cor-secondary)" }} href="#" className="floatingButton-item">
-          <span>*</span>
-        </a>
-        <a style={{ background: isDarkMode ? "var(--cor-secondary)" : "var(--cor-secondary)" }} href="#" className="floatingButton-item">
-          <span>*</span>
-        </a>
-        <a style={{ background: isDarkMode ? "var(--cor-secondary)" : "var(--cor-secondary)" }} href="#" className="floatingButton-item">
-          <span>*</span>
-        </a>
+              {filteredThemes.map((themeOption) => (
+          <a
+            key={themeOption.id}
+            onClick={() => setThemeMode(themeOption.id)}
+            style={{ background: themeOption.color }}
+            className="floatingButton-item"
+          />
+        ))}
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"

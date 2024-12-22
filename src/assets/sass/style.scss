@@ -1,33 +1,33 @@
 body.light-theme {
+    --cor-light: #EBE6E0;
     --cor-primary: #341116;
     --cor-secondary: #DA6A2D;
     --cor-dark: #262626;
-    --cor-light: #EBE6E0;
-    --cor-gray: #71827b;
-    --cor-warm-gray: #b7bfbc;
     --cor-cursor-mix: color-burn;
-    --cor-primary-greece: #B8D0EC;
-    --cor-secondary-greece: #054421;
-    --cor-primary-tanzania: #B83A25;
-    --cor-secondary-tanzania: #F0EBC5;
-    --cor-primary-dolomites: #405131;
-    --cor-secondary-dolomites: #9BA376;
 }
 
 body.dark-theme {
-    --cor-primary: #DA6A2D;
-    --cor-secondary: #341116;
-    --cor-dark: #EBE6E0;
     --cor-light: #131313;
-    --cor-gray: #71827b;
-    --cor-warm-gray: #b7bfbc;
+    --cor-primary: #DA6A2D;
+    --cor-secondary: #EBCC7D;
+    --cor-dark: #EBE6E0;
     --cor-cursor-mix: difference;
-    --cor-primary-greece: #054421;
-    --cor-secondary-greece: #B8D0EC;
-    --cor-primary-tanzania: #F0EBC5;
-    --cor-secondary-tanzania: #B83A25;
-    --cor-primary-dolomites: #9BA376;
-    --cor-secondary-dolomites: #405131;
+}
+
+body.green-theme {
+    --cor-light: #2F4F4F;
+    --cor-primary: #A1C3AE;
+    --cor-secondary: #349079;
+    --cor-dark: #EBE6E0;
+    --cor-cursor-mix: difference;
+}
+
+body.purple-theme {
+    --cor-light: #301A4B;
+    --cor-primary: #FFEAEC;
+    --cor-secondary: #D462DD;
+    --cor-dark: #EBE6E0;
+    --cor-cursor-mix: difference;
 }
 
 // FONTS

@@ -188,21 +188,167 @@ div {
 }
 /*THEME BUTTON*/
 .theme {
-
-  &__button-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding-left: 20px;
-    padding-bottom: 12px;
-    z-index: 1030000;
-  }
-
   &__animation {
     transition: 0.3s background-color;
   }
 
 }
+
+.floatingButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1030000;
+  padding-top: 20px;
+  padding-left: 50px;
+  width: 650px;
+  height: 100px;
+}
+
+.floatingButton-item,
+.floatingButton-open-button {
+  border-radius: 100%;
+  width: 50px; /* Reducido */
+  height: 50px; /* Reducido */
+  margin-left: -25px; /* Ajustado para centrar correctamente */
+  position: absolute;
+  top: 20px;
+  text-align: center;
+  line-height: 50px; /* Ajustado para alineación */
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+  transition-delay: 300ms; /* Inicialmente sin delay */
+}
+
+.floatingButton-open-button img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.floatingButton-open-button:checked {
+  transition-delay: 0ms; /* Inicialmente sin delay */
+}
+
+.floatingButton-open {
+  display: none;
+}
+
+.floatingButton-open:checked + .floatingButton-open-button .hamburger-1 {
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+.floatingButton-open:checked + .floatingButton-open-button .hamburger-2 {
+  transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+.floatingButton-open:checked + .floatingButton-open-button .hamburger-3 {
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
+.floatingButton-item span {
+  display: inline-block;
+  transform: rotate(90deg); /* Mantiene el texto recto */
+}
+
+.floatingButton-item:hover {
+  background: white;
+  color: #00bcd4;
+}
+.floatingButton-item:nth-child(3) {
+  transition-duration: 180ms;
+}
+.floatingButton-item:nth-child(4) {
+  transition-duration: 180ms;
+}
+.floatingButton-item:nth-child(5) {
+  transition-duration: 180ms;
+}
+.floatingButton-item:nth-child(6) {
+  transition-duration: 180ms;
+}
+
+.floatingButton-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+}
+
+.floatingButton-open-button:hover {
+  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+.floatingButton-open:checked + .floatingButton-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+
+.floatingButton-open:checked ~ .floatingButton-item:nth-child(3) {
+  transform: rotate(-90deg) translate(100px) rotate(0deg);
+  transition-delay: 0ms; /* Sin delay */
+}
+
+.floatingButton-open:checked ~ .floatingButton-item:nth-child(4) {
+  transform: rotate(-45deg) translate(100px) rotate(-45deg);
+  transition-delay: 100ms; /* Delay de 100ms */
+}
+
+.floatingButton-open:checked ~ .floatingButton-item:nth-child(5) {
+  transform: rotate(0deg) translate(100px) rotate(-90deg);
+  transition-delay: 200ms; /* Delay de 200ms */
+}
+
+
+
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden; /* Evita que el contenido del SVG interfiera visualmente */
+}
+/* Cuando el botón está cerrado */
+.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(3) {
+  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
+  transition-delay: 300ms; /* Delay al cerrar */
+}
+
+.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(4) {
+  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
+  transition-delay: 200ms; /* Delay al cerrar */
+}
+
+.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(5) {
+  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
+  transition-delay: 100ms; /* Delay al cerrar */
+}
+
+.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(6) {
+  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
+  transition-delay: 0ms; /* Delay al cerrar */
+}
+
+.floatingButton-open-button img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg); /* Posición inicial */
+  transition: transform 300ms ease; /* Animación suave */
+  z-index: -1;
+}
+
+/* Cuando el botón está abierto */
+.floatingButton-open:checked + .floatingButton-open-button img {
+  transform: translate(-50%, -50%) rotate(45deg); /* Gira 45 grados */
+}
+
+/* Cuando el botón está cerrado */
+.floatingButton-open:not(:checked) + .floatingButton-open-button img {
+  transform: translate(-50%, -50%) rotate(0deg); /* Regresa a 0 grados */
+}
+
 
 /*SCROLL*/
 html.lenis,

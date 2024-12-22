@@ -1,6 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy, useContext, useEffect, useState } from "react";
-import ThemeButton from "./components/General/Buttons/ThemeButton";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
@@ -162,7 +161,6 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-          <ThemeButton />
         </div>
       </div>
     </>
