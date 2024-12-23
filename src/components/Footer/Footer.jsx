@@ -164,28 +164,27 @@ const Footer = () => {
         <div data-hover="a" className="footer__section">
             <section className="footer__section-carrusel">
                 {isMobile ? (
-                   <div style={{ display: "inline-block" }}>
+                   <div className="footer__section-mobile position--relative">
                    <h1
                        onClick={() => handleLinkClick('/contact')}
                        className="text-color--secondary"
                        style={{
-                           marginTop: "30px",
+                           marginTop: "100px",
                            fontWeight: 400,
                            fontSize: '50px',
                            lineHeight: '70px',
                            display: "inline-block",
                        }}
                    >
-                       <span style={{ whiteSpace: "pre-wrap" }}>
                            LET’s HAVE A CHAT
-                       </span>
                        <span
                            data-hover="a"
                            className="contact__logo-circle icon-arrow b6 text-color--secondary"
                            style={{
                                display: "inline-block",
                                verticalAlign: "bottom", // Aligns span to the text line
-                               marginLeft: "10px",     // Adjust spacing from text
+                               marginLeft: "15px",     // Adjust spacing from text
+                               lineHeight: "inherit"
                            }}
                        />
                    </h1>

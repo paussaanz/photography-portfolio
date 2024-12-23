@@ -83,3 +83,15 @@
     transform: translateX(-100%);
   }
 }
+
+
+.footer__section-mobile {
+  & h1 {
+    & span {
+      font-size: 40px;
+    }
+    & span:before {
+      color: var(--cor-secondary) !important;
+    }
+  }
+}
