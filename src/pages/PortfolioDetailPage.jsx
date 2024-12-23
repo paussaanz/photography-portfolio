@@ -17,7 +17,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
   const { lenis } = useContext(LenisContext);
 
-  // Toggle grid/gallery view and scroll to top of the gallery
+  // Toggle grid/gallery view and scroll to top of the gallery 
   const handleChangeOrder = () => {
     setOrdered((prev) => !prev);
     setDisabledButtons(true);

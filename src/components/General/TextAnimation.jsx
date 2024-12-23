@@ -15,6 +15,7 @@ const TextAnimation = ({
   const textRef = useRef(null);
   const { isMobile } = useMediaQuery();
 
+  
   // Helper function to create masks for words
   const createMasks = (words) => {
     words.forEach((word) => {

@@ -13,6 +13,7 @@ const ContactPage = () => {
   const text = "Click, design, develop";
   const [activeIndex, setActiveIndex] = useState(-1);
 
+  
   // Flashing letter animation
   useEffect(() => {
     const intervalId = setInterval(() => {

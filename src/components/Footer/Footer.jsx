@@ -152,6 +152,7 @@ const Footer = () => {
             { threshold: 0.1 }
         );
 
+        
         if (triggerRef.current) {
             observer.observe(triggerRef.current);
         }
@@ -172,6 +173,7 @@ const Footer = () => {
             <div className="d--vh-100 background--primary position--relative" style={{zIndex: '100'}}>
                 <DraggableFooter />
             </div>
+
         )
     // }
 

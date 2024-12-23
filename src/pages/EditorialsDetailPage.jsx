@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 const EditorialsPage = ({ images }) => {
 
-  const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta
+  const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta 
 
   return (
     <div data-barba="container" className={`background--primary-${location.pathname.split("/")[2]} text-color--secondary-${location.pathname.split("/")[2]}`}>
