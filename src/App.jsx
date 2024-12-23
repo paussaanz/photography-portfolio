@@ -83,7 +83,7 @@ function App() {
                   path="/portfolio/photoshoots"
                   element={
                     <PortfolioDetailPage
-                      title= {isMobile ? "photoshoots" : "photo   shoots"}
+                      title= "photo   shoots"
                       images={portfolioDetails.photoshoots}
                       textAnimation={
                         isMobile
