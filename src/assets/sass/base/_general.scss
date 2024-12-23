@@ -13,7 +13,6 @@
 //   }
 // }
 
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -23,11 +22,11 @@ div {
   line-height: 1; /* O igual al tamaño de la fuente */
 }
 
-.z-index--5{
+.z-index--5 {
   z-index: 5;
 }
 
-#root{
+#root {
   min-width: 100vw;
   min-height: 100vh;
 }
@@ -53,11 +52,15 @@ div {
 
   &--dark {
     &::before {
-      background: rgba(0, 0, 0, var(--bg-porcentaje)); // Mantiene el fondo oscuro
+      background: rgba(
+        0,
+        0,
+        0,
+        var(--bg-porcentaje)
+      ); // Mantiene el fondo oscuro
     }
   }
 }
-
 
 .blur {
   filter: blur(4px);
@@ -72,8 +75,6 @@ div {
 }
 
 /*GENERAL SCSS*/
-
-
 
 .overflow {
   &--hidden {
@@ -123,7 +124,9 @@ div {
   }
 
   &--primary {
-    background-color: var(--cor-primary); // Equivalente a "bg-primary" en Bootstrap
+    background-color: var(
+      --cor-primary
+    ); // Equivalente a "bg-primary" en Bootstrap
   }
 
   &--transparent {
@@ -131,22 +134,22 @@ div {
   }
 
   &--primary-greece {
-    background-color: var(--cor-primary-greece); 
+    background-color: var(--cor-primary-greece);
   }
   &--secondary-greece {
-    background-color: var(--cor-secondary-greece); 
+    background-color: var(--cor-secondary-greece);
   }
   &--primary-tanzania {
-    background-color: var(--cor-primary-tanzania); 
+    background-color: var(--cor-primary-tanzania);
   }
   &--secondary-tanzania {
-    background-color: var(--cor-secondary-tanzania); 
+    background-color: var(--cor-secondary-tanzania);
   }
   &--primary-dolomites {
-    background-color: var(--cor-primary-dolomites); 
+    background-color: var(--cor-primary-dolomites);
   }
   &--secondary-dolomites {
-    background-color: var(--cor-secondary-dolomites); 
+    background-color: var(--cor-secondary-dolomites);
   }
 }
 
@@ -180,11 +183,11 @@ div {
   }
 }
 
-.white-space--nowrap{
+.white-space--nowrap {
   white-space: nowrap;
 }
 
-.inset--0{
+.inset--0 {
   inset: 0;
 }
 /*THEME BUTTON*/
@@ -192,7 +195,6 @@ div {
   &__animation {
     transition: 0.3s background-color;
   }
-
 }
 
 .floatingButton {
@@ -227,6 +229,7 @@ div {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  max-width: 28px;
 }
 
 .floatingButton-open-button:checked {
@@ -302,8 +305,6 @@ div {
   transition-delay: 200ms; /* Delay de 200ms */
 }
 
-
-
 .svg-filters {
   position: absolute;
   width: 0;
@@ -350,7 +351,6 @@ div {
   transform: translate(-50%, -50%) rotate(0deg); /* Regresa a 0 grados */
 }
 
-
 /*SCROLL*/
 html.lenis,
 html.lenis body {
@@ -374,7 +374,6 @@ html.lenis body {
 }
 
 @keyframes blobEffect {
-
   0%,
   100% {
     clip-path: circle(0% at 50% 50%);
@@ -413,7 +412,7 @@ html.lenis body {
     height: 100%;
     display: flex;
     gap: 1em;
-    animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   }
 
   &__images-col {
@@ -454,7 +453,7 @@ html.lenis body {
     object-fit: cover;
   }
 
-  &__text{
+  &__text {
     opacity: 0;
   }
 }
