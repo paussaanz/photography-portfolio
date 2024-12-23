@@ -41,12 +41,14 @@ root.render(
       <LenisProvider>
         <MediaQueryProvider>
           <ThemeProvider>
-            <TransitionProvider>
-              <LogoTransitionProvider>
-                <App />
-                <Footer />
-              </LogoTransitionProvider>
-            </TransitionProvider>
+            <LoaderContextProvider>
+              <TransitionProvider>
+                <LogoTransitionProvider>
+                  <App />
+                  <Footer />
+                </LogoTransitionProvider>
+              </TransitionProvider>
+            </LoaderContextProvider>
           </ThemeProvider>
         </MediaQueryProvider>
       </LenisProvider>

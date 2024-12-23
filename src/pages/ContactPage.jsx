@@ -13,6 +13,7 @@ const ContactPage = () => {
   const text = "Click, design, develop";
   const [activeIndex, setActiveIndex] = useState(-1);
 
+  
   // Flashing letter animation
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -70,7 +71,7 @@ const ContactPage = () => {
 
       {!isMobile && <CursorHover visible={cursorVisible} />}
 
-      <section className="contact__section-hero container-bem-mbl">
+      <section className="contact__section-hero container-bem-mbl d--vh-100">
         <div className="d--vh-100 flex flex--col">
           {isMobile ? (
             <>

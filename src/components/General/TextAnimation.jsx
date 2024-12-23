@@ -3,7 +3,6 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
-import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,8 +14,8 @@ const TextAnimation = ({
 }) => {
   const textRef = useRef(null);
   const { isMobile } = useMediaQuery();
-  const { pathname } = useLocation();
 
+  
   // Helper function to create masks for words
   const createMasks = (words) => {
     words.forEach((word) => {
@@ -77,7 +76,7 @@ const TextAnimation = ({
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: textRef.current,
-        start: "top center",
+        start: "top 50%",
         end: isMobile ? "bottom bottom" : "+=100vh",
         scrub: 1,
       },
@@ -100,10 +99,10 @@ const TextAnimation = ({
   }, [text, maskColor, isMobile]);
 
   return (
-    <div className={`text-container ${className} ${pathname === "/" ? "" : "container-bem-mbl"}`}>
+    <div className={`text-container ${className} container-bem-mbl`}>
       <div
         ref={textRef}
-        className={`b1 b2-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}
+        className={`h2 b3-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}
       >
         {text}
       </div>

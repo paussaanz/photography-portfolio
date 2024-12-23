@@ -6,6 +6,30 @@ import { useMediaQuery } from "../../contexts/MediaQueryContext";
 import { motion } from "framer-motion";
 import { useTransition } from "../../contexts/transitionContext";
 
+const contactLinks = [
+    {
+        text: "LINKEDIN",
+        logoClass: "icon-linkedin",
+        href: "https://www.linkedin.com/in/paula-sanz-perez/",
+    },
+    {
+        text: "GITHUB",
+        logoClass: "icon-github",
+        href: "https://github.com/paussaanz",
+    },
+    {
+        text: "INSTAGRAM",
+        logoClass: "icon-instagram",
+        href: "https://www.instagram.com/sypcreative/",
+    },
+    {
+        text: "BEHANCE",
+        logoClass: "icon-behance",
+        href: "https://www.behance.net/paulasanz1",
+        logoSize: "h6",
+    },
+];
+
 const DraggableFooter = () => {
     const footerRef = useRef(null); // Referencia al footer para definir los límites del drag
     const { handleLinkClick } = useTransition()
@@ -24,7 +48,7 @@ const DraggableFooter = () => {
 
     const bringToFront = (index) => {
         const maxZIndex = Math.max(...images.map((img) => img.zIndex)); // Get the highest zIndex
-    
+
         // If maxZIndex exceeds 10, reset all zIndexes to their initial state
         const shouldResetZIndex = maxZIndex >= 10;
         const updatedImages = images.map((img, i) => ({
@@ -32,35 +56,12 @@ const DraggableFooter = () => {
             zIndex: shouldResetZIndex
                 ? i + 1 // Reset zIndex based on original order
                 : i === index
-                ? maxZIndex + 1 // Increase zIndex for the dragged image
-                : img.zIndex,
+                    ? maxZIndex + 1 // Increase zIndex for the dragged image
+                    : img.zIndex,
         }));
-    
+
         setImages(updatedImages);
     };
-    const contactLinks = [
-        {
-            text: "LINKEDIN",
-            logoClass: "icon-linkedin",
-            href: "https://www.linkedin.com/in/paula-sanz-perez/",
-        },
-        {
-            text: "GITHUB",
-            logoClass: "icon-github",
-            href: "https://github.com/paussaanz",
-        },
-        {
-            text: "INSTAGRAM",
-            logoClass: "icon-instagram",
-            href: "https://www.instagram.com/sypcreative/",
-        },
-        {
-            text: "BEHANCE",
-            logoClass: "icon-behance",
-            href: "https://www.behance.net/paulasanz1",
-            logoSize: "h6",
-        },
-    ];
 
 
 
@@ -69,7 +70,6 @@ const DraggableFooter = () => {
             className="footer__section-mobile d--vh-100 background-primary"
             ref={footerRef}
             style={{
-                height: "100dvh",
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
@@ -151,6 +151,7 @@ const Footer = () => {
             { threshold: 0.1 }
         );
 
+        
         if (triggerRef.current) {
             observer.observe(triggerRef.current);
         }
@@ -166,44 +167,53 @@ const Footer = () => {
         return null;
     };
 
-    if (isMobile) {
+    // if (isMobile) {
         return (
-            <div className="d--vh-100 background--primary">
+            <div className="d--vh-100 background--primary position--relative" style={{zIndex: '100'}}>
                 <DraggableFooter />
             </div>
+
         )
-    }
+    // }
 
 
-    if (!isVisible) {
-        return <div ref={triggerRef} style={{ height: "1px" }} />
-    }
+    // if (!isVisible) {
+    //     return <div ref={triggerRef} style={{ height: "1px" }} />
+    // }
 
-    return (
-        <>
-            {/* Elemento invisible para disparar la aparición del footer */}
-            <div ref={triggerRef} style={{ height: "1px" }} />
+    // return (
+    //     <>
+    //         {/* Elemento invisible para disparar la aparición del footer */}
+    //         <div ref={triggerRef} style={{ height: "1px" }} />
 
-            {/* Renderiza el footer solo cuando sea visible */}
-            {isVisible && (
-                <div data-hover="a" className="footer__section">
-                    <section className="footer__section-carrusel">
-                        <InfiniteCarrusel />
-                    </section>
-                    <section className="footer__section-3d-logo">
-                        {isMobile ? <img src="/logo-outline.svg"/> : <Scene3D />}
-                    </section>
-                    <section className="footer__section-links">
-                        <div className="flex flex--j-between p--4 text-color--secondary text-transform--uppercase">
-                            <p></p>
-                            <p>Social Media Links</p>
-                            <p>Site by SYP</p>
-                        </div>
-                    </section>
-                </div>
-            )}
-        </>
-    );
+    //         {/* Renderiza el footer solo cuando sea visible */}
+    //         {isVisible && (
+    //             <div data-hover="a" className="footer__section">
+    //                 <section className="footer__section-carrusel">
+    //                     <InfiniteCarrusel />
+    //                 </section>
+    //                 <section className="footer__section-3d-logo">
+    //                     {isMobile ? <img src="/logo-outline.svg" /> : <Scene3D />}
+    //                 </section>
+    //                 <section className="footer__section-links">
+    //                     <div className="flex flex--j-between flex--a-baseline p--4 text-color--secondary text-transform--uppercase">
+    //                         <p></p>
+    //                         <div className="flex">
+    //                             {contactLinks.map((contact) => {
+    //                                 return (
+    //                                     <a className="text-decoration--none" key={contact.href} href={contact.href} target="_blank" rel="noreferrer">
+    //                                         <span data-hover="a" className={`contact__logo-circle ${contact.logoClass} h5`}></span>
+    //                                     </a>
+    //                                 )
+    //                             })}
+    //                         </div>
+    //                         <p>Site by SYP</p>
+    //                     </div>
+    //                 </section>
+    //             </div>
+    //         )}
+    //     </>
+    // );
 };
 
 export default Footer;

@@ -76,7 +76,7 @@ function App() {
 
 
           <main>
-            <Suspense fallback={<div className="d--vh-100">Loading...</div>}>
+            <Suspense fallback={<div className="d--vh-100"></div>}>
               <Routes location={location}>
                 <Route path="/" element={<HomePage isVisited={isVisited} />} />
                 <Route
