@@ -6,7 +6,7 @@ const FloatingButton = () => {
   const isDarkMode = theme === 'dark-theme';
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [paletteImage, setPaletteImage] = useState('palette.svg');
+  const [paletteImage, setPaletteImage] = useState('/palette.svg');
 
   const availableThemes = [
     { id: 'light-theme', color: 'var(--cor-button-light)' },
@@ -22,16 +22,16 @@ const FloatingButton = () => {
     if (isMenuOpen) {
       // Animación al abrir el menú
       timeouts = [
-        setTimeout(() => setPaletteImage('palette-2.svg'), 100),
-        setTimeout(() => setPaletteImage('palette-3.svg'), 200),
-        setTimeout(() => setPaletteImage('palette-4.svg'), 300),
+        setTimeout(() => setPaletteImage('/palette-2.svg'), 100),
+        setTimeout(() => setPaletteImage('/palette-3.svg'), 200),
+        setTimeout(() => setPaletteImage('/palette-4.svg'), 300),
       ];
     } else {
       // Animación inversa al cerrar el menú
       timeouts = [
-        setTimeout(() => setPaletteImage('palette-3.svg'), 100),
-        setTimeout(() => setPaletteImage('palette-2.svg'), 200),
-        setTimeout(() => setPaletteImage('palette.svg'), 300),
+        setTimeout(() => setPaletteImage('/palette-3.svg'), 100),
+        setTimeout(() => setPaletteImage('/palette-2.svg'), 200),
+        setTimeout(() => setPaletteImage('/palette.svg'), 300),
       ];
     }
 
@@ -61,7 +61,7 @@ const FloatingButton = () => {
           <img src={paletteImage} />
         </label>
 
-              {filteredThemes.map((themeOption) => (
+        {filteredThemes.map((themeOption) => (
           <a
             key={themeOption.id}
             onClick={() => setThemeMode(themeOption.id)}
