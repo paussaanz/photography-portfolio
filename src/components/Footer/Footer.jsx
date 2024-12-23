@@ -70,7 +70,6 @@ const DraggableFooter = () => {
             className="footer__section-mobile d--vh-100 background-primary"
             ref={footerRef}
             style={{
-                height: "100dvh",
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
