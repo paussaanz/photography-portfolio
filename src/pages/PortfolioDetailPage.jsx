@@ -6,7 +6,7 @@ import GalleryGrid from "../components/PortfolioDetailsPage/GalleryGrid";
 import PortfolioDetailPageSeo from "./SEO/PortfolioDetailPageSeo";
 import LenisContext from "../contexts/LenisContext";
 
-const PortfolioDetailPage = ({ images, title, textAnimation }) => {
+const PortfolioDetailPage = ({ images, title, textAnimation, number, subtitle }) => {
   const { heroImage, projectImages } = images;
   const [ordered, setOrdered] = useState(false);
   const [disabledButtons, setDisabledButtons] = useState(false);
@@ -64,7 +64,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation }) => {
 
       {/* Hero Section */}
       <section className="pdetails__hero-section position--relative">
-        <HeroDetails slug={title} src={heroImage.src} />
+        <HeroDetails slug={title} src={heroImage.src} number={number} subtitle={subtitle}/>
       </section>
 
       {/* Text Animation Section */}

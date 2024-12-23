@@ -83,12 +83,15 @@ function App() {
                   path="/portfolio/photoshoots"
                   element={
                     <PortfolioDetailPage
-                      title="photo   shoots"
+                      title= {isMobile ? "photoshoots" : "photo   shoots"}
                       images={portfolioDetails.photoshoots}
                       textAnimation={
                         isMobile
                           ? "Fashion photography captures identity and expression, showcasing creativity, innovation, and artistry, vividly highlighting the transformative power of clothing to reflect individuality."
-                          : "A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."}
+                          : "A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."
+                      }
+                      number="01"
+                      subtitle="THE WORLD LOOKS BETTER WHEN YOU’RE LOOKING FOR THE SHOT"
                     />
                   }
                 />
@@ -103,6 +106,8 @@ function App() {
                           ? "Music photography transforms sound into visuals, capturing rhythmic moments and emotional energy. Each image conveys live performance vibrancy and the bond between artist and audience."
                           : "The essence of sound is distilled into visual form through music photography, where captured moments vibrate with rhythm and emotion. Each image pulsates with the energy of live performances, intertwining the intimate connection between artist and audience. These photographs reveal the electric atmosphere of concerts, celebrating the power of music to unite and inspire."
                       }
+                      number="02"
+                      subtitle="STOP AND SHOOT—BECAUSE THE BEST MOMENTS WON’T WAIT"
                     />
                   }
                 />
@@ -116,6 +121,8 @@ function App() {
                         ? "Nature photography captures the delicate dance of light and shadow, bringing landscapes to life. Each frame reveals sublime beauty, vividly highlighting the intricate details of flora and fauna often overlooked."
                         : "The intricate dance of light and shadow comes alive in nature photography, where landscapes breathe life into stillness. Each frame becomes a portal to the sublime, showcasing the beauty of flora and fauna often overlooked. These images invite contemplation and appreciation for the delicate balance of ecosystems, reminding us of our connection to the natural world."
                       }
+                      number="03"
+                      subtitle="NATURE DOESN’T POSE, BUT IT ALWAYS DELIVERS."
                     />
                   }
                 />
@@ -130,6 +137,8 @@ function App() {
                           ? "Photography is a visual language, turning moments into art. My collection captures beauty, revealing emotions, truths, and the photographer’s connection to their environment while inviting fresh perspectives."
                           : "Photography serves as a visual language, communicating emotions and hidden truths in every scene. My collection reflects everyday moments transformed into art, showcasing the beauty often overlooked. Each image stands as a testament to the connection between the photographer and their environment, inviting viewers to see the world through my eyes."
                       }
+                      number="04"
+                      subtitle="SEEING THE WORLD IN 24MM MAKES IT FEEL LIMITLESS"
                     />
                   }
                 />
@@ -144,6 +153,8 @@ function App() {
                           ? "Sports photography captures dynamic energy, turning fleeting moments into echoes of triumph and struggle. Each image reflects the pulse of competition, showcasing the action and spirit driving the game."
                           : "In sports photography, dynamic energy transcends the frame, transforming fleeting moments of intensity into echoes of triumph and struggle. Each image resonates with the pulse of competition, capturing not just the action but the spirit that ignites the heart of the game. The lens reveals the determination and passion that drive athletes, inviting viewers to feel the thrill of victory and the weight of defeat."
                       }
+                      number="05"
+                      subtitle="PHOTOGRAPHY MAKES THE UNSEEN IMPOSSIBLE TO IGNORE"
                     />
                   }
                 />

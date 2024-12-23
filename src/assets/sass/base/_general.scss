@@ -3,7 +3,7 @@
   // usar la clase bg-image y llamar a este root en el style para añadir la imagen
   --bg-image: "";
   --bg-md-image: "";
-  --bg-porcentaje: 0.4;
+  --bg-porcentaje: 0.2;
   --full-vh: 100vh;
 }
 
@@ -19,7 +19,8 @@
 }
 
 div {
-  line-height: 1; /* O igual al tamaño de la fuente */
+  line-height: 1;
+  /* O igual al tamaño de la fuente */
 }
 
 .z-index--5 {
@@ -30,9 +31,11 @@ div {
   min-width: 100vw;
   min-height: 100vh;
 }
+
 .over {
   position: relative;
-  overflow: clip;
+  width: 100%;
+  height: 100%;
 
   &::before {
     content: "";
@@ -41,26 +44,23 @@ div {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, var(--bg-porcentaje)); // Fondo oscuro por defecto
-    z-index: 0; // Asegúrate de que esté entre el fondo y el contenido
+    background: rgba(0, 0, 0, var(--bg-porcentaje, 0.4)); /* Default to 40% opacity */
+    z-index: 1; /* Place the overlay above the image */
+  }
+
+  img {
+    position: relative;
+    z-index: 0; /* Ensure the image is behind the overlay */
+    object-fit: cover; /* Maintain cover behavior */
+    width: 100%;
     height: 100%;
   }
 
-  * {
-    z-index: 1; // El contenido tendrá un índice z más alto que el fondo
-  }
-
-  &--dark {
-    &::before {
-      background: rgba(
-        0,
-        0,
-        0,
-        var(--bg-porcentaje)
-      ); // Mantiene el fondo oscuro
-    }
+  &--dark::before {
+    background: rgba(0, 0, 0, 0.3); /* Darker overlay for the --dark variant */
   }
 }
+
 
 .blur {
   filter: blur(4px);
@@ -124,9 +124,7 @@ div {
   }
 
   &--primary {
-    background-color: var(
-      --cor-primary
-    ); // Equivalente a "bg-primary" en Bootstrap
+    background-color: var(--cor-primary); // Equivalente a "bg-primary" en Bootstrap
   }
 
   &--transparent {
@@ -136,18 +134,23 @@ div {
   &--primary-greece {
     background-color: var(--cor-primary-greece);
   }
+
   &--secondary-greece {
     background-color: var(--cor-secondary-greece);
   }
+
   &--primary-tanzania {
     background-color: var(--cor-primary-tanzania);
   }
+
   &--secondary-tanzania {
     background-color: var(--cor-secondary-tanzania);
   }
+
   &--primary-dolomites {
     background-color: var(--cor-primary-dolomites);
   }
+
   &--secondary-dolomites {
     background-color: var(--cor-secondary-dolomites);
   }
@@ -183,13 +186,12 @@ div {
   }
 }
 
-.white-space--nowrap {
-  white-space: nowrap;
+.text-overlay__subtitle {
+  font-size: 0.8rem;
+  max-width: 70%;
+  margin-top: 15px;
 }
 
-.inset--0 {
-  inset: 0;
-}
 /*THEME BUTTON*/
 .theme {
   &__animation {
@@ -211,55 +213,68 @@ div {
 .floatingButton-item,
 .floatingButton-open-button {
   border-radius: 100%;
-  width: 50px; /* Reducido */
-  height: 50px; /* Reducido */
-  margin-left: -25px; /* Ajustado para centrar correctamente */
+  width: 50px;
+  /* Reducido */
+  height: 50px;
+  /* Reducido */
+  margin-left: -25px;
+  /* Ajustado para centrar correctamente */
   position: absolute;
   top: 20px;
   text-align: center;
-  line-height: 50px; /* Ajustado para alineación */
+  line-height: 50px;
+  /* Ajustado para alineación */
   transform: translate3d(0, 0, 0);
   transition: transform ease-out 200ms;
-  transition-delay: 300ms; /* Inicialmente sin delay */
+  transition-delay: 300ms;
+  /* Inicialmente sin delay */
 }
 
 
 .floatingButton-open-button:checked {
-  transition-delay: 0ms; /* Inicialmente sin delay */
+  transition-delay: 0ms;
+  /* Inicialmente sin delay */
 }
 
 .floatingButton-open {
   display: none;
 }
 
-.floatingButton-open:checked + .floatingButton-open-button .hamburger-1 {
+.floatingButton-open:checked+.floatingButton-open-button .hamburger-1 {
   transform: translate3d(0, 0, 0) rotate(45deg);
 }
-.floatingButton-open:checked + .floatingButton-open-button .hamburger-2 {
+
+.floatingButton-open:checked+.floatingButton-open-button .hamburger-2 {
   transform: translate3d(0, 0, 0) scale(0.1, 1);
 }
-.floatingButton-open:checked + .floatingButton-open-button .hamburger-3 {
+
+.floatingButton-open:checked+.floatingButton-open-button .hamburger-3 {
   transform: translate3d(0, 0, 0) rotate(-45deg);
 }
 
 .floatingButton-item span {
   display: inline-block;
-  transform: rotate(90deg); /* Mantiene el texto recto */
+  transform: rotate(90deg);
+  /* Mantiene el texto recto */
 }
 
 .floatingButton-item:hover {
   background: white;
   color: #00bcd4;
 }
+
 .floatingButton-item:nth-child(3) {
   transition-duration: 180ms;
 }
+
 .floatingButton-item:nth-child(4) {
   transition-duration: 180ms;
 }
+
 .floatingButton-item:nth-child(5) {
   transition-duration: 180ms;
 }
+
 .floatingButton-item:nth-child(6) {
   transition-duration: 180ms;
 }
@@ -276,73 +291,90 @@ div {
   transform: scale(1.2, 1.2) translate3d(0, 0, 0);
 }
 
-.floatingButton-open:checked + .floatingButton-open-button {
+.floatingButton-open:checked+.floatingButton-open-button {
   transition-timing-function: linear;
   transition-duration: 200ms;
   transform: scale(0.8, 0.8) translate3d(0, 0, 0);
 }
 
-.floatingButton-open:checked ~ .floatingButton-item:nth-child(3) {
+.floatingButton-open:checked~.floatingButton-item:nth-child(3) {
   transform: rotate(-90deg) translate(100px) rotate(0deg);
-  transition-delay: 0ms; /* Sin delay */
+  transition-delay: 0ms;
+  /* Sin delay */
 }
 
-.floatingButton-open:checked ~ .floatingButton-item:nth-child(4) {
+.floatingButton-open:checked~.floatingButton-item:nth-child(4) {
   transform: rotate(-45deg) translate(100px) rotate(-45deg);
-  transition-delay: 100ms; /* Delay de 100ms */
+  transition-delay: 100ms;
+  /* Delay de 100ms */
 }
 
-.floatingButton-open:checked ~ .floatingButton-item:nth-child(5) {
+.floatingButton-open:checked~.floatingButton-item:nth-child(5) {
   transform: rotate(0deg) translate(100px) rotate(-90deg);
-  transition-delay: 200ms; /* Delay de 200ms */
+  transition-delay: 200ms;
+  /* Delay de 200ms */
 }
 
 .svg-filters {
   position: absolute;
   width: 0;
   height: 0;
-  overflow: hidden; /* Evita que el contenido del SVG interfiera visualmente */
+  overflow: hidden;
+  /* Evita que el contenido del SVG interfiera visualmente */
 }
+
 /* Cuando el botón está cerrado */
-.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(3) {
-  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
-  transition-delay: 300ms; /* Delay al cerrar */
+.floatingButton-open:not(:checked)~.floatingButton-item:nth-child(3) {
+  transform: translate3d(0, 0, 0);
+  /* Regresa al estado inicial */
+  transition-delay: 300ms;
+  /* Delay al cerrar */
 }
 
-.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(4) {
-  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
-  transition-delay: 200ms; /* Delay al cerrar */
+.floatingButton-open:not(:checked)~.floatingButton-item:nth-child(4) {
+  transform: translate3d(0, 0, 0);
+  /* Regresa al estado inicial */
+  transition-delay: 200ms;
+  /* Delay al cerrar */
 }
 
-.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(5) {
-  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
-  transition-delay: 100ms; /* Delay al cerrar */
+.floatingButton-open:not(:checked)~.floatingButton-item:nth-child(5) {
+  transform: translate3d(0, 0, 0);
+  /* Regresa al estado inicial */
+  transition-delay: 100ms;
+  /* Delay al cerrar */
 }
 
-.floatingButton-open:not(:checked) ~ .floatingButton-item:nth-child(6) {
-  transform: translate3d(0, 0, 0); /* Regresa al estado inicial */
-  transition-delay: 0ms; /* Delay al cerrar */
+.floatingButton-open:not(:checked)~.floatingButton-item:nth-child(6) {
+  transform: translate3d(0, 0, 0);
+  /* Regresa al estado inicial */
+  transition-delay: 0ms;
+  /* Delay al cerrar */
 }
 
 .floatingButton-open-button img {
   position: absolute;
   left: 50%;
   top: 50%;
-  transition: transform 300ms ease; /* Animación suave */
+  transition: transform 300ms ease;
+  /* Animación suave */
   z-index: -1;
-  @include media-breakpoint-down(md){
+
+  @include media-breakpoint-down(md) {
     width: 25px;
   }
 }
 
 /* Cuando el botón está abierto */
-.floatingButton-open:checked + .floatingButton-open-button img {
-  transform: translate(-50%, -50%) rotate(45deg); /* Gira 45 grados */
+.floatingButton-open:checked+.floatingButton-open-button img {
+  transform: translate(-50%, -50%) rotate(45deg);
+  /* Gira 45 grados */
 }
 
 /* Cuando el botón está cerrado */
-.floatingButton-open:not(:checked) + .floatingButton-open-button img {
-  transform: translate(-50%, -50%) rotate(0deg); /* Regresa a 0 grados */
+.floatingButton-open:not(:checked)+.floatingButton-open-button img {
+  transform: translate(-50%, -50%) rotate(0deg);
+  /* Regresa a 0 grados */
 }
 
 /*SCROLL*/
@@ -368,6 +400,7 @@ html.lenis body {
 }
 
 @keyframes blobEffect {
+
   0%,
   100% {
     clip-path: circle(0% at 50% 50%);
@@ -386,14 +419,17 @@ html.lenis body {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -421,6 +457,7 @@ html.lenis body {
     &-3,
     &-5 {
       top: 100%;
+
       .loader__images-image {
         top: 100%;
       }
