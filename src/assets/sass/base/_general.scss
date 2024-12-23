@@ -330,6 +330,9 @@ div {
   top: 50%;
   transition: transform 300ms ease; /* Animación suave */
   z-index: -1;
+  @include media-breakpoint-down(md){
+    width: 25px;
+  }
 }
 
 /* Cuando el botón está abierto */
