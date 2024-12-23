@@ -30,7 +30,7 @@ const EditorialsPage = ({ isVisited }) => {
           } align-content--center position--relative z-index--5`}
         >
           <TextAnimation
-            text={isMobile ? `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. ` : `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. It’s more than just travel—it's a lens into culture, emotion, and the untold details that make each destination unforgettable.`}
+            text={isMobile  ? `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. ` : `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. It’s more than just travel—it's a lens into culture, emotion, and the untold details that make each destination unforgettable.`}
           />
         </div>
       </section>

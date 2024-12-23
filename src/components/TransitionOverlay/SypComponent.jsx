@@ -1,4 +1,8 @@
+import { useMediaQuery } from "../../contexts/MediaQueryContext";
+
 const SypComponent = () => {
+    const { isMobile } = useMediaQuery();
+    
     return (
 
         <svg style={{ height: '250px', paddingLeft: isMobile && '10%' }} id="Capa_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.88 489.96">

@@ -28,7 +28,7 @@ const PortfolioPage = ({ isVisited }) => {
 
     const sectionClass = useMemo(() => `${isMobile ? 'd--vh-100' : 'd--vh-175'} flex`, [isMobile]);
     const textAnimationClass = useMemo(() => `${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center position--relative z-index--5`, [isMobile]);
-
+ 
     useEffect(() => {
         return () => {
             portfolioCardAnimation.forEach((image) => URL.revokeObjectURL(image.src));

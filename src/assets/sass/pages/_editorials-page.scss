@@ -6,7 +6,6 @@
             font-size: 15vw !important;
             line-height: 21vw;
         }
-
         &-images {
             position: relative;
             display: flex;
@@ -37,7 +36,7 @@
 
                     @include media-breakpoint-down(md) {
                         right: -8vw;
-                        top: 91vh;
+                        top: 89vh;
                         height: 24vh;
                         width: 41vh;
                     }

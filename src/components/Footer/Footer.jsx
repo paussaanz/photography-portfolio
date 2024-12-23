@@ -152,6 +152,7 @@ const Footer = () => {
             { threshold: 0.1 }
         );
 
+        
         if (triggerRef.current) {
             observer.observe(triggerRef.current);
         }
@@ -167,52 +168,53 @@ const Footer = () => {
         return null;
     };
 
-    if (isMobile) {
+    // if (isMobile) {
         return (
-            <div className="d--vh-100 background--primary">
+            <div className="d--vh-100 background--primary position--relative" style={{zIndex: '100'}}>
                 <DraggableFooter />
             </div>
+
         )
-    }
+    // }
 
 
-    if (!isVisible) {
-        return <div ref={triggerRef} style={{ height: "1px" }} />
-    }
+    // if (!isVisible) {
+    //     return <div ref={triggerRef} style={{ height: "1px" }} />
+    // }
 
-    return (
-        <>
-            {/* Elemento invisible para disparar la aparición del footer */}
-            <div ref={triggerRef} style={{ height: "1px" }} />
+    // return (
+    //     <>
+    //         {/* Elemento invisible para disparar la aparición del footer */}
+    //         <div ref={triggerRef} style={{ height: "1px" }} />
 
-            {/* Renderiza el footer solo cuando sea visible */}
-            {isVisible && (
-                <div data-hover="a" className="footer__section">
-                    <section className="footer__section-carrusel">
-                        <InfiniteCarrusel />
-                    </section>
-                    <section className="footer__section-3d-logo">
-                        {isMobile ? <img src="/logo-outline.svg" /> : <Scene3D />}
-                    </section>
-                    <section className="footer__section-links">
-                        <div className="flex flex--j-between flex--a-baseline p--4 text-color--secondary text-transform--uppercase">
-                            <p></p>
-                            <div className="flex">
-                                {contactLinks.map((contact) => {
-                                    return (
-                                        <a className="text-decoration--none" key={contact.href} href={contact.href} target="_blank" rel="noreferrer">
-                                            <span data-hover="a" className={`contact__logo-circle ${contact.logoClass} h5`}></span>
-                                        </a>
-                                    )
-                                })}
-                            </div>
-                            <p>Site by SYP</p>
-                        </div>
-                    </section>
-                </div>
-            )}
-        </>
-    );
+    //         {/* Renderiza el footer solo cuando sea visible */}
+    //         {isVisible && (
+    //             <div data-hover="a" className="footer__section">
+    //                 <section className="footer__section-carrusel">
+    //                     <InfiniteCarrusel />
+    //                 </section>
+    //                 <section className="footer__section-3d-logo">
+    //                     {isMobile ? <img src="/logo-outline.svg" /> : <Scene3D />}
+    //                 </section>
+    //                 <section className="footer__section-links">
+    //                     <div className="flex flex--j-between flex--a-baseline p--4 text-color--secondary text-transform--uppercase">
+    //                         <p></p>
+    //                         <div className="flex">
+    //                             {contactLinks.map((contact) => {
+    //                                 return (
+    //                                     <a className="text-decoration--none" key={contact.href} href={contact.href} target="_blank" rel="noreferrer">
+    //                                         <span data-hover="a" className={`contact__logo-circle ${contact.logoClass} h5`}></span>
+    //                                     </a>
+    //                                 )
+    //                             })}
+    //                         </div>
+    //                         <p>Site by SYP</p>
+    //                     </div>
+    //                 </section>
+    //             </div>
+    //         )}
+    //     </>
+    // );
 };
 
 export default Footer;
