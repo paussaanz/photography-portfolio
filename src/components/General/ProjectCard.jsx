@@ -12,7 +12,7 @@ const ProjectCard = ({ src, name, date, description }) => {
                 />
             </div>
 
-            <div className="text-transform--uppercase text-align--center text-color--light">
+            <div className="text-transform--uppercase text-align--center text-color--overlay">
                 <p className="m--0 h4">{name}</p>
                 {description && (
                     <p className="m--0 text-style--italic">{description}</p>

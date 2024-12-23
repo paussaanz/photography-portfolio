@@ -5,6 +5,7 @@ import TextOverlay from "../components/General/TextOverlay";
 import ContactPageSeo from "./SEO/ContactPageSeo";
 import CursorHover from "../components/Cursor/CursorHover";
 import { useMediaQuery } from "../contexts/MediaQueryContext";
+import { contactLinks } from "../assets/js/images";
 
 const ContactPage = () => {
   const [hovered, setHovered] = useState(false);
@@ -27,30 +28,6 @@ const ContactPage = () => {
 
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, [text]);
-
-  const contactLinks = [
-    {
-      text: "LINKEDIN",
-      logoClass: "icon-linkedin",
-      href: "https://www.linkedin.com/in/paula-sanz-perez/",
-    },
-    {
-      text: "GITHUB",
-      logoClass: "icon-github",
-      href: "https://github.com/paussaanz",
-    },
-    {
-      text: "INSTAGRAM",
-      logoClass: "icon-instagram",
-      href: "https://www.instagram.com/sypcreative/",
-    },
-    {
-      text: "BEHANCE",
-      logoClass: "icon-behance",
-      href: "https://www.behance.net/paulasanz1",
-      logoSize: "h6",
-    },
-  ];
 
   const renderTextWithAnimation = (text) =>
     text.split("").map((char, index) => (

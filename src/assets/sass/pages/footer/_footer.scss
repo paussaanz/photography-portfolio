@@ -6,8 +6,15 @@
   flex-direction: column;
   background-color: var(--cor-primary);
 
-  &-3d-logo {
-    flex-grow: 1 !important;
+  &-draggable-logo {
+    flex: 1;
+  }
+
+  &-draggable-title {
+    font-family: "gamilia";
+    font-size: 7rem;
+    max-width: 70%;
+    font-weight:100;
   }
 
   &-links {
@@ -23,16 +30,13 @@
     padding-top: 120px;
     color: var(--cor-secondary);
 
-    /* Pausa la animación y cambia el color del texto y logo en hover */
     &:hover .footer__carrusel-item {
       animation-play-state: paused;
       color: var(--cor-light);
-      /* Cambia el color del texto */
     }
 
     &:hover .footer__carrusel-item .footer__carrusel-item--logo {
       background-color: var(--cor-light);
-      /* Cambia el color del logo */
     }
   }
 
@@ -77,39 +81,5 @@
 
   100% {
     transform: translateX(-100%);
-  }
-}
-
-.footer__section-mobile {
-  & h1 {
-    & span {
-      font-size: 40px;
-      display: inline-block !important;
-      margin-left: 15px;
-    }
-    & span:before {
-      display: inline-block;
-      color: var(--cor-secondary) !important;
-    }
-  }
-
-  &__social {
-    width: 100%;
-    position: absolute;
-    bottom: 50px;
-    display: flex;
-    left: 0;
-    align-items: center;
-    justify-content: center;
-
-    &--links {
-      display: flex;
-    }
-  }
-
-  &__site-by-syp {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
   }
 }

@@ -154,10 +154,10 @@
     }
 
     &--image {
-      max-height: 650px;
-      max-width: 100%; // Ajusta el tamaño según sea necesario
+      max-height: 500px;
+      width: 100%; // Ajusta el tamaño según sea necesario
       height: auto;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 10px;
     }
 

@@ -133,7 +133,7 @@ const LoaderHomePage = () => {
         {renderImageColumns()}
       </div>
       <TextOverlay
-        textColor="text-color--light"
+        textColor="text-color--overlay"
         textPosition="center"
         className="text-align--center"
       >
@@ -144,7 +144,7 @@ const LoaderHomePage = () => {
         <Button
           onClick={() => handleLinkClick("/portfolio")}
           text="See my work"
-          className="text-color--light loader__text"
+          className="text-color--overlay loader__text"
         />
       </TextOverlay>
     </>

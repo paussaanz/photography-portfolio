@@ -108,7 +108,7 @@ const ProjectCardAnimation = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--light m--t-3">
+              <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--overlay m--t-3">
                 <p className="m--0 h4">{image.name}</p>
                 <p className="m--0 h6">({image.date})</p>
               </div>

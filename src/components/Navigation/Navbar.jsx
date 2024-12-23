@@ -183,7 +183,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <AnimatePresence>
                 {isPortfolioOpen && (
                   <motion.ul
-                    className="cus-navbar__mbl--submenu"
+                    className="cus-navbar__mbl--submenu text-color--secondary"
                     variants={subMenuVariants}
                     initial="hidden"
                     animate="visible"

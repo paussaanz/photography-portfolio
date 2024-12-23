@@ -36,7 +36,7 @@ const Loader = ({ onCompleteLoading }) => {
             startAnimation();
         }, [indexOfPath, progress, paths, onComplete]);
 
-        return <motion.path d={pathValue} />;
+        return <motion.path  fill="var(--cor-primary)" d={pathValue} />;
     };
 
     const handleAnimationComplete = () => {

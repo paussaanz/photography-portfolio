@@ -39,7 +39,7 @@ const FavoritesAbout = () => {
     listItemsRef.current.forEach((li, liIndex) => {
       if (li) {
         gsap.to(li, {
-          color: liIndex === index ? "#DA6A2D" : "#341116",
+          color: liIndex === index ? "var(--cor-secondary)" : "var(--cor-primary)",
           scale: liIndex === index ? (isMobile ? 1.1 : 1.2) : 1,
           duration: 0.2,
           ease: "power2.out",

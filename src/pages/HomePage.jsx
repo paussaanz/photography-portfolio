@@ -56,7 +56,7 @@ const HomePage = ({ isVisited }) => {
               height="d--vh-100"
             />
             <TextOverlay
-              textColor="text-color--light"
+              textColor="text-color--overlay"
               textPosition="center"
               className="text-align--center"
             >
@@ -67,7 +67,7 @@ const HomePage = ({ isVisited }) => {
               <Button
                 onClick={() => handleLinkClick("/portfolio")}
                 text="See my work"
-                className="text-color--light"
+                className="text-color--overlay"
               />
             </TextOverlay>
           </>

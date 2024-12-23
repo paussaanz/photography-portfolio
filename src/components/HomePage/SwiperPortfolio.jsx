@@ -53,13 +53,13 @@ const SwiperPortfolio = () => {
         </motion.div>
         <div className="home__swiper-animation-button--centered">
           <Button
-            className="text-color--light"
+            className="text-color--overlay"
             text="Portfolio"
             onClick={() => toggleContent("Portfolio")}
           />{" "}
           |
           <Button
-            className="text-color--light"
+            className="text-color--overlay"
             text="Editorials"
             onClick={() => toggleContent("Editorials")}
           />
