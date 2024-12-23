@@ -3,10 +3,11 @@ import { createContext, useState, useEffect, useContext } from 'react';
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+    const availableThemes = ['light-theme', 'dark-theme', 'green-theme', 'purple-theme'];
 
     const getPreferredTheme = () => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
+        if (savedTheme && availableThemes.includes(savedTheme)) {
             return savedTheme;
         }
 
@@ -16,10 +17,13 @@ export const ThemeProvider = ({ children }) => {
 
     const [theme, setTheme] = useState(getPreferredTheme);
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light-theme' ? 'dark-theme' : 'light-theme';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
+    const setThemeMode = (themeName) => {
+        if (availableThemes.includes(themeName)) {
+            setTheme(themeName);
+            localStorage.setItem('theme', themeName);
+        } else {
+            console.warn(`Theme "${themeName}" is not a valid theme.`);
+        }
     };
 
     useEffect(() => {
@@ -27,7 +31,7 @@ export const ThemeProvider = ({ children }) => {
     }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, setThemeMode }}>
             {children}
         </ThemeContext.Provider>
     );

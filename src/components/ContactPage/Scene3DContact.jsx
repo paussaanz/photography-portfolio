@@ -13,10 +13,21 @@ const Scene3DContact = ({ hovered }) => {
   // Memoize colors to avoid recalculations
   const { color, backgroundColor } = useMemo(() => {
     const primaryColor = new THREE.Color(149 / 255, 68 / 255, 24 / 255).convertSRGBToLinear();
-    const bgColor =
-      theme === "dark-theme"
-        ? new THREE.Color(19 / 255, 19 / 255, 19 / 255).convertSRGBToLinear()
-        : new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear();
+    const bgColor = (() => {
+      switch (theme) {
+        case "dark-theme":
+          return new THREE.Color(19 / 255, 19 / 255, 19 / 255).convertSRGBToLinear();
+        case "light-theme":
+          return new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear();
+        case "green-theme":
+          return new THREE.Color(47 / 255, 79 / 255, 79 / 255).convertSRGBToLinear(); // Verde
+        case "purple-theme":
+          return new THREE.Color(48 / 255, 26 / 255, 75 / 255).convertSRGBToLinear(); // Morado
+        default:
+          return new THREE.Color(235 / 255, 230 / 255, 224 / 255).convertSRGBToLinear(); // Valor por defecto
+      }
+    })();
+    
 
     return { color: primaryColor, backgroundColor: bgColor };
   }, [theme]);

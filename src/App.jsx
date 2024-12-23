@@ -1,11 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy, useContext, useEffect, useState } from "react";
-import ThemeButton from "./components/General/Buttons/ThemeButton";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
+import FloatingButton from "./components/FloatingButton/FloatingButton";
 // import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
@@ -60,7 +60,11 @@ function App() {
 
   return (
     <>
+
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
+        <FloatingButton />
+
+        {!isMobile && <CursorTrail />}
 
         <div data-barba-namespace="home">
           <header id="header" className={`header--fixed-top ${isMenuOpen ? '' : 'header--inverted'}`}>
@@ -69,7 +73,7 @@ function App() {
             </Suspense>
           </header>
 
-          {!isMobile && <CursorTrail />}
+
 
           <main>
             <Suspense fallback={<div className="d--vh-100"></div>}>
@@ -157,7 +161,6 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-          <ThemeButton />
         </div>
       </div>
     </>
