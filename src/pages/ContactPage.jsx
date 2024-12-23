@@ -70,7 +70,7 @@ const ContactPage = () => {
 
       {!isMobile && <CursorHover visible={cursorVisible} />}
 
-      <section className="contact__section-hero container-bem-mbl">
+      <section className="contact__section-hero container-bem-mbl d--vh-100">
         <div className="d--vh-100 flex flex--col">
           {isMobile ? (
             <>

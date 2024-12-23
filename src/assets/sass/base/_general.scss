@@ -7,11 +7,11 @@
   --full-vh: 100vh;
 }
 
-@supports (height: 100dvh) {
-  :root {
-    --full-vh: 100dvh;
-  }
-}
+// @supports (height: 100dvh) {
+//   :root {
+//     --full-vh: 100dvh;
+//   }
+// }
 
 * {
   margin: 0;
