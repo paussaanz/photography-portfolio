@@ -142,11 +142,11 @@ const Footer = () => {
     }
 
     const initialImages = [
-        { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: isMobile ? '0px' : '120px', scale: 0.8, zIndex: 1 },
-        { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: '450px', left: isMobile ? '0px' : '440px', scale: 0.8, zIndex: 2 },
-        { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: isMobile ? '300px' : '230px', left: isMobile ? '100px' : '400px', scale: 0.8, zIndex: 3 },
+        { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: isMobile ? '50px' : '120px', scale: 0.8, zIndex: 1 },
+        { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: isMobile ? '530px' : '450px', left: isMobile ? '80px' : '440px', scale: 0.8, zIndex: 2 },
+        { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: isMobile ? '240px' : '230px', left: isMobile ? '200px' : '400px', scale: 0.8, zIndex: 3 },
         { url: "/images/stickers/face-sticker.svg", rotation: "-50deg", top: isMobile ? '400px' : '500px', left: isMobile ? '0px' : '150px', scale: 0.6, zIndex: 4 },
-        { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: '350px', left: isMobile ? '100px' : undefined, right: isMobile ? '0px' : '100px', scale: 0.9, zIndex: 5 },
+        { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: isMobile ? '380px' : '350px', left: isMobile ? '200px' : undefined, right: isMobile ? '0px' : '100px', scale: 0.9, zIndex: 5 },
     ];
 
     const [images, setImages] = useState(initialImages);
@@ -164,7 +164,7 @@ const Footer = () => {
         <div data-hover="a" className="footer__section">
             <section className="footer__section-carrusel">
                 {isMobile ? (
-                   <div className="footer__section-mobile position--relative">
+                   <div className="footer__section-mobile position--relative container-bem-mbl">
                    <h1
                        onClick={() => handleLinkClick('/contact')}
                        className="text-color--secondary"

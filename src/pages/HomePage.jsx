@@ -9,13 +9,14 @@ import HomeSeo from "./SEO/HomeSeo";
 import LoaderHomePage from "../components/Loaders/LoaderHomePage";
 import { useTransition } from "../contexts/transitionContext";
 import ImageBackground from "../components/HomePage/VideoBackground";
+import { useMediaQuery } from "../contexts/MediaQueryContext";
 
 
 const HomePage = ({ isVisited }) => {
   const homepageRef = useRef(null);
   const location = useLocation();
   const { handleLinkClick } = useTransition();
-
+  const { isMobile } = useMediaQuery();
   const { scrollYProgress } = useScroll({
     target: homepageRef,
     offset: ["start start", "center center"],
@@ -26,8 +27,11 @@ const HomePage = ({ isVisited }) => {
 
   useEffect(() => {
     const updateTransforms = (value) => {
-      scale.set(1 - 0.2 * value);
-      rotate.set(0 + 0.7 * value);
+      const scaleFactor = isMobile ? 0.1 : 0.2; // Less aggressive on mobile
+      const rotateFactor = isMobile ? 0.4 : 0.7; // Adjust rotation intensity
+
+      scale.set(1 - scaleFactor * value);
+      rotate.set(0 + rotateFactor * value);
     };
 
     const unsubscribe = scrollYProgress.onChange(updateTransforms);
@@ -86,9 +90,9 @@ const HomePage = ({ isVisited }) => {
       >
         <motion.div
           key={location.pathname}
-          style={{ scale, rotate }}
+          style={{ scale, rotate, willChange: "transform" }}
           className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center"
-        > 
+        >
           <TextAnimation
             text="SYP! is where creativity and technology collide. With a focus on design, programming, and photography, I turn ideas into visually striking and functionally seamless experiences that leave a mark. It’s not just about what’s created—it’s about how it connects, inspires, and stands out."
           />
