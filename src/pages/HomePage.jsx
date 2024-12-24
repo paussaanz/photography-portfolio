@@ -33,7 +33,7 @@ const HomePage = ({ isVisited }) => {
       scale.set(1 - scaleFactor * value);
       rotate.set(0 + rotateFactor * value);
     };
-
+  
     const unsubscribe = scrollYProgress.onChange(updateTransforms);
 
     return () => {

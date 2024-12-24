@@ -141,7 +141,7 @@ const Footer = () => {
         return null;
     }
 
-    const initialImages = [
+    const initialImages = [ 
         { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '250px', left: isMobile ? '50px' : '120px', scale: 0.8, zIndex: 1 },
         { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: isMobile ? '530px' : '450px', left: isMobile ? '80px' : '440px', scale: 0.8, zIndex: 2 },
         { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: isMobile ? '240px' : '230px', left: isMobile ? '200px' : '400px', scale: 0.8, zIndex: 3 },
