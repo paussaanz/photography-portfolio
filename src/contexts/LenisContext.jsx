@@ -8,15 +8,17 @@ export default LenisContext;
 
 export const LenisProvider = ({ children }) => {
   const location = useLocation();
-  const lenisRef = useRef(null); // Instancia de Lenis
+  const lenisRef = useRef(null); // Lenis instance
+  const [isLenisReady, setIsLenisReady] = useState(false); // Track readiness
 
   useEffect(() => {
-    // Crear instancia de Lenis una vez
     if (!lenisRef.current) {
+      // Initialize Lenis
       lenisRef.current = new Lenis({
         smoothWheel: true,
-        lerp: 0.1,
-        duration: 1.2,
+        smoothTouch: true, // Ensure smooth scrolling on touch devices
+        lerp: 0.15,
+        duration: 1,
       });
 
       const raf = (time) => {
@@ -24,24 +26,28 @@ export const LenisProvider = ({ children }) => {
         requestAnimationFrame(raf);
       };
       requestAnimationFrame(raf);
+
+      setIsLenisReady(true); // Mark as ready
     }
 
     return () => {
       lenisRef.current?.destroy();
       lenisRef.current = null;
+      setIsLenisReady(false);
     };
   }, []);
 
   useEffect(() => {
-    if (lenisRef.current) {
+    if (isLenisReady && lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     }
-  }, [location.pathname]);
+  }, [location.pathname, isLenisReady]);
 
+  // Ensure `lenis` is only provided when ready
   const lenisContextValue = {
-    lenis: lenisRef.current,
-    stop: () => lenisRef.current?.stop(), // Detener el scroll con Lenis
-    start: () => lenisRef.current?.start(), // Reactivar el scroll con Lenis
+    lenis: isLenisReady ? lenisRef.current : null,
+    stop: () => lenisRef.current?.stop(),
+    start: () => lenisRef.current?.start(),
   };
 
   return (

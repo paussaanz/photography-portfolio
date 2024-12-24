@@ -117,12 +117,12 @@
 
   &_button--fixed-bottom {
     position: fixed;
-    bottom: -15px;
+    bottom: 12px;
     left: 94%;
     transform: translate(-50%, -50%);
     z-index: 10;
     text-align: center;
-    color: var(--cor-primary);
+    color: var(--cor-secondary);
     width: 100%;
 
     @include media-breakpoint-down(md){

@@ -17,7 +17,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation, number, subtitle })
 
   const { lenis } = useContext(LenisContext);
 
-  // Toggle grid/gallery view and scroll to top of the gallery 
+  // Toggle grid/gallery view and scroll to top of the gallery
   const handleChangeOrder = () => {
     setOrdered((prev) => !prev);
     setDisabledButtons(true);
@@ -25,6 +25,7 @@ const PortfolioDetailPage = ({ images, title, textAnimation, number, subtitle })
     setTimeout(() => {
       setDisabledButtons(false);
 
+      console.log(lenis, "probandooo")
       if (imagesSectionRef.current && lenis) {
         lenis.scrollTo(imagesSectionRef.current.offsetTop, { immediate: true });
       } else {
@@ -88,13 +89,13 @@ const PortfolioDetailPage = ({ images, title, textAnimation, number, subtitle })
             }`}
         >
           <Button
-            className="text-color--primary"
+            className="text-color--secondary"
             text="Grid"
             onClick={handleChangeOrder}
           />
           |
           <Button
-            className="text-color--primary"
+            className="text-color--secondary"
             text="Gallery"
             onClick={handleChangeOrder}
           />
