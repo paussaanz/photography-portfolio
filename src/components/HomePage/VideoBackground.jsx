@@ -13,14 +13,14 @@ const ImageBackground = ({ images, height }) => {
         const images = container.querySelectorAll('img');
 
         // Set the initial scale to 1
-        gsap.set(images, { scale: 0.1 });
+        gsap.set(images, { scale: 1 });
 
         // Animate the scale on scroll
         gsap.to(images, {
             scale: 1.5, // Incrementa el tamaño al 150%
             scrollTrigger: {
                 trigger: container,
-                start: 'top bottom', // Comienza cuando el contenedor entra en la vista
+                start: 'top top', // Comienza cuando el contenedor entra en la vista
                 end: 'bottom top',  // Termina cuando el contenedor sale de la vista
                 scrub: true,       // Sincroniza con el scroll
             },

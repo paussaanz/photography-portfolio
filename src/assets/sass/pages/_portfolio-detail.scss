@@ -23,13 +23,20 @@
   &_button-close-overlay {
     position: absolute;
     top: 3%;
-    left: 3%;
     background: none;
     border: none;
     font-size: 3rem;
-    color: black;
+    color: var(--cor-primary);
     cursor: pointer;
     z-index: 100;
+
+    @include media-breakpoint-up(md) {
+      left: 3% !important;
+    }
+
+    @include media-breakpoint-down(md) {
+      right: 3% !important;
+    }
 
     &:hover {
       color: red;
@@ -125,7 +132,7 @@
     color: var(--cor-secondary);
     width: 100%;
 
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       display: none;
     }
   }
@@ -171,6 +178,7 @@
   &__mbl {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
     .gallery-grid__item {
       height: 100% !important;
       width: 100% !important;

@@ -6,6 +6,7 @@ import ContactPageSeo from "./SEO/ContactPageSeo";
 import CursorHover from "../components/Cursor/CursorHover";
 import { useMediaQuery } from "../contexts/MediaQueryContext";
 import { contactLinks } from "../assets/js/images";
+import { useTransition } from "../contexts/transitionContext";
 
 const ContactPage = () => {
   const [hovered, setHovered] = useState(false);
@@ -13,6 +14,7 @@ const ContactPage = () => {
   const { isMobile } = useMediaQuery();
   const text = "Click, design, develop";
   const [activeIndex, setActiveIndex] = useState(-1);
+  const { handleLinkClick } = useTransition()
 
   
   // Flashing letter animation
@@ -61,7 +63,7 @@ const ContactPage = () => {
                     If you have a project in mind,
                   </span>
                   <span className="block--display">
-                    <a href="/contact/form" className="text-color--primary "><u>reach out</u></a> today and let's create
+                    <a onClick={() => {handleLinkClick('/contact/form') }} className="text-color--primary "><u>reach out</u></a> today and let's create
                   </span>
                   <span className="block--display">
                     something amazing together!
@@ -69,7 +71,7 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="contact__logo-mbl d--h-100">
-                <a href="/contact/form" className="text-color--primary "><Scene3DContact /></a>
+                <a onClick={() => {handleLinkClick('/contact/form') }} className="text-color--primary "><Scene3DContact /></a>
               </div>
             </>
           ) : (
