@@ -1,13 +1,14 @@
 import { useState } from "react";
-import AnimatedButton from "../AnimatedButton/AnimatedButton";
-import ThemeButton from "../General/Buttons/ThemeButton";
 import ContactFormInput from "./ContactFormInput";
 import ContactFormSelector from "./ContactFormSelector";
 import ContactFormSvg from "./ContactFormSvg";
 import axios from "axios";
 import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
+import { useFormik } from 'formik'
+import * as Yup from "yup";
 
 const ContactForm = () => {
+
   const initialFormData = {
     name: "",
     surname: "",
@@ -17,46 +18,63 @@ const ContactForm = () => {
     message: "",
   };
 
-  const [formData, setFormData] = useState(initialFormData);
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    surname: Yup.string().required("Surname is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    website: Yup.string().notRequired(),
+    company: Yup.string().required("Company name is required"),
+    message: Yup.string().required("Message is required"),
+    services: Yup.array().required("Please select a service"),
+    newOrRedesign: Yup.array().required("Please select an option"),
+    deadline: Yup.string().required("Please select a deadline"),
+    budget: Yup.string().required("Please select a budget"),
+  });
+
+  const {values, handleSubmit, setFieldValue, errors} = useFormik({
+    initialValues: initialFormData,
+    validationSchema,
+    onSubmit: values => {
+      setLoading(true);
+
+      axios.post("https://photography-api-jkt7.onrender.com/api/send-email", values)
+        .then((res) => {
+          setSuccess(true);
+          setLoading(false)
+
+          setTimeout(() => {
+            setSuccess(false);
+          }, 2000);
+        })
+        .catch((err) => console.error("Error sending email:", err))
+        .finally(() => setLoading(false))
+
+      // Reset form
+      setFormData(initialFormData);
+
+      // Trigger selector reset
+      setReset(true);
+      setTimeout(() => setReset(false), 0);
+    },
+  });
+
   const [reset, setReset] = useState(false); // Resets selectors
   const [focusedField, setFocusedField] = useState(null); // Tracks focused input field
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+
   const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    setFieldValue(field, value)
   };
 
   const handleFocus = (field) => setFocusedField(field);
   const handleBlur = () => setFocusedField(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    axios.post("https://photography-api-jkt7.onrender.com/api/send-email", formData)
-      .then((res) => {
-        setSuccess(true);
-        setLoading(false)
-
-        setTimeout(() => {
-          setSuccess(false);
-        }, 2000);
-      })
-      .catch((err) => console.error("Error sending email:", err))
-      .finally(() => setLoading(false))
-
-    // Reset form
-    setFormData(initialFormData);
-
-    // Trigger selector reset
-    setReset(true);
-    setTimeout(() => setReset(false), 0);
-  };
-
   // Render a single input
-  const renderInput = (id, name, type, label, value, required = false) => (
+  const renderInput = (id, name, type, label, value, required = false, error) => (
     <ContactFormInput
+      error={error}
       id={id}
       name={name}
       type={type}
@@ -76,23 +94,27 @@ const ContactForm = () => {
       question: "What services are you interested in?",
       key: "services",
       answers: ["Web Design", "Web Development", "E-commerce", "Maintenance"],
+      error: errors.services
     },
     {
       question: "Is it a new website or a rebuild?",
       key: "newOrRedesign",
       answers: ["New", "Redesign", "Partial", "Updates"],
+      error: errors.newOrRedesign
     },
     {
       unique: true,
       question: "When should it be ready?",
       key: "deadline",
       answers: ["ASAP", "1-2 months", "3–6 months", "Flexible"],
+      error: errors.deadline
     },
     {
       unique: true,
       question: "What's your budget?",
       key: "budget",
       answers: ["<$1K", "$1K–$5K", "$5K–$10K", "$10K+"],
+      error: errors.budget
     },
   ];
 
@@ -108,26 +130,28 @@ const ContactForm = () => {
           <h2 className="text-transform--uppercase text-color--primary h6">About You</h2>
           <div className="d--h-100 flex flex--col flex--j-between">
             <div className="flex flex--row g--2">
-              {renderInput("name", "name", "text", "Name", formData.name, true)}
-              {renderInput("surname", "surname", "text", "Surname", formData.surname, true)}
+              {renderInput("name", "name", "text", "Name", values.name, true, errors.name)}
+              {renderInput("surname", "surname", "text", "Surname", values.surname, true, errors.surname)}
             </div>
-            {renderInput("email", "email", "email", "Email", formData.email, true)}
-            {renderInput("website", "website", "url", "Current Website", formData.website)}
-            {renderInput("company", "company", "text", "Company Name", formData.company, true)}
+            {renderInput("email", "email", "email", "Email", values.email, true, errors.email)}
+            {renderInput("website", "website", "url", "Current Website", values.website, errors.website)}
+            {renderInput("company", "company", "text", "Company Name", values.company, true, errors.company)}
 
             <div className="contact__form-input-data-area">
               <textarea
                 id="message"
                 name="message"
                 placeholder=""
-                value={formData.message}
+                value={values.message}
                 required
                 rows="10"
                 onChange={(e) => handleInputChange("message", e.target.value)}
                 onFocus={() => handleFocus("message")}
                 onBlur={handleBlur}
+                error={errors.message}
               />
               <label htmlFor="message">Message</label>
+              {errors.message && <p className="contact__form-input-error">{errors.message}</p>}
             </div>
           </div>
         </div>
@@ -135,7 +159,7 @@ const ContactForm = () => {
         {/* About Your Idea Section */}
         <div className="contact__form-flex--column g--5">
           <h2 className="text-transform--uppercase text-color--primary h6">About Your Idea</h2>
-          <div className="d--h-100 flex flex--col flex--j-between">
+          <div className="d--h-100 flex flex--col flex--j-between text-color--primary">
             {selectors.map((selector, index) => (
               <ContactFormSelector
                 key={index}
@@ -144,6 +168,7 @@ const ContactForm = () => {
                 reset={reset}
                 unique={selector.unique}
                 onChange={(value) => handleInputChange(selector.key, value)}
+                errors={selector.error}
               />
             ))}
           </div>
@@ -160,12 +185,11 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
-
-        {/* Theme Toggle */}
-        <ThemeButton />
       </div>
     </form>
   );
 };
 
 export default ContactForm;
+
+

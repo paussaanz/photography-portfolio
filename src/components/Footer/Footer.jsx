@@ -45,20 +45,6 @@ const Footer = () => {
         return initialImages;
     };
 
-
-    // const initialImages = [
-    //     { url: "/images/stickers/connect-sticker.svg", rotation: "20deg", top: '20%', left: isMobile ? '60px' : '12%', scale: 0.8, zIndex: 1 },
-    //     { url: "/images/stickers/syp-sticker.svg", rotation: "-30deg", top: isMobile ? '480px' : '52%', left: isMobile ? '90px' : '40%', scale: 0.8, zIndex: 2 },
-    //     { url: "/images/stickers/tortoise-sticker.svg", rotation: "10deg", top: isMobile ? '220px' : '34%', left: isMobile ? '180px' : '32%', scale: 0.8, zIndex: 3 },
-    //     { url: "/images/stickers/face-sticker.svg", rotation: "-50deg", top: isMobile ? '360px' : '62%', left: isMobile ? '20px' : '16%', scale: 0.6, zIndex: 4 },
-    //     { url: "/images/stickers/syp-sticker-2.svg", rotation: "0deg", top: isMobile ? '420px' : '45%', left: isMobile ? '95%' : '76%', scale: 1.2, zIndex: 5 },
-    //     { url: "/images/stickers/click-sticker.svg", rotation: "-10deg", top: isMobile ? '340px' : '63%', left: isMobile ? '210px' : '60%', scale: 0.7, zIndex: 6 },
-    //     { url: "/images/stickers/sypppp-sticker.svg", rotation: "30deg", top: isMobile ? '400px' : '74%', left: isMobile ? '250px' : '37%', scale: 0.7, zIndex: 7 },
-    //     { url: "/images/stickers/programmed-sticker.svg", rotation: "-5deg", top: isMobile ? '460px' : '210px', left: isMobile ? '270px' : '59%', scale: 0.7, zIndex: 8 },
-    // ];
-
-
-
     const [images, setImages] = useState(() => useImagesForTheme(isMobile));
 
     // Update images when the theme or isMobile changes
@@ -123,7 +109,7 @@ const Footer = () => {
                                 rotate: image.rotation,
                                 position: "absolute",
                                 width: isMobile ? 200 : 250,
-                                height: isMobile ? 200 : 250,
+                                height: 'auto',
                                 top: image.top,
                                 left: image.left,
                                 right: image.right,

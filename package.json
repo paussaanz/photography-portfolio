@@ -17,6 +17,7 @@
     "@react-three/fiber": "^8.17.10",
     "axios": "^1.7.9",
     "flubber": "^0.4.2",
+    "formik": "^2.4.6",
     "framer-motion": "^11.11.8",
     "gsap": "^3.12.5",
     "lenis": "^1.1.13",
@@ -30,7 +31,8 @@
     "three-stdlib": "^2.34.0",
     "troika-three-text": "^0.52.2",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^0.21.1"
+    "vite-plugin-pwa": "^0.21.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

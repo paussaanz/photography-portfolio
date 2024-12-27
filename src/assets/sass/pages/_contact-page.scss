@@ -121,7 +121,7 @@
 
   /*FORM*/
   &__form-container {
-    padding: 8.5rem 20px 4rem 20px;
+    padding: 8.5rem 20px 6rem 20px;
     background-color: var(--cor-light);
     height: 100vh;
 
@@ -148,6 +148,14 @@
     }
   }
 
+  &__form-input-error {
+    font-size: 14px;
+    font-family: gamilia;
+    color: var(--cor-secondary);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
   &__form-input-data {
     height: 30px;
     width: 100%;
@@ -162,9 +170,10 @@
       border-bottom: 2px solid var(--cor-primary);
       background-color: transparent;
       outline: none; // Quita el recuadro de focus
+      color: var(--cor-primary);
 
-      &:focus + label,
-      &:not(:placeholder-shown) + label {
+      &:focus+label,
+      &:not(:placeholder-shown)+label {
         bottom: 35px;
         color: var(--cor-primary);
       }
@@ -211,18 +220,16 @@
         background: transparent;
         outline: none;
         overflow: hidden;
-      }
-
-      textarea#message:focus {
-        border-bottom: 2px solid var(--cor-primary);
+        color: var(--cor-primary);
+        font-family: gunterz;
       }
 
       textarea#message::placeholder {
         color: transparent;
       }
 
-      textarea#message:focus + label,
-      textarea#message:not(:placeholder-shown) + label {
+      textarea#message:focus+label,
+      textarea#message:not(:placeholder-shown)+label {
         bottom: 110px;
         /* Adjust based on textarea height */
         color: var(--cor-primary);

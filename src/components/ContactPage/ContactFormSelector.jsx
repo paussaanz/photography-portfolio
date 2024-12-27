@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
 
-const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => {
+const ContactFormSelector = ({ question, answers, reset, onChange, unique, errors }) => {
     const [selectedButtons, setSelectedButtons] = useState([]);
 
     useEffect(() => {
@@ -10,6 +10,7 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => 
         }
     }, [reset]);
 
+    console.log(question)
     const handleButtonClick = (button) => {
         if (unique) {
             setSelectedButtons((prev) => {
@@ -46,7 +47,10 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => 
 
     return (
         <div className="flex flex--col selector-area">
-            <h3 className="text-transform--uppercase b6 m--b-4">{question}</h3>
+            <div className="m--b-2">
+                <h3 className="text-transform--uppercase b6">{question}</h3>
+                {errors && <p className="contact__form-input-error">{errors}</p>}
+            </div>
             <div className="flex flex--wrap g--2">
                 {groupedAnswers.map((group, index) => (
                     <div className="flex g--2" key={index}>
@@ -57,6 +61,7 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique }) => 
                                 onClick={() => handleButtonClick(answer)}
                                 isSelected={selectedButtons.includes(answer)}
                             />
+
                         ))}
                     </div>
                 ))}

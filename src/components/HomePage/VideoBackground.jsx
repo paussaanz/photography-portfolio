@@ -20,7 +20,7 @@ const ImageBackground = ({ images, height }) => {
             scale: 1.5, // Incrementa el tamaño al 150%
             scrollTrigger: {
                 trigger: container,
-                start: 'top top', // Comienza cuando el contenedor entra en la vista
+                start: 'top top+=50px', // Comienza cuando el contenedor entra en la vista
                 end: 'bottom top',  // Termina cuando el contenedor sale de la vista
                 scrub: true,       // Sincroniza con el scroll
             },

@@ -22,7 +22,7 @@ const NewAnimatedButton = ({ text, onClick, isSelected, extraClassNames }) => {
     <div
       data-hover="a"
       onClick={handleClick}
-      className={`new-animated-button ${extraClassNames || ""} ${isSelected ? "selected" : ""}`}
+      className={`new-animated-button text-color--primary ${extraClassNames || ""} ${isSelected ? "selected" : ""}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

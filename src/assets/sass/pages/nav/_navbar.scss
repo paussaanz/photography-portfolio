@@ -120,7 +120,7 @@
     right: 0;
     padding: 1rem;
     width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1050;
 
     &::before {
@@ -190,11 +190,11 @@
   }
 }
 
-.glow-text {
-  text-shadow: -0.05em 0 0.02em var(--cor-light), 0 0 0.3em var(--cor-light);
+// .glow-text {
+//   text-shadow: -0.05em 0 0.02em var(--cor-light), 0 0 0.3em var(--cor-light);
 
-  color: var(--cor-light);
-  /* Blanco para resaltar el efecto */
+//   color: var(--cor-light);
+//   /* Blanco para resaltar el efecto */
 
-  /* Opcional: Mejora la visibilidad del glow */
-}
+//   /* Opcional: Mejora la visibilidad del glow */
+// }

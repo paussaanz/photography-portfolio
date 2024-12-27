@@ -434,23 +434,23 @@ export const portfolioParallaxHero = [
 
 export const editorialsParallaxHero = [
   {
-    src: Music7M,
+    src: Greece6,
     y: " md",
   },
   {
-    src: Music6M,
+    src: Tanzania3,
     y: "md",
   },
   {
-    src: Music2M,
+    src: Dolomites11H,
     y: "lg",
   },
   {
-    src: Music3M,
+    src: Tanzania1,
     y: "sm",
   },
   {
-    src: Music4M,
+    src: Dolomites7H,
     y: "sm",
   },
 ];

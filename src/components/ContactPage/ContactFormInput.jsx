@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactFormInput = ({ id, name, type, label, placeholder, value, onChange, required, onFocus, onBlur }) => {
+const ContactFormInput = ({ id, name, type, label, placeholder, value, onChange, required, onFocus, onBlur, error }) => {
     return (
         <div className="contact__form-input-data">
             <input
@@ -15,6 +15,7 @@ const ContactFormInput = ({ id, name, type, label, placeholder, value, onChange,
                 onBlur={onBlur}
             />
             <label htmlFor={id}>{label}</label>
+            {error && <p className="contact__form-input-error">{error}</p>}
         </div>
     );
 };
