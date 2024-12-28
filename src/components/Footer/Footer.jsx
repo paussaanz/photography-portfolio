@@ -16,10 +16,6 @@ const Footer = () => {
     const { theme } = useTheme();
     const { t } = useTranslation();
 
-    const isHidden = HIDDEN_ROUTES.includes(pathname);
-    if (isHidden) {
-        return null;
-    }
 
 
     const useImagesForTheme = (isMobile) => {
@@ -47,12 +43,18 @@ const Footer = () => {
         return initialImages;
     };
 
-    const [images, setImages] = useState(() => useImagesForTheme(isMobile));
 
+    const [images, setImages] = useState(() => useImagesForTheme(isMobile));
     // Update images when the theme or isMobile changes
     useEffect(() => {
         setImages(useImagesForTheme(isMobile));
     }, [theme, isMobile]);
+
+    const isHidden = HIDDEN_ROUTES.includes(pathname);
+
+    if (isHidden) {
+        return null;
+    }
 
     const bringToFront = (index) => {
         const maxZIndex = Math.max(...images.map((img) => img.zIndex));

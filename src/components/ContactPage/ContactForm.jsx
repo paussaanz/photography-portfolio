@@ -6,9 +6,10 @@ import axios from "axios";
 import NewAnimatedButton from "../NewAnimatedButton/NewAnimatedButton";
 import { useFormik } from 'formik'
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const ContactForm = () => {
-
+  const { t } = useTranslation();
   const initialFormData = {
     name: "",
     surname: "",
@@ -31,7 +32,7 @@ const ContactForm = () => {
     budget: Yup.string().required("Please select a budget"),
   });
 
-  const {values, handleSubmit, setFieldValue, errors} = useFormik({
+  const { values, handleSubmit, setFieldValue, errors } = useFormik({
     initialValues: initialFormData,
     validationSchema,
     onSubmit: values => {
@@ -78,7 +79,7 @@ const ContactForm = () => {
       id={id}
       name={name}
       type={type}
-      label={label}
+      label={`contact.form.input.${label}`}
       placeholder=""
       value={value}
       onChange={(value) => handleInputChange(name, value)}
@@ -191,5 +192,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-

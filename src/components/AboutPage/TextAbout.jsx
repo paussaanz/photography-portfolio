@@ -88,7 +88,7 @@ const TextAbout = () => {
             <div className="about__text-content container-bem-mbl text-transform--uppercase text-color--primary align-content--center">
                 <p className="p--b-5">
                     {t("about.texts.0")}
-                    <span className="about__text-content-span">{t("about.keywords.0")}</span> {t("about.texts.1")}
+                    <span className="about__text-content-span">{t("about.keywords.0")}</span>{t("about.texts.1")}
                     {t("about.texts.2")}
                     <span className="about__text-content-span">{t("about.keywords.1")}</span>{t("about.texts.3")}
                     {t("about.texts.4")}

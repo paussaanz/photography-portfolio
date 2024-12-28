@@ -66,6 +66,10 @@
   "editorials.all.bySYP1": "PHOTOGRAPHY AND",
   "editorials.all.bySYP2": " DESIGN BY .SYP!",
 
+  "editorials.cards.greece.title": "Greece",
+  "editorials.cards.tanzania.title": "Tanzania",
+  "editorials.cards.dolomites.title": "Dolomites",
+
   "editorials.greece.title": "Seafaring Greece",
   "editorials.greece.subtitles": ["blue horizons", "Sail style", "wave makers"],
   "editorials.greece.heroText": "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.",
@@ -155,5 +159,15 @@
   "about.favourites.photo3": "\"Gravity in Motion\"",
   "about.favourites.photo4": "\"Roadside Bond\"",
   "about.favourites.photo5": "\"Chasing Liquid Mountains\"",
-  "about.favourites.photo6": "\"Timeless Pause\""
+  "about.favourites.photo6": "\"Timeless Pause\"",
+
+  "contact.animatedText.mobile": "Click, design, develop",
+  "contact.texts.mobile": [
+    "If you have a project in mind,",
+    "reach out",
+    " today and let's create",
+    "something amazing together!"
+  ],
+  "contact.texts.desktop": ["Click, design, develop", "Let's collaborate!"],
+  "contact.form.input": {}
 }
