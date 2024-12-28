@@ -7,6 +7,8 @@ import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./as
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
 import LanguageSwitcher from "./components/General/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+
 // import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
@@ -27,7 +29,7 @@ function App() {
   const [initialPath, setInitialPath] = useState(location.pathname); // Tracks the first path user visited
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isMobile } = useMediaQuery();
-
+  const { t } = useTranslation();
   // Clear localStorage key on page loadc
   useEffect(() => {
     localStorage.removeItem("visitedWebsite");
@@ -64,7 +66,6 @@ function App() {
 
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <FloatingButton />
-        <LanguageSwitcher />
         {!isMobile && <CursorTrail />}
 
         <div data-barba-namespace="home">
@@ -86,29 +87,22 @@ function App() {
                     <PortfolioDetailPage
                       title="photo   shoots"
                       images={portfolioDetails.photoshoots}
-                      textAnimation={
-                        isMobile
-                          ? "Fashion photography captures identity and expression, showcasing creativity, innovation, and artistry, vividly highlighting the transformative power of clothing to reflect individuality."
-                          : "A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture."
-                      }
+                      textAnimation={t(`portfolio.detail.photoshoots.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="01"
-                      subtitle="THE WORLD LOOKS BETTER WHEN YOU’RE LOOKING FOR THE SHOT"
+                      subtitle={t("portfolio.detail.photoshoots.subtitle")}
                     />
                   }
                 />
+
                 <Route
                   path="/portfolio/music"
                   element={
                     <PortfolioDetailPage
-                      title="music"
+                      title={t("portfolio.detail.music.title")}
                       images={portfolioDetails.music}
-                      textAnimation={
-                        isMobile
-                          ? "Music photography transforms sound into visuals, capturing rhythmic moments and emotional energy. Each image conveys live performance vibrancy and the bond between artist and audience."
-                          : "The essence of sound is distilled into visual form through music photography, where captured moments vibrate with rhythm and emotion. Each image pulsates with the energy of live performances, intertwining the intimate connection between artist and audience. These photographs reveal the electric atmosphere of concerts, celebrating the power of music to unite and inspire."
-                      }
+                      textAnimation={t(`portfolio.detail.music.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="02"
-                      subtitle="STOP AND SHOOT—BECAUSE THE BEST MOMENTS WON’T WAIT"
+                      subtitle={t("portfolio.detail.music.subtitle")}
                     />
                   }
                 />
@@ -116,14 +110,11 @@ function App() {
                   path="/portfolio/nature"
                   element={
                     <PortfolioDetailPage
-                      title="nature"
+                      title={t("portfolio.detail.nature.title")}
                       images={portfolioDetails.nature}
-                      textAnimation={isMobile
-                        ? "Nature photography captures the delicate dance of light and shadow, bringing landscapes to life. Each frame reveals sublime beauty, vividly highlighting the intricate details of flora and fauna often overlooked."
-                        : "The intricate dance of light and shadow comes alive in nature photography, where landscapes breathe life into stillness. Each frame becomes a portal to the sublime, showcasing the beauty of flora and fauna often overlooked. These images invite contemplation and appreciation for the delicate balance of ecosystems, reminding us of our connection to the natural world."
-                      }
+                      textAnimation={t(`portfolio.detail.nature.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="03"
-                      subtitle="NATURE DOESN’T POSE, BUT IT ALWAYS DELIVERS."
+                      subtitle={t("portfolio.detail.nature.subtitle")}
                     />
                   }
                 />

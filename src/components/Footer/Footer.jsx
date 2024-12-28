@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTransition } from "../../contexts/transitionContext";
 import { contactLinks } from "../../assets/js/images";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
     const HIDDEN_ROUTES = ["/contact", "/contact/form"];
@@ -13,6 +14,7 @@ const Footer = () => {
     const { isMobile } = useMediaQuery();
     const { handleLinkClick } = useTransition();
     const { theme } = useTheme();
+    const { t } = useTranslation();
 
     const isHidden = HIDDEN_ROUTES.includes(pathname);
     if (isHidden) {
@@ -77,7 +79,7 @@ const Footer = () => {
                                 display: "inline-block",
                             }}
                         >
-                            LET’s HAVE A CHAT
+                            {t('footer.claim.mobile')}
                             <span
                                 data-hover="a"
                                 className="contact__logo-circle icon-arrow b6 text-color--secondary"
@@ -97,7 +99,7 @@ const Footer = () => {
             </section>
             <section className="footer__section-draggable-logo">
                 <div className="flex flex--j-center flex--a-center flex--nowrap d--h-100">
-                    {!isMobile && <h1 className="text-align--center text-color--secondary footer__section-draggable-title">LIFE IS TOO SHORT FOR BORING WEBSITES</h1>}
+                    {!isMobile && <h1 className="text-align--center text-color--secondary footer__section-draggable-title">{t("footer.claim.desktop")}</h1>}
                     {images.map((image, index) => (
                         <motion.div
                             key={index}
@@ -151,7 +153,7 @@ const Footer = () => {
                             </a>
                         ))}
                     </div>
-                    <p>Site by .SYP!</p>
+                    <p>{t("footer.small")}</p>
                 </div>
             </section>
         </div>

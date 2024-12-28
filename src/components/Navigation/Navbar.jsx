@@ -1,13 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo, useCallback, useContext, use, useEffect } from "react";
+import { useState, useMemo, useCallback, useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useTransition } from "../../contexts/transitionContext";
 import { useLocation } from "react-router-dom";
 import imgNav from "/images/dropdown.webp";
 import LenisContext from "../../contexts/LenisContext";
+import LanguageSwitcher from "../General/LanguageSwitcher";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const { handleLinkClick } = useTransition();
   const location = useLocation();
+  const { t } = useTranslation();
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
   const { stop, start } = useContext(LenisContext);
 
@@ -28,7 +31,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     };
   }, [isMenuOpen, start, stop]);
 
-
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), [setIsMenuOpen]);
   const togglePortfolioMenu = useCallback(() => setIsPortfolioOpen((prev) => !prev), []);
 
@@ -47,7 +49,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const linkListVariants = {
     hidden: {},
     visible: {
-      transition: { delayChildren: 0.5, staggerChildren: 0.2 }, // Reduced delays for faster animations
+      transition: { delayChildren: 0.5, staggerChildren: 0.2 },
     },
     exit: {
       transition: { staggerChildren: 0.15, staggerDirection: -1 },
@@ -64,14 +66,13 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     (links, isSubmenu = false) =>
       links.map((link, index) => {
         const targetPath =
-          link.toLowerCase() === "home"
+          link.toLowerCase() === t("navbar.home").toLowerCase()
             ? "/"
-            : isSubmenu && link.toLowerCase() === "see all"
+            : isSubmenu && link.toLowerCase() === t("navbar.portfolio.seeAll").toLowerCase()
               ? "/portfolio/"
               : isSubmenu
                 ? `/portfolio/${link.toLowerCase()}`
                 : `/${link.toLowerCase().replace(/\s+/g, "")}`;
-
 
         return (
           <motion.li
@@ -95,7 +96,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           </motion.li>
         );
       }),
-    [handleLinkClick, setIsMenuOpen]
+    [handleLinkClick, setIsMenuOpen, t]
   );
 
   return (
@@ -104,16 +105,24 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {/* Left Links */}
         <div className="cus-navbar__links">
           <ul className="cus-navbar__links--list">
-            {["Portfolio", "Editorials", "About SYP!"].map((link, index) => (
-              <li key={index} className="cus-navbar__links--item">
-                <a
-                  onClick={() => handleLinkClick(`/${link.toLowerCase().replace(/\s+/g, "")}`)}
-                  className="cus-navbar__links--item-link text-color--navbar-light"
-                >
-                  {link}
-                </a>
-              </li>
-            ))}
+            {[
+              { text: t("syp.commons.portfolio"), link: "portfolio" },
+              { text: t("syp.commons.editorials"), link: "editorials" },
+              { text: t("syp.commons.about"), link: "about" },
+            ].map(
+              ({ text, link }, index) => (
+                <li key={index} className="cus-navbar__links--item">
+                  <a
+                    onClick={() =>
+                      handleLinkClick(`/${link.toLowerCase().replace(/\s+/g, "")}`)
+                    }
+                    className="cus-navbar__links--item-link text-color--navbar-light"
+                  >
+                    {text}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
@@ -137,8 +146,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 onClick={() => handleLinkClick("/contact")}
                 className="cus-navbar__links--item-link text-color--navbar-light"
               >
-                Contact
+                {t("syp.commons.contact")}
               </a>
+            </li>
+            <li>
+              <LanguageSwitcher />
             </li>
           </ul>
         </div>
@@ -171,14 +183,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             initial="hidden"
             animate={isMenuOpen ? "visible" : "exit"}
           >
-            {renderLinks(["Home"])}
+            {renderLinks([t("navbar.home")])}
 
             <motion.li className="cus-navbar__mbl--links-item" variants={linkVariants}>
               <span
                 onClick={togglePortfolioMenu}
                 className="cus-navbar__links--item-link text-color--navbar-light glow-text"
               >
-                Portfolio
+                {t("syp.commons.portfolio")}
               </span>
               <AnimatePresence>
                 {isPortfolioOpen && (
@@ -190,7 +202,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     exit="exit"
                   >
                     {renderLinks(
-                      ["See all", "Nature", "Photoshoots", "Lifestyle", "Sports", "Music"],
+                      [
+                        t("navbar.portfolio.seeAll"),
+                        t("navbar.portfolio.nature"),
+                        t("navbar.portfolio.photoshoots"),
+                        t("navbar.portfolio.lifestyle"),
+                        t("navbar.portfolio.sports"),
+                        t("navbar.portfolio.music"),
+                      ],
                       true
                     )}
                   </motion.ul>
@@ -198,7 +217,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               </AnimatePresence>
             </motion.li>
 
-            {renderLinks(["Editorials", "About Syp!", "Contact"])}
+            {renderLinks([
+              t("syp.commons.editorials"),
+              t("syp.commons.about"),
+              t("syp.commons.contact"),
+            ])}
           </motion.ul>
           <motion.div
             className="cus-navbar__mbl--image-container"
@@ -209,8 +232,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             <div className="flex flex--j-center">
               <img
                 src={imgNav}
-                alt="Decorative"
-                className="cus-navbar__mbl--image"
+                alt="Stylized menu image"
+                width="300"
+                height="500"
+                loading="lazy"
               />
             </div>
           </motion.div>

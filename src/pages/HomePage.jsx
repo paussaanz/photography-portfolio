@@ -10,6 +10,7 @@ import LoaderHomePage from "../components/Loaders/LoaderHomePage";
 import { useTransition } from "../contexts/transitionContext";
 import ImageBackground from "../components/HomePage/VideoBackground";
 import { useMediaQuery } from "../contexts/MediaQueryContext";
+import { useTranslation } from "react-i18next";
 
 
 const HomePage = ({ isVisited }) => {
@@ -22,6 +23,9 @@ const HomePage = ({ isVisited }) => {
     offset: ["start start", "center center"],
   });
 
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language; // Obtiene el idioma actual
   const scale = useMotionValue(1);
   const rotate = useMotionValue(0);
 
@@ -33,7 +37,7 @@ const HomePage = ({ isVisited }) => {
       scale.set(1 - scaleFactor * value);
       rotate.set(0 + rotateFactor * value);
     };
-  
+
     const unsubscribe = scrollYProgress.onChange(updateTransforms);
 
     return () => {
@@ -65,12 +69,12 @@ const HomePage = ({ isVisited }) => {
               className="text-align--center"
             >
               <h1>
-                <span className="block--display">{t('home.hero.title.first.line')}</span>
-                <span className="h2 block--display">{t('home.hero.title.first.line')}</span>
+                <span className="block--display">{t('home.hero.title.firstLine')}</span>
+                <span className="h2 block--display">{t('home.hero.title.secondLine')}</span>
               </h1>
               <Button
                 onClick={() => handleLinkClick("/portfolio")}
-                text="See my work"
+                text={t('home.hero.callToAction')}
                 className="text-color--overlay"
               />
             </TextOverlay>
@@ -93,9 +97,7 @@ const HomePage = ({ isVisited }) => {
           style={{ scale, rotate, willChange: "transform" }}
           className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center"
         >
-          <TextAnimation
-            text="SYP! is where creativity and technology collide. With a focus on design, programming, and photography, I turn ideas into visually striking and functionally seamless experiences that leave a mark. It’s not just about what’s created—it’s about how it connects, inspires, and stands out."
-          />
+          <TextAnimation key={currentLanguage} text={t("home.section.textAnimation")} />
         </motion.div>
         <SwiperPortfolio />
       </section>
