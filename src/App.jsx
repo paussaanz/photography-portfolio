@@ -1,12 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Suspense, lazy, useContext, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import CursorTrail from "./components/Cursor/CursorTrail";
 import './assets/sass/style.scss';
 import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
-import LanguageSwitcher from "./components/General/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 // import WarZone from "./pages/WarZone";
@@ -75,8 +74,6 @@ function App() {
             </Suspense>
           </header>
 
-
-
           <main>
             <Suspense fallback={<div className="d--vh-100"></div>}>
               <Routes location={location}>
@@ -122,15 +119,11 @@ function App() {
                   path="/portfolio/lifestyle"
                   element={
                     <PortfolioDetailPage
-                      title="lifestyle"
+                      title={t("portfolio.detail.lifestyle.title")}
                       images={portfolioDetails.lifestyle}
-                      textAnimation={
-                        isMobile
-                          ? "Photography is a visual language, turning moments into art. My collection captures beauty, revealing emotions, truths, and the photographer’s connection to their environment while inviting fresh perspectives."
-                          : "Photography serves as a visual language, communicating emotions and hidden truths in every scene. My collection reflects everyday moments transformed into art, showcasing the beauty often overlooked. Each image stands as a testament to the connection between the photographer and their environment, inviting viewers to see the world through my eyes."
-                      }
+                      textAnimation={t(`portfolio.detail.lifestyle.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="04"
-                      subtitle="SEEING THE WORLD IN 24MM MAKES IT FEEL LIMITLESS"
+                      subtitle={t("portfolio.detail.lifestyle.subtitle")}
                     />
                   }
                 />
@@ -138,15 +131,11 @@ function App() {
                   path="/portfolio/sports"
                   element={
                     <PortfolioDetailPage
-                      title="sports"
+                      title={t("portfolio.detail.sports.title")}
                       images={portfolioDetails.sports}
-                      textAnimation={
-                        isMobile
-                          ? "Sports photography captures dynamic energy, turning fleeting moments into echoes of triumph and struggle. Each image reflects the pulse of competition, showcasing the action and spirit driving the game."
-                          : "In sports photography, dynamic energy transcends the frame, transforming fleeting moments of intensity into echoes of triumph and struggle. Each image resonates with the pulse of competition, capturing not just the action but the spirit that ignites the heart of the game. The lens reveals the determination and passion that drive athletes, inviting viewers to feel the thrill of victory and the weight of defeat."
-                      }
+                      textAnimation={t(`portfolio.detail.sports.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="05"
-                      subtitle="PHOTOGRAPHY MAKES THE UNSEEN IMPOSSIBLE TO IGNORE"
+                      subtitle={t("portfolio.detail.sports.subtitle")}
                     />
                   }
                 />

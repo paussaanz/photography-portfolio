@@ -108,7 +108,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             {[
               { text: t("syp.commons.portfolio"), link: "portfolio" },
               { text: t("syp.commons.editorials"), link: "editorials" },
-              { text: t("syp.commons.about"), link: "about" },
+              { text: t("syp.commons.about"), link: "aboutsyp!" },
             ].map(
               ({ text, link }, index) => (
                 <li key={index} className="cus-navbar__links--item">

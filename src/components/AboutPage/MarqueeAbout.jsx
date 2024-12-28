@@ -2,11 +2,13 @@ import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import SplitType from "split-type";
+import { useTranslation } from "react-i18next";
 
 const MarqueeAbout = () => {
   gsap.registerPlugin(ScrollTrigger);
   const marqueeRef = useRef(null);
   const splitInstances = useRef([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Initialize SplitType for all lines
@@ -94,13 +96,13 @@ const MarqueeAbout = () => {
     >
       <div className="marquee-about__inner">
         <div id="marqueeTop" className="about__marquee-part">
-          CREATIVE
+          {t("about.marquee.word1")}
         </div>
         <div id="marqueeMiddle" className="about__marquee-part">
-          Freelance
+          {t("about.marquee.word2")}
         </div>
         <div id="marqueeBottom" className="about__marquee-part">
-          DEVELOPER
+          {t("about.marquee.word3")}
         </div>
       </div>
     </div>

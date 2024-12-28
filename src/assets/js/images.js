@@ -487,19 +487,19 @@ export const portfolioCardAnimation = [
 export const editorialsCovers = [
   {
     src: EditorialCover1,
-    name: "GREECE",
+    name: "editorials.cards.greece.title",
     date: "0723",
     url: "/editorials/greece",
   },
   {
     src: EditorialCover2,
-    name: "TANZANIA",
+    name: "editorials.cards.tanzania.title",
     date: "0423",
     url: "/editorials/tanzania",
   },
   {
     src: EditorialCover3,
-    name: "DOLOMITES",
+    name: "editorials.cards.dolomites.title",
     date: "0624",
     url: "/editorials/dolomites",
   },
@@ -508,87 +508,81 @@ export const editorialsCovers = [
 export const editorialsDetails = {
   greece: {
     heroImage: { src: Greece7 },
-    title: "Seafaring Greece",
-    subtitles: ["blue horizons", "Sail style", "wave makers"],
-    heroText:
-      "Living on a sailing boat in Greece offers a unique and enchanting lifestyle surrounded by the breathtaking beauty of the Mediterranean. Imagine waking up to the gentle sounds of waves lapping against the hull and the soft caress of the sea breeze. Everyday life becomes a harmonious dance between the elements and the simplicity of living with the essentials. The open seas become your backyard, inviting you to explore hidden coves, secret beaches, and pristine coastlines.",
+    title: "editorials.greece.title",
+    subtitles: [
+      "editorials.greece.subtitles.0",
+      "editorials.greece.subtitles.1",
+      "editorials.greece.subtitles.2",
+    ],
+    heroText: "editorials.greece.heroText",
     fontSize: "8vw",
     firstSection: [{ src: Greece1 }, { src: Greece2 }, { src: Greece3 }],
-    firstSectionTitle:
-      "Exploring the Intriguing Blend of LIFESTYLE AND PERFORMANCE ON BOARD",
-    firstSectionText:
-      "This lifestyle fosters a deep connection with nature. From swimming in crystal-clear waters to sunbathing on the deck, the sea becomes your playground. Freshly caught fish, paired with local produce, create delectable meals enjoyed under the open sky. Evenings are a symphony of colors as the sunsets cast a warm golden glow over the horizon. With no fixed address, you have the freedom to sail from one idyllic island to another, discovering the rich history, vibrant culture, and charming coastal towns that Greece has to offer. Living on a sailing boat in Greece is an embodiment of freedom, simplicity, and a deep appreciation for the wonders of the natural world. It is an invitation to slow down, embrace the serenity of the sea, and create unforgettable memories against the backdrop of the stunning Greek landscape.",
-    firstSectionText2:
-      "Every corner of the Aegean Sea offers moments that beg to be captured through the lens. The tranquil mornings, with soft sunlight illuminating the water's surface, create a perfect setting for serene and atmospheric shots. Imagine the golden glow reflecting off the hull of the boat or the quiet elegance of the sails catching the first breeze of the day. These quiet beginnings, framed by the infinite blue of the sky and sea, set the stage for a photographer's dream.",
+    firstSectionTitle: "editorials.greece.firstSectionTitle",
+    firstSectionText: "editorials.greece.firstSectionText",
+    firstSectionText2: "editorials.greece.firstSectionText2",
     secondSection: [{ src: Greece4 }, { src: Greece5 }, { src: Greece6 }],
-    secondSectionText:
-      "As you sail through the islands, the changing landscapes provide an endless array of compositions, each offering its own unique character and visual allure. The vibrant greens of Skiathos’ pine forests stretch toward the sky, their dense canopies creating a rich, verdant frame for the coastline, where the sparkling turquoise waters shimmer with an almost otherworldly clarity. The interplay of light and shadow on the waves creates an ever-changing mosaic, perfect for capturing dynamic seascapes that seem to breathe with life. Nearby coves reveal secluded beaches with golden sands, offering intimate vignettes of untouched beauty, while rocky headlands extend into the sea, their jagged forms providing a dramatic contrast to the soft fluidity of the water. As the journey continues to Alonissos, the scenery shifts to a rugged, untamed charm. The towering cliffs, sculpted over centuries by the relentless forces of wind and water, rise majestically above the sea, their textured faces catching the warm glow of the sun. In the golden hours of dusk, these cliffs stand silhouetted against a sky painted in pastel hues of lavender, peach, and amber, creating a breathtaking juxtaposition that captures the timeless solitude of this island. Each island reveals a new story, a fresh palette of colors and textures, from the pristine waters and lush landscapes to the interplay of light and shadow that defines the ever-changing beauty of the Aegean. These natural wonders invite the viewer not only to admire but to feel the soul of the Greek islands, where the land, sea, and sky come together in perfect harmony.",
+    secondSectionText: "editorials.greece.secondSectionText",
     thirdSection: [{ src: Greece8 }, { src: Greece9 }],
-    thirdSectionTitle:
-      "Exploring the Breathtaking Landscapes of the Greek Islands",
+    thirdSectionTitle: "editorials.greece.thirdSectionTitle",
     thirdSectionText: [
-      "Each island in Greece unfolds its own story through its unique landscapes and enchanting charm. In Skiathos, lush pine forests cascade toward pristine shores, their vibrant greens contrasting with the crystalline turquoise waters that lap gently at the beaches. Alonissos captivates with its rugged cliffs and hidden coves, offering breathtaking views and a sense of untouched wilderness, while Skopelos showcases its iconic whitewashed chapels nestled among olive groves, blending human artistry with natural beauty.",
-      "Wandering through these islands feels like stepping into a living painting. Narrow, winding paths lead to picturesque villages where the simplicity of whitewashed houses is offset by bursts of vivid bougainvillea spilling from balconies. These serene settlements invite exploration, with unexpected delights around every corner—hidden tavernas serving freshly caught seafood, cozy cafes shaded by ancient trees, and historic churches that echo with centuries of tradition. Each moment on the islands offers a new perspective on their timeless allure.",
+      "editorials.greece.thirdSectionText.0",
+      "editorials.greece.thirdSectionText.1",
     ],
     fourthSection: [{ src: Greece10 }, { src: Greece11 }],
   },
   tanzania: {
     heroImage: { src: Tanzania6 },
-    title: "Tanzania Treasures",
-    subtitles: ["Endless Plains", "Wild Majesty", "Nature's Pulse"],
-    heroText:
-      "Tanzania's landscapes serve as an endless muse, inspiring both awe and introspection. From the expansive plains of the Serengeti, where the golden grasslands seemingly stretch to infinity, to the ethereal Ngorongoro Crater, a world within itself, every frame tells a story of timeless beauty. Through my photographs, I aim to transport viewers to these remarkable places, allowing them to witness the serenity of a sunrise painting the savannah in hues of gold or the majesty of an elephant gracefully roaming across the horizon. Tanzania's landscapes are a testament to the power and magnificence of nature, and it is my privilege to share these moments frozen in time.",
+    title: "editorials.tanzania.title",
+    subtitles: [
+      "editorials.tanzania.subtitles.0",
+      "editorials.tanzania.subtitles.1",
+      "editorials.tanzania.subtitles.2",
+    ],
+    heroText: "editorials.tanzania.heroText",
     fontSize: "7vw",
     firstSection: [{ src: Tanzania1 }, { src: Tanzania2 }, { src: Tanzania3 }],
-    firstSectionTitle:
-      "Immersing Yourself in the Raw Beauty and Spirit of the Wild",
-    firstSectionText:
-      "Life in Tanzania is an ever-changing spectacle of nature, where every moment is a chance to connect deeply with the wild. Whether you’re gazing at a lioness prowling the savannah or marveling at the elegance of giraffes silhouetted against the horizon, the untamed beauty of this land is impossible to ignore. Safari adventures through the Serengeti offer close encounters with Africa’s most iconic wildlife, while the Great Migration—a spectacle of millions of wildebeest and zebras crossing perilous rivers—reveals the relentless rhythm of life. Beyond the game drives, Tanzania’s local culture adds richness to every journey. Visiting a Maasai village unveils a way of life deeply intertwined with the land, offering insight into their traditions and resilience. Whether it's trekking the slopes of Kilimanjaro or walking the sands of Zanzibar’s beaches, Tanzania promises an unfiltered, unforgettable connection to the wild.",
-    firstSectionText2:
-      "Photographers find their muse in Tanzania’s ever-shifting light and dramatic landscapes. The golden hour bathes the savannah in a warm, magical glow, casting long shadows and igniting the horizon with vibrant colors. The stark beauty of the baobab trees, standing solitary in the vast plains, and the dust trails kicked up by herds on the move provide a canvas for storytelling through the lens. Each shot captures not just a moment but an emotion—a testament to the enduring power of the natural world.",
+    firstSectionTitle: "editorials.tanzania.firstSectionTitle",
+    firstSectionText: "editorials.tanzania.firstSectionText",
+    firstSectionText2: "editorials.tanzania.firstSectionText2",
     secondSection: [{ src: Tanzania4 }, { src: Tanzania5 }, { src: Tanzania6 }],
-    secondSectionText:
-      "Tanzania’s terrain is a kaleidoscope of natural wonders, each offering a distinct experience. The Ngorongoro Crater, often called the 'Eighth Wonder of the World,' is a microcosm of East Africa’s wildlife, its floor teeming with elephants, buffalo, and grazing antelope. To the north, Mount Kilimanjaro rises in quiet defiance, its glaciers gleaming against an endless blue sky. Trekking its forested slopes reveals unexpected surprises—playful monkeys swinging from branches, exotic birds flitting between trees, and an overwhelming sense of serenity as the summit comes into view. And then there’s Zanzibar, a tropical haven where white sands and crystal-clear waters invite rest and rejuvenation. Beneath the waves, coral reefs teem with vibrant marine life, while onshore, the scent of cloves and nutmeg fills the air. Every part of Tanzania feels alive, connected, and vibrant, inviting travelers to discover a place where the natural world still holds its dominion.",
+    secondSectionText: "editorials.tanzania.secondSectionText",
     thirdSection: [{ src: Tanzania7 }, { src: Tanzania8 }],
-    thirdSectionTitle: "Witnessing Tanzania's Awe-Inspiring Diversity",
+    thirdSectionTitle: "editorials.tanzania.thirdSectionTitle",
     thirdSectionText: [
-      "Tanzania is a land of contrasts, not only in its landscapes but in its people and traditions. In the Serengeti, you’ll find Maasai communities living in harmony with the land, their vibrant shukas (robes) a striking contrast to the earthy tones of the savannah. The rhythmic chants of their ceremonies echo ancient wisdom, connecting past and present in a way that feels timeless. Along the coastline, Zanzibar offers a cultural tapestry influenced by centuries of trade, where Persian, Arab, and African traditions converge.",
-      "Every experience in Tanzania is enriched by the connection between people and place. Whether you’re learning about the delicate balance of ecosystems from a local guide, sharing a meal prepared with the day’s fresh catch, or listening to the stories of elders beneath a sky thick with stars, Tanzania feels like more than just a trip—it feels like a return to something essential, a reminder of the beauty and resilience of life.",
+      "editorials.tanzania.thirdSectionText.0",
+      "editorials.tanzania.thirdSectionText.1",
     ],
-    fourthSection: [{ src: Tanzania9 }, { src: Tanzania10 }],
     fourthSection: [{ src: Tanzania9 }, { src: Tanzania10 }],
   },
   dolomites: {
     heroImage: { src: Dolomites1H },
-    title: "Stone horizons",
-    subtitles: ["towering peaks", "wild beauty", "timeless charm"],
-    heroText:
-      "Nestled in the heart of the Alps, the Dolomites offer an unparalleled escape into a world of rugged beauty and serene landscapes. Imagine waking to the golden glow of sunrise casting its warmth on jagged limestone peaks or wandering through lush meadows filled with wildflowers. Every day in this majestic region is an invitation to explore the harmonious blend of untamed wilderness and timeless alpine charm. From peaceful mountain lakes to dramatic cliffs, the Dolomites are a playground for adventurers and nature lovers alike.",
+    title: "editorials.dolomites.title",
+    subtitles: [
+      "editorials.dolomites.subtitles.0",
+      "editorials.dolomites.subtitles.1",
+      "editorials.dolomites.subtitles.2",
+    ],
+    heroText: "editorials.dolomites.heroText",
     fontSize: "9vw",
     firstSection: [
       { src: Dolomites2M },
       { src: Dolomites3M },
       { src: Dolomites4M },
     ],
-    firstSectionTitle:
-      "Embracing the Perfect Balance of Alpine ADVENTURE and TRANQUILITY",
-    firstSectionText:
-      "Life in the Dolomites offers a rare opportunity to live in harmony with some of the most striking landscapes on Earth. Whether you’re trekking through dense pine forests, where sunlight dances on the forest floor, or scaling sheer rock faces that challenge your endurance and skill, every moment here brings you closer to nature. Yet, the Dolomites are not just for adventurers—they’re also a haven for those seeking peace and quiet. The traditional alpine huts, known as 'rifugi,' offer more than just shelter; they are places where the warmth of a wood fire and a hearty meal, made from fresh local ingredients, create a sense of home. Signature dishes like polenta with melted cheese and speck, or freshly baked strudel, offer a taste of the region’s rich culinary heritage. As the day ends, the phenomenon of 'enrosadira'—the magical alpenglow—bathes the peaks in hues of pink and orange, creating moments of awe and reflection. This balance between exhilaration and serenity defines life in the Dolomites, making it a destination that speaks to both the body and the soul.",
-    firstSectionText2:
-      "For photographers and lovers of visual beauty, the Dolomites are a treasure trove of inspiration. Early mornings bring an ethereal quality to the landscape, as mist rises gently from the valleys and the first rays of sunlight illuminate the rugged peaks. Every detail here seems designed to be captured—from the mirror-like reflections of pristine lakes like Lago di Carezza and Lago di Braies, to the intricate wooden architecture of mountain villages framed by the backdrop of jagged cliffs. ",
+    firstSectionTitle: "editorials.dolomites.firstSectionTitle",
+    firstSectionText: "editorials.dolomites.firstSectionText",
+    firstSectionText2: "editorials.dolomites.firstSectionText2",
     secondSection: [
       { src: Dolomites5M },
       { src: Dolomites6M },
       { src: Dolomites7H },
     ],
-    secondSectionText:
-      "The Dolomites are a region of contrasts, where every turn reveals a new and awe-inspiring landscape. In the tranquil pastures of Val Gardena, rolling green hills are dotted with traditional farms and grazing cattle, offering a picture of alpine life that feels untouched by time. Travel a little further, and the scenery becomes more dramatic, with the towering spires of Tre Cime di Lavaredo dominating the horizon. These iconic peaks, with their sharp edges and sheer cliffs, are a testament to the power and beauty of natural forces. The lakes of the Dolomites add another layer of enchantment—Lago di Braies, with its emerald-green waters, seems like a gem hidden among the mountains, while Lago di Sorapis, with its almost surreal turquoise hue, invites quiet contemplation. Every step you take in this extraordinary region offers something new—a secluded grove where sunlight filters through ancient trees, a panoramic vista that leaves you breathless, or a narrow trail that winds its way through a rocky pass, leading to yet another hidden wonder. The Dolomites are not just a destination; they are a never-ending journey into the heart of nature’s most spectacular creations.",
+    secondSectionText: "editorials.dolomites.secondSectionText",
     thirdSection: [{ src: Dolomites8M }, { src: Dolomites9M }],
-    thirdSectionTitle:
-      "Revealing the Unique Character of Each Valley, Peak, and Alpine Village",
+    thirdSectionTitle: "editorials.dolomites.thirdSectionTitle",
     thirdSectionText: [
-      "Every corner of the Dolomites has its own distinct character and story, making this region a patchwork of unforgettable experiences. In Val di Funes, the iconic St. Magdalena church, framed by the jagged Odle peaks, captures the imagination with its perfect balance of natural and human artistry. Cortina d’Ampezzo, often called the 'Queen of the Dolomites,' blends sophistication and adventure, offering world-class skiing, hiking, and a vibrant cultural scene surrounded by some of the most photogenic summits in the Alps.",
-      "Exploring the Dolomites is also a journey through time and tradition. Wooden chalets adorned with colorful flower boxes stand as proud testaments to the region’s heritage, while narrow village streets lead to bustling markets where the scents of freshly baked bread and aged cheese fill the air. The sound of cowbells echoes through the valleys, a reminder of the enduring connection between the people and their land. Historic churches, often perched on hilltops or hidden within the folds of the landscape, provide moments of quiet reflection and awe.",
+      "editorials.dolomites.thirdSectionText.0",
+      "editorials.dolomites.thirdSectionText.1",
     ],
     fourthSection: [{ src: Dolomites10H }, { src: Dolomites11M }],
   },
@@ -1817,27 +1811,27 @@ export const textAboutImages = {
 export const favoritesAbout = [
   {
     src: Lifestyle1M,
-    name: '"Echoes of Elegance"',
+    name: "about.favourites.photo1",
   },
   {
     src: NatureM,
-    name: '"Silent Watcher"',
+    name: "about.favourites.photo2",
   },
   {
     src: Photoshoots31M,
-    name: '"Gravity in Motion"',
+    name: "about.favourites.photo3",
   },
   {
     src: Nature8M,
-    name: '"Roadside Bond"',
+    name: "about.favourites.photo4",
   },
   {
     src: Sports9M,
-    name: '"Chasing Liquid Mountains"',
+    name: "about.favourites.photo5",
   },
   {
     src: Lifestyle13M,
-    name: '"Timeless Pause"',
+    name: "about.favourites.photo6",
   },
 ];
 
@@ -1879,19 +1873,19 @@ export const mobilePortfolioCard = [
 export const editorialsCoversMbl = [
   {
     src: EditorialCover1Mbl,
-    name: "GREECE",
+    name: "editorials.cards.greece.title",
     date: "0723",
     url: "/editorials/greece",
   },
   {
     src: EditorialCover2Mbl,
-    name: "TANZANIA",
+    name: "editorials.cards.tanzania.title",
     date: "0423",
     url: "/editorials/tanzania",
   },
   {
     src: EditorialCover3Mbl,
-    name: "DOLOMITES",
+    name: "editorials.cards.dolomites.title",
     date: "0624",
     url: "/editorials/dolomites",
   },

@@ -3,12 +3,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
 import { Link } from "react-router-dom";
 import { useTransition } from "../../contexts/transitionContext";
+import { useTranslation } from "react-i18next";
 
 const SwiperEditorialCard = ({ images }) => {
   const { isMobile } = useMediaQuery();
   const sectionRef = useRef(null);
 
   const { handleLinkClick } = useTransition()
+  const { t } = useTranslation();
 
   // Dynamic viewport width for responsiveness
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -74,7 +76,7 @@ const SwiperEditorialCard = ({ images }) => {
                   loading="lazy"
                 />
                 <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--primary m--t-3">
-                  <p className="m--0 h4">{image.name}</p>
+                  <p className="m--0 h4">{t(image.name)}</p>
                   <p className="m--0 h6">({image.date})</p>
                 </div>
               </motion.div>

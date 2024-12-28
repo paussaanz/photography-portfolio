@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 const ThirdSectionEditorials = ({ images }) => {
     const { thirdSection, thirdSectionTitle, thirdSectionText } = images; // Destructure properties from `images`
-
+    const { t } = useTranslation(); // Translation
     return (
         <>
-            <h1 className="editorials-detail__sub-section__title h4 h5-mbl position--absolute">{thirdSectionTitle}</h1>
+            <h1 className="editorials-detail__sub-section__title h4 h5-mbl position--absolute">{t(thirdSectionTitle)}</h1>
 
             <div className="editorials-detail__sub-section__container flex flex--col-mbl d--h-90">
                 <div className="editorials-detail__sub-section__container__image flex p--l-3 overflow--hidden flex--1 d--w-max-50 d--w-max-100-mbl">
@@ -15,8 +17,7 @@ const ThirdSectionEditorials = ({ images }) => {
                     </div>
                     <div className="editorials-detail__sub-section__container__mixed__text flex flex--j-end flex--a-end flex--col-mbl">
                         {thirdSectionText.map((text) => (
-                        <p className="tag-2 tag-2-mbl p--2 d--w-max-100-mbl">{text}</p>
-
+                            <p key={text} className="tag-2 tag-2-mbl p--2 d--w-max-100-mbl">{t(text)}</p>
                         ))}
                     </div>
                 </div>
