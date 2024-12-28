@@ -10,7 +10,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="position--relative" style={{zIndex:"2143546"}}>
+    <div>
       <button onClick={() => changeLanguage('en')}>English</button>
       <button onClick={() => changeLanguage('es')}>Español</button>
     </div>

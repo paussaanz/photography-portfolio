@@ -65,8 +65,8 @@ const HomePage = ({ isVisited }) => {
               className="text-align--center"
             >
               <h1>
-                <span className="block--display">{t('home.hero.title.first.line')}</span>
-                <span className="h2 block--display">{t('home.hero.title.first.line')}</span>
+                <span className="block--display">Capture</span>
+                <span className="h2 block--display">Brilliance</span>
               </h1>
               <Button
                 onClick={() => handleLinkClick("/portfolio")}
