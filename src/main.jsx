@@ -10,7 +10,8 @@ import { LogoTransitionProvider } from "./contexts/LogoTransitionContext.jsx";
 import { LoaderContextProvider } from "./contexts/LoaderContext.jsx";
 import { MediaQueryProvider } from "./contexts/MediaQueryContext.jsx";
 import './index.css'
-
+import i18n from '../i18n.js';
+import { I18nextProvider } from "react-i18next";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 if ("serviceWorker" in navigator) {
@@ -44,8 +45,10 @@ root.render(
             <LoaderContextProvider>
               <TransitionProvider>
                 <LogoTransitionProvider>
-                  <App />
-                  <Footer />
+                  <I18nextProvider i18n={i18n}>
+                    <App />
+                    <Footer />
+                  </I18nextProvider>
                 </LogoTransitionProvider>
               </TransitionProvider>
             </LoaderContextProvider>

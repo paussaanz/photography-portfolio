@@ -23,7 +23,7 @@ const ContactForm = () => {
     surname: Yup.string().required("Surname is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     website: Yup.string().notRequired(),
-    company: Yup.string().required("Company name is required"),
+    company: Yup.string().notRequired(),
     message: Yup.string().required("Message is required"),
     services: Yup.array().required("Please select a service"),
     newOrRedesign: Yup.array().required("Please select an option"),
@@ -37,7 +37,7 @@ const ContactForm = () => {
     onSubmit: values => {
       setLoading(true);
 
-      axios.post("https://photography-api-jkt7.onrender.com/api/send-email", values)
+      axios.post("https://photography-port-api.onrender.com/api/send-email", values)
         .then((res) => {
           setSuccess(true);
           setLoading(false)

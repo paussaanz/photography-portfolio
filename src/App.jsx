@@ -6,6 +6,7 @@ import { useMediaQuery } from "./contexts/MediaQueryContext";
 import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./assets/js/images";
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
+import LanguageSwitcher from "./components/General/LanguageSwitcher";
 // import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
@@ -63,7 +64,7 @@ function App() {
 
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <FloatingButton />
-
+        <LanguageSwitcher />
         {!isMobile && <CursorTrail />}
 
         <div data-barba-namespace="home">
@@ -83,7 +84,7 @@ function App() {
                   path="/portfolio/photoshoots"
                   element={
                     <PortfolioDetailPage
-                      title= "photo   shoots"
+                      title="photo   shoots"
                       images={portfolioDetails.photoshoots}
                       textAnimation={
                         isMobile
