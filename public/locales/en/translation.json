@@ -169,5 +169,41 @@
     "something amazing together!"
   ],
   "contact.texts.desktop": ["Click, design, develop", "Let's collaborate!"],
-  "contact.form.input": {}
+  "contact.form.column1.title": "About you",
+  "contact.form.column2.title": "About your ideas",
+  "contact.form.input": {
+    "name": "Name",
+    "surname": "Surname",
+    "website": "Current Website",
+    "company": "Company Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "contact.form.services": {
+    "question": "What services are you interested in?",
+    "answers": ["Web Design", "Web Development", "E-commerce", "Maintenance"]
+  },
+  "contact.form.newOrRedesign": {
+    "question": "Is it a new website or a rebuild?",
+    "answers": ["New", "Redesign", "Partial", "Updates"]
+  },
+  "contact.form.deadline": {
+    "question": "When should it be ready?",
+    "answers": ["ASAP", "1-2 months", "3–6 months", "Flexible"]
+  },
+  "contact.form.budget": {
+    "question": "What's your budget?",
+    "answers": ["<$1K", "$1K–$5K", "$5K–$10K", "$10K+"]
+  },
+  "contact.form.errors": {
+    "name": "Name is required",
+    "surname": "Surname is required",
+    "email": "Invalid email",
+    "message": "Message is required",
+    "services": "Please select a service",
+    "newOrRedesign": "Please select an option",
+    "deadline": "Please select a deadline",
+    "budget": "Please select a budget"
+  }
 }

@@ -10,7 +10,7 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique, error
         }
     }, [reset]);
 
-    console.log(question)
+
     const handleButtonClick = (button) => {
         if (unique) {
             setSelectedButtons((prev) => {
@@ -53,7 +53,7 @@ const ContactFormSelector = ({ question, answers, reset, onChange, unique, error
             </div>
             <div className="flex flex--wrap g--2">
                 {groupedAnswers.map((group, index) => (
-                    <div className="flex g--2" key={index}>
+                    <div className="flex g--2 d--w-100" key={index}>
                         {group.map((answer) => (
                             <NewAnimatedButton
                                 key={answer}

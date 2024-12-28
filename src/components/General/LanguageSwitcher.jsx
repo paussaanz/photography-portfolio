@@ -17,7 +17,7 @@ const LanguageSwitcher = () => {
       className="flex flex--row flex--j-center flex--a-center p--l-4"
       onClick={() => changeLanguage(currentLanguage === 'en' ? 'es' : 'en')} // Cambia entre EN y ES
     >
-      <svg width="20" fill="white" id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.42 351.53">
+      <svg style={{ marginTop: "-4px" }} width="20" fill="white" id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.42 351.53">
         <path className="cls-1" d="M236.39,119.63c-.05,6.85,1.18,13.74,1.53,20.55.5,9.98.05,20.08-.06,29.94-.24,20.65-.78,41.39-4.57,61.68h-115.06c-1.65-10.19-3.11-20.65-3.84-30.97-1.04-14.73-.93-29.5-.73-44.13.18-12.42.35-24.71,1.47-37.08h121.26Z" />
         <path className="cls-1" d="M99.4,119.63l-2.28,31.03c-.45,27.21,1.47,54.26,4.52,81.25H9.95c-13.27-34.85-13.27-77.43,0-112.28h89.45Z" />
         <path className="cls-1" d="M249.86,231.91c4.32-37.24,6.3-74.88,2.25-112.28h89.45c3.81,8.31,6.22,18.41,7.64,27.54,4.3,27.54,2.67,58.79-7.64,84.74h-91.7Z" />

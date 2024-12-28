@@ -20,21 +20,22 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    surname: Yup.string().required("Surname is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
+    name: Yup.string().required(t("contact.form.errors.name")),
+    surname: Yup.string().required(t("contact.form.errors.surname")),
+    email: Yup.string().email("Invalid email").required(t("contact.form.errors.email")),
     website: Yup.string().notRequired(),
     company: Yup.string().notRequired(),
-    message: Yup.string().required("Message is required"),
-    services: Yup.array().required("Please select a service"),
-    newOrRedesign: Yup.array().required("Please select an option"),
-    deadline: Yup.string().required("Please select a deadline"),
-    budget: Yup.string().required("Please select a budget"),
+    message: Yup.string().required(t("contact.form.errors.message")),
+    services: Yup.array().required(t("contact.form.errors.services")),
+    newOrRedesign: Yup.array().required(t("contact.form.errors.newOrRedesign")),
+    deadline: Yup.string().required(t("contact.form.errors.deadline")),
+    budget: Yup.string().required(t("contact.form.errors.budget")),
   });
 
   const { values, handleSubmit, setFieldValue, errors } = useFormik({
     initialValues: initialFormData,
     validationSchema,
+    validateOnChange: false,
     onSubmit: values => {
       setLoading(true);
 
@@ -79,7 +80,7 @@ const ContactForm = () => {
       id={id}
       name={name}
       type={type}
-      label={`contact.form.input.${label}`}
+      label={t(`contact.form.input.${label}`)}
       placeholder=""
       value={value}
       onChange={(value) => handleInputChange(name, value)}
@@ -92,29 +93,29 @@ const ContactForm = () => {
   // Questions and answers for selectors
   const selectors = [
     {
-      question: "What services are you interested in?",
+      question: t('contact.form.services.question'),
       key: "services",
-      answers: ["Web Design", "Web Development", "E-commerce", "Maintenance"],
+      answers: t('contact.form.services.answers', { returnObjects: true }),
       error: errors.services
     },
     {
-      question: "Is it a new website or a rebuild?",
+      question: t('contact.form.newOrRedesign.question'),
       key: "newOrRedesign",
-      answers: ["New", "Redesign", "Partial", "Updates"],
+      answers: t('contact.form.newOrRedesign.answers', { returnObjects: true }),
       error: errors.newOrRedesign
     },
     {
       unique: true,
-      question: "When should it be ready?",
+      question: t('contact.form.deadline.question'),
       key: "deadline",
-      answers: ["ASAP", "1-2 months", "3–6 months", "Flexible"],
+      answers: t('contact.form.deadline.answers', { returnObjects: true }),
       error: errors.deadline
     },
     {
       unique: true,
-      question: "What's your budget?",
+      question: t('contact.form.budget.question'),
       key: "budget",
-      answers: ["<$1K", "$1K–$5K", "$5K–$10K", "$10K+"],
+      answers: t('contact.form.budget.answers', { returnObjects: true }),
       error: errors.budget
     },
   ];
@@ -128,15 +129,15 @@ const ContactForm = () => {
       <div className="flex flex--row flex--col-lg flex--j-between d--h-100 g--5">
         {/* About You Section */}
         <div className="contact__form-flex--column g--5">
-          <h2 className="text-transform--uppercase text-color--primary h6">About You</h2>
+          <h2 className="text-transform--uppercase text-color--primary h6">{t("contact.form.column1.title")}</h2>
           <div className="d--h-100 flex flex--col flex--j-between">
             <div className="flex flex--row g--2">
-              {renderInput("name", "name", "text", "Name", values.name, true, errors.name)}
-              {renderInput("surname", "surname", "text", "Surname", values.surname, true, errors.surname)}
+              {renderInput("name", "name", "text", "name", values.name, true, errors.name)}
+              {renderInput("surname", "surname", "text", "surname", values.surname, true, errors.surname)}
             </div>
-            {renderInput("email", "email", "email", "Email", values.email, true, errors.email)}
-            {renderInput("website", "website", "url", "Current Website", values.website, errors.website)}
-            {renderInput("company", "company", "text", "Company Name", values.company, true, errors.company)}
+            {renderInput("email", "email", "email", "email", values.email, true, errors.email)}
+            {renderInput("website", "website", "url", "website", values.website, errors.website)}
+            {renderInput("company", "company", "text", "company", values.company, true, errors.company)}
 
             <div className="contact__form-input-data-area">
               <textarea
@@ -151,7 +152,7 @@ const ContactForm = () => {
                 onBlur={handleBlur}
                 error={errors.message}
               />
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">{t('contact.form.input.message')}</label>
               {errors.message && <p className="contact__form-input-error">{errors.message}</p>}
             </div>
           </div>
@@ -159,7 +160,7 @@ const ContactForm = () => {
 
         {/* About Your Idea Section */}
         <div className="contact__form-flex--column g--5">
-          <h2 className="text-transform--uppercase text-color--primary h6">About Your Idea</h2>
+          <h2 className="text-transform--uppercase text-color--primary h6">{t("contact.form.column2.title")}</h2>
           <div className="d--h-100 flex flex--col flex--j-between text-color--primary">
             {selectors.map((selector, index) => (
               <ContactFormSelector
@@ -182,7 +183,7 @@ const ContactForm = () => {
               <ContactFormSvg success={success} loading={loading} focusedField={focusedField} />
             </div>
             <div>
-              <NewAnimatedButton extraClassNames="submit-button" text="Submit" onClick={handleSubmit} />
+              <NewAnimatedButton extraClassNames="submit-button" text={t("contact.form.input.submit")} onClick={handleSubmit} />
             </div>
           </div>
         </div>
