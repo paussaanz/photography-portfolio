@@ -229,7 +229,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : 50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            <div style={{ maxHeight: "500px", overflow: 'hidden' }} className="flex flex--j-center">
+            <div style={{ maxHeight: "350px", overflow: 'hidden' }} className="flex flex--j-center">
               <img
                 src={imgNav}
                 alt="Stylized menu image"
