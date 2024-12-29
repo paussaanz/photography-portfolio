@@ -13,8 +13,9 @@ const LanguageSwitcher = () => {
 
   return (
     <div
+      style={{ display: 'inline-flex' }}
       data-hover="a"
-      className="flex flex--row flex--j-center flex--a-center p--l-4"
+      className="flex flex--row flex--j-center flex--a-center"
       onClick={() => changeLanguage(currentLanguage === 'en' ? 'es' : 'en')} // Cambia entre EN y ES
     >
       <svg style={{ marginTop: "-4px" }} width="20" fill="white" id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.42 351.53">

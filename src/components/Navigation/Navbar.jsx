@@ -149,7 +149,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 {t("syp.commons.contact")}
               </a>
             </li>
-            <li>
+            <li className="p--l-4">
               <LanguageSwitcher />
             </li>
           </ul>
@@ -183,6 +183,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             initial="hidden"
             animate={isMenuOpen ? "visible" : "exit"}
           >
+
             {renderLinks([t("navbar.home")])}
 
             <motion.li className="cus-navbar__mbl--links-item" variants={linkVariants}>
@@ -192,6 +193,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               >
                 {t("syp.commons.portfolio")}
               </span>
+
               <AnimatePresence>
                 {isPortfolioOpen && (
                   <motion.ul
@@ -214,14 +216,18 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     )}
                   </motion.ul>
                 )}
+
               </AnimatePresence>
             </motion.li>
-
             {renderLinks([
               t("syp.commons.editorials"),
               t("syp.commons.about"),
               t("syp.commons.contact"),
             ])}
+            <motion.div variants={linkVariants}>
+
+              <LanguageSwitcher />
+            </motion.div>
           </motion.ul>
           <motion.div
             className="cus-navbar__mbl--image-container"
