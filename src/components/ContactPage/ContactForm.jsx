@@ -179,7 +179,7 @@ const ContactForm = () => {
         {/* Animated Button and Theme Section */}
         <div className="contact__form-flex--column">
           <div className="flex flex--col flex--a-center flex--j-between d--w-100 d--h-100">
-            <div className="contact__form-svg-animation flex flex--a-center">
+            <div className="contact__form-svg-animation flex flex--a-center m--b-3">
               <ContactFormSvg success={success} loading={loading} focusedField={focusedField} />
             </div>
             <div>
