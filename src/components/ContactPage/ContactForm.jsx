@@ -32,7 +32,7 @@ const ContactForm = () => {
     budget: Yup.string().required(t("contact.form.errors.budget")),
   });
 
-  const { values, handleSubmit, setFieldValue, errors } = useFormik({
+  const { values, handleSubmit, setFieldValue, errors, resetForm } = useFormik({
     initialValues: initialFormData,
     validationSchema,
     validateOnChange: false,
@@ -47,16 +47,16 @@ const ContactForm = () => {
           setTimeout(() => {
             setSuccess(false);
           }, 2000);
+
+          resetForm();
+          setReset(true);
+          setTimeout(() => setReset(false), 0);
         })
         .catch((err) => console.error("Error sending email:", err))
         .finally(() => setLoading(false))
 
-      // Reset form
-      setFormData(initialFormData);
 
-      // Trigger selector reset
-      setReset(true);
-      setTimeout(() => setReset(false), 0);
+
     },
   });
 
@@ -179,7 +179,7 @@ const ContactForm = () => {
         {/* Animated Button and Theme Section */}
         <div className="contact__form-flex--column">
           <div className="flex flex--col flex--a-center flex--j-between d--w-100 d--h-100">
-            <div className="contact__form-svg-animation">
+            <div className="contact__form-svg-animation flex flex--a-center">
               <ContactFormSvg success={success} loading={loading} focusedField={focusedField} />
             </div>
             <div>
