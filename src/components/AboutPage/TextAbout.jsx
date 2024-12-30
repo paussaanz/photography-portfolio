@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { textAboutImages } from "../../assets/js/images";
+import { useTranslation } from "react-i18next";
 
 const TextAbout = () => {
     const containerRef = useRef(null);
@@ -11,6 +12,7 @@ const TextAbout = () => {
         mousePosition: { x: 0, y: 0 },
         currentImages: [],
     });
+    const { t } = useTranslation();
 
     useEffect(() => {
         const updatePositions = () => {
@@ -85,39 +87,37 @@ const TextAbout = () => {
         <>
             <div className="about__text-content container-bem-mbl text-transform--uppercase text-color--primary align-content--center">
                 <p className="p--b-5">
-                    I'm Paula Sanz, a creative mind with a passion for both{" "}
-                    <span className="about__text-content-span">photography</span> and web development.
-                    Graduated in Audiovisual Communication, I honed my skills in{" "}
-                    <span className="about__text-content-span">visual storytelling</span> through photography,
-                    however my curiosity for the digital world led me to discover a deep interest in web design and development.
-                    After completing an intensive bootcamp in web development, I combined both of my passions{" "}
-                    <span className="about__text-content-span">—visual and digital—</span> into one.
+                    {t("about.texts.0")}
+                    <span className="about__text-content-span">{t("about.keywords.0")}</span>{t("about.texts.1")}
+                    {t("about.texts.2")}
+                    <span className="about__text-content-span">{t("about.keywords.1")}</span>{t("about.texts.3")}
+                    {t("about.texts.4")}
+                    <span className="about__text-content-span">{t("about.keywords.2")}</span>{t("about.texts.5")}
                 </p>
                 <p>
-                    Through SYP!, I showcase my journey, blending photography with web development to create{" "}
+                    {t("about.texts.6")}
                     <span
                         className="about__text-content-span"
                         onMouseEnter={(e) => handleMouseEnter(e, "experiences")}
                         onMouseLeave={handleMouseLeave}
                     >
-                        captivating digital experiences
+                        {t("about.keywords.3")}
                     </span>{" "}
-                    that not only look good but also engage the users in meaningful ways. Whether I’m behind the lens
-                    capturing the perfect shot or behind the screen crafting{" "}
+                    {t("about.texts.7")}
                     <span
                         className="about__text-content-span"
                         onMouseEnter={(e) => handleMouseEnter(e, "websites")}
                         onMouseLeave={handleMouseLeave}
                     >
-                        engaging websites
+                        {t("about.keywords.4")}
                     </span>
-                    , my focus is always on bringing{" "}
+                    {t("about.texts.8")}
                     <span
                         className="about__text-content-span"
                         onMouseEnter={(e) => handleMouseEnter(e, "visions")}
                         onMouseLeave={handleMouseLeave}
                     >
-                        creative visions to life.
+                        {t("about.keywords.5")}
                     </span>
                 </p>
             </div>

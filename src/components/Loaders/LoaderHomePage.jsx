@@ -6,6 +6,7 @@ import LenisContext from "../../contexts/LenisContext.jsx";
 import { useTransition } from "../../contexts/transitionContext.jsx";
 import { homePageLoader } from "../../assets/js/images.js";
 import { ScrollTrigger } from "gsap/all";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ const LoaderHomePage = () => {
   const { handleLinkClick } = useTransition();
   const { stop, start } = useContext(LenisContext);
   const containerRef = useRef();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -138,12 +140,13 @@ const LoaderHomePage = () => {
         className="text-align--center"
       >
         <h1>
-          <span className="block--display loader__text">Capture</span>
-          <span className="h2 block--display loader__text">Brilliance</span>
+
+          <span className="block--display loader__text">{t('home.hero.title.firstLine')}</span>
+          <span className="h2 block--display loader__text">{t('home.hero.title.secondLine')}</span>
         </h1>
         <Button
           onClick={() => handleLinkClick("/portfolio")}
-          text="See my work"
+          text={t('home.hero.callToAction')}
           className="text-color--overlay loader__text"
         />
       </TextOverlay>

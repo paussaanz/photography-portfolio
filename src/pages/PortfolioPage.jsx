@@ -7,10 +7,12 @@ import PortfolioPageSeo from './SEO/PortfolioPageSeo';
 import LoaderPortfolio from '../components/Loaders/LoaderPortfolio';
 import { portfolioCardAnimation, portfolioParallaxHero, mobilePortfolioCard } from './../assets/js/images';
 import { useMediaQuery } from '../contexts/MediaQueryContext';
+import { useTranslation } from 'react-i18next';
 
 const PortfolioPage = ({ isVisited }) => {
     const sectionRef = useRef(null);
     const { isMobile } = useMediaQuery();
+    const { t } = useTranslation();
 
     const heroContent = useMemo(() => {
         if (isVisited) {
@@ -28,7 +30,7 @@ const PortfolioPage = ({ isVisited }) => {
 
     const sectionClass = useMemo(() => `${isMobile ? 'd--vh-100' : 'd--vh-175'} flex`, [isMobile]);
     const textAnimationClass = useMemo(() => `${isMobile ? 'd--h-100' : ' d--vh-100 '} p--y-5 align-content--center position--relative z-index--5`, [isMobile]);
- 
+
     useEffect(() => {
         return () => {
             portfolioCardAnimation.forEach((image) => URL.revokeObjectURL(image.src));
@@ -50,7 +52,7 @@ const PortfolioPage = ({ isVisited }) => {
             <section className="portfolio__text-animation-section" ref={sectionRef}>
                 <div className={textAnimationClass}>
                     <TextAnimation
-                        text="Photography transforms moments into lasting memories, showcasing beauty and uniqueness. My portfolio shares diverse perspectives and stories, from serene landscapes to vibrant street scenes."
+                        text={t("portfolio.section.textAnimation")}
                         textColor='text-color--primary'
                         maskColor="background--light"
                     />

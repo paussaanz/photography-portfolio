@@ -5,9 +5,11 @@ import EditorialsPageSeo from "./SEO/EditorialsPageSeo";
 import LoaderEditorials from "../components/Loaders/LoaderEditorials";
 import TextAnimation from "../components/General/TextAnimation";
 import { useMediaQuery } from "../contexts/MediaQueryContext";
+import { useTranslation } from "react-i18next";
 
 const EditorialsPage = ({ isVisited }) => {
   const { isMobile } = useMediaQuery();
+  const { t } = useTranslation();
 
   return (
     <div data-barba="container">
@@ -25,18 +27,15 @@ const EditorialsPage = ({ isVisited }) => {
 
       <section className="editorials__section-text-animation">
         <div
-          className={`${
-            isMobile ? "d--h-100 p--y-0" : "d--vh-100 p--y-5"
-          } align-content--center position--relative z-index--5`}
+          className={`${isMobile ? "d--h-100 p--y-0" : "d--vh-100 p--y-5"
+            } align-content--center position--relative z-index--5`}
         >
-          <TextAnimation
-            text={isMobile  ? `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. ` : `Step into a world of stories through SYP! editorials, where each journey comes to life through words and imagery. From vibrant streets to serene landscapes, these curated narratives blend captivating photography with intriguing insights about the places I've explored. It’s more than just travel—it's a lens into culture, emotion, and the untold details that make each destination unforgettable.`}
-          />
+          <TextAnimation text={t(`editorials.section.textAnimation.${isMobile ? "mobile" : "desktop"}`)} />
         </div>
       </section>
 
       <section className="editorials__section-cards">
-        <div className={`${ isMobile ? "p--y-0" : "p--y-5" } overflow--clip`}>
+        <div className={`${isMobile ? "p--y-0" : "p--y-5"} overflow--clip`}>
           <SwiperEditorialCard images={isMobile ? editorialsCoversMbl : editorialsCovers} />
         </div>
       </section>

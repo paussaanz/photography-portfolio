@@ -3,10 +3,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import ImageBanner from "./ImageBanner";
 import { homeSwiperImages, editorialSwiperImages } from "../../assets/js/images";
 import Button from "../General/Buttons/Button";
+import { useTranslation } from "react-i18next";
 
 const SwiperPortfolio = () => {
   const sectionRef = useRef(null);
   const [activeContent, setActiveContent] = useState("Portfolio");
+  const { t } = useTranslation();
 
   // Toggle content functions
   const toggleContent = (content) => setActiveContent(content);
@@ -33,9 +35,9 @@ const SwiperPortfolio = () => {
       <ImageBanner
         key={index}
         src={image.src}
-        name={image.name}
+        name={t(image.name)}
         date={image.date}
-        description={image.description}
+        description={t(image.description)}
         url={image.url}
       />
     ));
@@ -54,13 +56,13 @@ const SwiperPortfolio = () => {
         <div className="home__swiper-animation-button--centered">
           <Button
             className="text-color--overlay"
-            text="Portfolio"
+            text={t("syp.commons.portfolio")}
             onClick={() => toggleContent("Portfolio")}
           />{" "}
           |
           <Button
             className="text-color--overlay"
-            text="Editorials"
+            text={t("syp.commons.editorials")}
             onClick={() => toggleContent("Editorials")}
           />
         </div>

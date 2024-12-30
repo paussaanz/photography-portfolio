@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import { portfolioCardAnimation } from "../../assets/js/images";
 import { Link } from "react-router-dom";
 import { useTransition } from "../../contexts/transitionContext";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,12 +18,15 @@ const getInitialTranslateZ = (slide) => {
   return 0;
 };
 
+
 const mapRange = (value, inMin, inMax, outMin, outMax) =>
   ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
 const ProjectCardAnimation = () => {
   const containerRef = useRef(null);
   const { handleLinkClick } = useTransition()
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -90,7 +94,7 @@ const ProjectCardAnimation = () => {
             key={index}
             className={`card-3d__animation-active-slide--image card-3d__animation-active-slide--image-${index + 1}`}
             src={image.src}
-            alt={image.name || `Slide ${index + 1}`}
+            alt={t(image.name) || `Slide ${index + 1}`}
             loading="lazy"
           />
         ))}
@@ -104,12 +108,12 @@ const ProjectCardAnimation = () => {
                 <img
                   className="d--vh-50 d--w-100 object-fit--cover pointer-events--none"
                   src={image.src}
-                  alt={image.name || `Image ${index + 1}`}
+                  alt={t(image.name) || `Image ${index + 1}`}
                   loading="lazy"
                 />
               </div>
               <div className="flex flex--row flex--j-between flex--a-baseline text-transform--uppercase text-color--overlay m--t-3">
-                <p className="m--0 h4">{image.name}</p>
+                <p className="m--0 h4">{t(image.name)}</p>
                 <p className="m--0 h6">({image.date})</p>
               </div>
             </a>

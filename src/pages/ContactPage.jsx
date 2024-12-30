@@ -7,16 +7,18 @@ import CursorHover from "../components/Cursor/CursorHover";
 import { useMediaQuery } from "../contexts/MediaQueryContext";
 import { contactLinks } from "../assets/js/images";
 import { useTransition } from "../contexts/transitionContext";
+import { useTranslation } from "react-i18next";
 
 const ContactPage = () => {
   const [hovered, setHovered] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
   const { isMobile } = useMediaQuery();
-  const text = "Click, design, develop";
   const [activeIndex, setActiveIndex] = useState(-1);
   const { handleLinkClick } = useTransition()
+  const { t } = useTranslation();
 
-  
+  const text = t("contact.animatedText.mobile")
+
   // Flashing letter animation
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -60,18 +62,18 @@ const ContactPage = () => {
                 </h1>
                 <p className="contact__text-mbl text-transform--uppercase b6 text-align--right text-color--primary">
                   <span className="block--display">
-                    If you have a project in mind,
+                    {t("contact.texts.mobile.0")}
                   </span>
                   <span className="block--display">
-                    <a onClick={() => {handleLinkClick('/contact/form') }} className="text-color--primary "><u>reach out</u></a> today and let's create
+                    <a onClick={() => { handleLinkClick('/contact/form') }} className="text-color--primary "><u>{t("contact.texts.mobile.1")}</u></a>{t("contact.texts.mobile.2")}
                   </span>
                   <span className="block--display">
-                    something amazing together!
+                    {t("contact.texts.mobile.3")}
                   </span>
                 </p>
               </div>
               <div className="contact__logo-mbl d--h-100">
-                <a onClick={() => {handleLinkClick('/contact/form') }} className="text-color--primary "><Scene3DContact /></a>
+                <a onClick={() => { handleLinkClick('/contact/form') }} className="text-color--primary "><Scene3DContact /></a>
               </div>
             </>
           ) : (
@@ -92,8 +94,8 @@ const ContactPage = () => {
                 className="text-align--center d--w-100 text-decoration--none"
               >
                 <h1>
-                  <span className="block--display">Click, design, develop</span>
-                  <span className="block--display">Let's collaborate!</span>
+                  <span className="block--display">{t("contact.texts.desktop.0")}</span>
+                  <span className="block--display">{t("contact.texts.desktop.1")}</span>
                 </h1>
               </TextOverlay>
             </div>

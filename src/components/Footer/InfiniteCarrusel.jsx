@@ -1,10 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { useTransition } from "../../contexts/transitionContext";
 
 const InfiniteCarrusel = () => {
   const { handleLinkClick } = useTransition();
+  const { t } = useTranslation();
 
   const footerItems = Array.from({ length: 3 }, () => ({
-    text: "GET IN TOUCH",
+    text: t("footer.carousel"),
     logoClass: "footer__carrusel-item--logo",
   }));
 

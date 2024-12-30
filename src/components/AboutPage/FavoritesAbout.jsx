@@ -4,12 +4,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ClipPathAnimation from "./ClipPathAnimation";
 import { favoritesAbout } from "../../assets/js/images";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FavoritesAbout = () => {
   const listItemsRef = useRef([]); // Store references to <li> elements
   const { isMobile } = useMediaQuery();
+  const { t } = useTranslation();
+
   useEffect(() => {
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -50,13 +53,13 @@ const FavoritesAbout = () => {
 
   return (
     <div style={{ height: "240vh", position: "relative" }}>
-      <div className="d--vh-100 position--sticky position--top-0 overflow--y-hidden "> 
+      <div className="d--vh-100 position--sticky position--top-0 overflow--y-hidden ">
         <div className="flex flex--row flex--col-mbl flex--j-between d--h-100 p--t-6-mbl">
           <div className="favorites-about__text d--w-100 m--y-auto text-align--center text-color--primary">
             <h1 className="favorites-about__text-title text-transform--uppercase h2-mbl">
-              <span>SOME OF MY</span>{" "}
+              <span>{t("about.favourites.0")}</span>{" "}
               <span className="b1 favorites-about__text-gamilia">
-                Personal <br /> Favorites
+                {t("about.favourites.1")} <br /> {t("about.favourites.2")}
               </span>
             </h1>
             <ul className="favorites-about__text-list d--w-100">
@@ -66,7 +69,7 @@ const FavoritesAbout = () => {
                   ref={(el) => (listItemsRef.current[index] = el)}
                   className="favorites-about__text-list-item h5 d--w-100"
                 >
-                  {image.name}
+                  {t(image.name)}
                 </li>
               ))}
             </ul>
