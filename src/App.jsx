@@ -61,10 +61,9 @@ function App() {
 
   return (
     <>
-
       <div key={location.pathname} id="barba-wrapper" data-barba="wrapper">
         <FloatingButton />
-        <LanguageSwitcher />
+        {/* <LanguageSwitcher /> */}
         {!isMobile && <CursorTrail />}
 
         <div data-barba-namespace="home">
