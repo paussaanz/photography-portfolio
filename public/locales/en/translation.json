@@ -40,7 +40,7 @@
   "portfolio.cards.sports.title": "Sports",
   "portfolio.cards.music.title": "Music",
   "portfolio.cards.lifestyle.title": "Lifestyle",
-  "portfolio.detail.photoshoots.title": "Photoshoots",
+  "portfolio.detail.photoshoots.title": "Photo     shoots",
   "portfolio.detail.photoshoots.subtitle": "THE WORLD LOOKS BETTER WHEN YOU’RE LOOKING FOR THE SHOT",
   "portfolio.detail.photoshoots.textAnimation.mobile": "Fashion photography captures identity and expression, showcasing creativity, innovation, and artistry, vividly highlighting the transformative power of clothing to reflect individuality.",
   "portfolio.detail.photoshoots.textAnimation.desktop": "A vibrant exploration of identity and expression unfolds in fashion photography, where the lens captures the fleeting essence of style. Each photograph tells a story of creativity and innovation, showcasing the transformative power of clothing as it reflects individuality. Through color, form, and context, these images celebrate the artistry of fashion and its ability to convey emotion and culture.",
@@ -129,6 +129,7 @@
     { "src": "Dolomites11" }
   ],
 
+  "about.hero.title": "ABOUT SYP!",
   "about.marquee.word1": "CREATIVE",
   "about.marquee.word2": "FREELANCE",
   "about.marquee.word3": "DEVELOPER",
@@ -153,7 +154,9 @@
     "creative visions to life."
   ],
 
-  "about.favourites": ["SOME OF MY", "Personal", "Favorites"],
+  "about.favourites.title.0": "SOME OF MY",
+  "about.favourites.title.1": "personal",
+  "about.favourites.title.2": "favorites",
   "about.favourites.photo1": "\"Echoes of Elegance\"",
   "about.favourites.photo2": "\"Silent Watcher\"",
   "about.favourites.photo3": "\"Gravity in Motion\"",
@@ -170,7 +173,7 @@
   ],
   "contact.texts.desktop": ["Click, design, develop", "Let's collaborate!"],
   "contact.form.column1.title": "About you",
-  "contact.form.column2.title": "About your ideas",
+  "contact.form.column2.title": "About your idea",
   "contact.form.input": {
     "name": "Name",
     "surname": "Surname",

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ClipPathAnimation from "./ClipPathAnimation";
@@ -11,9 +11,15 @@ gsap.registerPlugin(ScrollTrigger);
 const FavoritesAbout = () => {
   const listItemsRef = useRef([]); // Store references to <li> elements
   const { isMobile } = useMediaQuery();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  useEffect(() => {
+  // Function to initialize GSAP animations
+  const initAnimations = useCallback(() => {
+    // Kill previous animations
+    gsap.killTweensOf(".favorites-about__text-title");
+    gsap.killTweensOf(".favorites-about__text-list");
+
+    // ScrollTrigger animation
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".favorites-about__text",
@@ -38,6 +44,21 @@ const FavoritesAbout = () => {
     };
   }, []);
 
+  useEffect(() => {
+    initAnimations(); // Initialize animations on mount
+
+    // Listen for language changes to reinitialize animations
+    const handleLanguageChange = () => {
+      initAnimations();
+    };
+
+    i18n.on("languageChanged", handleLanguageChange);
+
+    return () => {
+      i18n.off("languageChanged", handleLanguageChange);
+    };
+  }, [initAnimations]);
+
   const handleImageChange = (index) => {
     listItemsRef.current.forEach((li, liIndex) => {
       if (li) {
@@ -57,9 +78,9 @@ const FavoritesAbout = () => {
         <div className="flex flex--row flex--col-mbl flex--j-between d--h-100 p--t-6-mbl">
           <div className="favorites-about__text d--w-100 m--y-auto text-align--center text-color--primary">
             <h1 className="favorites-about__text-title text-transform--uppercase h2-mbl">
-              <span>{t("about.favourites.0")}</span>{" "}
+              <span>{t("about.favourites.title.0")}</span>{" "}
               <span className="b1 favorites-about__text-gamilia">
-                {t("about.favourites.1")} <br /> {t("about.favourites.2")}
+                {t("about.favourites.title.1")} <br /> {t("about.favourites.title.2")}
               </span>
             </h1>
             <ul className="favorites-about__text-list d--w-100">

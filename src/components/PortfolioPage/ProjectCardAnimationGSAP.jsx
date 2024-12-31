@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { portfolioCardAnimation } from "../../assets/js/images";
-import { Link } from "react-router-dom";
 import { useTransition } from "../../contexts/transitionContext";
 import { useTranslation } from "react-i18next";
 
@@ -18,19 +17,15 @@ const getInitialTranslateZ = (slide) => {
   return 0;
 };
 
-
 const mapRange = (value, inMin, inMax, outMin, outMax) =>
   ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
 const ProjectCardAnimation = () => {
   const containerRef = useRef(null);
-  const { handleLinkClick } = useTransition()
-  const { t } = useTranslation();
+  const { handleLinkClick } = useTransition();
+  const { t, i18n } = useTranslation();
 
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
+  const initAnimations = () => {
     const container = containerRef.current;
     const slides = Array.from(container.querySelectorAll(".card-3d__animation-slide"));
     const activeSlide = container.querySelector(".card-3d__animation-active-slide");
@@ -80,11 +75,41 @@ const ProjectCardAnimation = () => {
         },
       });
     });
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    initAnimations();
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+  useEffect(() => {
+    const updateTextAndRefresh = () => {
+      const container = containerRef.current;
+      const slides = Array.from(container.querySelectorAll(".card-3d__animation-slide"));
+
+      slides.forEach((slide, index) => {
+        const nameElement = slide.querySelector(".h4");
+        const dateElement = slide.querySelector(".h6");
+
+        if (nameElement) nameElement.textContent = t(portfolioCardAnimation[index].name);
+        if (dateElement) dateElement.textContent = `(${portfolioCardAnimation[index].date})`;
+      });
+
+      // Refresh ScrollTrigger after text changes
+      ScrollTrigger.refresh();
+    };
+
+    i18n.on("languageChanged", updateTextAndRefresh);
+
+    return () => {
+      i18n.off("languageChanged", updateTextAndRefresh);
+    };
+  }, [i18n, t]);
 
   return (
     <div ref={containerRef} className="card-3d__animation-container">

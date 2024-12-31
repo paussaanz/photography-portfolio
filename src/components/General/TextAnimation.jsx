@@ -3,6 +3,7 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "../../contexts/MediaQueryContext";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +15,8 @@ const TextAnimation = ({
 }) => {
   const textRef = useRef(null);
   const { isMobile } = useMediaQuery();
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Obtiene el idioma actual
 
   
   // Helper function to create masks for words
@@ -99,7 +102,7 @@ const TextAnimation = ({
   }, [text, maskColor, isMobile]);
 
   return (
-    <div className={`text-container ${className} container-bem-mbl`}>
+    <div key={currentLanguage} className={`text-container ${className} container-bem-mbl`}>
       <div
         ref={textRef}
         className={`h2 b3-mbl text-align--center text-align--left-mbl ${textColor} text-transform--uppercase`}

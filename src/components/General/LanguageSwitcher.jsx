@@ -11,6 +11,8 @@ const LanguageSwitcher = () => {
 
   const currentLanguage = i18n.language; // Obtiene el idioma actual
 
+  console.log("CURRENTTt", currentLanguage)
+
   return (
     <div
       style={{ display: 'inline-flex' }}

@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next";
 
 const LoaderAbout = () => {
   const titleRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language; // Obtiene el idioma actual
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -77,8 +80,8 @@ const LoaderAbout = () => {
           ref={titleRef}
           className="about__hero-title about__hero-title-loader"
         >
-          ABOUT SYP!
-        </h1>
+          {t("about.hero.title")}
+          </h1>
       </div>
     </div>
   );

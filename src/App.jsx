@@ -50,9 +50,8 @@ function App() {
     if ('serviceWorker' in navigator) {
 
       navigator.serviceWorker.addEventListener('message', (event) => {
-        console.log('hola?', event.data.type)
         if (event.data.type === 'install-progress') {
-          console.log(`Progreso de instalación: ${event.data.progress}%`);
+          // console.log(`Progreso de instalación: ${event.data.progress}%`);
           setProgress(event.data.progress);
         }
       });
@@ -82,7 +81,7 @@ function App() {
                   path="/portfolio/photoshoots"
                   element={
                     <PortfolioDetailPage
-                      title="photo   shoots"
+                      title={t("portfolio.detail.photoshoots.title")}
                       images={portfolioDetails.photoshoots}
                       textAnimation={t(`portfolio.detail.photoshoots.textAnimation.${isMobile ? "mobile" : "desktop"}`)}
                       number="01"

@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next";
 
 const HeroAbout = () => {
   const titleRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +53,7 @@ const HeroAbout = () => {
           alt="Hero about"
         />
         <h1 ref={titleRef} className="about__hero-title">
-          ABOUT SYP!
+          {t("about.hero.title")}
         </h1>
       </div>
     </div>

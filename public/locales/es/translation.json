@@ -1,37 +1,243 @@
 {
-  "syp.commons.portfolio": "Portafolio",
+  "syp.commons.portfolio": "portfolio",
   "syp.commons.editorials": "Editoriales",
   "syp.commons.about": "Sobre SYP!",
   "syp.commons.contact": "Contacto",
-  "navbar.home": "Inicio",
-  "navbar.portfolio.seeAll": "Ver todo",
-  "navbar.portfolio.nature": "Naturaleza",
+  "navbar.home": "Home",
+  "navbar.portfolio.seeAll": "Ver todos",
+  "navbar.portfolio.nature": "paisaje",
   "navbar.portfolio.photoshoots": "Sesiones",
-  "navbar.portfolio.lifestyle": "Estilo de vida",
+  "navbar.portfolio.lifestyle": "Lifestyle",
   "navbar.portfolio.sports": "Deportes",
-  "navbar.portfolio.music": "Música",
-  "footer.claim.mobile": "HABLEMOS AHORA",
-  "footer.claim.desktop": "LA VIDA ES CORTA PARA SITIOS ABURRIDOS",
-  "footer.small": "Sitio por .SYP!",
-  "footer.carousel": "CONTÁCTAME",
-  "home.hero.title.firstLine": "CAPTURA",
-  "home.hero.title.secondLine": "BRILLANTEZ",
-  "home.hero.callToAction": "Ver mi trabajo",
-  "home.section.textAnimation": "SYP! es donde creatividad y tecnología chocan. Con enfoque en diseño, programación y fotografía, convierto ideas en experiencias visualmente impactantes y funcionalmente perfectas que dejan huella. No es solo lo que se crea—es cómo conecta, inspira y destaca.",
-  "home.swiper.portfolio.nature.title": "Naturaleza",
-  "home.swiper.portfolio.nature.description": "Paleta de la Tierra",
+  "navbar.portfolio.music": "Conciertos",
+  "footer.claim.mobile": "HABLAME DE TU IDEA!",
+  "footer.claim.desktop": "NO DEJES QUE TU WEB SEA TAN ABURRIDA COMO EL LUNES",
+  "footer.small": "Site by .SYP!",
+  "footer.carousel": "CONTÁCTANOS",
+  "home.hero.title.firstLine": "CONGELA",
+  "home.hero.title.secondLine": "INSTANTES",
+  "home.hero.callToAction": "Descubre mi trabajo",
+  "home.section.textAnimation": "SYP! es un espacio en el que la creatividad y la tecnología no solo se encuentran, si no se transforman. Cada idea, cada proyecto, es una oportunidad para fusionar diseño, programación y fotografía en experiencias que cuentan historias, conectan con personas y dejan huella. Esto no se trata de seguir reglas, sino de romperlas con estilo, de crear algo que inspire y sobresalga en un mundo lleno de lo mismo.",
+  "home.swiper.portfolio.nature.title": "paisaje",
+  "home.swiper.portfolio.nature.description": "\"Earth's Palette\"",
   "home.swiper.portfolio.photoshoots.title": "Sesiones",
-  "home.swiper.portfolio.photoshoots.description": "Visiones de estudio",
+  "home.swiper.portfolio.photoshoots.description": "\"Studio Visions\"",
   "home.swiper.portfolio.sports.title": "Deportes",
-  "home.swiper.portfolio.sports.description": "Rendimiento máximo",
-  "home.swiper.portfolio.music.title": "Música",
-  "home.swiper.portfolio.music.description": "Paisajes sonoros",
-  "home.swiper.portfolio.lifestyle.title": "Estilo de vida",
-  "home.swiper.portfolio.lifestyle.description": "Historias cotidianas",
+  "home.swiper.portfolio.sports.description": "\"Peak Performance\"",
+  "home.swiper.portfolio.music.title": "Conciertos",
+  "home.swiper.portfolio.music.description": "\"Soundscapes\"",
+  "home.swiper.portfolio.lifestyle.title": "Lifestyle",
+  "home.swiper.portfolio.lifestyle.description": "\"Everyday Stories\"",
   "home.swiper.editorials.greece.title": "Grecia",
-  "home.swiper.editorials.greece.description": "Sal y piedra",
+  "home.swiper.editorials.greece.description": "\"Salt & Stone\"",
   "home.swiper.editorials.tanzania.title": "Tanzania",
-  "home.swiper.editorials.tanzania.description": "Tierra pura",
+  "home.swiper.editorials.tanzania.description": "\"Raw Earth\"",
   "home.swiper.editorials.dolomites.title": "Dolomitas",
-  "home.swiper.editorials.dolomites.description": "Sueños escarpados"
+  "home.swiper.editorials.dolomites.description": "\"Jagged Dreams\"",
+  "portfolio.section.textAnimation": "Mi portfolio es mi colección de rincones únicos, paisajes que me inspiran y momentos que hablan por sí solos. Nada es casualidad; cada foto tiene una historia que espera que la descubras.",
+  "portfolio.cards.nature.title": "Paisaje",
+  "portfolio.cards.photoshoots.title": "Sesiones",
+  "portfolio.cards.sports.title": "Deportes",
+  "portfolio.cards.music.title": "Conciertos",
+  "portfolio.cards.lifestyle.title": "Lifestyle",
+  "portfolio.detail.photoshoots.title": "Sesiones",
+  "portfolio.detail.photoshoots.subtitle": "THE WORLD LOOKS BETTER WHEN YOU’RE LOOKING FOR THE SHOT",
+  "portfolio.detail.photoshoots.textAnimation.mobile": "La fotografía de moda captura identidad y expresión, destacando creatividad, innovación y arte, mientras resalta el poder transformador de la ropa como reflejo de la individualidad.",
+  "portfolio.detail.photoshoots.textAnimation.desktop": "La fotografía de moda es un encuentro vibrante entre estilo e identidad. Cada imagen cuenta una historia donde la ropa se transforma en arte y expresión, reflejando personalidad y emoción. Con colores, formas y contextos únicos, celebra la moda como un lenguaje que inspira, conecta y trasciende.",
+  "portfolio.detail.music.title": "Conciertos",
+  "portfolio.detail.music.subtitle": "STOP AND SHOOT—BECAUSE THE BEST MOMENTS WON’T WAIT",
+  "portfolio.detail.music.textAnimation.mobile": "Fotografiar conciertos es atrapar la magia del momento: luces, emoción y el ritmo que une al público con el artista. Cada foto guarda esa energía eléctrica que solo un buen directo puede dar.",
+  "portfolio.detail.music.textAnimation.desktop": "Fotografiar conciertos es mucho más que capturar imágenes, es atrapar la esencia de un instante único. Es el juego de luces, el rugir del público y la emoción que vibra en cada acorde. Cada foto guarda la energía que fluye entre el artista y el público, ese momento donde todo se alinea y la música se convierte en pura magia.",
+  "portfolio.detail.nature.title": "paisaje",
+  "portfolio.detail.nature.subtitle": "NATURE DOESN’T POSE, BUT IT ALWAYS DELIVERS.",
+  "portfolio.detail.nature.textAnimation.mobile": "La fotografía de naturaleza revela la magia oculta del mundo: paisajes que inspiran calma, vida que pasa desapercibida y la belleza de un equilibrio que nos conecta con lo esencial.",
+  "portfolio.detail.nature.textAnimation.desktop": "La fotografía de naturaleza es donde lo simple se convierte en extraordinario. Cada imagen captura la calma de un paisaje, la vida secreta de los animales y la magia que sucede cuando el mundo natural se muestra en su forma más pura. Es una invitación a detenernos, a maravillarnos y a recordar que somos parte de este delicado equilibrio.",
+  "portfolio.detail.lifestyle.title": "Lifestyle",
+  "portfolio.detail.lifestyle.subtitle": "SEEING THE WORLD IN 24MM MAKES IT FEEL LIMITLESS",
+  "portfolio.detail.lifestyle.textAnimation.mobile": "La fotografía es mi manera de capturar lo invisible y transformar lo cotidiano en arte. Cada imagen refleja la conexión con mi entorno, invitándote a ver el mundo con nuevos ojos.",
+  "portfolio.detail.lifestyle.textAnimation.desktop": "La fotografía es mi forma de contar historias, de capturar emociones y revelar lo que muchas veces permanece invisible. En mi colección, los momentos cotidianos se convierten en arte, mostrando una belleza inesperada que suele pasar desapercibida. Cada imagen es un puente entre mi mirada y el entorno, una invitación a descubrir el mundo desde una perspectiva distinta.",
+  "portfolio.detail.sports.title": "Deportes",
+  "portfolio.detail.sports.subtitle": "PHOTOGRAPHY MAKES THE UNSEEN IMPOSSIBLE TO IGNORE",
+  "portfolio.detail.sports.textAnimation.mobile": "La fotografía deportiva transforma momentos fugaces en historias de triunfo y lucha. Cada imagen captura la pasión, el esfuerzo y la emoción que hacen vibrar el corazón del juego.",
+  "portfolio.detail.sports.textAnimation.desktop": "La fotografía deportiva captura la energía en movimiento, transformando instantes de intensidad en ecos de triunfo y lucha. Cada imagen vibra con la esencia de la competencia, mostrando no solo la acción, sino también la pasión y la determinación que mueven a los atletas. Es una invitación a sentir la euforia de la victoria y el peso de la derrota.",
+  "editorials.section.textAnimation.mobile": "Explora los editoriales de SYP!, donde cada historia combina fotografía cautivadora y detalles únicos de los destinos que he explorado. Más que viajes, es una mirada a la cultura y la emoción que hacen cada lugar inolvidable.",
+  "editorials.section.textAnimation.desktop": "Adéntrate en un mundo de historias con los editoriales de SYP!, donde cada viaje cobra vida a través de palabras e imágenes. Desde calles vibrantes hasta paisajes serenos, estas narrativas cuidadosamente seleccionadas combinan fotografía cautivadora con fascinantes detalles sobre los lugares que he explorado. No es solo viajar: es una ventana a la cultura, la emoción y los detalles ocultos que hacen de cada destino algo inolvidable.",
+  "editorials.all.bySYP1": "FOTOGRAFÍA Y",
+  "editorials.all.bySYP2": " DISEÑO DE .SYP!",
+  "editorials.cards.greece.title": "Grecia",
+  "editorials.cards.tanzania.title": "Tanzania",
+  "editorials.cards.dolomites.title": "Dolomitas",
+  "editorials.greece.title": "Seafaring Greece",
+  "editorials.greece.subtitles": [
+    "blue horizons",
+    "Sail style",
+    "wave makers"
+  ],
+  "editorials.greece.heroText": "Vivir en un velero en Grecia ofrece un estilo de vida único y encantador, rodeado de la impresionante belleza del Mediterráneo. Imagina despertar con el suave sonido de las olas acariciando el casco y la brisa marina rozando tu piel. La vida diaria se convierte en una danza armoniosa entre los elementos y la simplicidad de vivir con lo esencial. El mar abierto se convierte en tu patio trasero, invitándote a explorar calas escondidas, playas secretas y costas vírgenes.",
+  "editorials.greece.firstSectionTitle": "Descubre la Fascinante Mezcla de ESTILO DE VIDA Y RENDIMIENTO A BORDO",
+  "editorials.greece.firstSectionText": "Este estilo de vida fomenta una profunda conexión con la naturaleza. Desde nadar en aguas cristalinas hasta tomar el sol en la cubierta, el mar se convierte en tu patio de recreo. El pescado fresco, combinado con productos locales, crea deliciosas comidas que se disfrutan bajo el cielo abierto. Las tardes son una sinfonía de colores mientras el sol se pone, tiñendo el horizonte de un cálido resplandor dorado. Sin una dirección fija, tienes la libertad de navegar de una isla idílica a otra, descubriendo la rica historia, la vibrante cultura y los encantadores pueblos costeros que Grecia tiene para ofrecer. Vivir en un velero en Grecia es la esencia de la libertad, la simplicidad y una profunda apreciación por las maravillas del mundo natural. Es una invitación a ralentizar el ritmo, abrazar la serenidad del mar y crear recuerdos inolvidables con el paisaje griego como telón de fondo.",
+  "editorials.greece.firstSectionText2": "Los fotógrafos encuentran su musa en la luz cambiante y los paisajes dramáticos de Tanzania. La hora dorada baña la sabana con un brillo cálido y mágico, proyectando sombras largas y encendiendo el horizonte con colores vibrantes. La austera belleza de los baobabs, solitarios en las vastas llanuras, y los rastros de polvo levantados por las manadas en movimiento ofrecen un lienzo perfecto para contar historias a través del lente. Cada foto captura no solo un momento, sino una emoción: un testimonio del poder eterno del mundo natural.",
+  "editorials.greece.secondSectionText": "A medida que navegas por las islas, los paisajes cambiantes ofrecen una infinidad de composiciones, cada una con su carácter único y un atractivo visual especial. Los verdes vibrantes de los bosques de pinos de Skiathos se elevan hacia el cielo, creando un marco verde y denso para la costa, donde las aguas turquesas brillan con una claridad casi irreal. El juego de luces y sombras en las olas crea un mosaico en constante cambio, perfecto para capturar paisajes marinos dinámicos que parecen respirar vida. Las calas cercanas revelan playas aisladas de arenas doradas, ofreciendo viñetas íntimas de belleza intacta, mientras que los promontorios rocosos se extienden hacia el mar, sus formas irregulares proporcionando un contraste dramático con la suave fluidez del agua. Al llegar a Alónissos, el paisaje cambia hacia un encanto salvaje e indomable. Los imponentes acantilados, esculpidos durante siglos por las fuerzas del viento y el agua, se alzan majestuosamente sobre el mar, sus superficies texturizadas captando el cálido resplandor del sol. En las horas doradas del atardecer, estos acantilados se recortan contra un cielo pintado en tonos pastel de lavanda, melocotón y ámbar, creando una escena impresionante que captura la soledad atemporal de esta isla. Cada isla revela una nueva historia, una paleta fresca de colores y texturas, desde las aguas cristalinas y los paisajes exuberantes hasta el juego de luces y sombras que define la belleza cambiante del Egeo. Estas maravillas naturales invitan al espectador no solo a admirar, sino a sentir el alma de las islas griegas, donde la tierra, el mar y el cielo se unen en perfecta armonía.",
+  "editorials.greece.thirdSectionTitle": "Descubriendo los Impresionantes Paisajes de las Islas Griegas",
+  "editorials.greece.thirdSectionText": [
+    "Cada isla en Grecia despliega su propia historia a través de paisajes únicos y un encanto cautivador. En Skiathos, los frondosos bosques de pinos se deslizan hacia costas prístinas, sus verdes vibrantes contrastando con las aguas turquesas cristalinas que acarician suavemente las playas. Alónissos cautiva con sus escarpados acantilados y calas escondidas, ofreciendo vistas impresionantes y una sensación de naturaleza virgen, mientras que Skópelos muestra sus icónicas capillas encaladas entre olivares, combinando la mano del hombre con la belleza natural.",
+    "Recorrer estas islas es como entrar en una pintura viva. Caminos estrechos y serpenteantes conducen a pueblos pintorescos donde la sencillez de las casas blancas se complementa con explosiones de buganvillas que caen de los balcones. Estos tranquilos asentamientos invitan a la exploración, con sorpresas en cada esquina: tabernas escondidas que sirven pescado fresco, acogedores cafés a la sombra de árboles centenarios y antiguas iglesias que resuenan con siglos de tradición. Cada momento en las islas ofrece una nueva perspectiva de su encanto atemporal."
+  ],
+  "editorials.greece.fourthSection": [
+    {
+      "src": "Greece10"
+    },
+    {
+      "src": "Greece11"
+    }
+  ],
+  "editorials.tanzania.title": "Tanzania Treasures",
+  "editorials.tanzania.subtitles": [
+    "Endless Plains",
+    "Wild Majesty",
+    "Nature's Pulse"
+  ],
+  "editorials.tanzania.heroText": "Los paisajes de Tanzania son una musa infinita, capaces de inspirar asombro y reflexión. Desde las vastas sabanas del Serengeti hasta los imponentes picos del Monte Kilimanjaro, la belleza natural del país es una fuente constante de maravilla. Las llanuras se extienden sin fin, salpicadas de acacias y repletas de vida salvaje, mientras que las densas selvas tropicales de Gombe y Mahale albergan primates raros y aves exóticas. Ya sea el ritmo de los tambores africanos resonando en la noche o el rugido de un león rompiendo el silencio al amanecer, Tanzania es una tierra que despierta el alma.",
+  "editorials.tanzania.firstSectionTitle": "Sumérgete en la Belleza Pura y el Espíritu de lo Salvaje",
+  "editorials.tanzania.firstSectionText": "La vida en Tanzania es un espectáculo constante de la naturaleza, donde el pulso de lo salvaje late con fuerza en cada rincón del país. Desde los majestuosos elefantes que recorren las llanuras hasta las elegantes jirafas que pastan en la sabana, la diversidad de la fauna es simplemente impresionante. El Serengeti, con sus vastas planicies y la migración anual de ñus, ofrece una de las experiencias de vida salvaje más icónicas del mundo. El Cráter del Ngorongoro, una maravilla natural, alberga una rica variedad de animales, incluido el esquivo rinoceronte negro. Ya sea en un safari o simplemente contemplando el paisaje, Tanzania brinda una oportunidad única de conectar con la naturaleza en su forma más pura.",
+  "editorials.tanzania.firstSectionText2": "Los fotógrafos encuentran su musa en la luz cambiante y los paisajes dramáticos de Tanzania. La hora dorada baña la sabana con un brillo cálido y mágico, proyectando sombras largas e iluminando el horizonte con colores vibrantes. La austera belleza de los baobabs, erguidos en solitario en las vastas llanuras, y los rastros de polvo levantados por las manadas en movimiento ofrecen un lienzo perfecto para contar historias. Cada foto captura no solo un momento, sino una emoción: un testimonio del poder eterno del mundo natural.",
+  "editorials.tanzania.secondSectionText": "El terreno de Tanzania es un caleidoscopio de maravillas naturales, cada una ofreciendo una experiencia única. Las llanuras sin fin del Serengeti están llenas de movimiento, con manadas de ñus, cebras y gacelas cruzando el paisaje en busca de comida y agua. La Reserva de Caza Selous, con sus ríos serpenteantes y densos bosques, es un santuario para especies raras como el perro salvaje africano y el rinoceronte en peligro de extinción. La isla de Zanzíbar, con sus playas de arena blanca y aguas cristalinas, ofrece un escape tranquilo de la naturaleza salvaje. Cada región de Tanzania presenta su propia mezcla única de belleza y aventura, creando un viaje inolvidable para quienes buscan explorarla.",
+  "editorials.tanzania.thirdSectionTitle": "Descubre la Impresionante Diversidad de Tanzania",
+  "editorials.tanzania.thirdSectionText": [
+    "Tanzania es una tierra de contrastes, no solo en sus paisajes, sino también en su gente y tradiciones. Los masáis, con sus vibrantes shukas rojas y su intrincado trabajo de abalorios, encarnan el espíritu de la sabana africana, mientras que la cultura swahili costera refleja siglos de comercio e interacción con influencias árabes, indias y europeas. La diversa fauna del país es igualmente fascinante, desde los icónicos 'Cinco Grandes' hasta el esquivo leopardo y el raro perro salvaje. La rica herencia cultural y la belleza natural de Tanzania se combinan en una mezcla armoniosa que es verdaderamente única.",
+    "Cada experiencia en Tanzania se enriquece con la conexión entre las personas y los lugares. Ya sea la interacción con tribus locales, la emoción de un safari o la serenidad de una playa en Zanzíbar, Tanzania te invita a sumergirte por completo en sus maravillas. La calidez de su gente, la vitalidad de sus culturas y la majestuosidad de sus paisajes crean una experiencia inolvidable que permanecerá contigo mucho tiempo después de partir."
+  ],
+  "editorials.tanzania.fourthSection": [
+    {
+      "src": "Tanzania10"
+    },
+    {
+      "src": "Tanzania11"
+    }
+  ],
+  "editorials.dolomites.title": "Stone horizons",
+  "editorials.dolomites.subtitles": [
+    "towering peaks",
+    "wild beauty",
+    "timeless charm"
+  ],
+  "editorials.dolomites.heroText": "Ubicadas en el corazón de los Alpes, las Dolomitas ofrecen un escape incomparable hacia un mundo de belleza salvaje, donde picos escarpados se elevan desde la tierra y los prados alpinos se extienden hasta el horizonte. El paisaje es un contraste impresionante de formaciones rocosas imponentes, valles verdes y lagos tranquilos, cada uno ofreciendo una perspectiva única de esta impresionante cadena montañosa. Ya sea caminando por los prados, esquiando por las laderas o simplemente contemplando la vista, las Dolomitas brindan una experiencia que combina la emoción con la paz, un verdadero refugio en la naturaleza.",
+  "editorials.dolomites.firstSectionTitle": "Disfrutando del Perfecto Equilibrio entre AVENTURA Alpina y TRANQUILIDAD",
+  "editorials.dolomites.firstSectionText": "La vida en las Dolomitas ofrece una oportunidad única de vivir en armonía con algunos de los paisajes más impresionantes del planeta. Los majestuosos picos no solo son un paraíso para los aventureros, sino también un lugar para la reflexión tranquila. Ya sea escalando paredes rocosas, caminando por prados alpinos o descansando junto a un lago cristalino, las Dolomitas conectan con la naturaleza en su forma más pura. La región también alberga encantadores pueblos de montaña, donde las tradiciones alpinas siguen vivas. Aquí, el ritmo de vida es más lento, permitiéndote apreciar la belleza del entorno y encontrar paz en la simplicidad del momento.",
+  "editorials.dolomites.firstSectionText2": "Para fotógrafos y amantes de la belleza visual, las Dolomitas son una fuente inagotable de inspiración. Las primeras horas de la mañana traen un aire etéreo al paisaje, mientras la niebla se eleva suavemente desde los valles y los primeros rayos de sol iluminan los picos escarpados. Cada detalle aquí parece hecho para ser capturado: desde los reflejos perfectos de lagos como el Lago di Carezza y el Lago di Braies, hasta la intrincada arquitectura de madera de los pueblos alpinos, enmarcados por imponentes acantilados.",
+  "editorials.dolomites.secondSectionText": "Desde los primeros rayos de luz que tocan los picos hasta el resplandor final del atardecer, las Dolomitas cambian a cada momento. Las montañas parecen cobrar vida, sus colores transformándose con la luz y creando un paisaje dinámico que nunca se ve igual dos veces. Por la mañana, los picos se bañan en una suave luz dorada, proyectando largas sombras sobre los valles. A medida que avanza el día, la luz se intensifica, resaltando las texturas de la roca y la riqueza de los prados. Por la tarde, las montañas adquieren un brillo dramático, sus bordes iluminados por el sol poniente, creando una escena casi de otro mundo. La luz cambiante añade una capa de magia a las Dolomitas, convirtiéndolas en un paraíso para los fotógrafos y un lugar de constante asombro.",
+  "editorials.dolomites.thirdSectionTitle": "Descubriendo el Carácter Único de Cada Valle, Pico y Pueblo Alpino",
+  "editorials.dolomites.thirdSectionText": [
+    "Cada rincón de las Dolomitas tiene su propio carácter y historia, haciendo de esta región un mosaico de experiencias inolvidables. En Val di Funes, la icónica iglesia de Santa Magdalena, enmarcada por los picos de Odle, cautiva la imaginación con su equilibrio perfecto entre arte natural y humano. Cortina d’Ampezzo, conocida como la 'Reina de las Dolomitas', combina sofisticación y aventura, ofreciendo esquí de clase mundial, senderismo y una vibrante escena cultural rodeada de algunos de los picos más fotogénicos de los Alpes.",
+    "Explorar las Dolomitas es también un viaje a través del tiempo y las tradiciones. Los chalets de madera adornados con coloridas flores son un testimonio orgulloso del patrimonio de la región, mientras que las estrechas calles de los pueblos conducen a mercados bulliciosos donde los aromas de pan recién horneado y quesos curados llenan el aire. El sonido de los cencerros resuena por los valles, un recordatorio de la conexión duradera entre las personas y su tierra. Iglesias históricas, a menudo ubicadas en colinas o escondidas entre los pliegues del paisaje, ofrecen momentos de reflexión tranquila y asombro."
+  ],
+  "editorials.dolomites.fourthSection": [
+    {
+      "src": "Dolomites10"
+    },
+    {
+      "src": "Dolomites11"
+    }
+  ],
+  "about.hero.title": "SOBRE SYP!",
+  "about.marquee.word1": "DESRROLLADORA",
+  "about.marquee.word2": "CREATIVA",
+  "about.marquee.word3": "FREELANCE",
+  "about.texts": [
+    "Soy Paula Sanz, una mente creativa con pasión tanto por ",
+    " como por el desarrollo web.",
+    "Graduada en Comunicación Audiovisual, perfeccioné mis habilidades en ",
+    " a través de la fotografía,",
+    "sin embargo, mi curiosidad por el mundo digital me llevó a descubrir un profundo interés por el diseño y desarrollo web. Tras completar un bootcamp intensivo en desarrollo web, combiné ambas pasiones ",
+    " en una sola.",
+    "A través de SYP!, muestro mi trayectoria, fusionando la fotografía con el desarrollo web para crear ",
+    "que no solo se ven bien, sino que también conectan con los usuarios de formas significativas. Ya sea detrás del lente capturando la toma perfecta o frente a la pantalla diseñando ",
+    ", mi enfoque siempre está en dar vida a "
+  ],
+  "about.keywords": [
+    "fotografía",
+    "narrativa visual",
+    "—visual y digital—",
+    "experiencias digitales cautivadoras",
+    "páginas web envolventes",
+    "visiones creativas."
+  ],
+  
+  "about.favourites.title.0": "SOME OF MY",
+  "about.favourites.title.1": "personal",
+  "about.favourites.title.2": "favorites",
+  "about.favourites.photo1": "\"Echoes of Elegance\"",
+  "about.favourites.photo2": "\"Silent Watcher\"",
+  "about.favourites.photo3": "\"Gravity in Motion\"",
+  "about.favourites.photo4": "\"Roadside Bond\"",
+  "about.favourites.photo5": "\"Chasing Liquid Mountains\"",
+  "about.favourites.photo6": "\"Timeless Pause\"",
+  "contact.animatedText.mobile": "Click, design, develop",
+  "contact.texts.mobile": [
+    "Si tienes un proyecto en mente,",
+    "ponte en contacto",
+    " hoy y creemos",
+    "algo juntos!"
+  ],
+  "contact.texts.desktop": [
+    "Click, design, develop",
+    "Let's collaborate!"
+  ],
+  "contact.form.column1.title": "Sobre ti",
+  "contact.form.column2.title": "Sobre tu idea",
+  "contact.form.input": {
+    "name": "Nombre",
+    "surname": "Apellido",
+    "website": "Web actual",
+    "company": "Empresa",
+    "email": "Email",
+    "message": "Mensaje",
+    "submit": "Enviar"
+  },
+  "contact.form.services": {
+    "question": "¿Qué servicios necesitas?",
+    "answers": [
+      "Diseño web",
+      "Desarrollo web",
+      "E-commerce",
+      "Mantenimiento"
+    ]
+  },
+  "contact.form.newOrRedesign": {
+    "question": "¿Es una página web o reconstrucción?",
+    "answers": [
+      "Nueva",
+      "Rediseño",
+      "Parcial",
+      "Updates"
+    ]
+  },
+  "contact.form.deadline": {
+    "question": "¿Qué plazo tienes?",
+    "answers": [
+      "Cuanto antes",
+      "1-2 meses",
+      "3–6 meses",
+      "Flexible"
+    ]
+  },
+  "contact.form.budget": {
+    "question": "¿Cuál es el presupuesto?",
+    "answers": [
+      "<$1K",
+      "$1K–$5K",
+      "$5K–$10K",
+      "$10K+"
+    ]
+  },
+  "contact.form.errors": {
+    "name": "Nombre obligatorio",
+    "surname": "Apellido obligatorio",
+    "email": "Correo inválido",
+    "message": "Mensaje obligatorio",
+    "services": "Por favor, selecciona un servicio",
+    "newOrRedesign": "Por favor, selecciona una opción",
+    "deadline": "Por favor, selecciona una fecha",
+    "budget": "Por favor, selecciona un presupuesto"
+  }
 }
