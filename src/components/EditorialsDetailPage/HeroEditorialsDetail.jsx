@@ -9,10 +9,10 @@ const HeroEditorialsDetail = ({ images }) => {
       <div className="editorials-detail__hero--title flex flex--col">
         <div className="editorials-detail__hero--title-h2 flex flex--j-between d--w-100">
           {subtitles && subtitles.map((subtitle, i) => (
-            <h2 key={i} className="editorials-detail__hero--title-h2">{subtitle}</h2>
+            <h2 key={i} className="editorials-detail__hero--title-h2 ">{subtitle}</h2>
           ))}
         </div>
-        <h1 className="editorials-detail__hero--title-h1" style={{fontSize: fontSize}}>{title}</h1>
+        <h1 className="editorials-detail__hero--title-h1 " style={{fontSize: fontSize}}>{title}</h1>
       </div>
 
       <div className="editorials-detail__hero--text">

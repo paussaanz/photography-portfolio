@@ -94,13 +94,13 @@ const MarqueeAbout = () => {
     >
       <div className="marquee-about__inner">
         <div id="marqueeTop" className="about__marquee-part">
-          CREATIVE
+          CR<span className="font--dirty">E</span>ATIVE
         </div>
         <div id="marqueeMiddle" className="about__marquee-part">
-          Freelance
+          Freel<span className="font--dirty">A</span>nce
         </div>
         <div id="marqueeBottom" className="about__marquee-part">
-          DEVELOPER
+          DE<span className="font--dirty">V</span>EOPER
         </div>
       </div>
     </div>

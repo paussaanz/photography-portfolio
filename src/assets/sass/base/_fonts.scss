@@ -1,4 +1,14 @@
 @font-face {
+  font-family: 'Dirtyline';
+  src: url('../fonts/Dirtyline.ttf') format('truetype');
+  font-weight: 900;
+  /* Black */
+  font-style: normal;
+  font-display: swap !important;
+  /* Ensures fallback font is shown while loading */
+}
+
+@font-face {
   font-family: 'Gunterz';
   src: url('../fonts/Gunterz-Black.ttf') format('truetype');
   font-weight: 900;

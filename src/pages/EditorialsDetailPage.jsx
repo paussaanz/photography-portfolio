@@ -5,8 +5,9 @@ import SecondSectionEditorials from "../components/EditorialsDetailPage/SecondSe
 import ThirdSectionEditorials from "../components/EditorialsDetailPage/ThirdSectionEditorials";
 import FourthSectionEditorials from "../components/EditorialsDetailPage/FourthSectionEditorials";
 import { useLocation } from "react-router-dom";
+import FifthSectionEditorials from "../components/EditorialsDetailPage/FifthSectionEditorials";
 
-const EditorialsPage = ({ images }) => {
+const EditorialsDetailPage = ({ images }) => {
 
   const location = useLocation(); // Captura la ubicación actual para detectar cambios de ruta 
 
@@ -25,11 +26,14 @@ const EditorialsPage = ({ images }) => {
       <section className="p--y-5 container-bem d--vh-100 d--h-100-mbl">
         <ThirdSectionEditorials images={images} />
       </section >
-      <section className="editorials-detail__fourth-section__container">
+      <section className="editorials-detail__fifth-section__container p--b-5">
+        <FifthSectionEditorials images={images}/>
+      </section>
+      <section className="editorials-detail__fourth-section__container ">
         <FourthSectionEditorials images={images.fourthSection} />
       </section>
     </div>
   );
 };
 
-export default EditorialsPage;
+export default EditorialsDetailPage;

@@ -91,8 +91,9 @@ const HomePage = ({ isVisited }) => {
         <motion.div
           key={location.pathname}
           style={{ scale, rotate, willChange: "transform" }}
-          className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center"
+          className="position--sticky position--top-0 p--y-5 d--vh-100 align-content--center flex flex--col flex--a-center flex--j-center"
         >
+          {/* <p className="text-align--center b6 text-transform--uppercase m--b-5 p--b-5" style={{width: '13%'}}>(Forging experiences and creating a story)</p> */}
           <TextAnimation
             text="SYP! is where creativity and technology collide. With a focus on design, programming, and photography, I turn ideas into visually striking and functionally seamless experiences that leave a mark. It’s not just about what’s created—it’s about how it connects, inspires, and stands out."
           />
