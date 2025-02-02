@@ -7,6 +7,7 @@ import { editorialsDetails, portfolioDetails, portfolioParallaxHero } from "./as
 import SwiperEditorialDetail from "./components/EditorialsDetailPage/SwiperEditorialDetail";
 import FloatingButton from "./components/FloatingButton/FloatingButton";
 import LanguageSwitcher from "./components/General/LanguageSwitcher";
+import SypGame from "./components/Game/SypGame";
 // import WarZone from "./pages/WarZone";
 
 // Lazy-loaded components
@@ -169,6 +170,7 @@ function App() {
                 <Route path="/contact/form" element={<ContactForm />} />
                 <Route path="/portfolio/loader" element={<LoaderPortfolio images={portfolioParallaxHero} />} />
                 <Route path="/editorials/swiper" element={<SwiperEditorialDetail />} />
+                <Route path="/asia" element={<SypGame />} />
               </Routes>
             </Suspense>
           </main>

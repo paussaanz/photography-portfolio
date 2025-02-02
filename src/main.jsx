@@ -7,7 +7,7 @@ import { TransitionProvider } from "./contexts/transitionContext.jsx";
 import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 import { LenisProvider } from "./contexts/LenisContext.jsx";
 import { LogoTransitionProvider } from "./contexts/LogoTransitionContext.jsx";
-import { LoaderContextProvider } from "./contexts/LoaderContext.jsx";
+// import { LoaderContextProvider } from "./contexts/LoaderContext.jsx";
 import { MediaQueryProvider } from "./contexts/MediaQueryContext.jsx";
 import './index.css'
 import i18n from '../i18n.js';
@@ -42,7 +42,7 @@ root.render(
       <LenisProvider>
         <MediaQueryProvider>
           <ThemeProvider>
-            <LoaderContextProvider>
+            {/* <LoaderContextProvider> */}
               <TransitionProvider>
                 <LogoTransitionProvider>
                   <I18nextProvider i18n={i18n}>
@@ -51,7 +51,7 @@ root.render(
                   </I18nextProvider>
                 </LogoTransitionProvider>
               </TransitionProvider>
-            </LoaderContextProvider>
+            {/* </LoaderContextProvider> */}
           </ThemeProvider>
         </MediaQueryProvider>
       </LenisProvider>

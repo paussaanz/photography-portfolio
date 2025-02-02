@@ -100,7 +100,7 @@ const MarqueeAbout = () => {
           Freel<span className="font--dirty">A</span>nce
         </div>
         <div id="marqueeBottom" className="about__marquee-part">
-          DE<span className="font--dirty">V</span>EOPER
+          DE<span className="font--dirty">V</span>ELOPER
         </div>
       </div>
     </div>
